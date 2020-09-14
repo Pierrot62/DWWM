@@ -1,0 +1,8 @@
+Nombre <- ?
+	
+	Si nombre >= 0 Alors
+		Nombre positif
+	Dinon 
+		Nombre negatif
+	Finsi
+	
