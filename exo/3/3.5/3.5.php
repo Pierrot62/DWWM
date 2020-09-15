@@ -1,11 +1,17 @@
 <?php
 
-$a  = readline("Entrer 1 nombres");
-$b  = readline("Entrer 1 nombres");
+$a = readline("Entrer 1 nombre");
+$b = readline("Entrer 1 nombre");
 
-if ($a > 0 & $b > 0){
-    echo "positif";
+if ($a < 0 xor $b < 0)
+{
+    echo ("Negatif");
 }
-else {
-    echo "negatif";
-};
+else if ($a > 0 && $b > 0)
+{
+    echo ("Positif");
+}
+else
+{
+    echo ("nul");
+}
