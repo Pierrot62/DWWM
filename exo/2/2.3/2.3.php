@@ -2,7 +2,7 @@
 
 $prix = readline("prit ht :");
 $quantite = readline("quantité :");
-$tva = 0.2;
+$tva = readline("TVA (0.2) :");
 
 $ht = $prix * $quantite;
 
