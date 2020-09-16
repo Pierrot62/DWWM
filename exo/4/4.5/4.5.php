@@ -2,15 +2,16 @@
 
 $s = readline("Homme (H) / Femme (F) : ");
 
-do {
-    echo "valeur incorrect ! ";
-    $s = readline("Homme (H) / Femme (F) : ");
-} while (($s != "H") and ($s != "F"));
+ while (($s != "H") && ($s != "F")) {
+     echo "Saisie invalide\n";
+     $s = readline("Homme (H) / Femme (F) : ");
+ }
 
 $a = readline("age : ");
 
-if (($s = "H" && $a > 20) && ($s = "F" && $a >= 10 && $a <= 35)) {
+if (($s == "H" && $a > 20) || ($s == "F" && $a >= 18  && $a <= 35)) {
     echo "vous payez des impots ! ";
-} elseif ($s = "H" && $a <= 20) {
-    echo "Tu as de la chance mon petit !! ";
+}
+else {
+    echo "Vous ne payer pas d'impots";
 }

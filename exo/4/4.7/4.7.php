@@ -8,46 +8,40 @@ $accident = readline("Nombre d'accident responsable : ");
 
 $fid = readline("Assure depuit combien de temps chez nous ? : ");
 
-if ($fid > 1 ) {
 
-    echo "Tarif bleu";
+if (($age < 25 && $permis < 2 && $accident = 0 ) || ($age > 25 && $permis > 2 && $accident = 0))  {
+
+   $tarif = 1;
 
 }
-
-elseif ($age < 25 && $permis < 2 && $accident >= 1 )  {
+elseif (($age < 25 && $permis < 2 && $accident >= 1 ) || ($age < 25 && $permis > 2 && $accident > 1) || ($age > 25 && $permis < 2 && $accident > 1) || ($age > 25 && $permis > 2 && $accident >= 2)){
 
     echo "Refusé par l'assurance";
 
 }
-elseif ($age < 25 && $permis < 2 && $accident = 0 ){
-
-    echo "Tarif Rouge";
-
-}
-else if ($age < 25 && $permis > 2 && $accident > 0 || $age > 25 && $permis < 2 && $accident > 0) {
+else if (($age < 25 && $permis > 2 && $accident > 0 || $age > 25 && $permis < 2 && $accident > 0) || ($age > 25 && $permis > 2 && $accident = 1 )) {
     
-    echo "Tarif Orange";
-
-}
-else if ($age < 25 && $permis > 2 && $accident > 1 || $age > 25 && $permis < 2 && $accident > 1) {
-    
-    echo "Refusé par l'assurance";
-
-}
-else if ($age > 25 || $age < 25 && $accident >= 2 && $permis < 2 || $permis >= 2 ) {
-    
-    echo "Refusé par l'assurance";
+    $tarif = 2;
 
 }
 else if ($age > 25 && $permis > 2 && $accident = 0) {
 
-    echo "Tarif Vert";
+    $tarif = 3;
+
 
 }
-else if ($age > 25 && $permis > 2 && $accident = 1 ){
-    echo "Tarif Orange";
 
+if ($fid > 1 ) {
+  
+    $tarif++;
+
+    switch ($tarif) {
+        case 2: {
+            
+        }
+    }
+    
 }
-else if ($age > 25 && $permis > 2 && $accident > 1) {
-    echo "Refusé par l'assurance";
+else {
+
 }

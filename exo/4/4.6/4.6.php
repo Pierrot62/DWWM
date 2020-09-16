@@ -9,13 +9,13 @@
     } while ($r1 > 100 or $r1 < 0 );
 
     do{     $r2 = readline("Score du candidat 2 : ");
-    } while ($r1 > 100 or $r1 < 0 );
+    } while ($r2 > 100 or $r2 < 0 );
 
     do {    $r3 = readline("Score du candidat 3 : ");
-    } while ($r1 > 100 or $r1 < 0 );
+    } while ($r3 > 100 or $r3 < 0 );
 
     do {    $r4 = readline("Score du candidat 4 : ");
-    } while ($r1 > 100 or $r1 < 0 );
+    } while ($r4 > 100 or $r4 < 0 );
 
     $somme = $r1 + $r2 + $r3 + $r4;
 
