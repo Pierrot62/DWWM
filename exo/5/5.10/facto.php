@@ -1,20 +1,5 @@
 <?php
 
-
-function factorielle($nombre) //calcule la factorielle d'un nombre
-{
-    $facto = 1;
-
-/* Calculer la factorielle */
-    for ($i = 2; $i <= $nombre; $i++)
-    {
-        $facto = $facto * $i;
-    }
-    return $facto;
-}
-
-echo $nb1."! = ".factorielle($nb1)."\n";
-
 $nbC = readline("Nombre de cheveaux partants : ");
 $nbJ = readline("Nombre de cheveaux joués : ");
 echo $nbC . " cheveaux sont au depart de la courses et vous avez joués sur " . $nbJ . " cheveaux\n\nVoici vos chance de gagner : \n\n";
