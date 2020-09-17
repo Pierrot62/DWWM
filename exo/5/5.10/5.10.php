@@ -13,7 +13,7 @@ function factorielle($nombre) //calcule la factorielle d'un nombre
     return $facto;
 }
 
-echo $nb1."! = ".factorielle($nb1)."\n";
+
 
 $nbC = readline("Nombre de cheveaux partants : ");
 $nbJ = readline("Nombre de cheveaux joués : ");
