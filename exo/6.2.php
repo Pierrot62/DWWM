@@ -1,5 +1,11 @@
 <?php
 
+require FonctionsTableaux.php;
+
+
+$tab = creerTableauAvecTaille($);
+
+
 for ($i = 0; $i <= 5; $i++) {
 
     $tab[$i] = readline("Entrer une voyelle : ");
