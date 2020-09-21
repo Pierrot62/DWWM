@@ -58,4 +58,3 @@ function creerTableauTermineParZero()
     while ($nb != 0 );
     return $tab;
 }
-

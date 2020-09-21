@@ -21,6 +21,10 @@ foreach ($tab as $elm){
 
 echo ("Il y a ".$nbr." valeurs, dont ".$pos." positives et ".$neg." negatives");
 
+
+/*OU */
+
+
 // $pos= 0;
 // $neg= 0;
 
@@ -39,4 +43,7 @@ echo ("Il y a ".$nbr." valeurs, dont ".$pos." positives et ".$neg." negatives");
 //         $neg++;
 //     }
 // }
+
+// echo ("Il y a ".$nbr." valeurs, dont ".$pos." positives et ".$neg." negatives");
+
 
