@@ -43,7 +43,7 @@ do {
                 }
 
             } else {
-                
+
                 $rep2 = readline("\nVoulez vous faire une autre recherche (O/N)");
                 echo ("Au revoir et à bientôt !\n");
 
