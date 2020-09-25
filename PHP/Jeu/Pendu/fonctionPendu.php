@@ -15,8 +15,6 @@ function afficherTableau($tab)
     echo "\n";
 }
 
-
-
 function coderMot($tab)
 {
     $tab = str_split($tab);
@@ -26,148 +24,145 @@ function coderMot($tab)
     return $tab;
 }
 
+//DONNE LA OU LES POSITIONS DE LA LETTRE DEMANDER
 
-
-//DONNE LA OU LES POSITIONS DE LA LETTRE DEMANDER 
-
-function testerLettre($lettre, $tab, $depart){
-    $tabRec = array_slice($tab,$depart);
+function testerLettre($lettre, $tab, $depart)
+{
+    $tabRec = array_slice($tab, $depart);
     $res = (array_search($lettre, $tabRec));
-    if ($res===false){
+    if ($res === false) {
         return [];
-    }
-    else {
-        $reponse[]=$res+$depart;
-        $tabPos = array_merge($reponse, testerLettre($lettre,$tab,$res + $depart + 1));
+    } else {
+        $reponse[] = $res + $depart;
+        $tabPos = array_merge($reponse, testerLettre($lettre, $tab, $res + $depart + 1));
         return $tabPos;
-}
+    }
 }
 
+function ajouterUneLettre($lettre, $tab, $tabPos)
+{
 
-function ajouterUneLettre($lettre,$tab,$tabPos){
-    
     $tab[$tabPos] = $lettre;
     return $tab;
 }
 
+function ajouterLesLettres($lettre, $tab, $listePosition)
+{
 
-function ajouterLesLettres($lettre,$tab,$listePosition){
-
-    foreach ($listePosition as $pos){
-        $tab = ajouterUneLettre($lettre,$tab,$pos);
+    foreach ($listePosition as $pos) {
+        $tab = ajouterUneLettre($lettre, $tab, $pos);
     }
     return $tab;
 }
 
-function afficherMauvaisesLettres($listeLettres){
+function afficherMauvaisesLettres($listeLettres)
+{
 
-    foreach ($listeLettres as $element){
-        echo ("\t".$element);
+    foreach ($listeLettres as $element) {
+        echo ("\t" . $element);
     }
 
 }
 
 function DessinerPendu($nbErreur)
 {
-	switch ($nbErreur)
-            {
-                case 0:
-                    Echo "                      "."\n";
-                    Echo "                      "."\n";
-                    Echo "                      "."\n";
-                    Echo "                      "."\n";
-                    Echo "                      "."\n";
-                    Echo "                      "."\n";
-                    Echo "                      "."\n";
-                    Echo "                      "."\n";
-                    break;
-                case 1:
-                    Echo "                      "."\n";
-                    Echo "                      "."\n";
-                    Echo "                      "."\n";
-                    Echo "                      "."\n";
-                    Echo "                      "."\n";
-                    Echo "                      "."\n";
-                    Echo "                      "."\n";
-                    Echo "     ________         "."\n";
-                    break;
-                case 2:
-                    Echo "                      "."\n";
-                    Echo "      |               "."\n";
-                    Echo "      |               "."\n";
-                    Echo "      |               "."\n";
-                    Echo "      |               "."\n";
-                    Echo "      |               "."\n";
-                    Echo "      |               "."\n";
-                    Echo "     _|_______        "."\n";
-                    break;
-                case 3:
-                    Echo "     ________         "."\n";
-                    Echo "      |               "."\n";
-                    Echo "      |               "."\n";
-                    Echo "      |               "."\n";
-                    Echo "      |               "."\n";
-                    Echo "      |               "."\n";
-                    Echo "      |               "."\n";
-                    Echo "     _|_______        "."\n";
-                    break;
-                case 4:
-                    Echo "     ________         "."\n";
-                    Echo "      |     |         "."\n";
-                    Echo "      |               "."\n";
-                    Echo "      |               "."\n";
-                    Echo "      |               "."\n";
-                    Echo "      |               "."\n";
-                    Echo "      |               "."\n";
-                    Echo "     _|_______        "."\n";
-                    break;
-                case 5:
-                    Echo "     ________         "."\n";
-                    Echo "      |     |         "."\n";
-                    Echo "      |     O         "."\n";
-                    Echo "      |               "."\n";
-                    Echo "      |               "."\n";
-                    Echo "      |               "."\n";
-                    Echo "      |               "."\n";
-                    Echo "     _|_______        "."\n";
-                    break;
-                case 6:
-                    Echo "     ________         "."\n";
-                    Echo "      |     |         "."\n";
-                    Echo "      |     O         "."\n";
-                    Echo "      |     |         "."\n";
-                    Echo "      |     |         "."\n";
-                    Echo "      |               "."\n";
-                    Echo "      |               "."\n";
-                    Echo "     _|_______        "."\n";
-                    break;
-                case 7:
-                    Echo "     ________          "."\n";
-                    Echo "      |     |          "."\n";
-                    Echo "      |     O          "."\n";
-                    Echo "      |    /|\\        "."\n";
-                    Echo "      |     |          "."\n";
-                    Echo "      |                "."\n";
-                    Echo "      |                "."\n";
-                    Echo "     _|_______         "."\n";
-                    break;
-                case 8:
-                    Echo "     ________          "."\n";
-                    Echo "      |     |          "."\n";
-                    Echo "      |     O          "."\n";
-                    Echo "      |    /|\\        "."\n";
-                    Echo "      |     |          "."\n";
-                    Echo "      |    / \\        "."\n";
-                    Echo "      |                "."\n";
-                    Echo "     _|_______         "."\n";
-                    break;
-                default:
-                    break;
-			}
+    switch ($nbErreur) {
+        case 0:
+            echo "                      " . "\n";
+            echo "                      " . "\n";
+            echo "                      " . "\n";
+            echo "                      " . "\n";
+            echo "                      " . "\n";
+            echo "                      " . "\n";
+            echo "                      " . "\n";
+            echo "                      " . "\n";
+            break;
+        case 1:
+            echo "                      " . "\n";
+            echo "                      " . "\n";
+            echo "                      " . "\n";
+            echo "                      " . "\n";
+            echo "                      " . "\n";
+            echo "                      " . "\n";
+            echo "                      " . "\n";
+            echo "     ________         " . "\n";
+            break;
+        case 2:
+            echo "                      " . "\n";
+            echo "      |               " . "\n";
+            echo "      |               " . "\n";
+            echo "      |               " . "\n";
+            echo "      |               " . "\n";
+            echo "      |               " . "\n";
+            echo "      |               " . "\n";
+            echo "     _|_______        " . "\n";
+            break;
+        case 3:
+            echo "     ________         " . "\n";
+            echo "      |               " . "\n";
+            echo "      |               " . "\n";
+            echo "      |               " . "\n";
+            echo "      |               " . "\n";
+            echo "      |               " . "\n";
+            echo "      |               " . "\n";
+            echo "     _|_______        " . "\n";
+            break;
+        case 4:
+            echo "     ________         " . "\n";
+            echo "      |     |         " . "\n";
+            echo "      |               " . "\n";
+            echo "      |               " . "\n";
+            echo "      |               " . "\n";
+            echo "      |               " . "\n";
+            echo "      |               " . "\n";
+            echo "     _|_______        " . "\n";
+            break;
+        case 5:
+            echo "     ________         " . "\n";
+            echo "      |     |         " . "\n";
+            echo "      |     O         " . "\n";
+            echo "      |               " . "\n";
+            echo "      |               " . "\n";
+            echo "      |               " . "\n";
+            echo "      |               " . "\n";
+            echo "     _|_______        " . "\n";
+            break;
+        case 6:
+            echo "     ________         " . "\n";
+            echo "      |     |         " . "\n";
+            echo "      |     O         " . "\n";
+            echo "      |     |         " . "\n";
+            echo "      |     |         " . "\n";
+            echo "      |               " . "\n";
+            echo "      |               " . "\n";
+            echo "     _|_______        " . "\n";
+            break;
+        case 7:
+            echo "     ________          " . "\n";
+            echo "      |     |          " . "\n";
+            echo "      |     O          " . "\n";
+            echo "      |    /|\\        " . "\n";
+            echo "      |     |          " . "\n";
+            echo "      |                " . "\n";
+            echo "      |                " . "\n";
+            echo "     _|_______         " . "\n";
+            break;
+        case 8:
+            echo "     ________          " . "\n";
+            echo "      |     |          " . "\n";
+            echo "      |     O          " . "\n";
+            echo "      |    /|\\        " . "\n";
+            echo "      |     |          " . "\n";
+            echo "      |    / \\        " . "\n";
+            echo "      |                " . "\n";
+            echo "     _|_______         " . "\n";
+            break;
+        default:
+            break;
+    }
 }
 
-
-function creer_dico()
+function choisirMot()
 {
     //Cree le dictionnaire de mots
     $tabMots[] = "AEROPORT";
@@ -909,16 +904,35 @@ function creer_dico()
     return $tabMots;
 }
 
-function demanderLettre($invite){
-    
-    do{
+function demanderLettre()
+{
 
+    do {
 
+        $l = readline("Entrer une lettre : ");
 
+    } while (!IntlChar::isalpha($l));
+
+    return strtoupper($l);
+
+}
+
+function testerGagner($nberreur, $tab)
+{
+
+    if (in_array("_", $tab)) {
+
+        if ($nberreur >= 9) {
+
+            return "-1";
+        } else {
+
+            return "0";
+
+        }
+
+    } else {
+        return "1";
     }
-
-
-
-    $invite = strtoupper(readline ( $invite));
 
 }

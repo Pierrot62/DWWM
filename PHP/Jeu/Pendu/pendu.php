@@ -38,5 +38,11 @@ require "fonctionPendu.php";
 // afficherMauvaisesLettres($liste);
 
 
-$c = demanderLettre("COUCOU");
-echo $c;
+// $c = demanderLettre();
+// echo $c;
+
+$t = array( 'B', '_', 'N', 'J', 'O', 'U', 'R' );
+Echo "Cette méthode doit donner -1 et ca donne " . testerGagner(9, $t)."\n";
+Echo "Cette méthode doit donner 0 et ca donne " . testerGagner(3, $t)."\n";
+$t[1] =  'O' ;
+Echo "Cette méthode doit donner 1 et ca donne " . testerGagner(2, $t)."\n";
