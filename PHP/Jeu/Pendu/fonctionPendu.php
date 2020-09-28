@@ -1,4 +1,5 @@
 <?php
+
 // /**
 //  * Affiche des espace entre chaque lettre
 //  *
@@ -18,8 +19,8 @@ function afficherTableau($tab)
 function coderMot($tab)
 {
     $tab = str_split($tab);
-    for ($i = 0; $i < count($t); $i++) {
-        $tab[$i] = "_ ";
+    for ($i = 0; $i < count($tab); $i++) {
+        $tab[$i] = "_";
     }
     return $tab;
 }
@@ -53,15 +54,6 @@ function ajouterLesLettres($lettre, $tab, $listePosition)
         $tab = ajouterUneLettre($lettre, $tab, $pos);
     }
     return $tab;
-}
-
-function afficherMauvaisesLettres($listeLettres)
-{
-
-    foreach ($listeLettres as $element) {
-        echo ("\t" . $element);
-    }
-
 }
 
 function DessinerPendu($nbErreur)
@@ -156,13 +148,14 @@ function DessinerPendu($nbErreur)
             echo "      |    / \\        " . "\n";
             echo "      |                " . "\n";
             echo "     _|_______         " . "\n";
+            echo "T'es mort frére \_(*_*)_/" . "\n";
             break;
         default:
             break;
     }
 }
 
-function choisirMot()
+function creer_dico()
 {
     //Cree le dictionnaire de mots
     $tabMots[] = "AEROPORT";
@@ -330,6 +323,7 @@ function choisirMot()
     $tabMots[] = "CRAIE";
     $tabMots[] = "CRAVATE";
     $tabMots[] = "CROCHET";
+    $tabMots[] = "CROISSANT";
     $tabMots[] = "CUBE";
     $tabMots[] = "CUILLERE";
     $tabMots[] = "CUISSE";
@@ -904,6 +898,16 @@ function choisirMot()
     return $tabMots;
 }
 
+function choisirMot()
+{
+
+    // srand(DateTime::getTimestamp()); // initialisation du générateur de random
+
+    $dico = creer_dico();
+    $nb = rand(0, count($dico) - 1);
+    return $dico[$nb];
+}
+
 function demanderLettre()
 {
 
@@ -920,9 +924,9 @@ function demanderLettre()
 function testerGagner($nberreur, $tab)
 {
 
-    if (in_array("_", $tab)) {
+    if (in_array("_", $tab) === true) {
 
-        if ($nberreur >= 9) {
+        if ($nberreur >= 8) {
 
             return "-1";
         } else {
