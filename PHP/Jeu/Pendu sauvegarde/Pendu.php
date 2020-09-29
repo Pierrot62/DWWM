@@ -2,17 +2,18 @@
 
 require "fonctionPendu.php";
 
-function lancerPartie($niveau)
+function lancerPartie()
 {
 
     $nbErreur = 0;
+
+    $motATrouver = choisirMot();
+
+    $mot = str_split($motATrouver);
+    $motcoder = coderMot($motATrouver);
     $gagner = 0;
     $mauvaiseLettre = [];
 
-   
-    $motATrouver = choisirMot($niveau);
-    $motcoder = coderMot($motATrouver, $niveau);
-    $mot = str_split($motATrouver);
     do {
 
         afficherTableau($motcoder);
@@ -20,7 +21,7 @@ function lancerPartie($niveau)
             afficherTableau($mauvaiseLettre);
         }
         $lettre = demanderLettre();
-        $letPos = testerLettre($lettre, $mot, 0, $niveau);
+        $letPos = testerLettre($lettre, $mot, 0);
         if (empty($letPos)) {
             $nbErreur++;
             $mauvaiseLettre[] = $lettre;
@@ -28,9 +29,8 @@ function lancerPartie($niveau)
             $motcoder = ajouterLesLettres($lettre, $motcoder, $letPos);
 
         }
-        echo chr(27) . chr(91) . 'H' . chr(27) . chr(91) . 'J'; //permet de vider l'écran
-        DessinerPendu($nbErreur, $niveau);
-        $gagner = testerGagner($nbErreur, $motcoder, $niveau);
+        DessinerPendu($nbErreur);
+        $gagner = testerGagner($nbErreur, $motcoder);
     } while ($gagner == 0);
     if ($gagner == 1) {
         echo "Vous avez gagné. \nLe mot était $motATrouver";
@@ -40,6 +40,4 @@ function lancerPartie($niveau)
 
 }
 
-$niveau = choisirNiveaux();
-
-lancerPartie($niveau);
+lancerPartie();
