@@ -1,12 +1,55 @@
 <?php
-class XXX
+
+class Agence
 {
   
     /*****************Attributs***************** */
-    private $_xxx;
+    private $_nom;
+    private $_adresse;
+    private $_codePostal;
+    private $_ville;
 
     /*****************Accesseurs***************** */
 
+    public function getNom()
+    {
+        return $this->_nom;
+    }
+
+    public function setNom($nom)
+    {
+        $this->_nom = $nom;
+    }
+
+    public function getAdresse()
+    {
+        return $this->_adresse;
+    }
+
+    public function setAdresse($adresse)
+    {
+        $this->_adresse = $adresse;
+    }
+
+    public function getCodePostal()
+    {
+        return $this->_codePostal;
+    }
+
+    public function setCodePostal($codePostal)
+    {
+        $this->_codePostal = $codePostal;
+    }
+
+    public function getVille()
+    {
+        return $this->_ville;
+    }
+
+    public function setVille($ville)
+    {
+        $this->_ville = $ville;
+    }
     
     /*****************Constructeur***************** */
 
@@ -21,7 +64,7 @@ class XXX
     {
         foreach ($data as $key => $value)
         {
-            $methode = "set" . ucfirst(key); //ucfirst met la 1ere lettre en majuscule
+            $methode = "set" . ucfirst($key); //ucfirst met la 1ere lettre en majuscule
             if (is_callable(([$this, $methode]))) // is_callable verifie que la methode existe
             {
                 $this->$methode($value);
@@ -65,4 +108,6 @@ class XXX
     {
         return 0;
     }
+
+    
 }

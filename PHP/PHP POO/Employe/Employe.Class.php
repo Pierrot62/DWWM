@@ -9,6 +9,7 @@ class Employe
     private $_fonction;
     private $_salaireAnnuel;
     private $_service;
+    private static $_compteur = 0;
 
     /*****************Accesseurs***************** */
 
@@ -68,9 +69,17 @@ class Employe
 
     public function setService($service)
     {
-        $this->_service = $service;
+        $this->_service = ucfirst($service);
+    }
+    public static function getCompteur()
+    {
+        return self::$_compteur;
     }
 
+    public static function setCompteur($compteur)
+    {
+        self::$_compteur = $compteur;
+    }
     /*****************Constructeur***************** */
 
     public function __construct(array $options = [])
@@ -79,6 +88,7 @@ class Employe
         {
             $this->hydrate($options);
         }
+        self::setCompteur(self::getCompteur() + 1); //on increment le compteur
     }
     public function hydrate($data)
     {
@@ -101,7 +111,7 @@ class Employe
      */
     public function toString()
     {
-        // return "L'employer s'appelle : " .$this->getNom() ." ". $this->getPrenom().;
+        return "\nNom :" . $this->getNom() . "\nPrenom :" . $this->getPrenom() . "\nDateEmbauche :" . $this->getDateEmbauche()->format('Y-m-d') . "\nPosteEntreprise :" . $this->getFonction() . "\nSalaire annuel :" . $this->getSalaireAnnuel() . "K\nService :" . $this->getService();
     }
 
     /**
@@ -115,7 +125,7 @@ class Employe
         return true;
     }
     /**
-     * Compare 2 objets
+     * Compare 2 objets sur le nom et le prénom
      * Renvoi 1 si le 1er est >
      *        0 si ils sont égaux
      *        -1 si le 1er est <
@@ -124,9 +134,52 @@ class Employe
      * @param [type] $obj2
      * @return void
      */
-    public static function compareTo($obj1, $obj2)
+    public static function compareToNomPrenom($obj1, $obj2)
     {
+        if ($obj1->getNom() < $obj2->getNom())
+        {
+            return -1;
+        }
+        else if ($obj1->getNom() > $obj2->getNom())
+        {
+            return 1;
+        }
+        else if ($obj1->getPrenom() < $obj2->getPrenom())
+        {
+            return -1;
+        }
+        else if ($obj1->getPrenom() > $obj2->getPrenom())
+        {
+            return 1;
+        }
+
         return 0;
+    }
+    /**
+     * Compare 2 objets sur le nom et le prénom
+     * Renvoi 1 si le 1er est >
+     *        0 si ils sont égaux
+     *        -1 si le 1er est <
+     *
+     * @param [type] $obj1
+     * @param [type] $obj2
+     * @return void
+     */
+    public static function compareToServiceNomPrenom($obj1, $obj2)
+    {
+        if ($obj1->getService() < $obj2->getService())
+        {
+            return -1;
+        }
+        else if ($obj1->getService() > $obj2->getService())
+        {
+            return 1;
+        }
+        else
+        {
+            return self::compareToNomPrenom($obj1, $obj2);
+        }
+
     }
     /**
      * Renvoi l'anciennete de l'employe
@@ -172,5 +225,13 @@ class Employe
     {
         return $this->primeSalaire() + $this->primeAnciennete(); // on retourne le montant de la prime annuelle
     }
-
+    /**
+     * Renvoi la masse salariale de l'employé
+     *
+     * @return void
+     */
+    public function masseSalariale()
+    {
+        return $this->getSalaireAnnuel()*1000+ $this->prime();
+    }
 }
