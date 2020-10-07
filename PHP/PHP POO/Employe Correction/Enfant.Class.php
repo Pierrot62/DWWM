@@ -1,17 +1,13 @@
 <?php
-
-class Agence
+class Enfant
 {
-  
+
     /*****************Attributs***************** */
     private $_nom;
-    private $_adresse;
-    private $_codePostal;
-    private $_ville;
-    private $_restauration;
+    private $_prenom;
+    private $_age;
 
     /*****************Accesseurs***************** */
-
     public function getNom()
     {
         return $this->_nom;
@@ -22,46 +18,26 @@ class Agence
         $this->_nom = $nom;
     }
 
-    public function getAdresse()
+    public function getPrenom()
     {
-        return $this->_adresse;
+        return $this->_prenom;
     }
 
-    public function setAdresse($adresse)
+    public function setPrenom($prenom)
     {
-        $this->_adresse = $adresse;
+        $this->_prenom = $prenom;
     }
 
-    public function getCodePostal()
+    public function getAge()
     {
-        return $this->_codePostal;
+        return $this->_age;
     }
 
-    public function setCodePostal($codePostal)
+    public function setAge($age)
     {
-        $this->_codePostal = $codePostal;
+        $this->_age = $age;
     }
 
-    public function getVille()
-    {
-        return $this->_ville;
-    }
-
-    public function setVille($ville)
-    {
-        $this->_ville = $ville;
-    }
-
-    public function getRestauration()
-    {
-        return $this->_restauration;
-    }
-
-    public function setRestauration($restauration)
-    {
-        $this->_restauration = $restauration;
-    }
-    
     /*****************Constructeur***************** */
 
     public function __construct(array $options = [])
@@ -84,7 +60,7 @@ class Agence
     }
 
     /*****************Autres Méthodes***************** */
-    
+
     /**
      * Transforme l'objet en chaine de caractères
      *
@@ -92,14 +68,13 @@ class Agence
      */
     public function toString()
     {
-        return "Nom :" . $this->getNom() . "\nAdresse :" . $this->getAdresse()."\nCode postal : " . $this->getCodePostal()."\nVille : " . $this->getVille(). "\nRestauration :" . $this->getRestauration();
-
+        return "Nom d'enfant :" . $this->getNom() . "\nPrenom d'enfant :" . $this->getPrenom() . "\nAge :" . $this->getAge()."\n";
     }
 
     /**
      * Renvoi vrai si l'objet en paramètre est égal à l'objet appelant
      *
-     * @param [type] obj
+     * @param [type] $obj
      * @return bool
      */
     public function equalsTo($obj)
@@ -120,6 +95,29 @@ class Agence
     {
         return 0;
     }
-
-    
+    /**
+     * Détermine le cheque Noel auquel l'enfant à droit
+     *
+     * @return int montant du chèque
+     */
+    public function montantChequeNoel()
+    {
+        $a = $this->getAge();
+        if ($a >= 0 && $a < 11)
+        {
+            return 20;
+        }
+        else if ($a < 16)
+        {
+            return 30;
+        }
+        else if ($a < 19)
+        {
+            return 50;
+        }
+        else
+        {
+            return 0;
+        }
+    }
 }

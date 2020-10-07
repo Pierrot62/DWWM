@@ -9,6 +9,8 @@ class Employe
     private $_fonction;
     private $_salaireAnnuel;
     private $_service;
+    private $_agence;
+    private $_enfants = [];
     private static $_compteur = 0;
 
     /*****************Accesseurs***************** */
@@ -71,6 +73,26 @@ class Employe
     {
         $this->_service = ucfirst($service);
     }
+
+    public function getAgence()
+    {
+        return $this->_agence;
+    }
+
+    public function setAgence(Agence $agence)
+    {
+        $this->_agence = $agence;
+    }
+
+    public function getEnfants()
+    {
+        return $this->_enfants;
+    }
+
+    public function setEnfants(array $enfants)
+    {
+        $this->_enfants = $enfants;
+    }
     public static function getCompteur()
     {
         return self::$_compteur;
@@ -111,7 +133,39 @@ class Employe
      */
     public function toString()
     {
-        return "\nNom :" . $this->getNom() . "\nPrenom :" . $this->getPrenom() . "\nDateEmbauche :" . $this->getDateEmbauche()->format('Y-m-d') . "\nPosteEntreprise :" . $this->getFonction() . "\nSalaire annuel :" . $this->getSalaireAnnuel() . "K\nService :" . $this->getService();
+        $aff = "\n\n*** SALARIE ***\n";
+        $aff .= "Nom :" . $this->getNom() . "\nPrenom :" . $this->getPrenom() . "\nDateEmbauche :" . $this->getDateEmbauche()->format('Y-m-d') . "\nPosteEntreprise :" . $this->getFonction() . "\nSalaire annuel :" . $this->getSalaireAnnuel() . "K\nService :" . $this->getService() . "\n";
+        $aff .= $this->recoitChequeVacances() ? "Ce salarié bénéficie de chèques vacances\n" : "Ce salarié ne bénéficie pas de chèques vacances\n";
+        $aff .= "\n*** AGENCE ***\n" . $this->getAgence()->toString();
+        $aff .= "\n*** ENFANTS ***\n";
+        if (count($this->getEnfants()) > 0)
+        {
+            foreach ($this->getEnfants() as $enfant)
+            {
+                $aff .= $enfant->toString();
+            }
+        }
+        else
+        {
+            $aff .= "Pas d'enfant";
+        }
+        $aff .= "\n*** CHEQUES NOEL ***\n";
+        $cheques = $this->recoitChequeNoel();
+        if (array_sum($cheques) > 0)
+        {
+            foreach ($cheques as $key=>$nbCheque) // on parcours le tableau de chèques
+            {
+                if ($nbCheque > 0)    //  si le nombre de chèque est supérieur à 0
+                {
+                    $aff .= $nbCheque . " chèque(s) de ".$key."\n";   //$nbCheque contient le nombre de chèques  et $key, la valeur du chèque
+                }
+            }
+        }
+        else
+        {
+            $aff .= "Pas de chèques de Noël";
+        }
+        return $aff;
     }
 
     /**
@@ -232,6 +286,34 @@ class Employe
      */
     public function masseSalariale()
     {
-        return $this->getSalaireAnnuel()*1000+ $this->prime();
+        return $this->getSalaireAnnuel() * 1000 + $this->prime();
     }
+
+    /**
+     *
+     * verifie si l'employé est eligible aux cheques vacances
+     *
+     * @return string oui ou non selon si l'employé est eligible ou pas
+     */
+    public function recoitChequeVacances()
+    {
+
+        return ($this->anciennete() >= 1); // on verifie par rapport a l'anciennete si l employé est dans l'entreprise depuis plus d'un an
+    }
+    /**
+     * renvoi un tableau contenant le nombre de chèque de chaque montant
+     *
+     * @return array
+     */
+    public function recoitChequeNoel()
+    {
+        $cheque = ["0" => 0, "20" => 0, "30" => 0, "50" => 0];
+        foreach ($this->getEnfants() as $enfant)
+        {
+            $cheque[$enfant->montantChequeNoel()] += 1; // on augmente la valeur liée à l'étiquette correspondant au montant retourné par la fonction
+        }
+        $cheque["0"] = 0;       // pour que la somme du tableau corresponde au nombre de chèques à distibuer
+        return $cheque;
+    }
+
 }
