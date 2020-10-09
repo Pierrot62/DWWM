@@ -1,8 +1,8 @@
 {
 	"PublicFunction": {
-		"prefix": "PF",
+		"prefix": "pf",
 		"body": [
-		  "public function function(){",
+		  "public function $1(){",
 		  "",
 		  "",
 		  "return ;",

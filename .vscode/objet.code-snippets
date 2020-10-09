@@ -1,0 +1,13 @@
+{
+	"newObjet": {
+		"prefix": "newObjet",
+		"body": [
+		  "//CREATION DES OBJETS",
+		  "$$1 = new NomDeLaClassObjet ([\"Attribut\" => \"Valeur\" , \"Attribut\" => \"Valeur\" , \"Attribut\" => \"Valeur\" , \"Attribut\" => \"Valeur\" , \"Attribut\" => \"Valeur\"]);",
+		  "$$1 = new NomDeLaClassObjet ([\"Attribut\" => \"Valeur\" , \"Attribut\" => \"Valeur\" , \"Attribut\" => \"Valeur\" , \"Attribut\" => \"Valeur\" , \"Attribut\" => \"Valeur\"]);",
+		  "$$1 = new NomDeLaClassObjet ([\"Attribut\" => \"Valeur\" , \"Attribut\" => \"Valeur\" , \"Attribut\" => \"Valeur\" , \"Attribut\" => \"Valeur\" , \"Attribut\" => \"Valeur\"]);",
+		  "$$1 = new NomDeLaClassObjet ([\"Attribut\" => \"Valeur\" , \"Attribut\" => \"Valeur\" , \"Attribut\" => \"Valeur\" , \"Attribut\" => \"Valeur\" , \"Attribut\" => \"Valeur\"]);"
+		],
+		"description": "newObjet"
+	}
+}
