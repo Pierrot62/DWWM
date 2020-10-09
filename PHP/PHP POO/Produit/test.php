@@ -18,10 +18,10 @@ function afficheTableau($tab)
     echo "\n";
 }
 
-$produit[] = new produit(["numero" => "2487586", "designation" => "GTX 3090Ti","categorie" => "Composant Informatique" ,"lieu de stockage" => "Lauwin-Planque"]);
-$produit[] = new produit(["numero" => "7999266", "designation" => "PastaBox","categorie" => "Alimentation" ,"lieu de stockage" => "Saran"]);
-$produit[] = new produit(["numero" => "8320170", "designation" => "Bureau D'angle","categorie" => "Mobilier" ,"lieu de stockage" => "Saône"]);
-$produit[] = new produit(["numero" => "7645252", "designation" => "Intel i9 9900k","categorie" => "Composant Informatique" ,"lieu de stockage" => "Montélimar"]);
-$produit[] = new produit(["numero" => "5686032", "designation" => "Pot de fleur","categorie" => "Jardinage" ,"lieu de stockage" => "Saran"]);
+$produit[] = new produit(["numero" => "2487586\n","date de validité"=>"17/10/2017", "designation" => "GTX 3090Ti\n","categorie" => "Composant Informatique\n" ,"lieu de stockage" => "Lauwin-Planque"]);
+$produit[] = new produit(["numero" => "7999266\n", "designation" => "PastaBox\n","categorie" => "Alimentation\n" ,"lieu de stockage" => "Saran"]);
+$produit[] = new produit(["numero" => "8320170\n", "designation" => "Bureau D'angle\n","categorie" => "Mobilier\n" ,"lieu de stockage" => "Saône"]);
+$produit[] = new produit(["numero" => "7645252\n", "designation" => "Intel i9 9900k\n","categorie" => "Composant Informatique\n" ,"lieu de stockage" => "Montélimar"]);
+$produit[] = new produit(["numero" => "5686032\n", "designation" => "Pot de fleur\n","categorie" => "Jardinage\n" ,"lieu de stockage" => "Saran"]);
 
 afficheTableau($produit);
