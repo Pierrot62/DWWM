@@ -1,26 +1,27 @@
 <?php
 
- Class Joueur {
+ Class Enregistrementaudio extends Document {
 	/***************************************** Attributs **********************************************/
 
-	private $_PointDeVie;
+	private $_Duree ;
 
 	/***************************************** Accesseurs **********************************************/
-	
-	public function getPointDeVie()
+
+	public function getDuree()
 	{
-		return $this->_PointDeVie;
+		return $this->_Duree;
 	}
 
-	public function setPointDeVie($PointDeVie)
+	public function setDuree($Duree)
 	{
-		return $this->_PointDeVie = $PointDeVie;
+		return $this->_Duree = $Duree;
 	}
 
 	/***************************************** Constructeur **********************************************/
 
 	public function __construct(array $options = [])
 	{
+		parent::__construct($options);
 		if (!empty($options)) // empty : renvoi vrai si le tableau est vide
 		{
 			$this->hydrate($options);
@@ -37,6 +38,7 @@
 			}
 		}
 	}
+
 	/***************************************** Methode **********************************************/
 
 	/**
@@ -45,7 +47,7 @@
 	* @return String
 	*/
 	public function toString(){
-		return "PointeVie : ".$this->getPointDeVie()	;
+		return "\n*** LIVRE ***\n\n".parent::toString()."\n\n*** AUTRE INFORMATION ***\n\n"."Durée : ".$this->getDuree()."\n*************************************************\n"	;
 	}
 
 	/**
@@ -54,8 +56,11 @@
 	* @param [type] obj
 	* @return bool
 	*/
-	public function equalsTo(){
-		return  "";
+	public function equalsTo($obj){
+		if($this->_Titre==$obj->getTitre() && $this->_Auteur==$obj->getAuteur()){
+            return true;
+        }
+        return false;
 	}
 
 	/**
@@ -71,5 +76,5 @@
 	public function compareTo(){
 		return "";
 	}
-}
 
+}

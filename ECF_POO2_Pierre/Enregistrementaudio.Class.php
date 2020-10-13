@@ -1,26 +1,27 @@
 <?php
 
- Class De {
+ Class Enregistrementaudio extends Document {
 	/***************************************** Attributs **********************************************/
 
-	private $_Valeur ;
+	private $_Duree ;
 
 	/***************************************** Accesseurs **********************************************/
-	
-	public function getValeur()
+
+	public function getDuree()
 	{
-		return $this->_Valeur;
+		return $this->_Duree;
 	}
 
-	public function setValeur($Valeur)
+	public function setDuree($Duree)
 	{
-		return $this->_Valeur = $Valeur;
+		return $this->_Duree = $Duree;
 	}
 
 	/***************************************** Constructeur **********************************************/
 
 	public function __construct(array $options = [])
 	{
+		parent::__construct($options);
 		if (!empty($options)) // empty : renvoi vrai si le tableau est vide
 		{
 			$this->hydrate($options);
@@ -46,7 +47,7 @@
 	* @return String
 	*/
 	public function toString(){
-		return "Valeur : ".$this->getValeur();
+		return "\n*** LIVRE ***\n\n".parent::toString()."\n\n*** AUTRE INFORMATION ***\n\n"."Durée : ".$this->getDuree()."\n*************************************************\n"	;
 	}
 
 	/**
@@ -55,8 +56,11 @@
 	* @param [type] obj
 	* @return bool
 	*/
-	public function equalsTo(){
-		return  "";
+	public function equalsTo($obj){
+		if($this->_Titre==$obj->getTitre() && $this->_Auteur==$obj->getAuteur()){
+            return true;
+        }
+        return false;
 	}
 
 	/**
@@ -72,17 +76,5 @@
 	public function compareTo(){
 		return "";
 	}
-
-	public function Valeur(){
-		
-		return rand(0,6);
-		
-
-	}
-	
-	public function AfficherValeur()
-    {
-        return "\nValeur : " . $this->Valeur();
-    }
 
 }

@@ -1,26 +1,29 @@
 <?php
 
- Class Monstrefacile {
+ Class Livre extends Document {
 	/***************************************** Attributs **********************************************/
 
-	private $_Vivant ;
+	
+	private $_NbPage ;
 
 	/***************************************** Accesseurs **********************************************/
 	
-	public function getVivant()
+
+	public function getNbPage()
 	{
-		return $this->_Vivant;
+		return $this->_NbPage;
 	}
 
-	public function setVivant($Vivant)
+	public function setNbPage($NbPage)
 	{
-		return $this->_Vivant = $Vivant;
+		return $this->_NbPage = $NbPage;
 	}
 
 	/***************************************** Constructeur **********************************************/
 
 	public function __construct(array $options = [])
 	{
+		parent::__construct($options);
 		if (!empty($options)) // empty : renvoi vrai si le tableau est vide
 		{
 			$this->hydrate($options);
@@ -46,7 +49,7 @@
 	* @return String
 	*/
 	public function toString(){
-		return "Vivant : ".$this->getVivant()	;
+		return "\n*** LIVRE ***\n\n".parent::toString()."\n\n*** AUTRE INFORMATION ***\n\n"."Nombre de Page : ".$this->getNbPage()."\n*************************************************\n"	;
 	}
 
 	/**
@@ -55,8 +58,11 @@
 	* @param [type] obj
 	* @return bool
 	*/
-	public function equalsTo(){
-		return  "";
+	public function equalsTo($obj){
+		if($this->_Titre==$obj->getTitre() && $this->_Auteur==$obj->getAuteur()){
+            return true;
+        }
+        return false;
 	}
 
 	/**
