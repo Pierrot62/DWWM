@@ -1,6 +1,6 @@
 -- MySQL dump 10.13  Distrib 5.7.31, for Win64 (x86_64)
 --
--- Host: localhost    Database: soldats
+-- Host: localhost    Database: test
 -- ------------------------------------------------------
 -- Server version	5.7.31
 
@@ -16,12 +16,12 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Current Database: `soldats`
+-- Current Database: `test`
 --
 
-CREATE DATABASE /*!32312 IF NOT EXISTS*/ `soldats` /*!40100 DEFAULT CHARACTER SET utf8 */;
+CREATE DATABASE /*!32312 IF NOT EXISTS*/ `test` /*!40100 DEFAULT CHARACTER SET latin1 */;
 
-USE `soldats`;
+USE `test`;
 
 --
 -- Table structure for table `bataille`
@@ -212,4 +212,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-10-21 12:19:27
+-- Dump completed on 2020-10-21 17:15:00
