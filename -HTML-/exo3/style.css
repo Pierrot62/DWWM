@@ -1,0 +1,23 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+a{
+    text-decoration: none;
+}
+ul{
+    display: flex;
+    height: 5vh;
+    background-color: black;
+    margin-bottom: 1vh;
+
+}
+ul li{
+    color: white;
+    margin: auto;
+    list-style: none;
+}
+
+#banner{
+    width: 100%;
+}
