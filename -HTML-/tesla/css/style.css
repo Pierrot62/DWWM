@@ -4,7 +4,10 @@
     padding: 0;
     text-decoration: none;
 }
-
+a{
+    text-decoration: none;
+    color: white;
+}
 a:hover{
     text-decoration: none;
 }
@@ -32,7 +35,10 @@ header{
     justify-content: space-around;
     text-align: center;
     display: flex;
+}
 
+#sectionvoiture1{
+    padding-bottom: 0vh;
 }
 
 #nomSite{
@@ -49,7 +55,6 @@ header{
 .voiture{
     border: solid 2px gray;
     border-radius: 15px;
-    width: 25vw;
     transition: 0.5s;
     background-color: white;
 }
