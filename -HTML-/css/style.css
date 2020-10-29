@@ -1,0 +1,108 @@
+
+*{
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+}
+
+a:hover{
+    text-decoration: none;
+}
+@font-face {font-family: "tesla";src: url('../font/TESLA.ttf');}
+
+header{
+    padding: 15px;
+    display: flex;
+    height: 20vh;
+    background-image: url(../img/teslas.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 20%;
+    background-position-y: 74%;
+}
+
+#logo{
+    height: 60px;
+    width: 60px;
+}
+
+.sectionVoiture{
+    padding: 5%;
+    justify-content: space-around;
+    text-align: center;
+    display: flex;
+
+}
+
+#nomSite{
+    margin: auto;
+    color: black;
+    font-family: tesla;
+    font-size: 5em;
+}
+
+.imgTesla{
+   width: 100%;
+}
+
+.voiture{
+    border: solid 2px gray;
+    border-radius: 15px;
+    width: 25vw;
+    transition: 0.5s;
+    background-color: white;
+}
+.voiture:hover{
+    transition: 0.5s;
+    opacity: 0.5;
+}
+
+.voitureh2{
+    color: black;
+    
+}
+
+/****section2******/
+
+.section2{
+    margin-top: 5%;
+    text-align: center;
+}
+
+/*************VOITURE*********************/
+
+.presentationVoiture{
+    margin: 30px;
+    text-align: center;
+    justify-content: space-around;
+
+}
+
+.modele3{
+    margin-top: 5%;
+    border-radius: 50px;
+}
+
+/******FOOTER*******/
+
+footer{
+    text-align: center;
+    min-height: 10vh;
+    background-color: black;
+    display: flex;
+    justify-content: space-around;
+}
+
+.footerh2{
+    color: white;
+    margin-bottom: 5%;
+}
+
+footer,p{
+    color: white;
+}
+
+footer>div{
+width: 33vw;
+}
