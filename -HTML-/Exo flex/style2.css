@@ -1,0 +1,56 @@
+body{
+    margin:0;
+    padding: 0;
+}
+
+div{
+    display: flex;
+    flex : 1;
+    margin:10px;
+}
+
+.colonne{
+    flex-direction: column;
+}
+
+.bleu{
+    background-color: rgb(71, 151, 255) ;
+    height:1500px;
+}
+
+.orange{
+    background-color: coral;
+    margin:10px;
+}
+
+.gris{
+    background-color: grey;
+    height: 1000px;
+    flex : 1;
+}
+
+.liste{
+    flex : 3;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: stretch;
+    align-content: stretch;
+    
+}
+
+.jaune{
+    background-color: yellow;
+}
+
+.bleuf{
+    background-color: rgb(53, 53, 236);
+}
+
+.vertclair{
+    background-color: greenyellow;
+}
+
+.vert{
+    background-color: rgb(64, 155, 64);
+}
