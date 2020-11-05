@@ -6,11 +6,17 @@
 .espace {
   flex: 1;
 }
+.espacemin{
+    flex: 0.2;
+}
 .espacevh {
   height: 6em;
 }
 
 /**** HEADER ****/
+html {
+    scroll-behavior: smooth;
+  }
 
 body {
   background-image: url(./img/bg.jpg);
@@ -39,11 +45,14 @@ img {
 
 h1 {
   text-align: center;
+  letter-spacing: 1rem;
+  font-weight: bold;
 }
 .titre {
   text-align: center;
   flex: 1;
   font-size: 2em;
+  letter-spacing: 0.6rem;
 }
 
 article {
@@ -60,7 +69,7 @@ article {
 
 .section {
   display: flex;
-  width: 80vw;
+  width: 60vw;
   align-self: center;
 }
 
@@ -104,4 +113,15 @@ article {
 
 #elm8 {
   background-image: url(./img/02.jpg);
+}
+
+footer{
+    padding: 0.3em;
+    letter-spacing: 0.5rem;
+    text-align: center;
+    font-size: 2em;
+    background-image: url(./img/pp.jpg);
+    background-size: cover;
+    background-position-x: center;
+    background-repeat: no-repeat;
 }
