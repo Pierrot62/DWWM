@@ -1,0 +1,107 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.espace {
+  flex: 1;
+}
+.espacevh {
+  height: 6em;
+}
+
+/**** HEADER ****/
+
+body {
+  background-image: url(./img/bg.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  background-image: url(./img/sky.jpg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.logo {
+  padding: 1em;
+}
+
+img {
+  width: 100%;
+  height: 100%;
+}
+
+h1 {
+  text-align: center;
+}
+.titre {
+  text-align: center;
+  flex: 1;
+  font-size: 2em;
+}
+
+article {
+  display: flex;
+  justify-content: center;
+}
+
+.elmarticle {
+  width: 25vw;
+  text-align: center;
+  font-size: 1.1em;
+  background-color: white;
+}
+
+.section {
+  display: flex;
+  width: 80vw;
+  align-self: center;
+}
+
+.elmsection {
+  text-align: center;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100%;
+  flex: 1;
+  padding: 2em;
+}
+
+#elm1 {
+  background-image: url(./img/03.jpg);
+}
+#elm2 {
+  background-image: url(./img/04.jpg);
+}
+
+#elm3 {
+  background-image: url(./img/05.jpg);
+}
+
+#elm4 {
+  background-image: url(./img/06.jpg);
+}
+
+#elm5 {
+  background-image: url(./img/07.jpg);
+}
+
+#elm6 {
+  background-image: url(./img/08.jpg);
+}
+
+#elm7 {
+  background-image: url(./img/01.jpg);
+}
+
+#elm8 {
+  background-image: url(./img/02.jpg);
+}
