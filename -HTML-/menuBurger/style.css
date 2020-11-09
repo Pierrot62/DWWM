@@ -1,0 +1,39 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    background-color: grey;
+}
+
+nav{
+    display: flex;
+    
+}
+.espace{
+    flex: 1;
+}
+
+
+.elm{
+    justify-content: space-around;
+    padding: 0.5em;
+    font-size: 1.5em;
+    font-weight: bolder;
+    letter-spacing: 0.2em;
+    background-color: brown;
+    flex: 1;
+    text-align: center;
+}
+.elm:hover{
+    color: red;
+}
+
+.elmsousmenu{
+  
+display: none;
+}
+
+.elm:hover .elmsousmenu{
+    display: block;
+}

@@ -1,0 +1,45 @@
+/****  GENERAL ****/
+html, body {
+	margin : 0;
+	padding : 0;
+}
+.espace{
+	flex: 1;
+}
+/****  NAV  ****/
+nav{
+	display: flex;
+}
+
+.TitreElm{
+	flex: 1;
+	background-color: brown;
+	color: chocolate;
+	font-size: 1.5em;
+	padding: 0.7em;
+	font-weight: 900;
+	letter-spacing: 0.3em;
+	text-align: center;
+	transition: 0.5s;
+}
+
+.TitreElm:hover{
+	color: coral;
+	background-color: crimson;
+}
+.elm:hover .contenueSousElm {
+opacity: 1;
+height: 100%;
+}
+
+.contenueSousElm{
+	background-color: crimson;
+	text-align: center;
+	font-size: 1.3em;
+	font-weight: 500;
+	letter-spacing: 0.3em;
+	padding: 0.3em;
+	/* opacity: 0;
+	height: 0vh; */
+	transition: 0.5s;
+}

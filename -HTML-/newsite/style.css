@@ -1,0 +1,44 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.logo{
+    height: 70px;
+    width: 70px;
+}
+
+#menu{
+    color: white;
+    background-color: black;
+    justify-content: space-around;
+    display: flex;
+    vertical-align: middle;
+}
+
+.banner{
+    height: 30vh;
+    width: 100%;
+    background-image: url(banner.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+
+}
+/* .container{
+    display: flex;
+} */
+
+#listGta{
+ background-color: black;
+ padding: 10px;
+ margin: auto;
+
+}
+.element{
+    color: white;
+    height: 80px;
+    justify-content: space-around;
+    display: flex;
+    vertical-align: middle;
+    align-items: center;
+}

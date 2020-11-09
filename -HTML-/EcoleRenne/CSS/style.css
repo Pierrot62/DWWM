@@ -1,0 +1,55 @@
+/****  GENERAL ****/
+html, body {
+	margin : 0;
+	padding : 0;
+}
+
+.espace{
+	flex: 1;
+}
+
+header{
+	background-image: url(../IMG/header_dc_rennes.jpg);
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+	height: 70vh;
+}
+nav{
+	display: flex;
+}
+
+.globalNav{
+	background-color: #092A3E;
+	opacity: 0.9;
+}
+
+.logo{
+	flex: 1;
+	padding: 1.5em;
+}
+
+.globalButtonTop{
+	display: flex;
+	flex: 2;
+	align-items: center;
+	justify-content: space-around;
+}
+
+.button{
+	font-size: 1.2em;
+	background-color: orangered;
+	color: white;
+	padding: 0.5em;
+}
+
+.globalNavDown{
+	justify-content: space-around;
+	display: flex;
+}
+
+.buttonNavDown{
+	font-size: 1.5em;
+	color: white;
+	padding: 1.5em;
+}

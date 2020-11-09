@@ -1,0 +1,111 @@
+*{
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    list-style: none;
+}
+a{
+    text-decoration: none;
+    color: white;
+}
+a:hover{
+    text-decoration: none;
+}
+.container{
+    background-color: black;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    color: white;
+}
+#menuTop{
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.5em;
+}
+#titre{
+    font-size: 2em;
+}
+.image{
+    width: 100px;
+    height: 100px;
+}
+#global{
+    display: flex;
+}
+.presentation{
+    background-color: black;
+    height: 100vh;
+    width: 80vw;
+    color: white;
+    justify-content: space-around;
+}
+.colonne{
+    color: white;
+
+    height: 100vh;
+    width: 20vw;
+    background-color: #C1002C;
+}
+
+.imgDavid{
+    height: 30px;;
+}
+
+.elementGr{
+    background-color: #C1002C;
+    width: 75vw;
+    margin : auto;
+    margin-bottom: 5px;
+    border-radius: 25px;
+    height: 40vh;
+    border: white solid 1px;
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.bas{
+    display: flex;
+    min-width: 30vw;
+    height: 40vh;
+    justify-content: space-around;
+    display: table-cell;
+    vertical-align: middle;
+}
+/* .elementPt{
+    background-color: #C1002C;
+    text-align: justify;
+    width: 35vw;
+    padding: 10px;
+    border-radius: 25px;
+    border: white solid 1px;
+    margin-top: 0.5vh;
+    height: 39.5vh;
+}
+.elementResto{
+    background-image: url(https://media-cdn.tripadvisor.com/media/photo-s/06/a4/b3/f2/kfc-kentucky-fried-chicken.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    text-align: justify;
+    margin-top: 0.5vh;
+    border-radius: 25px;
+    border: white solid 1px;
+    height: 39.5vh;
+} */
+.sectionGauche{
+    text-align: center;
+}
+
+.elementpt{
+    border-radius: 25px;
+    border: white solid 1px;
+    background-color: red;
+    width: 37vw;
+    height: 40vh;
+    border-radius: 25px;
+    padding: 2px;
+    margin: 2px;
+
+    
+}

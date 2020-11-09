@@ -1,0 +1,137 @@
+
+/************************ GLOBAL ***************************/
+html,
+body {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-image: url(./image/fond.jpg);
+    background-position: center;
+    display: flex;
+    justify-content: center;
+}
+
+div {
+    display: flex;
+    flex: 1;
+}
+img{
+    width: 100%;
+}
+video{
+    width: 100%;
+}
+.espace{
+    flex: 0.2;
+}
+.espace2{
+    flex: 2;
+}
+.espaceHor {
+    height: 5vh;
+}
+/************************* HEADER **************************/
+header {
+    background-image: url(./image/header.jpg);
+    display: flex;
+}
+
+
+/************************** FOOTER *************************/
+footer{
+    display: flex;
+    background-image: url(./image/fond1.png);
+    background-position: top;
+}
+
+/************************** PAGE ***************************/
+.page {
+    width: 80vw;
+    flex-direction: column;
+    flex: none;
+    display: block;
+}
+.titrePage, .piedPage {
+    flex: 9;
+    justify-content: center;
+}
+.titrePage {
+    font-family: Impact, Charcoal, sans-serif;
+    font-size: 4em;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    text-shadow: white 0.1em 0.1em 0.2em;
+    
+}
+/************************** MENU ***************************/
+
+nav{
+
+    height: 5vh;
+    background-image: url(./image/fond1.png);
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.button{
+    background: linear-gradient(#225ca1, #7fcdef);
+    height: 3.5vh;
+    width: 10vw;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 1.5em;
+    border: 1px solid black;
+    border-radius: 0.5em;
+    cursor: pointer;
+}
+.button:hover{
+    background: none;
+    background-color: blue;
+}
+
+/************************** CONTENU ************************/
+.contenu{
+    flex-direction: column;
+    display: block;
+}
+/*****                      Partie1                    *****/
+.titreSemaine{
+    justify-content: center;
+}
+.cookieSemaine
+{
+    flex: 3;
+    flex-direction: column;
+    height: 35vh;
+    overflow-y: scroll;
+}
+.ingredients, .recette{
+    flex-direction: column;
+}
+
+
+/*****                      Partie2                    *****/
+.partie2{
+    flex-direction: column;
+}
+.titreArticle{
+    justify-content: center;
+}
+.texteArticle{
+    flex: 9; 
+    text-align: justify;
+    padding: 0 1em;
+}
+aside{
+    display: flex;
+    flex: 1;
+    border: blue 1px solid;
+    border-radius: 6px;
+    padding: 0 0.5em;
+    align-items: center;
+}
