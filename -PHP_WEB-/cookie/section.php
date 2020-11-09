@@ -1,50 +1,4 @@
-<!DOCTYPE html>
-<html lang="fr">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cookies</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="phone.css">
-    
-</head>
-
-<body>
-    <div class="page">
-        <header>
-            <div class="logo">
-                <img src="./img/cookie.png" alt="cookie" />
-            </div>
-            <div class="titrePage">cookie !</div>
-            <div class="logo"></div>
-        </header>
-        <nav>
-            <div class="menu">
-                Histoire
-                <div class="sousMenu">
-                    <div class="sousItem">La hollande</div>
-                    <div class="sousItem">L'arrivée aux états Etats-Unis</div>
-                    <div class="sousItem">Nestlé</div>
-                </div>
-            </div>
-            <div class="menu">Recettes
-                <div class="sousMenu">
-                    <div class="sousItem">Simple</div>
-                    <div class="sousItem">Pour enfants</div>
-                    <div class="sousItem">Quelques variantes</div>
-                </div>
-            </div>
-            <div class="menu">Les produits dérivés
-                <div class="sousMenu">
-                    <div class="sousItem">Glaces</div>
-                    <div class="sousItem">Boissons et sirop</div>
-                    <div class="sousItem">Gateaux</div>
-                </div>
-            </div>
-
-        </nav>
-        <div class="espaceHor"></div>
+<div class="espaceHor"></div>
         <div class="contenu">
             <div class="partie1">
                 <div class="video">
@@ -168,16 +122,3 @@
         </div>
 
         <div class="espaceHor"></div>
-        <footer>
-            <div class="logo"></div>
-            <div class="piedPage">
-                <h3>Site dédié aux amoureux des cookies</h3>
-            </div>
-            <div class="logo">
-                <img src="./img/cookie.png" alt="cookie" />
-            </div>
-        </footer>
-    </div>
-</body>
-
-</html>
