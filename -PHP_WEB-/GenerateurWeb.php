@@ -15,17 +15,10 @@ mkdir('./' . $nomprojet . '/HTML', 0777, true);
 mkdir('./' . $nomprojet . '/CSS', 0777, true);
 mkdir('./' . $nomprojet . '/JS', 0777, true);
 mkdir('./' . $nomprojet . '/IMG', 0777, true);
-mkdir('./' . $nomprojet . '/DOCS', 0777, true);
-mkdir('./' . $nomprojet . '/PHP', 0777, true);
-mkdir('./' . $nomprojet . '/PHP', 0777, true);
 
 $HTML_folder = fopen('./'.$nomprojet.'/HTML/'. 'index.html', "w");
 $CSS_folder = fopen('./'.$nomprojet.'/CSS/'. 'style.css', "w");
 $JS_folder = fopen('./'.$nomprojet.'/JS/'. 'script.js', "w");
-$SQL_folder = fopen('./'.$nomprojet.'/DOCS/'. 'script.sql', "w");
-$Cachier_folder = fopen('./'.$nomprojet.'/DOCS/'. 'cachier_des_charges.docs', "w");
-$Cachier_folder = fopen('./'.$nomprojet.'index.php', "w");
-$Cachier_folder = fopen('./'.$nomprojet.'index.php', "w");
 
 
 $HTML_snippet = '<!doctype html>'."\n"

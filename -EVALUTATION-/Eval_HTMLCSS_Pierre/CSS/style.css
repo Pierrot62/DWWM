@@ -1,0 +1,125 @@
+/****  GENERAL ****/
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #f7efdf;
+}
+
+body {
+  padding: 2em 7.5em;
+}
+
+div,
+header,
+footer,
+nav,
+article {
+  flex: 1;
+}
+
+img,
+video {
+  width: 100%;
+}
+
+.bleu {
+  color: #000066;
+  font-weight: bold;
+}
+
+/******partie haute******/
+.titre {
+  text-align: center;
+}
+.intro {
+  font-size: 1.1em;
+  font-weight: bold;
+}
+
+.globalHeader {
+  display: flex;
+}
+.liste {
+  border: solid 1px black;
+  border-radius: 0.5em;
+  margin-left: 2em;
+  padding: 1em;
+  flex: 2;
+}
+
+.texteHeader {
+  flex: 3;
+  font-size: 1.3em;
+  padding: 0.3em;
+  text-align: justify;
+}
+
+ul > li {
+  color: #006633;
+  padding: 0.5em;
+  list-style-type: circle;
+}
+
+/****ARTICLE*****/
+
+section {
+  display: flex;
+}
+
+.col {
+  flex: 1;
+}
+
+.titreGras {
+  font-weight: bold;
+  font-size: 1.6em;
+}
+
+.photoArticleDroite {
+  float: right;
+  width: 9vw;
+  text-align: center;
+  background-color: #f1e3c7;
+  border: solid 1px #bb8c00;
+  margin-left: 1em;
+}
+
+.titreImg {
+  font-weight: bold;
+  font-size: 0.9em;
+  margin: 0;
+  text-transform: uppercase;
+}
+.descImg {
+  font-size: 0.5em;
+}
+
+.texeArticle {
+  font-size: 1.6em;
+  text-align: justify;
+  margin: 0.5em;
+}
+
+article {
+  margin-bottom: 1em;
+}
+
+.photoArticleGauche {
+  float: left;
+  width: 22vw;
+  text-align: center;
+  background-color: #f1e3c7;
+  border: solid 1px #bb8c00;
+  margin: 1em;
+  margin-bottom: 0;
+}
+
+.titreArticle {
+  font-weight: bold;
+  font-size: 0.9em;
+}
+
+.etage {
+  font-size: 1.5em;
+}

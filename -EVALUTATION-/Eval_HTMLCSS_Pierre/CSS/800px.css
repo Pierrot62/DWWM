@@ -1,0 +1,35 @@
+@media only screen and (max-device-width: 800px) {
+  body {
+    padding: 1em;
+  }
+
+  article {
+    width: 90vw;
+    margin: auto;
+  }
+
+  section {
+    display: block;
+  }
+
+  .globalHeader {
+    display: block;
+  }
+
+  .liste {
+    margin-top: 1.5em;
+  }
+
+  .photoArticleDroite {
+    margin-bottom: 1.5em;
+    width: 100%;
+  }
+
+  .photoArticleGauche {
+    width: 100%;
+  }
+
+  #article {
+    padding: 1em;
+  }
+}
