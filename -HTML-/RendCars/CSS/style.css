@@ -2,10 +2,24 @@
 *{
 	margin:0;
 	padding: 0;
+	list-style: none;
+	scroll-behavior: smooth;
 }
 img{
 	width: 100%;
 	border-radius: 0.5em
+}
+h1{
+	text-align: center;
+	color: white;
+}
+a{
+	text-decoration: none;
+	color: black;
+}
+.titre{
+	font-size: 2em;
+	letter-spacing:0.2em;
 }
 .espace{
 	flex: 1;
@@ -13,14 +27,22 @@ img{
 .espaceMin{
 	flex: 0.2;
 }
+.espaceXs{
+	flex: 0.1;
+}
 .espaceHaut{
 	height: 5vh;
+}
+.espaceHautXs{
+	height: 2vh;
 }
 /***** HEADER ****/
 header{
 	display: flex;
-	background-color: grey;
-	align-items: center;
+	background-image: url(../IMG/banner.jpg);
+	background-position-y: 55%;
+	background-repeat: no-repeat;
+	background-size: cover;
 	text-align: center;
 }
 
@@ -38,7 +60,9 @@ header{
 	display: flex;
 	align-items: center;
 	text-align: center;
-	background-color: lightsalmon;
+	background-color: gray;
+	position: sticky;
+	top: 0;
 }
 
 .elmMenu{
@@ -47,12 +71,12 @@ header{
 	font-weight: bolder;
 	transition: 0.5s;
 	cursor: pointer;
-	padding: 0.2em;
+	padding: 0.4em;
 }
 hr{
 	margin: auto;
 	border: none;
-	border: 1px solid black;
+	border: 1px solid white;
 	width: 0%;
 	transition: 0.5s;
 	width: 30%;
@@ -66,7 +90,7 @@ hr{
 /**** SECTION ****/
 
 section{
-	background-color: lightgray;
+	background-color: black;
 }
 
 /**** ANNONCE ****/
@@ -79,12 +103,89 @@ section{
 	text-align: center;
 	flex: 1;
 	background-color: black;
-	border: 2px solid white;
+	border: 2px solid red;
 	color: white;
 	padding: 0.2em;
 	border-radius: 0.5em;
 }
 
-.imgAnnonce{
-	height: ;
+
+
+/**** PROMO ****/
+
+.promo{
+	display: flex;
+}
+
+.voiture{
+	flex: 1;
+	color: white;
+	background-color: black;
+	border: 2px solid red;
+	border-radius: 0.5em;
+	text-align: center;
+	padding: 0.4em;
+	transition: 0.25s;
+}
+.voiture:hover{
+	background-color: #C11C06;
+}
+.prix{
+	padding: 0.5em;
+	font-weight: bolder;
+}
+
+/**** FOOTER ****/
+
+footer{
+	display: flex;
+	background-color: #C11C06;
+}
+
+.elmFooter{
+	text-align: center;
+	flex: 1;
+	font-size: 1.5em;
+}
+
+
+
+.titreFooter{
+	margin: auto;
+}
+
+iframe{
+	width: 100%;
+	height: 100%;
+}
+
+
+/**** PRESTIGE ****/
+
+
+.sectionVoiture{
+	display: flex;
+	
+}
+.colImg{
+	flex: 2;
+}
+.colText{
+	flex: 1;
+	color:white;
+	border: 2px solid red;
+	padding: 0.7em;
+	border-radius: 0.5em;
+	transition: 0.5s;
+}
+.colText:hover{
+	background-color: #C11C06;
+}
+.desc{
+	font-size: 1.2em;
+	text-align: justify;
+}
+
+.ficheTech{
+	font-size: 1.2em;
 }

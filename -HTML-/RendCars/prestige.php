@@ -18,10 +18,10 @@ if (file_exists("./PHP/VIEW/header.php")) {
     echo "Header introuvable";
 }
 
-if (file_exists("./PHP/VIEW/section.php")) {
-    include("./PHP/VIEW/section.php");
+if (file_exists("./PHP/VIEW/sectionPrestige.php")) {
+    include("./PHP/VIEW/SectionPrestige.php");
 } else {
-    echo "Article introuvable";
+    echo "Section Prestige introuvable";
 }
 
 if (file_exists("./PHP/VIEW/footer.php")) {
