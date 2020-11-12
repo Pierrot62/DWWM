@@ -1,0 +1,90 @@
+/****  GENERAL ****/
+*{
+	margin:0;
+	padding: 0;
+}
+img{
+	width: 100%;
+	border-radius: 0.5em
+}
+.espace{
+	flex: 1;
+}
+.espaceMin{
+	flex: 0.2;
+}
+.espaceHaut{
+	height: 5vh;
+}
+/***** HEADER ****/
+header{
+	display: flex;
+	background-color: grey;
+	align-items: center;
+	text-align: center;
+}
+
+.elmHeader{
+	flex: 1;
+}
+
+.titreSite{
+	font-size: 2em;
+	font-weight: bolder;
+	letter-spacing: 0.3em;
+	padding: 1.5em;
+}
+.globalMenu{
+	display: flex;
+	align-items: center;
+	text-align: center;
+	background-color: lightsalmon;
+}
+
+.elmMenu{
+	flex: 1;
+	font-size: 1.7em;
+	font-weight: bolder;
+	transition: 0.5s;
+	cursor: pointer;
+	padding: 0.2em;
+}
+hr{
+	margin: auto;
+	border: none;
+	border: 1px solid black;
+	width: 0%;
+	transition: 0.5s;
+	width: 30%;
+}
+.elmMenu:hover{
+	color: blue;
+}
+.elmMenu:hover hr{
+	width: 40%;
+}
+/**** SECTION ****/
+
+section{
+	background-color: lightgray;
+}
+
+/**** ANNONCE ****/
+
+.globalAnnonce{
+	display: flex;
+}
+
+.annonce{
+	text-align: center;
+	flex: 1;
+	background-color: black;
+	border: 2px solid white;
+	color: white;
+	padding: 0.2em;
+	border-radius: 0.5em;
+}
+
+.imgAnnonce{
+	height: ;
+}
