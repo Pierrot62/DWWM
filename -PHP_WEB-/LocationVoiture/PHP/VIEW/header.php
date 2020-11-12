@@ -1,4 +1,5 @@
 
+<a href="#top"><img class="top" src="../IMG/top.png" alt="Go To Top"></a>
 <body id="top">
 	<header>
 		<div class="elmHeader"></div>
