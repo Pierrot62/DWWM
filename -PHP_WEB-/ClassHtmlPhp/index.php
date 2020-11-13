@@ -1,12 +1,12 @@
 <?php
 include "head.php";
-include "Voiture.Class.php";
+include "main.php";
+echo '<body>';
 
-?>
-<body>
 
-<?php
-
+for ($i=0; $i < count($totoMobile); $i++) { 
+    echo $totoMobile[$i]->getMarque().' '.$totoMobile[$i]->getModele();
+}
 
     ?>
 </body>

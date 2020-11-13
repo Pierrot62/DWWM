@@ -1,4 +1,7 @@
+
 <?php
+
+include "Voiture.Class.php";
 
 $totoMobile[] = new Voiture(["marque" => "BMW", "modele" => "X6","kilometrage" => 31500 ,"annee" => "2018"]);
 $totoMobile[] = new Voiture(["marque" => "BMW", "modele" => "X5","kilometrage" => 31500 ,"annee" => "2018"]);
