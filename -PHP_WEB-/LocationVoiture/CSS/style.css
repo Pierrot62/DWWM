@@ -154,7 +154,7 @@ section{
 
 footer{
 	display: flex;
-	background-color: #C11C06;
+	background-color: #7F190B;
 }
 
 .elmFooter{
@@ -167,11 +167,15 @@ footer{
 
 .titreFooter{
 	margin: auto;
+	font-size: 2em;
+	letter-spacing: 0.5em;
+	font-weight: bolder;
 }
 
 iframe{
 	width: 100%;
 	height: 100%;
+	
 }
 
 
