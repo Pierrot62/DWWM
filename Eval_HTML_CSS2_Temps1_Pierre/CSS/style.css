@@ -1,0 +1,26 @@
+/****  GENERAL ****/
+html, body {
+	margin : 0;
+	padding : 0;
+}
+
+div, footer, nav, article {
+	display : flex;
+	flex : 1;
+}
+
+img, video {
+	width : 100%;
+}
+
+nav{
+	height: 5vh;
+}
+
+header{
+	/* background-image: url(../IMG/esat-ttg-02.jpg);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+	height: 50vh; */
+}
