@@ -4,23 +4,135 @@ html, body {
 	padding : 0;
 }
 
-div, footer, nav, article {
-	display : flex;
-	flex : 1;
-}
+/* div{
+	flex: 1;
+} */
 
 img, video {
-	width : 100%;
+	height: 100%;
 }
 
-nav{
+body{
+	background-color: #e5ebf7;
+}
+
+.espace{
+	flex: 0.5;
+}
+.espaceHaut{
 	height: 5vh;
 }
 
-header{
-	/* background-image: url(../IMG/esat-ttg-02.jpg);
-	background-repeat: no-repeat;
+nav{
+	background-color: white;
+	display: flex;
+	height: 4.5vh;
+	align-items: center;
+	text-align: center;
+	border-bottom: 0.5vh solid  #0a6290;
+}
+.logo{
+	height: 4.5vh;
+
+}
+.elmMenu{
+	color: #0a6290;
+	flex: 2;
+}
+.logo{
+	left: 5px;
+	flex: 1;
+}
+
+.imgHeader{
+	background-image: url(../IMG/esat-ttg-02.jpg);
 	background-position: center;
 	background-size: cover;
-	height: 50vh; */
+	height: 95vh;
+}
+
+.scrollDown{
+	width: 100%;
+	position: absolute;
+	bottom: 2vh;
+	text-align: center;
+	color: white;
+	font-size: 1.5em;
+}
+
+.FlecheDown{
+	margin-top: 0.3em;
+	width: 4vh;
+	height: 3vh;
+}
+
+/**** ARTICLE ****/
+
+section{
+	width: 80vw;
+	margin: 5vh 7vw;
+	background-color: white;
+	padding: 5vh;
+}
+.article{
+	margin: 2em 0;
+}
+.titreArticle{
+	color: #0a6290;
+	font-weight: bolder;
+	padding-bottom: 1em;
+}
+
+.articleAvImg{
+	display: flex;
+}
+.imgArticle{
+	height: 25vh;
+	border: 2px solid black;
+	padding: 1em;
+}
+.elmArticle{
+padding: 0 1.5em;
+}
+
+/**** FOOTER SECTION ****/
+
+.footerSection{
+	color: #0a6290;
+	display: flex;
+	position: absolute;
+	right:0;
+	margin-right: 9vw;
+	border-bottom: 1px dashed #0a6290;
+}
+
+.flex{
+	margin-right: 0.5em;
+}
+
+.imgFooter{
+	height: 2vh;
+}
+
+.globalFooter{
+	padding: 1em;
+	color: white;
+	display: flex;
+	background-color: #0a6290;
+}
+
+.titreFooter{
+	font-weight: bold;
+	font-size: 1.2em;
+}
+
+footer div{
+	flex: 1;
+}
+
+.copyright{
+	padding: 0.5em;
+	text-align: center;
+	color: white;
+	background-color: black;
 }
