@@ -4,9 +4,6 @@ html, body {
 	padding : 0;
 }
 
-/* div{
-	flex: 1;
-} */
 
 img, video {
 	height: 100%;
@@ -23,21 +20,45 @@ body{
 	height: 5vh;
 }
 
+/**** MENU ****/
+
 nav{
 	background-color: white;
 	display: flex;
-	height: 4.5vh;
 	align-items: center;
 	text-align: center;
 	border-bottom: 0.5vh solid  #0a6290;
 }
 .logo{
 	height: 4.5vh;
-
 }
+
 .elmMenu{
 	color: #0a6290;
 	flex: 2;
+	cursor: pointer;
+	height: 5vh;
+	padding-top: 0.5em;
+}
+.deroulant:hover{
+	color: white;
+	background-color: #0F628E;
+}
+
+.elmMenu:hover .elmSousMenu {
+    display: flex;
+}
+
+.elmSousMenu {
+	text-align: left;
+    color: white;
+    display: none;
+    position: absolute;
+    flex-flow: column wrap;
+    background-color: #2987BE;
+    padding: 0.3em;
+    width: 19.5vw;
+	margin-top: 2.5vh;
 }
 .logo{
 	left: 5px;
@@ -135,4 +156,42 @@ footer div{
 	text-align: center;
 	color: white;
 	background-color: black;
+}
+
+
+@media only screen and (max-device-width: 800px) {
+
+	.pc{
+		display: none;
+	}
+	.imgHeader{
+		background-image : url(../IMG/espaces-verts-02.JPG);
+	}
+	.elmMenu{
+		font-size: 2em;
+	}
+	.scrollDown{
+		display: none;
+	}
+
+
+	.globalFooter{
+		flex-direction: column;
+		padding: 0 20vw;
+	}
+
+	.articleAvImgPc{
+		display: none;
+	}
+
+	.articleAvImg{
+		display: block
+	}
+	.imgArticle{
+	text-align: center;
+    height: 32vh;
+	margin: 2em;	
+	border: none;
+	}
+	
 }
