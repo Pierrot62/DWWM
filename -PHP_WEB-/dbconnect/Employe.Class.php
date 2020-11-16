@@ -1,3 +1,5 @@
+
+
 <?php
 class Employe
 {
@@ -5,14 +7,9 @@ class Employe
     /*****************Attributs***************** */
     private $_nom;
     private $_prenom;
-    private $_dateEmbauche;
     private $_fonction;
-    private $_salaireAnnuel;
-    private $_service;
-    private $_agence;
-    private $_enfants = [];
-    private static $_compteur = 0;
     private $_idEmploye;
+
 
     /*****************Accesseurs***************** */
 
@@ -35,25 +32,6 @@ class Employe
     {
         $this->_prenom = $prenom;
     }
-    public function getDateEmbauche()
-    {
-        return $this->_dateEmbauche;
-    }
-
-    public function setDateEmbauche(DateTime $dateEmbauche)
-    {
-        $this->_dateEmbauche = $dateEmbauche;
-    }
-
-    public function getSalaireAnnuel()
-    {
-        return $this->_salaireAnnuel;
-    }
-
-    public function setSalaireAnnuel($salaireAnnuel)
-    {
-        $this->_salaireAnnuel = $salaireAnnuel;
-    }
 
     public function getFonction()
     {
@@ -63,45 +41,6 @@ class Employe
     public function setFonction($fonction)
     {
         $this->_fonction = $fonction;
-    }
-
-    public function getService()
-    {
-        return $this->_service;
-    }
-
-    public function setService($service)
-    {
-        $this->_service = ucfirst($service);
-    }
-
-    public function getAgence()
-    {
-        return $this->_agence;
-    }
-
-    public function setAgence(Agence $agence)
-    {
-        $this->_agence = $agence;
-    }
-
-    public function getEnfants()
-    {
-        return $this->_enfants;
-    }
-
-    public function setEnfants(array $enfants)
-    {
-        $this->_enfants = $enfants;
-    }
-    public static function getCompteur()
-    {
-        return self::$_compteur;
-    }
-
-    public static function setCompteur($compteur)
-    {
-        self::$_compteur = $compteur;
     }
 
     public function getidEmploye()
@@ -124,7 +63,6 @@ class Employe
         {
             $this->hydrate($options);
         }
-        self::setCompteur(self::getCompteur() + 1); //on increment le compteur
     }
     public function hydrate($data)
     {
@@ -330,8 +268,10 @@ class Employe
         return $cheque;
     }
 
+    public function affichage()
+    {
+        echo $this->getNom().' '.$this->getPrenom().' '.$this->getFonction();
+    }
 
    
 }
-
-

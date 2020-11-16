@@ -28,7 +28,7 @@ a{
 }
 
 .employe{
-    background-color: slategrey;
+    background-color: grey;
     text-align: center;
     display: flex;
 }
@@ -43,10 +43,17 @@ a{
 .Identite{
     text-align: center;
     color: white;
+    font-size: 2em;
+    padding: 1em;
 }
 
 .section{
     display: flex;
+    background-color: grey;
+    width: 80vw;
+    margin: 0 10vw;
+    align-items: center;
+    font-size: 1.3em;
 }
 
 .info{

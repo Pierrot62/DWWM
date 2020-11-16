@@ -13,7 +13,7 @@ echo '
 
 for ($i=0; $i < count($e); $i++) { 
     echo '<div class="employe"><a href="detail.php?id='.$e[$i]->getIdEmploye().' ">
-    <div class="elmEmploye">'.$e[$i]->getAgence()->getNom().'</div>'.'<div class="elmEmploye">'.$e[$i]->getService().' </div>'.'<div class="elmEmploye">'.$e[$i]->getIdEmploye().'</div> '.'<div class="elmEmploye">'.$e[$i]->getPrenom().'</div><a/></div>';
+    <div class="elmEmploye">'.$e[$i]->getAgence()->getNom().'</div>'.'<div class="elmEmploye">'.$e[$i]->getService().' </div>'.'<div class="elmEmploye">'.$e[$i]->getNom().'</div> '.'<div class="elmEmploye">'.$e[$i]->getPrenom().'</div><a/></div>';
 }
 
     ?>
