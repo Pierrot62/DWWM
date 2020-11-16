@@ -1,0 +1,58 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    background-color: black;
+    color: white;
+}
+div{
+    flex: 1;
+    text-align: center;
+}
+a{
+    display: contents;
+}
+.banner{
+    display: flex;
+    text-align: center;
+    background-color:#08509D ;
+}
+
+.banner div{
+    font-size: 1.5em;
+    color: white;
+    font-weight: bolder;
+    letter-spacing: 0.5em;
+    padding: 1em;
+}
+
+.employe{
+    background-color: slategrey;
+    text-align: center;
+    display: flex;
+}
+
+.elmEmploye{
+    font-size: 1.2em;
+    padding: 0.5em;
+    font-weight: bolder;
+    color: white;
+}
+
+.Identite{
+    text-align: center;
+    color: white;
+}
+
+.section{
+    display: flex;
+}
+
+.info{
+    margin: 2em;
+    background-color: grey;
+    padding: 0.5em;
+    border-radius: 0.5em;
+    text-align: left;
+}

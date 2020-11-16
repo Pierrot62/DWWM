@@ -12,6 +12,7 @@ class Employe
     private $_agence;
     private $_enfants = [];
     private static $_compteur = 0;
+    private $_idEmploye;
 
     /*****************Accesseurs***************** */
 
@@ -102,6 +103,19 @@ class Employe
     {
         self::$_compteur = $compteur;
     }
+
+    public function getidEmploye()
+    {
+        return $this->_idEmploye;
+    }
+
+    public function setidEmploye($_idEmploye)
+    {
+        $this->_idEmploye = $_idEmploye;
+
+        return $this;
+    }
+    
     /*****************Constructeur***************** */
 
     public function __construct(array $options = [])
@@ -316,4 +330,6 @@ class Employe
         return $cheque;
     }
 
+
+   
 }
