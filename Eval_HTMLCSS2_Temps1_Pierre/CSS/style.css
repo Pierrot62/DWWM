@@ -96,7 +96,7 @@ nav{
 
 section{
 	width: 80vw;
-	margin: 5vh 7vw;
+	margin: 5vh 4vw;
 	background-color: white;
 	padding: 5vh;
 }
@@ -104,7 +104,6 @@ section{
 .articleAvImgTel{
 	display: none;
 }
-articleAvImgTel
 .article{
 	margin: 2em 0;
 }
@@ -188,7 +187,6 @@ footer div{
 		display: none;
 	}
 
-
 	.elmArticle{
 		padding: 0;
 	}
@@ -200,6 +198,10 @@ footer div{
 
 	.articleAvImgPc{
 		display: none;
+	}
+
+	.articleAvImgTel{
+		display: block;
 	}
 
 	.articleAvImg{
