@@ -5,14 +5,14 @@
 
 function chargerClasse($classe)
 {
-    if (file_exists("Php/Controller/" . $classe . ".class.php"))
+    if (file_exists("Php/Controller/" . $classe . ".Class.php"))
     {
-        require "Php/Controller/" . $classe . ".class.php";
+        require "Php/Controller/" . $classe . ".Class.php";
     }
 
-    if (file_exists("Php/Model/" . $classe . ".class.php"))
+    if (file_exists("Php/Model/" . $classe . ".Class.php"))
     {
-        require "Php/Model/" . $classe . ".class.php";
+        require "Php/Model/" . $classe . ".Class.php";
     }
 
 }
