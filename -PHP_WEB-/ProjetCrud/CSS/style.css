@@ -27,13 +27,49 @@ footer{
 	height: 5vh;
 }
 
+body{
+	background-color: black;
+}
 
+a{
+	text-decoration: none;
+	font-size: 1.5em;
+	color: white;
+	padding: 0.5em;
+	border-radius: 0.5em;
+}
+.edit{
+	background-color: orangered;
+}
+.voir{
+	background-color: blue;
+}
+.supp{
+	background-color: red;
+}
+.new{
+	background-color: green;
+}
+a:hover{
+	opacity: 0.5;
+}
+
+.titrePage{
+	background-color: black;
+	color:white;
+	font-size: 2em;
+	padding: 0.5em;
+	
+}
+
+.nomProduit{
+	color: white;
+}
 /*******LISTE PRODUITS****/
 
 .produit{
 	
 	padding: 0.5em;
-	background-color: coral;
 }
 
 .hidden{
