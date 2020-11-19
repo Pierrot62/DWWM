@@ -35,3 +35,7 @@ footer{
 	padding: 0.5em;
 	background-color: coral;
 }
+
+.hidden{
+	display: none;
+}

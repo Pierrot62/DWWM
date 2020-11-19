@@ -6,7 +6,6 @@ class ProduitsManager
 	{
  		$db=DbConnect::getDb();
 		$q=$db->prepare("INSERT INTO Produits (libelleProduit,prix,dateDePeremption) VALUES (:libelleProduit,:prix,:dateDePeremption)");
-		$q->bindValue(":idProduit", $obj->getIdProduit());
 		$q->bindValue(":libelleProduit", $obj->getLibelleProduit());
 		$q->bindValue(":prix", $obj->getPrix());
 		$q->bindValue(":dateDePeremption", $obj->getDateDePeremption());
@@ -17,6 +16,7 @@ class ProduitsManager
 	{
  		$db=DbConnect::getDb();
 		$q=$db->prepare("UPDATE Produits SET libelleProduit=:libelleProduit,prix=:prix,dateDePeremption=:dateDePeremption WHERE idProduit=:idProduit");
+		$q->bindValue(":idProduit", $obj->getIdProduit());
 		$q->bindValue(":libelleProduit", $obj->getLibelleProduit());
 		$q->bindValue(":prix", $obj->getPrix());
 		$q->bindValue(":dateDePeremption", $obj->getDateDePeremption());
