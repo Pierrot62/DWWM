@@ -1,5 +1,11 @@
 <?php
 include ("head.php");
+include ("header.php");
+echo '
+<section>
+<div><a class="new" href="PHP/VIEW/add.php">Ajouter un produit</a></div>
+<div></div>
+';
 
 echo'
 <form method="get" action="traitementAdd.php">
