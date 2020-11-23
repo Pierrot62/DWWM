@@ -5,6 +5,7 @@ $idProduits = $_GET["id"];
 $pUpdate = ProduitsManager::findById($idProduits);
 
 echo'
+<section class="input">
 <div>
 <div></div>
 <form method="get" action="traitement.php">
@@ -13,9 +14,10 @@ echo'
     <input type="text" name="nomProduit" value="'.$pUpdate->getLibelleProduit().'">
     <input type="text" name="prixProduit"  value="'.$pUpdate->getPrix().'">
     <input type="text" name="dateDePeremption" value="'.$pUpdate->getDateDePeremption().'">
-    <a href="index.php?code=default">Retour a la liste</a>
 </form>
 <div></div>
+<a href="index.php?code=defautl">Retour a la liste</a>
+</section>
 </div>
 </body>
 </html>';

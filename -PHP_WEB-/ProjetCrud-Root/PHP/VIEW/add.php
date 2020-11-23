@@ -1,7 +1,6 @@
 <?php
 echo '
-<section>
-<div><a class="new" href="PHP/VIEW/add.php">Ajouter un produit</a></div>
+<section class="input">
 <div></div>
 ';
 
@@ -15,7 +14,9 @@ echo'
     <input type="submit" value="Envoyer le formulaire">
 
 </form>
+<a href="index.php?code=defautl">Retour a la liste</a>
 
+</section>
 </body>
 </html>';
 

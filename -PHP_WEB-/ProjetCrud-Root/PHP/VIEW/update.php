@@ -1,7 +1,6 @@
 <?php
 echo '
-<section>
-<div><a class="new" href="index.php?code=add">Ajouter un produit</a></div>
+<section class="input">
 <div></div>
 ';
 $idProduits = $_GET["id"];
@@ -9,6 +8,7 @@ $idProduits = $_GET["id"];
 $pUpdate = ProduitsManager::findById($idProduits);
 
 echo'
+<div class=\"titrePage\">Modifier le produit n°'.$pUpdate->getIdProduit().'</div>";
 <form method="post" action="./index.php?traitement=update&code=traitement">
 
     <input type="hidden" name="IdProduit" value="'.$pUpdate->getIdProduit().'">
@@ -18,7 +18,8 @@ echo'
     <input class="edit" type="submit" value="Envoyer le formulaire">
     
 </form>
-
+<a href="index.php?code=defautl">Retour a la liste</a>
+</section>
 </body>
 </html>';
 

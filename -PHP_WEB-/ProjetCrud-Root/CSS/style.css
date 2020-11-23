@@ -29,6 +29,11 @@ body{
 	background-color: black;
 }
 
+.input{
+	text-align: center;
+	margin: 2em;
+}
+
 a{
 	text-decoration: none;
 	font-size: 1.5em;
