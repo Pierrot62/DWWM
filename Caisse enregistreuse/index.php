@@ -36,6 +36,10 @@ if (isset($_GET['action']) || isset($_GET['m']) || isset($_GET['id'])) {
                 afficherPage('Php/View/', 'ChoixListe', "Gestion Liste");
                 break;
         }
+        case 'test': {
+            afficherPage('Php/Model/', 'TestManager', "TestManager");
+            break;
+    }
        
     }
 } else { // Sinon, on affiche la page principale du site
