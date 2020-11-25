@@ -1,67 +1,78 @@
 <?php
 
-class Produits 
+class Hotels 
 {
 
 	/*****************Attributs***************** */
 
-	private $_idProduit;
-	private $_libelleProduit;
-	private $_prix;
-	private $_dateDePeremption;
-	private $_idCategorie;
+	private $_idHotel;
+	private $_nomHotel;
+	private $_categorieHotel;
+	private $_adresseHotel;
+	private $_villeHotel;
+	private $_idStation;
 
 	/***************** Accesseurs ***************** */
 
 
-	public function getIdProduit()
+	public function getIdHotel()
 	{
-		return $this->_idProduit;
+		return $this->_idHotel;
 	}
 
-	public function setIdProduit($idProduit)
+	public function setIdHotel($idHotel)
 	{
-		$this->_idProduit=$idProduit;
+		$this->_idHotel=$idHotel;
 	}
 
-	public function getLibelleProduit()
+	public function getNomHotel()
 	{
-		return $this->_libelleProduit;
+		return $this->_nomHotel;
 	}
 
-	public function setLibelleProduit($libelleProduit)
+	public function setNomHotel($nomHotel)
 	{
-		$this->_libelleProduit=$libelleProduit;
+		$this->_nomHotel=$nomHotel;
 	}
 
-	public function getPrix()
+	public function getCategorieHotel()
 	{
-		return $this->_prix;
+		return $this->_categorieHotel;
 	}
 
-	public function setPrix($prix)
+	public function setCategorieHotel($categorieHotel)
 	{
-		$this->_prix=$prix;
+		$this->_categorieHotel=$categorieHotel;
 	}
 
-	public function getDateDePeremption()
+	public function getAdresseHotel()
 	{
-		return $this->_dateDePeremption;
+		return $this->_adresseHotel;
 	}
 
-	public function setDateDePeremption($dateDePeremption)
+	public function setAdresseHotel($adresseHotel)
 	{
-		$this->_dateDePeremption=$dateDePeremption;
-	}
-	
-	public function getIdCategorie()
-	{
-		return $this->_idCategorie;
+		$this->_adresseHotel=$adresseHotel;
 	}
 
-	public function setIdCategorie($idCategorie)
+	public function getVilleHotel()
 	{
-		$this->_idCategorie = $idCategorie;
+		return $this->_villeHotel;
+	}
+
+	public function setVilleHotel($villeHotel)
+	{
+		$this->_villeHotel=$villeHotel;
+	}
+
+	public function getIdStation()
+	{
+		return $this->_idStation;
+	}
+
+	public function setIdStation($idStation)
+	{
+		$this->_idStation=$idStation;
 	}
 
 	/*****************Constructeur***************** */
@@ -94,7 +105,7 @@ class Produits
 	*/
 	public function toString()
 	{
-		return "IdProduit : ".$this->getIdProduit()."LibelleProduit : ".$this->getLibelleProduit()."Prix : ".$this->getPrix()."DateDePeremption : ".$this->getDateDePeremption()."\n";
+		return "IdHotel : ".$this->getIdHotel()."NomHotel : ".$this->getNomHotel()."CategorieHotel : ".$this->getCategorieHotel()."AdresseHotel : ".$this->getAdresseHotel()."VilleHotel : ".$this->getVilleHotel()."IdStation : ".$this->getIdStation()."\n";
 	}
 
 
@@ -125,6 +136,4 @@ class Produits
 	{
 		return;
 	}
-
-	
 }

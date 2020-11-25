@@ -1,5 +1,6 @@
 <?php
- echo "toto";
+
+echo "toto";
 
 $action=($_GET['traitement']);
 
@@ -11,6 +12,7 @@ $produit=ProduitsManager::findById($id);
 $produit->setLibelleProduit($_POST['libelleProduit']);
 $produit->setPrix($_POST['prix']);
 $produit->setDateDePeremption($_POST['dateDePeremption']);
+$produit->setDateDePeremption($_POST['dateDePeremption']);
 ProduitsManager::update($produit);
 
 
@@ -19,9 +21,8 @@ ProduitsManager::update($produit);
 
     //TRAITEMENT  DU FORMULAIRE//
 $prix=intval($_POST['prix']);
-$produit=new Produits(["libelleProduit"=>$_POST["libelleProduit"],"prix"=>$prix,"dateDePeremption"=>$_POST["dateDePeremption"]]);
-
- ProduitsManager::add($produit);
+$produit=new Produits(["libelleProduit"=>$_POST["libelleProduit"],"prix"=>$prix,"dateDePeremption"=>$_POST["dateDePeremption"],"idCategorie"=>$_POST["idCategorie"]]);
+ProduitsManager::add($produit);
 
 
 }else if($action == "delete"){
