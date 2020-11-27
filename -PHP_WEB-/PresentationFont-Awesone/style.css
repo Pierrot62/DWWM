@@ -1,0 +1,71 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    background-color: goldenrod;
+}
+
+a{
+    text-decoration: none;
+    color: black;
+}
+a:hover{
+    text-decoration: none;
+}
+h1{
+    text-align: center;
+}
+
+.titre{
+    font-size: 1.5em;
+    font-weight: bolder;
+    letter-spacing: 0.5em;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    padding: 0.5em;
+}
+
+.container{
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+}
+.color{
+    padding: 0.5em;
+}
+
+.fb{
+    color: #3B5998;
+    transition: 0.5s;
+}
+.snap{
+    color: #FFFC00;
+    transition: 0.5s;
+}
+.yt{
+    color: #FF0000;
+    transition: 0.5s;
+}
+.lin{
+    color: #007BB5;
+    transition: 0.5s;
+}
+.ico{
+    font-size: 3em;
+}
+
+.fb:hover{
+    color: #FFFC00;
+}
+.snap:hover{
+    color: #3B5998;
+}
+.yt:hover{
+    color: #007BB5;
+}
+.lin:hover{
+    color: #FF0000;
+}
+.ico:hover{
+    font-size: 3em;
+}
