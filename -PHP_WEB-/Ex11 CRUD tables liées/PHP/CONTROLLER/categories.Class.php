@@ -1,59 +1,16 @@
 <?php
 
-class Produits 
+class Categories 
 {
 
 	/*****************Attributs***************** */
 
-	private $_idProduit;
-	private $_libelleProduit;
-	private $_prix;
-	private $_dateDePeremption;
 	private $_idCategorie;
+	private $_LibelleCategorie;
 
 	/***************** Accesseurs ***************** */
 
 
-	public function getIdProduit()
-	{
-		return $this->_idProduit;
-	}
-
-	public function setIdProduit($idProduit)
-	{
-		$this->_idProduit=$idProduit;
-	}
-
-	public function getLibelleProduit()
-	{
-		return $this->_libelleProduit;
-	}
-
-	public function setLibelleProduit($libelleProduit)
-	{
-		$this->_libelleProduit=$libelleProduit;
-	}
-
-	public function getPrix()
-	{
-		return $this->_prix;
-	}
-
-	public function setPrix($prix)
-	{
-		$this->_prix=$prix;
-	}
-
-	public function getDateDePeremption()
-	{
-		return $this->_dateDePeremption;
-	}
-
-	public function setDateDePeremption($dateDePeremption)
-	{
-		$this->_dateDePeremption=$dateDePeremption;
-	}
-	
 	public function getIdCategorie()
 	{
 		return $this->_idCategorie;
@@ -61,7 +18,17 @@ class Produits
 
 	public function setIdCategorie($idCategorie)
 	{
-		$this->_idCategorie = $idCategorie;
+		$this->_idCategorie=$idCategorie;
+	}
+
+	public function getLibelleCategorie()
+	{
+		return $this->_LibelleCategorie;
+	}
+
+	public function setLibelleCategorie($LibelleCategorie)
+	{
+		$this->_LibelleCategorie=$LibelleCategorie;
 	}
 
 	/*****************Constructeur***************** */
@@ -94,7 +61,7 @@ class Produits
 	*/
 	public function toString()
 	{
-		return "IdProduit : ".$this->getIdProduit()."LibelleProduit : ".$this->getLibelleProduit()."Prix : ".$this->getPrix()."DateDePeremption : ".$this->getDateDePeremption()."\n";
+		return "IdCategorie : ".$this->getIdCategorie()."LibelleCategorie : ".$this->getLibelleCategorie()."\n";
 	}
 
 
@@ -125,6 +92,4 @@ class Produits
 	{
 		return;
 	}
-
-	
 }

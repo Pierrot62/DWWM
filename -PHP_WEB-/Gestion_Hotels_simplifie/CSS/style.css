@@ -1,0 +1,28 @@
+/****  GENERAL ****/
+html, body {
+	margin : 0;
+	padding : 0;
+}
+
+div, header, footer, nav, article {
+	display : flex;
+	flex : 1;
+	justify-content: center;
+}
+
+img, video {
+	width : 100%;
+}
+.titre{
+	flex:5;
+	font-size: 1.5em;
+	font-weight: 800;
+	align-self: center;
+}
+.colonne{
+	flex-direction: column;
+}
+.espace{
+	flex:none;
+	height: 5vh;
+}

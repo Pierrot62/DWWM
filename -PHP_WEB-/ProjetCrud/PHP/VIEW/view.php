@@ -15,7 +15,7 @@ echo'
     <input type="text" name="nomProduit" value="'.$pUpdate->getLibelleProduit().'">
     <input type="text" name="prixProduit"  value="'.$pUpdate->getPrix().'">
     <input type="text" name="dateDePeremption" value="'.$pUpdate->getDateDePeremption().'">
-    <a href="../../index.php">Retour a la liste</a>
+    <a href="index.php?code="default">Retour a la liste</a>
 </form>
 <div></div>
 </div>
