@@ -1,4 +1,5 @@
 <?php
 
-var_dump($_SESSION);
-echo '<a href="index.php?codePage=deconnection">Deconnection</a>';
+// echo $_SESSION['utilisateur']->getNom();
+
+echo '<a href="index.php?codePage=deconnection">Déconnexion</a>';

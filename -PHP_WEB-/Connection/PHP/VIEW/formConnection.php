@@ -11,4 +11,4 @@
     <button type="submit">Valider</button>
 </form>
 
-<div>Nouvelle utilisateur ? <a href="index.php?codePage=inscription">cree un compte</a></div>
+<div>Nouvelle utilisateur ? <a href="index.php?codePage=inscription">Crée un compte</a></div>

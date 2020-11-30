@@ -37,9 +37,8 @@ DbConnect::init();
 session_start();  // initialise la variable de Session
 /* création d'u tableau de redirection, en fonction du codePage, on choisit la page à afficher */
 $routes = [
-    "default" => ["PHP/VIEW/", "FormConnection", "Identification"],
-
-    "inscription" => ["PHP/VIEW/", "formInscription", "Identification"],
+    "default" => ["PHP/VIEW/", "FormConnection", "Connexion"],
+    "inscription" => ["PHP/VIEW/", "formInscription", "Creation du compte"],
     "actionSession" => ["PHP/VIEW/", "actionSession", "xx"],
     "connection" => ["PHP/VIEW/", "formConnection", "Identification"],
     "accueil" => ["PHP/VIEW/", "accueil", "Accueil"],   

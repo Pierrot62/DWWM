@@ -21,7 +21,6 @@ if ($_GET['mode'] == "inscription") {
         } else {
             echo "le pseudo existe deja";
             header("location:index.php?codePage=inscription");
-
         }
     } else {
         echo "la confirmation ne correspond pas au mot de passe";
