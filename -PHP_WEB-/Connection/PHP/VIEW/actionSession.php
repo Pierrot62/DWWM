@@ -1,6 +1,5 @@
 <?php
 
-include "PHP\CONTROLLER\utilisateursClass.php";
 
 $action = $_GET['mode'];
 
