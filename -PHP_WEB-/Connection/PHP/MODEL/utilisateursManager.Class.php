@@ -69,7 +69,7 @@ class UtilisateursManager
 		var_dump($pseudo);
         if (!in_array(";",str_split( $pseudo))) // s'il n'y a pas de ; , je lance la requete
         {
-            $q = $db->query("SELECT * FROM Utilisateurs WHERE pseudo ='" . $pseudo . "'");
+            $q = $db->query("SELECT * FROM utilisateurs WHERE pseudo ='" . $pseudo . "'");
             $results = $q->fetch(PDO::FETCH_ASSOC);
             if ($results != false)
             {

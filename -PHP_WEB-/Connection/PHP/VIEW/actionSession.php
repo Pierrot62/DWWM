@@ -30,7 +30,9 @@ if ($_GET['mode'] == "inscription") {
 } elseif ($_GET['mode'] == "connection") {
 
     $uti = UtilisateursManager::findByPseudo($_POST['pseudo']);
+    var_dump($uti);
     if ($uti != false) {
+        // echo "motBDD ".$uti->getMotDePasse()."  saisi". $_POST['motDePasse']. "crypte   ".crypte($_POST['motDePasse'])."<br>";
         if (md5($_POST['motDePasse']) == $uti->getMotDePasse()) {
             echo 'connection reussie';
             $_SESSION['utilisateur'] = $uti;

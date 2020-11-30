@@ -43,7 +43,8 @@ $routes = [
     "connection" => ["PHP/VIEW/", "formConnection", "Identification"],
     "accueil" => ["PHP/VIEW/", "accueil", "Accueil"],   
 ];
-
+$u = new Utilisateurs(['nom'=>"toto"]);
+var_dump($u);
 if (isset($_GET["codePage"]))
 {
 
