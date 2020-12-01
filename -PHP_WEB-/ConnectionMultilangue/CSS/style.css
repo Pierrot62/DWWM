@@ -13,7 +13,8 @@ section {
 }
 
 a {
-    color: green;
+    color: black;
+    list-style: none;
 }
 
 header {
@@ -28,10 +29,12 @@ header {
     padding: 0.5em;
 }
 
+
+/* 
 img:hover {
     transition: 0.5s;
     transform: rotate(360deg);
-}
+} */
 
 .titleSite {
     font-size: 1.5em;
@@ -50,4 +53,8 @@ form div {
 
 .lang {
     flex: 1;
+}
+
+.produit {
+    background-color: ;
 }
