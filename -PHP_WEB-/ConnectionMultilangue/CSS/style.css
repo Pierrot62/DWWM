@@ -1,30 +1,53 @@
-/****  GENERAL ****/
-html, body {
-	margin : 0;
-	padding : 0;
+* {
+    margin: 0;
+    padding: 0;
 }
 
-div, header, footer, nav, article {
-	display : flex;
-	flex : 1;
+body {
+    background-color: grey;
 }
 
-img, video {
-	width : 100%;
+section {
+    padding: 1em;
+    text-align: center;
 }
 
-.colonne{
-	flex-direction: column;
+a {
+    color: green;
 }
 
-/*HEADER*/
-
-header{
-	background-color: deepskyblue;
-	font-size: 2em;
-	padding: 0.5em;
-}
-header div{
-align-items: center;
+header {
+    display: flex;
+    background-color: lightgrey;
+    text-align: center;
+    align-items: center;
 }
 
+.elmHeader {
+    flex: 1;
+    padding: 0.5em;
+}
+
+img:hover {
+    transition: 0.5s;
+    transform: rotate(360deg);
+}
+
+.titleSite {
+    font-size: 1.5em;
+}
+
+.formulaire {
+    color: white;
+    background-color: black;
+    text-align: center;
+    padding: 0.5em;
+}
+
+form div {
+    padding: 1em;
+}
+
+.lang {
+    flex: 1;
+}

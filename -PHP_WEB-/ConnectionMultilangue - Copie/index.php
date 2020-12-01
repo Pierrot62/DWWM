@@ -64,13 +64,7 @@ $routes = [
     "inscription" => ["PHP/VIEW/", "formInscription", "Creation du compte"],
     "actionSession" => ["PHP/VIEW/", "actionSession", "xx"],
     "connection" => ["PHP/VIEW/", "formConnection", "Identification"],
-    "accueil" => ["PHP/VIEW/", "accueil", "Accueil"],
-    "add" => ["PHP/VIEW/", "add", "Détail du produit"],
-    "delete" => ["PHP/VIEW/", "delete", "Détail du produit"],
-    "update" => ["PHP/VIEW/", "update", "Détail du produit"],
-    "traitement" => ["PHP/VIEW/", "traitement", "test"],
-    "detail" => ["PHP/VIEW/", "view", "detail du produit"],
-
+    "accueil" => ["PHP/VIEW/", "accueil", "Accueil"],   
 ];
 $u = new Utilisateurs(['nom'=>"toto"]);
 

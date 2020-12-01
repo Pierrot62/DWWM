@@ -1,0 +1,33 @@
+/****  GENERAL ****/
+html, body {
+	margin : 0;
+	padding : 0;
+}
+
+div, header, footer, nav, article {
+	display : flex;
+	flex : 1;
+}
+
+img, video {
+	width : 100%;
+}
+
+.colonne{
+	flex-direction: column;
+}
+
+/*HEADER*/
+
+header{
+	background-color: deepskyblue;
+	font-size: 2em;
+	padding: 0.5em;
+}
+header div{
+align-items: center;
+}
+
+.lang{
+	display: block;
+}

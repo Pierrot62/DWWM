@@ -1,4 +1,3 @@
-<div class="formulaire">
 <form action="index.php?codePage=actionSession&mode=inscription" method="POST">
 <div>
     <label for="nom">Nom</label>
@@ -35,4 +34,3 @@
 <button type="submit">Valider</button>
 </form>
 <div>Vous avez deja un compte ?<a href="index.php?codePage=connection">Connecter vous</a></div>
-</div>

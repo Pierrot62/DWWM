@@ -11,5 +11,5 @@
 
         <button type="submit"><?php echo texte('valide'); ?></button>
     </form>
-    <div><?php echo texte('nouveau utilisateur') ?><a href="index.php?codePage=inscription"><?php echo texte('cree un compte') ?></a></div>
 </div>
+    <div><?php echo texte('nouveau utilisateur') ?><a href="index.php?codePage=inscription"><?php echo texte('cree un compte') ?></a></div>
