@@ -3,11 +3,10 @@
     <div class="colonne">
         <?php
 
-      
-
+    
         if (!empty($_SESSION['utilisateur']))
         {
-            echo $_SESSION['utilisateur']->getNom();
+            echo 'Bonjour '.$_SESSION['utilisateur']->getNom().' ! ';
 
         }
        

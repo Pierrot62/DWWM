@@ -35,6 +35,29 @@ function AfficherPage($page)
 //on active la connexion à la base de données
 DbConnect::init();
 session_start();  // initialise la variable de Session
+
+
+/***************************GESTION DES LANGUES ******************/
+// on recupere la langue de l'URL
+if (isset($_GET['lang']))
+{
+    $_SESSION['lang'] = $_GET['lang'];
+}
+
+//on prend la langue de la session sinon FR par défaut
+$lang = isset($_SESSION['lang']) ? $_SESSION['lang'] : 'FR';
+
+/**
+ * fonction qui ramène le texte dans la bonne langue
+ */
+function texte($codetexte)
+{
+    global $lang; //on appel la variable globale
+    return TexteManager::findByCodes($lang, $codetexte);
+}
+/************************ FIN GESTION DES LANGUES ******************/
+
+
 /* création d'u tableau de redirection, en fonction du codePage, on choisit la page à afficher */
 $routes = [
     "default" => ["PHP/VIEW/", "FormConnection", "Connexion"],
@@ -69,3 +92,4 @@ else
     AfficherPage($routes["default"]);
 
 }
+
