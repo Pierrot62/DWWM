@@ -13,8 +13,10 @@ if (isset($_SESSION['utilisateur'])) {
         </div>';
 }
 
-
 ?>
 
+    <div class="elmHeader">
+        <button><a href="index.php?page=Accueil">Retour a l'accueil</a></button>
+    </div>
 
 </header>

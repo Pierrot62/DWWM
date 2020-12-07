@@ -3,9 +3,9 @@
 if (isset($_SESSION["utilisateur"]) == true) {
 
     $representant = RepresentantsManager::getList();
-
+    if ($_SESSION["utilisateur"]->getRoleUser() ==2){
     echo '<div class="ajouter"><a href="index.php?page=FormRepresentant&mode=add">Ajouter un representant </a></div>';
-
+    }
     foreach ($representant as $unrepresentant) {
 
         echo '
@@ -14,7 +14,7 @@ if (isset($_SESSION["utilisateur"]) == true) {
                 <div class="representant">' . $unrepresentant->getVilleRepres() . '</div>';
 
         if ($_SESSION['utilisateur']->getRoleUser() == 2) {
-            echo '<div><a href="index.php?page=actionrepresentants&mode=delete&id=' . $unrepresentant->getIdrepres() . '">Supprimer</a></div>
+            echo '<div><a href="index.php?page=FormRepresentant&mode=delete&id=' . $unrepresentant->getIdrepres() . '">Supprimer</a></div>
                     <div><a href="index.php?page=formInscript&mode=update&id=' . $unrepresentant->getIdrepres() . '">Modifier</a></div>';
         }
 

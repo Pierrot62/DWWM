@@ -3,9 +3,10 @@
 if (isset($_SESSION["utilisateur"]) == true) {
 
     $produit = ProduitsManager::getList();
+    if ($_SESSION["utilisateur"]->getRoleUser() ==2){
 
     echo '<div class="ajouter"><a href="index.php?page=FormProduit&mode=add">Ajouter un produit </a></div>';
-
+    }
     foreach ($produit as $unproduit) {
 
         echo '
@@ -15,8 +16,8 @@ if (isset($_SESSION["utilisateur"]) == true) {
                 <div class="produit">' . $unproduit->getPoidsProduit() . '</div>';
 
         if ($_SESSION['utilisateur']->getRoleUser() == 2) {
-            echo '<div><a href="index.php?page=actionProduits&mode=delete&id=' . $unproduit->getIdProduit() . '">Supprimer</a></div>
-                    <div><a href="index.php?page=formInscript&mode=update&id=' . $unproduit->getIdProduit() . '">Modifier</a></div>';
+            echo '<div><a href="index.php?page=FormProduit&mode=delete&id=' . $unproduit->getIdProduit() . '">Supprimer</a></div>
+                    <div><a href="index.php?page=FormProduit&mode=update&id=' . $unproduit->getIdProduit() . '">Modifier</a></div>';
         }
 
         echo '</div>';

@@ -1,31 +1,100 @@
-<form action="Index.php?page=ActionRepresentant&mode=add" method="POST">
-        <div><label for="NomRepres">Nom du representant</label></div>
+<?php
+
+$mode = $_GET['mode'];
+
+if(isset($_GET["id"])){
+
+    $id = $_GET["id"];
+    $representant = RepresentantsManager::findById($id);
+
+}
+
+?>
+
+    <?php if($mode == "add"){
+         echo '
+         <form action="index.php?page=ActionRepresentant&mode=add" method="POST">
+
+         <div><label for="NomRepres">Nom du Representant</label></div>
+         <div>
+           <input
+             type="text"
+             name="nomRepres"
+             placeholder="Nom du Representant"
+             required
+           />
+         </div>';
+         echo '<div><label for="VilleRepres">Ville du Representant</label></div>
+        <div>
+          <input
+            type="text"
+            name="VilleRepres"
+            placeholder="Nom du Representant"
+            required
+          />
+        </div>
+        <input type="submit"> 
+        ';
+    }else if($mode == "update"){
+        echo '
+        <form action="index.php?page=ActionRepresentant&mode=update" method="POST">
+
+        <div><label for="NomRepres">Nom du Representant</label></div>
         <div>
           <input
             type="text"
             name="NomRepres"
-            placeholder="Nom du representant"
+            value="'.$representant->getNomRepres().'"
+            placeholder="Nom du Representant"
             required
           />
-        </div>
-        <div><label for="ville">Ville du representant</label></div>
+        </div>';
+        echo '<div><label for="VilleRepres">Ville du Representant</label></div>
         <div>
           <input
-            type="password"
-            name="mdpUser"
-            placeholder="Mot de passe"
+            type="text"
+            name="VilleRepres"
+            value="'.$representant->getVilleRepres().'"
+            placeholder="Nom du Representant"
             required
           />
         </div>
+        <input type="hidden" name="IdRepres" value="'.$id.'">
+        <input type="submit"> 
 
-        <div class="buttonForm">
-          <div></div>
-          <button><a href="index.php?page=accueil">Accueil</a></button>
-          <div></div>
-          <button type="submit">Connection</button>
-          <div></div>
+        ';
+    }else{
+        echo '
+        <form action="index.php?page=ActionRepresentant&mode=delete" method="POST">
+
+        <div><label for="NomRepres">Nom du Representant</label></div>
+        <div>
+          <input
+            type="text"
+            disabled
+            name="NomRepres"
+            value="'.$representant->getNomRepres().'"
+            placeholder="Nom du Representant"
+            required
+          />
+        </div>';
+        echo '<div><label for="VilleRepres">Ville du Representant</label></div>
+        <div>
+          <input
+            type="text"
+            disabled
+            name="VilleRepres"
+            value="'.$representant->getVilleRepres().'"
+            placeholder="Nom du Representant"
+            required
+          />
         </div>
-        <div >
-            Nouvel utilisateur ? <a href="index.php?page=FormInscript">crée vous un compte ici</a>
-        </div>
-      </form>
+        <input type="hidden" name="IdRepres" value="'.$id.'"></input>
+        <input type="submit"> 
+
+        ';
+    }
+        ?>
+
+
+    </form>

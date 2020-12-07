@@ -22,7 +22,8 @@ class RepresentantsManager
 	}
 	public static function delete(Representants $obj)
 	{
- 		$db=DbConnect::getDb();
+		$db=DbConnect::getDb();
+		$db->exec("UPDATE ventes SET IdRepres = 1 WHERE IdRepres=" .$obj->getIdRepres() );
 		$db->exec("DELETE FROM Representants WHERE IdRepres=" .$obj->getIdRepres());
 	}
 	public static function findById($id)

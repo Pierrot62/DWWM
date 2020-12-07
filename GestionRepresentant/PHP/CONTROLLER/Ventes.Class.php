@@ -9,7 +9,7 @@ class Ventes
 	private $_IdRepres;
 	private $_IdProduit;
 	private $_IdClient;
-	private $_Quantité;
+	private $_Quantite;
 
 	/***************** Accesseurs ***************** */
 
@@ -54,14 +54,14 @@ class Ventes
 		$this->_IdClient=$IdClient;
 	}
 
-	public function getQuantité()
+	public function getQuantite()
 	{
-		return $this->_Quantité;
+		return $this->_Quantite;
 	}
 
-	public function setQuantité($Quantité)
+	public function setQuantite($Quantite)
 	{
-		$this->_Quantité=$Quantité;
+		$this->_Quantite=$Quantite;
 	}
 
 	/*****************Constructeur***************** */
@@ -94,7 +94,7 @@ class Ventes
 	*/
 	public function toString()
 	{
-		return "IdVente : ".$this->getIdVente()."IdRepres : ".$this->getIdRepres()."IdProduit : ".$this->getIdProduit()."IdClient : ".$this->getIdClient()."Quantité : ".$this->getQuantité()."\n";
+		return "IdVente : ".$this->getIdVente()."IdRepres : ".$this->getIdRepres()."IdProduit : ".$this->getIdProduit()."IdClient : ".$this->getIdClient()."Quantite : ".$this->getQuantite()."\n";
 	}
 
 

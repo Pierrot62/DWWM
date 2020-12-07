@@ -1,22 +1,24 @@
 <?php
 
-$produit = new Produits($_POST);
+$representant = new Representants($_POST);
+var_dump($representant);
+
 $mode = $_GET['mode'];
 
 switch ($mode) {
     case "add":
         {
-            ProduitsManager::add($produit);
+            RepresentantsManager::add($representant);
             break;
         }
     case "update":
         {
-            ProduitsManager::update($produit);
+            RepresentantsManager::update($representant);
             break;
         }
     case "delete":
-        {   
-            ProduitsManager::delete($produit);
+        {
+            RepresentantsManager::delete($representant);
             break;
         }
 }

@@ -17,11 +17,14 @@ if (isset($_SESSION["utilisateur"]) == true) {
                 <div class="produit">' . $representant->getNomRepres() . '</div>
                 <div class="produit">' . $produit->getNomProduit() . '</div>
                 <div class="produit">' . $client->getNomClient() . '</div>
-                <div class="produit">' . $unevente->getQuantité() . '</div>
-                <div><a href="index.php?page=actionProduits&mode=delete&id=' . $unevente->getIdVente() . '">Supprimer</a></div>
-                <div><a href="index.php?page=formInscript&mode=update&id=' . $unevente->getIdVente() . '">Modifier</a></div>
-            </div>';
+                <div class="produit">' . $unevente->getQuantite() . '</div>
+                <div><a href="index.php?page=FormVente&mode=update&id=' . $unevente->getIdVente() . '">Modifier</a></div>';
+                if ($_SESSION['utilisateur']->getRoleUser() == 2) {
+                    echo '<div><a href="index.php?page=FormVente&mode=delete&id=' . $unevente->getIdVente() . '">Supprimer</a></div>';
+                }
+           echo '</div>';
     }
+    
 
 } else {
     header("location: index.php?page=FormConnect");

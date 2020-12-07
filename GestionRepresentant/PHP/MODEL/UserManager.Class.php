@@ -26,11 +26,15 @@ class UserManager
 		$q->bindValue(":pseudoUser", $obj->getPseudoUser());
 		$q->execute();
 	}
+
 	public static function delete(User $obj)
 	{
- 		$db=DbConnect::getDb();
+		$db=DbConnect::getDb();
+		$db->exec("UPDATE idRepres=99 FROM Ventes WHERE idRepresentant=" .$obj->getIdUser());
 		$db->exec("DELETE FROM User WHERE idUser=" .$obj->getIdUser());
+		
 	}
+
 	public static function findById($id)
 	{
  		$db=DbConnect::getDb();
