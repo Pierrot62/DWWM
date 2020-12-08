@@ -14,7 +14,7 @@ if (isset($_GET["id"])) {
     <?php if ($mode == "add") {
 
     echo '
-        <form action="Index.php?page=ActionVente&mode=add" method="POST">
+        <form action="Index.php?p=ActionVente&mode=add" method="POST">
 
     <label for="IdRepres">representant :</label>
 
@@ -64,7 +64,7 @@ if (isset($_GET["id"])) {
 } else if ($mode == "update") {
 
     echo '
-        <form action="Index.php?page=ActionVente&mode=update" method="POST">
+        <form action="Index.php?p=ActionVente&mode=update" method="POST">
 
     <label for="IdRepres">representant :</label>
 
@@ -111,7 +111,7 @@ if (isset($_GET["id"])) {
       </form>';
 }else{
     echo '
-        <form action="Index.php?page=ActionVente&mode=delete" method="POST">
+        <form action="Index.php?p=ActionVente&mode=delete" method="POST">
 
     <label for="IdRepres">representant :</label>
 

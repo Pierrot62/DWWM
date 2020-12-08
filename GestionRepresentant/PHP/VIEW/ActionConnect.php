@@ -12,16 +12,16 @@ switch($_GET['mode'])
                 $utilisateur=new User($_POST);
                 var_dump($utilisateur);
                 UserManager::add($utilisateur);
-                header("Location:index.php?page=FormConnect");
+                header("Location:index.php?p=FormConnect");
             }
             else{
                 echo '<h2 class="rouge">La confirmation ne correspond pas au mot de passe</h2>';
-                header("refresh:3;url=index.php?page=formConnect");
+                header("refresh:3;url=index.php?p=formConnect");
             }
         }
         else{
             echo '<h2 class="rouge">Le pseudo existe déjà, veuillez en saisir un autre</h2>';
-            header("refresh:3;url=index.php?page=formconnect");
+            header("refresh:3;url=index.php?p=formconnect");
         }
     break;
 
@@ -32,24 +32,24 @@ switch($_GET['mode'])
             if ($utilisateur->getMdpUser()==crypte($_POST['mdpUser']))
             {
                 $_SESSION['utilisateur']=$utilisateur;
-                header("Location:index.php?page=accueil");
+                header("Location:index.php?p=accueil");
             }
             else{
                 echo '<h2 class="rouge">Le mot de passe est invalide</h2>';
-                header("refresh:30;url=index.php?page=formConnect");
+                header("refresh:30;url=index.php?p=formConnect");
             }
         }
         else
         {
             echo '<h2 class="rouge">Le pseudo n\'existe pas</h2>';
-            header("refresh:30;url=index.php?page=formConnect");
+            header("refresh:30;url=index.php?p=formConnect");
         }
     break;
 
     //deconnexion
     case ("disconnect"):
         session_destroy();
-        header("Location:index.php?page=Accueil");
+        header("Location:index.php?p=Accueil");
     break;
     //modification
 
@@ -57,7 +57,7 @@ switch($_GET['mode'])
         $utilisateur=new User($_POST);
         var_dump ($utilisateur);
         UserManager::update($utilisateur);
-        header("Location:index.php?page=ListeUtilisateur");
+        header("Location:index.php?p=ListeUtilisateur");
 
     break;
 }

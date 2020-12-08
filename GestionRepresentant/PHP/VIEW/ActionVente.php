@@ -23,4 +23,4 @@ switch ($mode) {
         }
 }
 
-header("location: index.php?page=ListeVente");
+header("location: index.php?p=ListeVente");

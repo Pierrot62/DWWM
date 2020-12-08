@@ -21,4 +21,4 @@ switch ($mode) {
         }
 }
 
-// header("location: index.php?page=accueil");
+header("location: index.php?p=accueil");

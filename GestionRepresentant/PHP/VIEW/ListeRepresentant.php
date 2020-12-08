@@ -4,18 +4,18 @@ if (isset($_SESSION["utilisateur"]) == true) {
 
     $representant = RepresentantsManager::getList();
     if ($_SESSION["utilisateur"]->getRoleUser() ==2){
-    echo '<div class="ajouter"><a href="index.php?page=FormRepresentant&mode=add">Ajouter un representant </a></div>';
+    echo '<div class="ajouter"><a href="index.php?p=FormRepresentant&mode=add">Ajouter un representant </a></div>';
     }
     foreach ($representant as $unrepresentant) {
 
         echo '
-            <div class="listeRepresentants flex">
-                <div class="representant">' . $unrepresentant->getNomRepres() . '</div>
-                <div class="representant">' . $unrepresentant->getVilleRepres() . '</div>';
+            <div class="liste flex">
+                <div class="elmListe">' . $unrepresentant->getNomRepres() . '</div>
+                <div class="elmListe">' . $unrepresentant->getVilleRepres() . '</div>';
 
         if ($_SESSION['utilisateur']->getRoleUser() == 2) {
-            echo '<div><a href="index.php?page=FormRepresentant&mode=delete&id=' . $unrepresentant->getIdrepres() . '">Supprimer</a></div>
-                    <div><a href="index.php?page=formInscript&mode=update&id=' . $unrepresentant->getIdrepres() . '">Modifier</a></div>';
+            echo '<div class="elmListe"><a href="index.php?p=FormRepresentant&mode=delete&id=' . $unrepresentant->getIdrepres() . '">Supprimer</a></div>
+                    <div class="elmListe"><a href="index.php?p=formInscript&mode=update&id=' . $unrepresentant->getIdrepres() . '">Modifier</a></div>';
         }
 
         echo '</div>';
@@ -27,5 +27,5 @@ if (isset($_SESSION["utilisateur"]) == true) {
 <?php
 
 } else {
-    header("location: index.php?page=FormConnect");
+    header("location: index.php?p=FormConnect");
 }

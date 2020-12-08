@@ -20,7 +20,7 @@ session_start();
 // /******Fin des langues******/
 
 $routes=[
-	// "default"=>["PHP/VIEW/","accueil","Accueil"],
+	"default"=>["PHP/VIEW/","accueil","Accueil"],
 	// "TestclientsManager"=>["PHP/MODEL/TESTMANAGER/","TestclientsManager","Test de clients"],
 	// "TestproduitsManager"=>["PHP/MODEL/TESTMANAGER/","TestproduitsManager","Test de produits"],
 	// "TestrepresentantsManager"=>["PHP/MODEL/TESTMANAGER/","TestrepresentantsManager","Test de representants"],
@@ -55,10 +55,10 @@ $routes=[
 
 ];
 
-if(isset($_GET["page"]))
+if(isset($_GET["p"]))
 {
 
-	$page=$_GET["page"];
+	$page=$_GET["p"];
 
 	if(isset($routes[$page]))
 	{

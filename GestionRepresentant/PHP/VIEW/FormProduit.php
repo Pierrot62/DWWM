@@ -12,7 +12,7 @@ if(isset($_GET["id"])){
 
     <?php if($mode == "add"){
          echo '
-         <form action="index.php?page=ActionProduit&mode=add" method="POST">
+         <form action="index.php?p=ActionProduit&mode=add" method="POST">
 
          <div><label for="NomProduit">Nom du Produit</label></div>
          <div>
@@ -32,12 +32,12 @@ if(isset($_GET["id"])){
             required
           />
         </div>';
-        echo '<div><label for="CouleurProduit">CouleurProduit</label></div>
+        echo '<div><label for="PoidsProduit">PoidsProduit</label></div>
         <div>
           <input
             type="text"
-            name="CouleurProduit"
-            placeholder="CouleurProduit"
+            name="PoidsProduit"
+            placeholder="PoidsProduit"
             required
           />
         </div>
@@ -45,7 +45,7 @@ if(isset($_GET["id"])){
         ';
     }else if($mode == "update"){
         echo '
-        <form action="index.php?page=ActionProduit&mode=update" method="POST">
+        <form action="index.php?p=ActionProduit&mode=update" method="POST">
 
         <div><label for="NomProduit">NomProduit</label></div>
         <div>
@@ -83,7 +83,7 @@ if(isset($_GET["id"])){
         ';
     }else{
         echo '
-        <form action="index.php?page=ActionProduit&mode=delete" method="POST">
+        <form action="index.php?p=ActionProduit&mode=delete" method="POST">
 
         <div><label for="NomProduit">Produit</label></div>
         <div>

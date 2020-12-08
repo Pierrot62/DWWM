@@ -13,7 +13,7 @@ if(isset($_GET["id"])){
 
     <?php if($mode == "add"){
          echo '
-         <form action="index.php?page=ActionRepresentant&mode=add" method="POST">
+         <form action="index.php?p=ActionRepresentant&mode=add" method="POST">
 
          <div><label for="NomRepres">Nom du Representant</label></div>
          <div>
@@ -37,7 +37,7 @@ if(isset($_GET["id"])){
         ';
     }else if($mode == "update"){
         echo '
-        <form action="index.php?page=ActionRepresentant&mode=update" method="POST">
+        <form action="index.php?p=ActionRepresentant&mode=update" method="POST">
 
         <div><label for="NomRepres">Nom du Representant</label></div>
         <div>
@@ -65,7 +65,7 @@ if(isset($_GET["id"])){
         ';
     }else{
         echo '
-        <form action="index.php?page=ActionRepresentant&mode=delete" method="POST">
+        <form action="index.php?p=ActionRepresentant&mode=delete" method="POST">
 
         <div><label for="NomRepres">Nom du Representant</label></div>
         <div>

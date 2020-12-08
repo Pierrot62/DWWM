@@ -1,7 +1,6 @@
 <?php
 
 $representant = new Representants($_POST);
-var_dump($representant);
 
 $mode = $_GET['mode'];
 
@@ -23,4 +22,4 @@ switch ($mode) {
         }
 }
 
-// header("location: index.php?page=accueil");
+header("location: index.php?p=accueil");

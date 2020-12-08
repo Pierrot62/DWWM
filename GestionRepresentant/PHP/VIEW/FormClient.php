@@ -13,13 +13,13 @@ if(isset($_GET["id"])){
 
     <?php if($mode == "add"){
          echo '
-         <form action="index.php?page=ActionClient&mode=add" method="POST">
+         <form action="index.php?p=ActionClient&mode=add" method="POST">
 
          <div><label for="NomClient">Nom du client</label></div>
          <div>
            <input
              type="text"
-             name="nomClient"
+             name="NomClient"
              placeholder="Nom du client"
              required
            />
@@ -35,7 +35,7 @@ if(isset($_GET["id"])){
         </div>';
     }else if($mode == "update"){
         echo '
-        <form action="index.php?page=ActionClient&mode=update" method="POST">
+        <form action="index.php?p=ActionClient&mode=update" method="POST">
 
         <div><label for="NomClient">Nom du client</label></div>
         <div>
@@ -61,14 +61,16 @@ if(isset($_GET["id"])){
         ';
     }else{
         echo '
-        <form action="index.php?page=ActionClient&mode=delete" method="POST">
+        <form action="index.php?p=ActionClient&mode=delete" method="POST">
 
         <div><label for="NomClient">Nom du client</label></div>
         <div>
           <input
             type="text"
-            name="no mClient"
+            name="NomClient"
             placeholder="Nom du client"
+            value="'.$client->getNomClient().'"
+            disabled
             required
           />
         </div>
@@ -78,8 +80,12 @@ if(isset($_GET["id"])){
             type="text"
             name="VilleClient"
             placeholder="Ville du client"
+            value="'.$client->getVilleClient().'"
+            disabled
             required
           />
+          <input type="hidden"  name="IdClient" value="'.$id.'">
+
         </div>
         <div><input type="submit"></div>
      ';
@@ -87,7 +93,5 @@ if(isset($_GET["id"])){
     }
 
         ?>
-
-    <input type="submit"> 
 
     </form>

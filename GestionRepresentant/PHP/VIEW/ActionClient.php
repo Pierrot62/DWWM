@@ -1,7 +1,6 @@
 <?php
 
 $client = new Clients($_POST);
-
 $mode = $_GET['mode'];
 
 switch ($mode) {

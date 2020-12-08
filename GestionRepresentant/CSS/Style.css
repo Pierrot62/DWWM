@@ -5,11 +5,59 @@ html, body {
 }
 
 div, header, footer, nav, article {
-	display : flex;
+	/* display : flex; */
 	flex : 1;
+}
+
+a{
+	color: black;
+	text-decoration: none;
+}
+a:hover{
+	list-style: none;
 }
 
 img, video {
 	width : 100%;
 }
 
+section{
+	/* text-align: center;
+	padding: 0 20em; */
+	background-color: coral;
+	height: 73.4vh;
+    padding-top: 5em;
+}
+
+.flex{
+	display: flex;
+}
+
+
+.buttonAccueil{
+	text-align: center;
+    background-color: red;
+    margin: 5vh 26vw;
+    border-radius: 1em;
+    padding: 0.5em;
+	transition: 0.5s;
+}
+
+.buttonAccueil:hover{
+	background-color: blue;
+	color: white;
+}
+
+
+.liste{
+	background-color: gray;
+	text-align: center;
+}
+
+.elmListe{
+	padding: 0.5em;
+}
+
+.supprimer{
+	background-color: red;
+}

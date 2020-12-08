@@ -4,8 +4,15 @@ if (isset($_SESSION["utilisateur"]) == true) {
 
     $vente = VentesManager::getList();
 
-    echo '<div class="ajouter"><a href="index.php?page=FormVente&mode=add">Ajouter une vente </a></div>';
-
+    echo '<div class="ajouter"><a href="index.php?p=FormVente&mode=add">Ajouter une vente </a></div>
+    <div class="liste flex">
+    <div class="elmListe">Non du representant</div>
+    <div class="elmListe">Nom du produit</div>
+    <div class="elmListe">Nom du client</div>
+    <div class="elmListe">Quantite</div>
+    <div class="elmListe"><a href="index.php?p=FormVente&mode=add">Ajouter une vente </a></div>
+    <div class="elmListe"></div>
+    </div>';
     foreach ($vente as $unevente) {
 
         $representant = (RepresentantsManager::findById($unevente->getIdRepres()));
@@ -13,19 +20,19 @@ if (isset($_SESSION["utilisateur"]) == true) {
         $client = ClientsManager::findById($unevente->getIdClient());
 
         echo '
-            <div class="listeProduits flex">
-                <div class="produit">' . $representant->getNomRepres() . '</div>
-                <div class="produit">' . $produit->getNomProduit() . '</div>
-                <div class="produit">' . $client->getNomClient() . '</div>
-                <div class="produit">' . $unevente->getQuantite() . '</div>
-                <div><a href="index.php?page=FormVente&mode=update&id=' . $unevente->getIdVente() . '">Modifier</a></div>';
+            <div class="liste flex">
+                <div class="elmListe">' . $representant->getNomRepres() . '</div>
+                <div class="elmListe">' . $produit->getNomProduit() . '</div>
+                <div class="elmListe">' . $client->getNomClient() . '</div>
+                <div class="elmListe">' . $unevente->getQuantite() . '</div>
+                <div class="elmListe"><a href="index.php?p=FormVente&mode=update&id=' . $unevente->getIdVente() . '">Modifier</a></div>';
                 if ($_SESSION['utilisateur']->getRoleUser() == 2) {
-                    echo '<div><a href="index.php?page=FormVente&mode=delete&id=' . $unevente->getIdVente() . '">Supprimer</a></div>';
+                    echo '<div class="elmListe"><a href="index.php?p=FormVente&mode=delete&id=' . $unevente->getIdVente() . '">Supprimer</a></div>';
                 }
            echo '</div>';
     }
     
 
 } else {
-    header("location: index.php?page=FormConnect");
+    header("location: index.php?p=FormConnect");
 }

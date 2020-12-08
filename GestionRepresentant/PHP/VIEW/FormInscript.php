@@ -5,7 +5,7 @@ if (isset($_GET['mode'])) {
     $idUser = $_GET['id'];
     $user = UserManager::findById($idUser);
     echo '
-    <form action="Index.php?page=ActionConnect&mode=update" method="POST">
+    <form action="Index.php?p=ActionConnect&mode=update" method="POST">
         <div><label for="nomUser">Nom</label></div>
     <div>
 
@@ -61,7 +61,7 @@ if (isset($_GET['mode'])) {
 
 } else {
 
-    echo '<form action="Index.php?page=ActionConnect&mode=new" method="POST">
+    echo '<form action="Index.php?p=ActionConnect&mode=new" method="POST">
         <div><label for="nomUser">Nom</label></div>
     <div>
 
@@ -102,7 +102,7 @@ if (isset($_GET['mode'])) {
         <div></div>
       </div>
       <div >
-          Vous avez deja un compte ? <a href="index.php?page=FormConnect">Connecter vous ici</a>
+          Vous avez deja un compte ? <a href="index.php?p=FormConnect">Connecter vous ici</a>
       </div>
     </form>';
 }
