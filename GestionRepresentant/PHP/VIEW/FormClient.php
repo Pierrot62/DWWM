@@ -32,7 +32,9 @@ if(isset($_GET["id"])){
             placeholder="Nom du client"
             required
           />
-        </div>';
+        </div>
+        <div><input type="submit"></div>
+        ';
     }else if($mode == "update"){
         echo '
         <form action="index.php?p=ActionClient&mode=update" method="POST">
@@ -58,6 +60,8 @@ if(isset($_GET["id"])){
           />
         </div>
         <input type="hidden" name="IdClient" value="'.$id.'">
+        <div><input type="submit"></div>
+
         ';
     }else{
         echo '

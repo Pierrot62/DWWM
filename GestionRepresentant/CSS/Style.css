@@ -17,6 +17,14 @@ a:hover{
 	list-style: none;
 }
 
+header{
+	text-align:center;
+	display:flex;
+	align-items: center;
+	background-color:#1D8348;
+	padding : 0.5em;
+}
+
 img, video {
 	width : 100%;
 }
@@ -24,7 +32,7 @@ img, video {
 section{
 	/* text-align: center;
 	padding: 0 20em; */
-	background-color: coral;
+	background-color: #21618C;
 	height: 73.4vh;
     padding-top: 5em;
 }
@@ -36,28 +44,62 @@ section{
 
 .buttonAccueil{
 	text-align: center;
-    background-color: red;
+    background-color: #B03A2E;
     margin: 5vh 26vw;
     border-radius: 1em;
     padding: 0.5em;
 	transition: 0.5s;
+	color :white;
 }
 
 .buttonAccueil:hover{
-	background-color: blue;
-	color: white;
+	background-color:#1D8348;
+}
+
+.buttonAccueil a{
+	transition:0.5s;
+	color : white;
+}
+
+.buttonAccueil:hover a{
+	color: #6C3483;
 }
 
 
 .liste{
-	background-color: gray;
 	text-align: center;
+	padding:0.2em;
 }
 
 .elmListe{
 	padding: 0.5em;
+	margin: 0.2em;
+}
+
+.info{
+	flex : 3;
+	display:flex;
+	margin: 0.2em;
+	border-radius: 0.5em;;
+	background-color:#229954;
+}
+
+.demomination .info{
+	background-color: #D0D3D4;
 }
 
 .supprimer{
-	background-color: red;
+	background-color: #C0392B;
+	border-radius: 0.5em;
+}
+.supprimer:hover{
+	background-color: #A93226;
+}
+
+.modifier{
+	background-color:#E67E22;
+	border-radius: 0.5em
+}
+.modifier:hover{
+	background-color:#AF601A ;
 }

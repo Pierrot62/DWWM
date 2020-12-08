@@ -10,11 +10,14 @@ if (isset($_SESSION['utilisateur']) == true) {
 
         echo '
             <div class="liste flex">
+                <div class="info">
                 <div class="elmListe">' . $unclient->getNomClient() . '</div>
                 <div class="elmListe">' . $unclient->getVilleClient() . '</div>
-                <div class="elmListe"><a href="index.php?p=FormClient&mode=update&id=' . $unclient->getIdClient() . '">Modifier</a></div>';
+                <div class="elmListe"><a href="index.php?p=FormClient&mode=update&id=' . $unclient->getIdClient() . '">Modifier</a></div>
+                </div>';
                 if ($_SESSION['utilisateur']->getRoleUser() == 2) {
-                    echo '<div class="elmListe"><a href="index.php?p=FormClient&mode=delete&id=' . $unclient->getIdClient() . '">Supprimer</a></div>';
+                    echo '<div class="elmListe supprimer"><a href="index.php?p=FormClient&mode=delete&id=' . $unclient->getIdClient() . '">Supprimer</a></div>
+                    <div class="elmListe modifier"><a href="index.php?p=FormClient&mode=update&id=' . $unclient->getIdClient() . '">modifier</a></div>';
                 }
             echo '</div>';
     }

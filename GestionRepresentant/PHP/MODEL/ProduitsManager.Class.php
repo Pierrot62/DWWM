@@ -42,6 +42,9 @@ class ProduitsManager
 			return false;
 		}
 	}
+
+
+
 	public static function getList()
 	{
  		$db=DbConnect::getDb();
@@ -56,4 +59,35 @@ class ProduitsManager
 		}
 		return $liste;
 	}
+
+	public static function getListCouleur()
+	{
+ 		$db=DbConnect::getDb();
+		$liste = [];
+		$q = $db->query("SELECT DISTINCT CouleurProduit FROM Produits");
+		while($donnees = $q->fetch(PDO::FETCH_ASSOC))
+		{
+			if($donnees != false)
+			{
+				$liste[] = new Produits($donnees);
+			}
+		}
+		return $liste;
+	}
+
+	public static function getListByCouleur($couleur)
+	{
+ 		$db=DbConnect::getDb();
+		$liste = [];
+		$q = $db->query('SELECT * FROM Produits WHERE CouleurProduit ="'.$couleur.'"');
+		while($donnees = $q->fetch(PDO::FETCH_ASSOC))
+		{
+			if($donnees != false)
+			{
+				$liste[] = new Produits($donnees);
+			}
+		}
+		return $liste;
+	}
+
 }
