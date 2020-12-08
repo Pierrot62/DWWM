@@ -5,7 +5,7 @@ if (isset($_SESSION["utilisateur"]) == true) {
 
 
 
-    if ($_SESSION["utilisateur"]->getRoleUser() ==2){
+    
 
     echo '<section>';
 
@@ -77,7 +77,7 @@ if (isset($_SESSION["utilisateur"]) == true) {
             
         }
         echo '</section>';
-    }
+    
 
 
 

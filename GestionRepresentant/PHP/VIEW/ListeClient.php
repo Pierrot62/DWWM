@@ -1,3 +1,4 @@
+<section>
 <?php
 
 if (isset($_SESSION['utilisateur']) == true) {
@@ -25,3 +26,5 @@ if (isset($_SESSION['utilisateur']) == true) {
 } else {
     header("location: index.php?p=FormConnect");
 }
+?>
+</section>

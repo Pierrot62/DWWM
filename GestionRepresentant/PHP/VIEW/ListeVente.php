@@ -1,3 +1,4 @@
+<section>
 <?php
 
 if (isset($_SESSION["utilisateur"]) == true) {
@@ -21,13 +22,15 @@ if (isset($_SESSION["utilisateur"]) == true) {
 
         echo '
             <div class="liste flex">
+                <div class="info">
                 <div class="elmListe">' . $representant->getNomRepres() . '</div>
                 <div class="elmListe">' . $produit->getNomProduit() . '</div>
                 <div class="elmListe">' . $client->getNomClient() . '</div>
                 <div class="elmListe">' . $unevente->getQuantite() . '</div>
-                <div class="elmListe"><a href="index.php?p=FormVente&mode=update&id=' . $unevente->getIdVente() . '">Modifier</a></div>';
+                </div>
+                <div class="elmListe modifier"><a href="index.php?p=FormVente&mode=update&id=' . $unevente->getIdVente() . '">Modifier</a></div>';
                 if ($_SESSION['utilisateur']->getRoleUser() == 2) {
-                    echo '<div class="elmListe"><a href="index.php?p=FormVente&mode=delete&id=' . $unevente->getIdVente() . '">Supprimer</a></div>';
+                    echo '<div class="elmListe supprimer"><a href="index.php?p=FormVente&mode=delete&id=' . $unevente->getIdVente() . '">Supprimer</a></div>';
                 }
            echo '</div>';
     }
@@ -36,3 +39,5 @@ if (isset($_SESSION["utilisateur"]) == true) {
 } else {
     header("location: index.php?p=FormConnect");
 }
+?>
+</section>

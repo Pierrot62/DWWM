@@ -10,7 +10,7 @@ if(isset($_GET["id"])){
 }
 
 ?>
-
+  <section>
     <?php if($mode == "add"){
          echo '
          <form action="index.php?p=ActionClient&mode=add" method="POST">
@@ -99,3 +99,4 @@ if(isset($_GET["id"])){
         ?>
 
     </form>
+  </section>

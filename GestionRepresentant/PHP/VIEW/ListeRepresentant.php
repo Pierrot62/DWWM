@@ -1,3 +1,4 @@
+<section>
 <?php
 
 if (isset($_SESSION["utilisateur"]) == true) {
@@ -10,12 +11,13 @@ if (isset($_SESSION["utilisateur"]) == true) {
 
         echo '
             <div class="liste flex">
+            <div class="info">
                 <div class="elmListe">' . $unrepresentant->getNomRepres() . '</div>
-                <div class="elmListe">' . $unrepresentant->getVilleRepres() . '</div>';
-
+                <div class="elmListe">' . $unrepresentant->getVilleRepres() . '</div>
+            </div>';
         if ($_SESSION['utilisateur']->getRoleUser() == 2) {
-            echo '<div class="elmListe"><a href="index.php?p=FormRepresentant&mode=delete&id=' . $unrepresentant->getIdrepres() . '">Supprimer</a></div>
-                    <div class="elmListe"><a href="index.php?p=formInscript&mode=update&id=' . $unrepresentant->getIdrepres() . '">Modifier</a></div>';
+            echo '<div class="elmListe supprimer"><a href="index.php?p=FormRepresentant&mode=delete&id=' . $unrepresentant->getIdrepres() . '">Supprimer</a></div>
+                    <div class="elmListe modifier"><a href="index.php?p=formInscript&mode=update&id=' . $unrepresentant->getIdrepres() . '">Modifier</a></div>';
         }
 
         echo '</div>';
@@ -29,3 +31,5 @@ if (isset($_SESSION["utilisateur"]) == true) {
 } else {
     header("location: index.php?p=FormConnect");
 }
+?>
+</section>
