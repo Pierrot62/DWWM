@@ -1,7 +1,7 @@
 var i = 0;
 var somme = 0;
-var max = 0;
-var min = 0;
+var min = parseInt(prompt("Entrez un entier : "));
+var max = min;
 
 do {
 
@@ -9,13 +9,16 @@ do {
     if (nb != 0) {
         somme = somme + nb;
         i++;
-        min = nb;
         if (nb > max) {
             max = nb;
         }
         if (nb < min) {
             min = nb;
         }
+        if (nb > max) {
+            max = nb;
+        }
+    
     }
 
 
