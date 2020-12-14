@@ -12,7 +12,7 @@ function afficherTableau(tab) {
     for (elm in tab){
         document.write(tab[elm] + " ");
     }
-    document.write("\n");
+    document.write("<br>");
 }
 /**
  * méthode qui prend un mot en paramètre d'entrée et qui renvoi un tableau de caractères contenant autant de case que de lettres dans le mot.
@@ -1024,7 +1024,7 @@ function choisirMot(niv)
     }
     else
     { //mot au hasard dans tout le dico
-        var mot = dico[array_rand(dico)];
+        var mot = dico[Math.floor(Math.random()*dico.length)];
     }
 }
 
@@ -1037,17 +1037,131 @@ function demanderLettre()
     {
         document.write("<br>")
         var lettre = prompt("entrez une lettre : ").toUpperCase();
-    } while (lettre.charCodeAt(0) < 65 && lettre.charCodeAt > 90 || lettre.length > 1); // ou utilisation de  while (!IntlChar::isalpha($lettre))
+        if (lettre.charCodeAt(0) >= 65 && lettre.charCodeAt(0) <= 90) {
+            var flag = true;
+        }else{
+            var flag = false;
+        }
+    } while (flag == false || lettre.length != 0 || lettre == null); // ou utilisation de  while (!IntlChar::isalpha($lettre))
     return lettre;
 }
 
+/**
+ * méthode qui renvoi 1 si la partie est gagné, -1 si la partie est perdu, 0 si la partie continue.
+ * Elle reçoit en paramètre le nombre d’erreurs et le tableau contenant le mot composé
+ *
+ * @param int $nberreur
+ * @param array $tab
+ * @return void //0 si la partie est toujours en cours, 1 si c'est gagné, -1 sinon
+ */
+function testerGagner(nberreur, tab)
+{
+    if (nberreur == 9) // si nb erreur =9, partie perdue
+    {
+        return -1;
+    }
+    else if (tab.includes("_") === false) // s'il y a un _ dans le tableau, la partie est en cours
+    {
+        return 1;
+    }
+    else
+    {
+        return 0;
+    }
 
-var listeLettres = ["E","e","f"];
-document.write(afficherMauvaisesLettres(listeLettres))
-var lettre = "E";
-var  tab =  ["T", "_", "_","T"];
-var tabpos = [1,2];
-var niveau = 3;
-test = ajouterLesLettres(lettre, tab, tabpos, niveau);
-document.write(test);
-console.log(test);
+}
+
+/**
+ * Demande le niveau à l'utilisateur
+ *
+ * @return int le niveau de difficulté
+ */
+function choisirNiveau()
+{
+    do
+    {
+        document.write("Niveau de difficulé : <br>");
+        document.write("Facile (1)   Normal (2)   Difficile (3)   Court(4)");
+        niveau = prompt(" : ");
+
+        if (niveau > 4 || niveau < 1)
+        {
+            document.write("<br>Saisie invalide ! Recommencer (rappel : 1 ou 2 ou 3 ou 4) <br>");
+        }
+    } while (niveau > 4 || niveau < 1);
+    switch (niveau)
+    {
+        case "1":
+            document.write("<br> Niveau Facile ! C'est parti ! <br> ");
+            break;
+        case "2":
+            document.write("<br> Niveau Normal ! C'est parti ! <br> ");
+            break;
+        case "3":
+            document.write("<br> Niveau Difficile ! C'est parti ! <br> ");
+            break;
+        case "4":
+            document.write("<br> Niveau Court ! C'est parti ! <br> ");
+            break;
+    }
+    return niveau;
+}
+
+/**
+ * Permet de gérer la partie
+ *
+ * @return void
+ */
+function lancerPartie(niveau)
+{
+    var motATrouver = choisirMot(niveau); // determine la mot à trouver
+    document.write( motATrouver + "<br>");
+    var tabMotATrouver = motATrouver.split(); // toutes les functions travaillent avec des tableaux, on transforme la haine en tableau
+    var motCode = coderMot(motATrouver, niveau);
+    var nbErreur = 0; // compte le nombre d'erreur
+    var gagne = false;
+    var mauvaisesLettres = []; // tableau contenant les mauvaises lettres
+    do
+    {
+        document.write("<br><br>") ;
+        afficherTableau(motCode); // on affiche le mot contenant les _
+        dessinerPendu(nbErreur);
+        if (!empty(mauvaisesLettres))
+        { //s'il y a des mauvaises lettres, on les affiche
+            afficherMauvaisesLettres(mauvaisesLettres);
+        }
+        var lettre = demanderLettre();
+        var lesPositions = testerLettre(lettre, tabMotATrouver, 0); //on recupere toutes les positions de cette lettre dans le mot
+        if (empty(lesPositions))
+        { //la lettre n'est pas dans le mot
+            nbErreur++;
+            mauvaisesLettres.push([lettre]);
+        }
+        else
+        {
+            var reponse = ajouterLesLettres(lettre, motCode, lesPositions, niveau); //motCode = pour récuperer le tableau mis à jour
+            if (reponse == -1) // la lettre ne peut plus etre placée
+            {
+                nbErreur++;
+                mauvaisesLettres.push([lettre]);
+            }
+            else
+            {
+                var motCode = reponse;
+            }
+        }
+
+        var gagne = testerGagner(nbErreur, motCode); // on teste l'état de la partie
+    } while ($gagne == 0);
+    if (gagne == 1)
+    {
+        document.write("Bravo!! vous avez gagné. Le mot été" + motATrouver + "<br>");
+    }
+    else
+    {
+        document.write( "Vous avez perdu. Le mot été" + motATrouver + "<br>");
+    }
+}
+
+niv = choisirNiveau();
+lancerPartie(niv);
