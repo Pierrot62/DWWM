@@ -15,8 +15,6 @@ prix1.addEventListener("change", function () {
     document.getElementById("total1").value = tt;
 });
 
-
-
 quantite2.addEventListener("change", function () {
     let tt = parseInt(quantite2.value) * parseInt(prix2.value);
     console.log(tt);
@@ -27,23 +25,3 @@ prix2.addEventListener("change", function () {
     console.log(tt);
     document.getElementById("total2").value = tt;
 });
-
-
-
-
-
-
-
-var quantite = document.getElementById("quantite");
-var prix = document.getElementById("prix");
-
-quantite.addEventListener("change", calcul);
-prix.addEventListener("change", calcul);
-
-function calcul() {
-
-    let tt = parseInt(quantite.value) * parseInt(prix.value);
-    console.log(tt);
-    document.getElementById("total").value = tt;
-
-}
