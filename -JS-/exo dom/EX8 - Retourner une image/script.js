@@ -5,9 +5,11 @@ console.log(url);
 image.addEventListener("click", retournement)
 
 function retournement() {
-    var retoune = document.getElementById
-    if (url == "recto.png") {
 
+    url = image.getAttribute("src");
+    
+    if (url == "recto.png") {
+        
         image.setAttribute("src", "verso.png");
 
     } else if (url == "verso.png") {
