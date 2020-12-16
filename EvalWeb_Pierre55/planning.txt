@@ -1,0 +1,4 @@
+Ip Martine : http://10.115.41.111/
+Undefine constat : $ oublier
+SCRIPT SQL : 9h
+HTML / CSS : 10h

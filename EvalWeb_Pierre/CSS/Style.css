@@ -1,0 +1,128 @@
+/****  GENERAL ****/
+html, body {
+	margin : 0;
+	padding : 0;
+}
+
+div, header, footer, nav, article {
+	display : flex;
+	flex : 1;
+}
+
+img, video {
+	width : 100%;
+}
+
+.colonne {
+	flex-direction : column;
+}
+
+.block{
+	display: block;
+}
+
+.center{
+	text-align: center;
+	align-items: center;
+	justify-content: space-around;
+}
+
+section{
+	min-height: 45vh;
+	padding: 1.5em;
+}
+
+.degrader{
+	background: linear-gradient(#f8cdad, white);
+}
+
+.divCatergorie{
+	background-color: #f2a16a;
+	padding: 1em;
+	border-radius: 0.5em;
+	border : solid 1px black;
+	font-weight: 900;
+	letter-spacing: 0.1em;
+	margin: 1em;
+	text-align: center;
+
+}
+
+/**** HEADER ****/
+
+header{
+	display: flex;
+	background-color: #f8cdad;
+	text-align: center;
+	justify-content: space-around;
+	padding: 1.5em;
+}
+
+.globalHeader{
+	text-align: center;
+	align-items: center;
+}
+
+.titre {
+	flex: 5;
+}
+
+.button{
+	background-color: #f2a16a;
+	padding: 1em;
+	border-radius: 0.5em;
+	border : solid 1px black;
+	font-weight: 900;
+	letter-spacing: 0.1em;
+	align-self: center;
+}
+
+.espaceHeader{
+	background-color: white;
+	height: 2em;
+}
+
+/**** LISTE ****/
+
+.elmList div{
+	justify-content: center;
+}
+
+.listNav{
+	position: absolute;
+}
+
+/**** FORM CONNECT ****/
+
+
+/**** FOOTER ****/
+
+.espaceFooter{
+	background-color: #f8cdad;
+	height: 2em;
+}
+
+.elmFooter{
+	padding: 1em;
+    font-size: 2em;
+}
+
+
+
+.color{
+	background-color: green;
+}
+
+.formulaire{
+	text-align: center;
+	display: block;
+	padding: 2em;
+}
+
+.globalForm{
+	align-items: center;
+}
+
+.blocInput{
+	padding: 1.5em;
+}
