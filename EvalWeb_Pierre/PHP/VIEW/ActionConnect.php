@@ -1,5 +1,4 @@
 <?php
-var_dump($_POST['login']);
 $utilisateur=UtilisateurManager::findByPseudo($_POST['login']);
 
 switch($_GET['mode'])
@@ -8,17 +7,12 @@ switch($_GET['mode'])
     case ("new"): 
         if($utilisateur==FALSE)
         {
-            if($_POST['mdpUtilisateur']==$_POST['confirmation'])
-            {
-                $_POST['mdpUtilisateur']=crypte($_POST['motDePasse']);
-                $utilisateur=new Utilisateur($_POST);
-                UtilisateurManager::add($utilisateur);
-                header("Location:index.php?page=formConnect");
-            }
-            else{
-                echo '<h2 class="rouge">La confirmation ne correspond pas au mot de passe</h2>';
-                header("refresh:3;url=index.php?page=formConnect");
-            }
+            $_POST['mdpUtilisateur']=$_POST['motDePasse'];
+            $utilisateur=new Utilisateur($_POST);
+            UtilisateurManager::add($utilisateur);
+            header("location: index.php?page=ListEnseignant");
+
+            
         }
         else{
             echo '<h2 class="rouge">Le pseudo existe déjà, veuillez en saisir un autre</h2>';
@@ -33,7 +27,6 @@ switch($_GET['mode'])
             if ($utilisateur->getMotDePasse()==$_POST['motDePasse'])
             {
                 $_SESSION['utilisateur']=$utilisateur;
-                echo '<h2 class="rouge">Le mot de passe est invalide</h2>';
                 header("Location:index.php?page=accueil");
             }
             else{
@@ -50,16 +43,27 @@ switch($_GET['mode'])
 
     //deconnexion
     case ("disconnect"):
+        
         session_destroy();
+        
         header("Location:index.php?page=accueil");
     break;
     //modification
 
     case ("update"):
-        $utilisateur=new Utilisateurs($_POST);
+        $utilisateur=new Utilisateur($_POST);
         var_dump ($utilisateur);
-        UtilisateursManager::update($utilisateur);
-        header("Location:index.php?page=listeUtilisateur");
+        UtilisateurManager::update($utilisateur);
+        header("Location:index.php?page=ListEnseignant");
 
     break;
+
+    case "delete":
+        {
+            // $id = $_GET["id"];
+            // $pseudo = $_GET["speudo"];
+            var_dump($utilisateur);
+            UtilisateurManager::delete($utilisateur);
+            break;
+        }
 }

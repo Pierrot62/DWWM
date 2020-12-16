@@ -20,7 +20,7 @@ $lang=isset($_SESSION['lang']) ? $_SESSION['lang'] : 'FR';
 /******Fin des langues******/
 
 $routes=[
-	"default"=>["PHP/VIEW/","accueil","Accueil"],
+	"default"=>["PHP/VIEW/","Accueil","Accueil"],
 	"TestelevesManager"=>["PHP/MODEL/TESTMANAGER/","TestelevesManager","Test de eleves"],
 	"TestmatieresManager"=>["PHP/MODEL/TESTMANAGER/","TestmatieresManager","Test de matieres"],
 	"TestsuivisManager"=>["PHP/MODEL/TESTMANAGER/","TestsuivisManager","Test de suivis"],
@@ -28,18 +28,21 @@ $routes=[
 
 	"FormConnect"=>["PHP/VIEW/","FormConnect","Connection"],
 	"FormEleve"=>["PHP/VIEW/","FormEleve","Ajouter un eleve"],
-	"FormNote"=>["PHP/VIEW/","FormNote","Ajouter un note"],
+	"FormNote"=>["PHP/VIEW/","FormNote","Ajouter une note"],
 	"FormEnseignant"=>["PHP/VIEW/","FormEnseignant","Ajouter un enseignant"],
-	"FormMatiere"=>["PHP/VIEW/","FormMatiere","Ajouter un enseignant"],
+	"FormMatiere"=>["PHP/VIEW/","FormMatiere","Ajouter une matieres"],
 
-
-
-	"ListEleves"=>["PHP/VIEW/","ListEleves","List des eleves"],
-	"ListNote"=>["PHP/VIEW/","ListNote","List des note"],
-	"ListEnseignant"=>["PHP/VIEW/","ListEnseignant","List des Enseignant"],
-	"ListMatiere"=>["PHP/VIEW/","ListMatiere","List des Enseignant"],
+	"ListEleves"=>["PHP/VIEW/","ListEleves","Gestion des eleves"],
+	"ListNote"=>["PHP/VIEW/","ListNote","Gestion des notes"],
+	"ListEnseignant"=>["PHP/VIEW/","ListEnseignant","Gestion des Enseignants"],
+	"ListMatiere"=>["PHP/VIEW/","ListMatiere","Gestions des matieres"],
 
 	"ActionConnect"=>["PHP/VIEW/","ActionConnect","connection"],
+	"ActionEleve"=>["PHP/VIEW/","ActionEleve","connection"],
+	"ActionMatiere"=>["PHP/VIEW/","ActionMatiere","connection"],
+	"ActionNote"=>["PHP/VIEW/","ActionNote","connection"],
+
+
 	
 ];
 

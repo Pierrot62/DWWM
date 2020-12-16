@@ -1,24 +1,25 @@
 
 <section class="degrader formulaire colonne">
 
-<form class="colonne" action="ActionConnect.php" method="POST">
+<form action="index.php?page=ActionEleve&mode=new" method="POST">
   <div class="globalForm colonne">
     <div class="blocInput">
-      <label for="nom">Nom : </label>
-      <input type="text" id="nom" />
+      <label for="NomEleve">Nom : </label>
+      <input type="text" name="NomEleve" id="NomEleve" />
     </div>
     <div class="blocInput">
-      <label for="prenom">Prenom : </label>
-      <input type="text" id="prenom" />
+      <label for="PrenomEleve">Prenom : </label>
+      <input type="text" name="PrenomEleve" id="PrenomEleve" />
     </div>
     <div class="blocInput">
-      <label for="classe">classe : </label>
-      <input type="text" id="classe" />
+      <label for="Classe">classe : </label>
+      <input type="text" name="Classe" id="Classe" />
     </div>
     <div>
         <button type="submit" class="button">Ajouter</button>
         <button class="button">Annuler</button>
     </div>
+
 
   </div>
 </form>

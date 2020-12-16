@@ -2,50 +2,28 @@
 
 <?php
 
-// if (isset($_SESSION("utilisateur")) && $_SESSION("utlisateur")->getRole() == 2 ){
+if (isset($_SESSION["utilisateur"])) {
 
+    $role = $_SESSION["utilisateur"]->getRole();
+    if ($role == 2) {
 
-echo '
-<section class="degrader colonne">
-<div class="globalAccueil colonne">
-<div class="divCatergorie"><a href="index.php?page=ListEleves">Gerer les eleves</a></div>
-<div class="divCatergorie">Gerer les enseignants</div>
-<div class="divCatergorie">Gerer les notes</div>
-<div class="divCatergorie">Gerer les matieres</div>
-</div>';
+        echo '
+    <section class="degrader colonne">
+    <div class="globalAccueil colonne">
+    <div class="divCatergorie"><a href="index.php?page=ListEleves">Gerer les eleves</a></div>
+    <div class="divCatergorie"><a href="index.php?page=ListEnseignant">Gerer les enseignants</a></div>
+    <div class="divCatergorie"><a href="index.php?page=ListNote">Gerer les notes</a></div>
+    <div class="divCatergorie"><a href="index.php?page=ListMatiere">Gerer les matieres</a></div>
+    </div>';
 
-// }else if (isset($_SESSION("utilisateur")) && $_SESSION("utlisateur")->getRole() == 1 ) {
-  
-  echo'
-  <session class="degrader">
-  <class="degrader">
-        <div class="globalList colonne">
-        <div class="colonne">
-        
-            <div class="button"><a href="index.php?page=FormEleve">Ajouter une note</a></div>
-          
-        </div>
-        <div class="center">
-            <div></div>
-            <div class="elmList">
-                <div>nom</div>
-                <div>prenom</div>
-                <div>note</div>
-                 <div><a href="">Modifier</a></div>
-            </div>
+    } else if ($role == 1) {
 
-            </div>
-          <div></div>
-        </div>
-        
-        </div>
+      header("location: index.php?page=ListNote");
 
-  ';
+    }
+} else {
 
-
-// }else{
-
-  // header("location: index.php?page=FormeConnect");
-// }
+    header("location: index.php?page=FormConnect");
+}
 ?>
 </section>

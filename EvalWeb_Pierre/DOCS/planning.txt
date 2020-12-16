@@ -5,3 +5,5 @@ SCRIPT SQL : 9h
 HTML / CSS : 12h ? 
 Connexion : 14h 
 CRUD : 16h30
+
+A la fin j'en avais "marre", j'arriver plus a me mettre a fond dedans
