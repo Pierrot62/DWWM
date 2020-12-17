@@ -9,7 +9,7 @@ body{
 
 .calculatrice{
     background-color: brown;
-    width: 40vw;
+    
 
 }
 
@@ -18,12 +18,13 @@ body{
     justify-content: space-around;
 }
 
-.button{
-    font-size: 3em;
+button{
+    font-size: 2em;
     text-align: center;
     padding: 1em;
     border: solid 1px black;
     width: 100%;
+    cursor: pointer;
 }
 .resultat{
     font-size: 3em;
