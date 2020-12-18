@@ -9,13 +9,13 @@ var afficheur = document.getElementById("resultat");
 function clickBouton(e) {
     var boutonCliquer = e.target;
     var valeur = boutonCliquer.textContent;
-    if (valeur == "-") {
-        afficheur.textContent = eval(affiche.textContent);
-    } else if (valeur == "clear") {
+    if (valeur == "=") {
         afficheur.textContent = eval(afficheur.textContent);
-    } else if (valeur == "supprimer") {
-        afficheur = afficheur.textContent;
-        afficheur.textContent = afficheur.substring(0, afficheur.length - 1);
+    } else if (valeur == "Effacer") {
+        afficheur.textContent = "";
+    } else if (valeur == "Supprimer") {
+        ecran = afficheur.textContent;
+        afficheur.textContent = ecran.substring(0, ecran.length - 1);
     } else {
         afficheur.textContent += valeur;
     }

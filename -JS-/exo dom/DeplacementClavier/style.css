@@ -1,0 +1,18 @@
+#carre{
+  flex : none;
+  width:8em;
+  height:8em;
+  position:absolute;
+  background-color:darkblue;
+  top:100px;
+  left:100px;
+}
+.colonne{
+  flex-direction:column;
+}
+.centre{
+  justify-content: center;
+}
+div{
+  display : flex;
+}

@@ -1,0 +1,14 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+
+#carre{
+  flex : none;
+  width:8em;
+  height:8em;
+  position:absolute;
+  background-color:darkblue;
+  top:0px;
+  left:0px;
+}
