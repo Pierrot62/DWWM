@@ -1,7 +1,9 @@
 var carre = document.getElementById("carre");
+var objet = document.getElementById("objet");
+
 
 window.addEventListener("keydown", function (event) {
-   
+
     switch (event.key) {
         case "ArrowDown":
             deplace(0, 5);
@@ -16,28 +18,32 @@ window.addEventListener("keydown", function (event) {
             deplace(5, 0);
     }
 
-},);
-
-var carre = window.getComputedStyle(object, null);
-var l = carre.top;
-var w = carre.width;
-
-var w = window.getComputedStyle(carre, null);
-var lob = window.getComputedStyle(carre, null);
-var wob = window.getComputedStyle(carre, null);
+});
 
 
-l < lob + wob && l + w > lob && t < tob + hob && t + h > tob
-
-if (condition) {
-    
-}
 
 function deplace(dLeft, dTop) {
-    var styleCarre = window.getComputedStyle(carre, null);
+
+    var carreInfo = window.getComputedStyle(carre);
+    var l = parseInt(carreInfo.left);
+    var w = parseInt(carreInfo.width);
+    var t = parseInt(carreInfo.top);
+    var h = parseInt(carreInfo.height);
+    var objetInfo = window.getComputedStyle(objet);
+    var lob = parseInt(objetInfo.left);
+    var wob = parseInt(objetInfo.width);
+    var tob = parseInt(objetInfo.top);
+    var hob = parseInt(objetInfo.height);
+
+    var styleCarre = window.getComputedStyle(carre);
     var topActuel = styleCarre.top;
     var leftActuel = styleCarre.left;
-    carre.style.top = parseInt(topActuel) + dTop + "px";
-    carre.style.left = parseInt(leftActuel) + dLeft + "px";
-}
 
+    if (l < lob + wob && l + w > lob && t < tob + hob && t + h > tob) {
+        carre.style.top = 100 + "px";
+        carre.style.left = 100 + "px";
+    }else{
+        carre.style.top = parseInt(topActuel) + dTop + "px";
+        carre.style.left = parseInt(leftActuel) + dLeft + "px";
+    }
+}
