@@ -75,3 +75,67 @@ function depl_ok(tob, lob, wob, hob, t, l, w, h) {
     }
     return true;
 }
+
+var ecartY, ecartX; // repère le décalage entre le coin suprieur du carré et la souris
+var carre = document.getElementById('carre');
+var flagMouv = false;
+var compteurCollision = 0;
+
+carre.addEventListener("mousedown", (e) => {
+    // on repere l'ecart entre la souris et le haut du carré, pourgarder cet ecart pendant le déplacement
+    ecartY = parseInt(window.getComputedStyle(carre).top) - parseInt(e.clientY);
+    ecartX = parseInt(window.getComputedStyle(carre).left) - parseInt(e.clientX);
+    // on autorise le déplacement
+    flagMouv = true;
+});
+
+document.addEventListener("mousemove", (e) => {
+    // on déplace si le mouvement est autorisé
+    if (flagMouv == true) {
+        deplaceSouris(e);
+    }
+});
+
+carre.addEventListener("mouseup", (e) => {
+    //on interdit le deplacement
+    flagMouv = false;
+});
+
+
+function deplaceSouris(e) {
+    if (!collisionObstacles(parseInt(e.clientY) + ecartY, parseInt(e.clientX) + ecartX)) {
+        // if (!collisionObstacles(parseInt(e.clientY) + ecartY, parseInt(e.clientX) + ecartX)) {
+        // on deplace le carré en fonction de la position de la souris et de l'ecart du départ
+        carre.style.top = parseInt(e.clientY) + ecartY + "px";
+        carre.style.left = parseInt(e.clientX) + ecartX + "px";
+    }
+};
+
+function collisionUnObstacle(obstacle, posX, posY) {
+    var styleObjet = window.getComputedStyle(carre);
+    var w = parseInt(styleObjet.width);
+    var h = parseInt(styleObjet.height);
+    var styleObstacle = window.getComputedStyle(obstacle);
+    var tob = parseInt(styleObstacle.top);
+    var lob = parseInt(styleObstacle.left);
+    var wob = parseInt(styleObstacle.width);
+    var hob = parseInt(styleObstacle.height);
+    if (posY < lob + wob && posY + w > lob && posX < tob + hob && posX + h > tob) {
+        console.log("collision n°" + compteurCollision + "  " + obstacle.id);
+        flagMouv = false;
+        compteurCollision++;
+        return true;
+    }
+    return false;
+}
+
+
+function collisionObstacles(posX, posY) {
+    var pasCollision = true;
+    var listeObstacles = document.querySelectorAll('.obstacle');
+    //on teste pour chacun des obstacles
+    listeObstacles.forEach(function (obstacle) {
+        pasCollision = pasCollision && !collisionUnObstacle(obstacle, posX, posY);
+    });
+    return !pasCollision;
+}

@@ -1,0 +1,199 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+body{
+  background-color: black;
+}
+
+.carre{
+  flex : none;
+  width:2em;
+  height:2em;
+  position:absolute;
+  background-color:darkblue;
+  top:3em;
+  left:3em;
+}
+.obstacle1{
+  flex : none;
+  width:2em;
+  height:15em;
+  position:absolute;
+  background-color:rgb(20, 168, 206);
+  left:6em;
+}
+.obstacle2{
+  flex : none;
+  width:35em;
+  height:2em;
+  position:absolute;
+  background-color:rgb(20, 168, 206);
+  top: 15em;
+  left:6em;
+}
+.obstacle3{
+  flex : none;
+  width:50em;
+  height:2em;
+  position:absolute;
+  background-color:rgb(20, 168, 206);
+  top: 24em;
+  left:2em;
+}
+.obstacle4{
+  flex: none;
+  width: 2em;
+  height: 16em;
+  position: absolute;
+  background-color: rgb(20, 168, 206);
+  top: 8em;
+  left: 50em;
+}
+.obstacle5{
+  flex : none;
+  width:40em;
+  height:2em;
+  position:absolute;
+  background-color:rgb(20, 168, 206);
+  top: 6em;
+  left:12em;
+}
+
+.obstacle6{
+  flex : none;
+  width:50em;
+  height:2em;
+  position:absolute;
+  background-color:rgb(20, 168, 206);
+  top: 32em;
+  left:11em;
+}
+.obstacle7{
+  flex: none;
+  width: 2em;
+  height: 32em;
+  position: absolute;
+  background-color: rgb(20, 168, 206);
+  top: 0em;
+  left: 59em;
+}
+.obstacle8{
+  flex: none;
+  width: 100vw;
+  height: 2em;
+  position: absolute;
+  background-color: rgb(20, 168, 206);
+  top: 0em;
+  left: 0em;
+}
+
+.obstacle9{
+  flex: none;
+  width: 2em;
+  height: 100vh;
+  position: absolute;
+  background-color: rgb(20, 168, 206);
+  top: 0em;
+  left: 0em;
+}
+
+.obstacle10{
+  flex: none;
+  width: 100vw;
+  height: 2em;
+  position: absolute;
+  background-color: rgb(20, 168, 206);
+  bottom: 0em;
+  left: 0em;
+}
+
+.obstacle11{
+  flex: none;
+  width: 2em;
+  height: 100vh;
+  position: absolute;
+  background-color: rgb(20, 168, 206);
+  bottom: 0em;
+  right: 0em;
+}
+
+.obstacle12{
+  flex: none;
+    width: 2em;
+    height: 31em;
+    position: absolute;
+    background-color: rgb(20, 168, 206);
+    top: 28em;
+    left: 77em;
+}
+
+.obstacle13{
+  flex: none;
+  width: 18em;
+  height: 2em;
+  position: absolute;
+  background-color: rgb(20, 168, 206);
+  top: 28em;
+  left: 77em;
+}
+
+.obstacle14{
+  flex: none;
+  width: 2em;
+  height: 16em;
+  position: absolute;
+  background-color: rgb(20, 168, 206);
+  top: 12em;
+  left: 77em;
+}
+
+.obstacle15{
+  flex: none;
+  width: 18em;
+  height: 2em;
+  position: absolute;
+  background-color: rgb(20, 168, 206);
+  top: 10em;
+  left: 77em;
+}
+
+.obstacle16{
+  flex: none;
+  width: 27em;
+  height: 2em;
+  position: absolute;
+  background-color: rgb(20, 168, 206);
+  top: 40em;
+  right: 0em;
+}
+
+.obstacle17{
+  flex: none;
+  width: 38em;
+  height: 2em;
+  position: absolute;
+  background-color: rgb(20, 168, 206);
+  top: 20em;
+  right: 0em;
+}
+
+.arriver{
+  flex: none;
+  width: 10em;
+  height:10em;
+  position: absolute;
+  background-color: rgb(20, 168, 206);
+  bottom: 3em;
+  right: 3em;
+}
+.colonne{
+  flex-direction:column;
+}
+.centre{
+  justify-content: center;
+}
+div{
+  display : flex;
+}
+
