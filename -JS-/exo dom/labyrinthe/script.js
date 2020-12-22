@@ -28,20 +28,29 @@
 // }
 
 
+var son = new Audio('chef.mp3');
+var audio = new Audio('bip.mp3');
+var compteurCollision = 0;
+
 window.addEventListener("keydown", function (event) {
 
     switch (event.key) {
+      
         case "ArrowDown":
             deplace(0, 5);
+            // audio.play();
             break;
         case "ArrowUp":
             deplace(0, -5);
+            // audio.play();
             break;
         case "ArrowLeft":
             deplace(-5, 0);
+            // audio.play();
             break;
         case "ArrowRight":
             deplace(5, 0);
+            // audio.play();
     }
 
 });
@@ -60,7 +69,7 @@ function deplace(dx, dy) {
         var lob = parseInt(styleObst.left);
         var wob = parseInt(styleObst.width);
         var hob = parseInt(styleObst.height);
-        deplacement_ok = deplacement_ok && depl_ok(tob, lob, wob, hob, t + dy, l + dx, w, h);
+        deplacement_ok = deplacement_ok && depl_ok(tob, lob, wob, hob, t + dy, l + dx, w, h, elt);
 
     });
     if (deplacement_ok) {
@@ -69,17 +78,28 @@ function deplace(dx, dy) {
     }
 }
 
-function depl_ok(tob, lob, wob, hob, t, l, w, h) {
-    if (l < lob + wob && l + w > lob && t < tob + hob && t + h > tob) {
-        return false
-    }
+function depl_ok(tob, lob, wob, hob, t, l, w, h, obstacle) {
+    
+    if(l < lob + wob && l + w > lob && t < tob + hob && t + h > tob) {
+       if (obstacle.className == 'arriver') {
+           alert("gg");
+       }
+       else{
+        compteurCollision ++
+        document.getElementById("afficheColision").innerHTML = "Nombre de colission : "+compteurCollision
+        
+       }
+        // son.play();
+       return false
+        
+        }
     return true;
 }
 
 var ecartY, ecartX; // repère le décalage entre le coin suprieur du carré et la souris
 var carre = document.getElementById('carre');
 var flagMouv = false;
-var compteurCollision = 0;
+
 
 carre.addEventListener("mousedown", (e) => {
     // on repere l'ecart entre la souris et le haut du carré, pourgarder cet ecart pendant le déplacement
@@ -103,7 +123,11 @@ carre.addEventListener("mouseup", (e) => {
 
 
 function deplaceSouris(e) {
-    if (!collisionObstacles(parseInt(e.clientY) + ecartY, parseInt(e.clientX) + ecartX)) {
+    var arriveeCase=document.querySelector(".arriver");
+    if (arrivee(arriveeCase, parseInt(e.clientY)+ecartY,parseInt(e.clientX)+ecartX)) {
+        console.log("BITE");
+    }
+    else if (!collisionObstacles(parseInt(e.clientY) + ecartY, parseInt(e.clientX) + ecartX)) {
         // if (!collisionObstacles(parseInt(e.clientY) + ecartY, parseInt(e.clientX) + ecartX)) {
         // on deplace le carré en fonction de la position de la souris et de l'ecart du départ
         carre.style.top = parseInt(e.clientY) + ecartY + "px";
@@ -123,9 +147,13 @@ function collisionUnObstacle(obstacle, posX, posY) {
     if (posY < lob + wob && posY + w > lob && posX < tob + hob && posX + h > tob) {
         console.log("collision n°" + compteurCollision + "  " + obstacle.id);
         flagMouv = false;
+
         compteurCollision++;
+        document.getElementById("afficheColision").innerHTML = "Nombre de colission : "+compteurCollision
+
         return true;
     }
+    
     return false;
 }
 
@@ -133,9 +161,35 @@ function collisionUnObstacle(obstacle, posX, posY) {
 function collisionObstacles(posX, posY) {
     var pasCollision = true;
     var listeObstacles = document.querySelectorAll('.obstacle');
+
     //on teste pour chacun des obstacles
     listeObstacles.forEach(function (obstacle) {
         pasCollision = pasCollision && !collisionUnObstacle(obstacle, posX, posY);
     });
     return !pasCollision;
+}
+
+function arrivee (arriver, posX, posY) {
+    var styleObjet = window.getComputedStyle(carre);
+    var w = parseInt(styleObjet.width);
+    var h = parseInt(styleObjet.height);
+    var styleArriver = window.getComputedStyle(arriver);
+    var tob = parseInt(styleArriver.top);
+    var lob = parseInt(styleArriver.left);
+    var wob = parseInt(styleArriver.width);
+    var hob = parseInt(styleArriver.height);
+    if (posY < lob + wob && posY + w > lob && posX < tob + hob && posX + h > tob) {
+        alert("Vous êtes arrivé !");
+        flagMouv = false;
+
+        return true;
+    }
+}
+
+function depart() {
+    intervalTimer = setInterval(timer , 1000);
+}
+function fin() {
+    clearInterval(intervalTimer);
+    document.getElementById("chrono")
 }

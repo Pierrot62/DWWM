@@ -11,7 +11,7 @@ body{
   width:2em;
   height:2em;
   position:absolute;
-  background-color:darkblue;
+  background-color:rgb(35, 0, 148);
   top:3em;
   left:3em;
 }
@@ -180,13 +180,27 @@ body{
 
 .arriver{
   flex: none;
-  width: 10em;
+  width: 5em;
+  height:5em;
+  position: absolute;
+  background-image: url(fini.png);  bottom: 3em;
+  background-position: center;
+  background-size: cover;
+  right: 3em;
+}
+
+.timer{
+  flex: none;
+  flex-direction: column;
+  align-items: center;
+  width: 15em;
   height:10em;
   position: absolute;
   background-color: rgb(20, 168, 206);
-  bottom: 3em;
-  right: 3em;
+  bottom: 0em;
+  left: 0em;
 }
+
 .colonne{
   flex-direction:column;
 }
@@ -197,3 +211,7 @@ div{
   display : flex;
 }
 
+/* .chrono{
+
+}
+ */
