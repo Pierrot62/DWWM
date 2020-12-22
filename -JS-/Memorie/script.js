@@ -3,7 +3,7 @@ var etat = true;
 var check = [];
 var memorecto = [];
 var memoverso = [];
-
+var compteurPair = 0;
 for (let i = 0; i < recto.length; i++) {
     recto[i].addEventListener("click", function (e) {
         if (check.length < 2) {
@@ -11,7 +11,7 @@ for (let i = 0; i < recto.length; i++) {
         }
         if (check.length == 2) {
             if (check[0] == check[1]) {
-                alert("gagner");
+                compteurPair++;
                 check = [];
                 memoverso = [];
                 memorecto = [];
@@ -47,4 +47,30 @@ function returnImg(e, etat) {
         memoverso = [];
     }
 
+}
+
+var button = document.getElementById("solution");
+button.addEventListener("click", solution);
+var sol = false;
+function solution() {
+
+    var listeRecto = document.getElementsByClassName("recto")
+    var listeVerso = document.getElementsByClassName("verso")
+    for (let i = 0; i < listeRecto.length; i++) {
+
+        if (sol == false) {
+            listeRecto[i].style.display = "none";
+            listeVerso[i].style.display = "flex";
+
+        } else if (sol == true) {
+            listeRecto[i].style.display = "flex";
+            listeVerso[i].style.display = "none";
+        }
+
+    }
+    if (sol == false) {
+        sol = true;
+    } else {
+        sol = false;
+    }
 }
