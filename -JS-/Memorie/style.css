@@ -5,7 +5,6 @@
 body{
     background-color: black;
     color: white;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
 }
 h1{
     text-align: center;
@@ -17,21 +16,25 @@ img{
     width: 100%;
 }
 
+.menu{
+    text-align: center;
+    display: flex;
+    justify-content: space-around;
+}
 .espace{
     flex: 1;
 }
 
-.espaceHaut{
-    height: 1vh;
-}
 
 .ligne{
+    z-index: 1;
     display: flex;
     flex: 6;
 }
 
 .verso{
     display: none ;
+    border-radius: 5em;
 }
 /* 
 .case:hover .verso{
@@ -41,3 +44,17 @@ img{
 .case:hover .recto{
     display: none;
 } */
+
+.nbPaire{
+    color: red;
+    background-color: rosybrown;
+}
+#gagner{
+    display: none;
+    z-index: 999;
+    position: absolute;
+    width: 100vw;
+    font-size: 5em;
+    padding-top: 40vh;
+    justify-content: space-around;
+}
