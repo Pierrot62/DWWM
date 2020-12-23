@@ -5,7 +5,7 @@ var buttonReset = document.getElementById("reset");
 var button = document.getElementById("solution");
 var affichePaire = (document.getElementById("nbPaire").innerHTML = "Nombre de paire trouver : 0");
 var afficheNbCoup = (document.getElementById("nbCoup").innerHTML = "Nombre de clics : 0");
-var chrono = document.getElementById("chrono");
+// var chrono = document.getElementById("chrono");
 
 var etat = true;
 var sol = false;
@@ -105,7 +105,7 @@ var sec = 0;
 var secTemp = 0;
 
 //CHRONO
-var chrono = document.getElementById("chrono");
+var afficheChrono = document.getElementById("chrono");
 function timer() {
     sec++;
     if (sec >= 60) {
