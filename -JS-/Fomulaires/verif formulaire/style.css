@@ -2,33 +2,52 @@
     margin: 0;
     padding: 0;
 }
-
-body{
-    background-color: black;
-}
-
 h1{
-    color: white;
-}
-
-#fomulaire{
-    width: 40vw;
-    margin: auto;
-    text-align: center;
-}
-
-input{
-    text-align: center;
-    background-color: #E8E8E8 ;
     color: black;
 }
 
-.elmForm{
-    background-color: #DFDFDF;
-    padding: 2em;
+i{
+    cursor: pointer;
+}
+.info{
+    text-align: center;
 }
 
-input[required] +span::before{
+#button{
+    opacity: 0.5;
+}
+
+.croix{
+    color: red;
+}
+.question{
+    color: grey;
+}
+.content {
+    background-color: rgb(43, 43, 43);
+    color: blanchedalmond;
+    padding: 2em;
+}
+.elmForm{
+    text-align: center;
+    margin: 2em;
+}
+label {
+    display:inline-block;
+    width:8em;
+    text-align:right;
+}
+input{
+    width: 15em;
+}
+.center{
+    margin: 2em;
+    text-align: center;
+}
+  input[required] +span::after{
 	content: '*';
 	color: red;
+}
+input{
+    border: grey 5px solid;
 }
