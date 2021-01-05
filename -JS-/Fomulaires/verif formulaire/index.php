@@ -17,7 +17,7 @@
         
         <div class="elmForm">
           <label for="Nom">Nom :</label> 
-          <input type="text" name="nom" id="nom" required placeholder="Votre nom"/>
+          <input type="text" name="nom" id="nom" required pattern="[a-zA-Z- ]+" placeholder="Votre nom"/>
           <span id="spanNom"><i title="Entrez votre nom : minimun 3 lettres, pas de chiffres" class="question fas fa-question"></i></span>
         </div>
 
@@ -38,7 +38,7 @@
       <p class="info">* : Informations obligatoire</p>
       <p class="info" id="info"></p>
         <div class="center">
-          <input id="button" type="submit" disabled value="Envoyer"/>
+          <input id="button" type="submit" value="Envoyer"/>
         </div>
 
 
@@ -47,7 +47,7 @@
     </div>
 
     <script src="https://kit.fontawesome.com/ce4feb7268.js" crossorigin="anonymous"></script>
-    <script src="script.js"></script>
+    <!-- <script src="script.js"></script> -->
 </body>
 
 </html>

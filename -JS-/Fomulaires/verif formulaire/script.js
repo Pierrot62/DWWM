@@ -12,25 +12,33 @@ inputName.addEventListener("keyup", verifNom);
 inputDdn.addEventListener("change", verifDdn);
 inputCp.addEventListener("keyup", verifCp);
 
-var compteurVerif = 0;
+var verif1 = false;
+var verif2 = false;
+var verif3 = false;
+
+
 
 function verifNom() {
   let content = inputName.value;
-  let lettre = content.charAt(content.length - 1);
+//   let lettre = content.charAt(content.length - 1);
+  let filtre = new RegExp("^[a-zA-Z- ]+$");
 
-  if (!isNaN(lettre)) {
+  if (filtre.test(content) == false) {
     inputName.value = inputName.value.slice(0, -1);
     inputName.style.border = "5px solid red";
     spaninfo.textContent = "Erreur : le nom ne peut comporter que des lettres.";
+    verif1 = false;
   } else if (content.length < 3) {
     inputName.style.border = "5px solid orange";
     spaninfo.textContent = "Erreur : le nom doit contenir au moins 3 lettres.";
+    verif1 = false;
   } else {
     inputName.style.border = "5px solid green";
     spaninfo.textContent = "";
-    compteurVerif++;
-    activButton(compteurVerif);
+    verif1 = true;
   }
+  activButton(verif1, verif2 ,verif3);
+
 }
 
 function verifDdn() {
@@ -38,45 +46,56 @@ function verifDdn() {
   let jour = parseInt(dateUser.substring(8, 10));
   let mois = parseInt(dateUser.substring(5, 7));
   let année = parseInt(dateUser.substring(0, 4));
-
   let date = new Date(année, mois - 1, jour);
   let dateSysteme = new Date();
+
   if (date > dateSysteme) {
     inputDdn.style.border = "5px solid red";
     spaninfo.textContent = "Erreur : la date de naissance ne peux pas être supérieur a la date actuelle.";
+    verif2 = false;
   } else {
     inputDdn.style.border = "5px solid green";
     spaninfo.textContent = "";
-    compteurVerif++;
-    activButton(compteurVerif);
+    verif2 = true;
   }
+  activButton(verif1, verif2 ,verif3);
+
 }
 
 function verifCp() {
   let content = inputCp.value;
-  let lettre = content.charAt(content.length - 1);
+//   let lettre = content.charAt(content.length - 1);
+  let filtre = new RegExp("^[0-9][0-9][0-9][0-9][0-9]|[0-9][0-9][ ][0-9][0-9][0-9]$");
+
+  
 
   if (isNaN(lettre)) {
     inputCp.value = inputCp.value.slice(0, -1);
     inputCp.style.border = "5px solid red";
     spaninfo.textContent = "Erreur : le code postal ne peut contenir que des chiffres.";
+    verif3 = false;
   } else if (content.length > 5) {
     inputCp.value = inputCp.value.slice(0, -1);
+    spaninfo.textContent = "Erreur : le code postal ne peut contenir que 5 chiffres.";
+    verif3 = false;
   } else if (content.length < 5) {
     inputCp.style.border = "5px solid orange";
+    spaninfo.textContent = "Erreur : le code postal doit contenir 5 chiffres.";    
+    verif3 = false;
   } else {
     inputCp.style.border = "5px solid green";
     spaninfo.textContent = "";
-    compteurVerif++;
-    activButton(compteurVerif);
+    verif3 = true;
   }
+  activButton(verif1, verif2 ,verif3);
 }
 
-function activButton(compteurVerif) {
-  if (compteurVerif == 3) {
+function activButton(verif1, verif2, verif3) {
+  if (verif1 == true && verif2 == true && verif3 == true) {
     button.style.opacity = "1";
     button.removeAttribute("disabled", "");
   } else {
-    
+    button.style.opacity = "0.5";
+    button.setAttribute("disabled", "");
   }
 }
