@@ -1,23 +1,29 @@
 var inputName = document.getElementById("nom");
 var inputDdn = document.getElementById("ddn");
 var inputCp = document.getElementById("cp");
+var inputEmail = document.getElementById("email");
 var inputMdp = document.getElementById("mdp");
 var confirmMdp = document.getElementById("confirmMdp");
 
 var spaninfo = document.getElementById("info");
 var button = document.getElementById("button");
 var btnMdp = document.getElementsByClassName("viewMdp")[0];
-console.log(btnMdp);
 
 var checkInput = document.getElementsByClassName("checkInput");
 var spanNom = document.getElementById("spanNom");
 var spanDdn = document.getElementById("spanNom");
 var spanCp = document.getElementById("spanCp");
+var spanEmail = document.getElementById("spanEmail");
+var spanMdp = document.getElementById("spanMdp");
+var spanConfirmMdp = document.getElementById("spanConfirmMdp");
+
 
 inputName.addEventListener("keyup", verifNom);
 inputDdn.addEventListener("change", verifDdn);
 inputCp.addEventListener("keyup", verifCp);
+inputEmail.addEventListener("keyup", verifEmail);
 inputMdp.addEventListener("keyup", verifMdp);
+confirmMdp.addEventListener("change", confirm);
 
 btnMdp.addEventListener("click", afficheMdp);
 
@@ -91,8 +97,30 @@ function verifCp() {
   activButton(verif1, verif2, verif3);
 }
 
+function verifEmail() {
+    let content = inputEmail.value;
+    if (checkInput[3].checkValidity()) {
+      inputEmail.style.border = "5px solid green";
+      spaninfo.textContent = "";
+      verif1 = true;
+    } else {
+      inputEmail.style.border = "5px solid red";
+      spaninfo.textContent = "Format incorrect";
+      verif1 = false;
+    }
+    activButton(verif1, verif2, verif3);
+  }
+
 function verifMdp() {
     let content = inputMdp.value;
+    if (content.length < 8) {
+        inputMdp.style.border = "5px solid orange"
+    } else if (!checkInput[4].checkValidity()) {
+        inputMdp.style.border = "5px solid red";
+    }
+    else if (checkInput[4].checkValidity()) {
+        inputMdp.style.border = "5px solid green"
+    }
 }
 
 function afficheMdp() {
@@ -100,6 +128,18 @@ function afficheMdp() {
         inputMdp.setAttribute("type", "text");//
     } else {
         inputMdp.setAttribute("type", "password");//
+    }
+}
+
+function confirm() {
+    let mdp = inputMdp.value;
+    let confirm = confirmMdp.value;
+    if (mdp == confirm) {
+        confirmMdp.style.border = "5px solid green";
+        spaninfo.textContent = " ";
+    } else {
+        confirmMdp.style.border = "5px solid red";
+        spaninfo.textContent = "Erreur : la confirmation de conrrespond pas au mot de passe.";
     }
 }
 

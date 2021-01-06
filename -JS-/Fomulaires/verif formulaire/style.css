@@ -1,6 +1,10 @@
 *{
     margin: 0;
     padding: 0;
+    text-decoration: none;
+}
+li{
+    list-style: none;
 }
 h1{
     color: black;
@@ -36,21 +40,52 @@ label {
     width:12em;
     text-align:right;
 }
-input{
-    width: 15em;
-}
 .center{
     margin: 2em;
     text-align: center;
 }
-  input[required] +span::after{
+input[required] +span::after{
 	content: '*';
 	color: red;
 }
 input{
     border: grey 5px solid;
+    width: 15em;
 }
-
 #mdp{
     background-image: url(./eye.png);
+}
+.fa-times-circle{
+    color: red;
+}
+
+.aideMdp {
+    flex-direction: column;
+    position: absolute;
+    z-index: 2;
+    top: 0;
+    right : 10vh;
+    font-size: 0.8em;
+    white-space: nowrap;
+    border-radius: 2vh;
+    background-color: rgba(24, 24, 24, 1);
+    padding: 1vh;
+}
+
+.aideMdp > div{
+    display: flex;
+}
+
+.gauche {
+    justify-content: start;
+    padding-left: 1vw;
+}
+
+.info {
+    position: relative;
+}
+
+.picto {
+    flex: 0.2;
+    margin: 0 1vw;
 }

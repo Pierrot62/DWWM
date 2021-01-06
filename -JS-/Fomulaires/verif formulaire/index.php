@@ -36,17 +36,54 @@
         </div>
 
         <div class="elmForm">
+          <label for="email">Email :</label>
+          <input title="5 Chiffres attendus" type="text" class="checkInput" name="email" id="email" required pattern="^[a-z]+[a-z0-9._-]+@[a-z0-9._-]+\.[a-z]{2,6}$" placeholder="Votre email"/>
+          <span id="spanEmail"><i title="Entrez votre email" class="question fas fa-question"></i></span>
+        </div>
+
+        <div class="elmForm">
           <label for="mdp">Mot de passe : </label>
           <input title="5 Chiffres attendus" type="password" class="checkInput" name="mdp" id="mdp" required pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*[\d])(?=.*[!@#\$%\^&\*+])[a-zA-Z\d!@#\$%\^&\*+]{8,}" placeholder="Votre mot de passe"/>
-          <i class="viewMdp fas fa-eye"></i>
+          <div class="oeil">
+            <i class="viewMdp fas fa-eye"></i>
+          </div>
+          <div class="info picto">
+                <div class="texteInfoBulle"></div>
+                <div class="aideMdp">
+                    <div>Liste des critères à respecter</div>
+                    <div>
+                        <div class="mini"><i class="far fa-times-circle rouge"></i>
+                        </div>
+                        <div class="gauche">8 caractères minimum</div>
+                    </div>
+                    <div>
+                        <div class="mini"><i class="far fa-times-circle rouge"></i>
+                        </div>
+                        <div class="gauche">majuscule(s)</div>
+                    </div>
+                    <div>
+                        <div class="mini"><i class="far fa-times-circle rouge"></i>
+                        </div>
+                        <div class="gauche">minuscule(s)</div>
+                    </div>
+                    <div>
+                        <div class="mini"><i class="far fa-times-circle rouge"></i>
+                        </div>
+                        <div class="gauche">nombre(s)</div>
+                    </div>
+                    <div>
+                        <div class="mini"><i class="far fa-times-circle rouge"></i>
+                        </div>
+                        <div class="gauche">caractères spéciaux</div>
+                    </div>
+                </div>
+            </div>
           <span id="spanMdp"><i title="Entrez votre mot de passe" class="question fas fa-question"></i></span>
         </div>
 
         <div class="elmForm">
           <label for="confirmMdp">Confirmation de mot de passe : </label>
           <input title="5 Chiffres attendus" type="password" class="checkInput" name="confirmMdp" id="confirmMdp" required pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*[\d])(?=.*[!@#\$%\^&\*+])[a-zA-Z\d!@#\$%\^&\*+]{8,}" placeholder="Confirmation de mot de passe"/>
-          <i class="viewMdp fas fa-eye"></i>
-
           <span id="spanConfirmMdp"><i title="Entrez votre mot de passe" class="question fas fa-question"></i></span>
         </div>
 
