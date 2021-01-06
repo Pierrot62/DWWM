@@ -14,25 +14,40 @@
      <fieldset>
       <legend>Formulaire informatif</legend>
       <form>
-        
+
         <div class="elmForm">
-          <label for="Nom">Nom :</label> 
+          <label for="Nom">Nom :</label>
           <input type="text" class="checkInput" name="nom" id="nom" required pattern="[a-zA-Z- ]{3,}" placeholder="Votre nom"/>
           <span id="spanNom"><i title="Entrez votre nom : minimun 3 lettres, pas de chiffres" class="question fas fa-question"></i></span>
         </div>
 
 
         <div class="elmForm">
-          <label for="ddn">Date de naissance :</label> 
+          <label for="ddn">Date de naissance :</label>
           <input type="date" class="checkInput" name="ddn" id="ddn" required placeholder="Date de naissance" />
           <span id="spanDdn"><i title="Entrez votre date de naissance" class="question fas fa-question"></i></span>
         </div>
 
 
         <div class="elmForm">
-          <label for="cp">Code postal :</label> 
-          <input title="5 Chiffres attendus" type="text" class="checkInput" name="cp" id="cp" required pattern="\d{2}[ ]?\d{3}" placeholder="XXXXX"/>
+          <label for="cp">Code postal :</label>
+          <input title="5 Chiffres attendus" type="text" class="checkInput" name="cp" id="cp" required pattern="\d{5}" placeholder="XXXXX"/>
           <span id="spanCp"><i title="Entrez votre code postal : 5 chiffres" class="question fas fa-question"></i></span>
+        </div>
+
+        <div class="elmForm">
+          <label for="mdp">Mot de passe : </label>
+          <input title="5 Chiffres attendus" type="password" class="checkInput" name="mdp" id="mdp" required pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*[\d])(?=.*[!@#\$%\^&\*+])[a-zA-Z\d!@#\$%\^&\*+]{8,}" placeholder="Votre mot de passe"/>
+          <i class="viewMdp fas fa-eye"></i>
+          <span id="spanMdp"><i title="Entrez votre mot de passe" class="question fas fa-question"></i></span>
+        </div>
+
+        <div class="elmForm">
+          <label for="confirmMdp">Confirmation de mot de passe : </label>
+          <input title="5 Chiffres attendus" type="password" class="checkInput" name="confirmMdp" id="confirmMdp" required pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*[\d])(?=.*[!@#\$%\^&\*+])[a-zA-Z\d!@#\$%\^&\*+]{8,}" placeholder="Confirmation de mot de passe"/>
+          <i class="viewMdp fas fa-eye"></i>
+
+          <span id="spanConfirmMdp"><i title="Entrez votre mot de passe" class="question fas fa-question"></i></span>
         </div>
 
       <p class="info">* : Informations obligatoire</p>

@@ -33,7 +33,7 @@ i{
 }
 label {
     display:inline-block;
-    width:8em;
+    width:12em;
     text-align:right;
 }
 input{
@@ -49,4 +49,8 @@ input{
 }
 input{
     border: grey 5px solid;
+}
+
+#mdp{
+    background-image: url(./eye.png);
 }
