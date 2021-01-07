@@ -67,5 +67,5 @@ function afficheDetail(e) {
 }
 
 //on envoi la requête
-req.open('GET', 'https://opendata.lillemetropole.fr/api/records/1.0/search/?dataset=vlille-realtime&q=&rows=50&facet=libelle&facet=nom&facet=commune&facet=etat&facet=type&facet=etatconnexion', true);
+req.open('GET', 'https://api.openweathermap.org/data/2.5/weather?q=' + ville + '&appid=229a7f1ca981d5bf71a3e305c2af64ea&units=metric', true);
 req.send(null);

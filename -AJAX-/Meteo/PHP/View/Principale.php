@@ -1,13 +1,13 @@
 ﻿<!-- Cette page est le contenu de la page principale du site; Elle présente la liste des parkings. -->
 
 <div id="divSousTitre">
-	<h3>V'Lille</h3>
+	<h1>~ METEO ~</h1>
 </div>
 <div id="divContenu">
-	<div class="ligne titreLigne">
-		<div class="commune">Commune</div>
-		<div class="libelle">Nom de l'emplacement</div>
-		<div class="etat">Etat</div>
-	</div>
-	<div class="espaceHorizon"></div>
+	<label for="ville">Ville : </label>
+	<input type="text" class="ville" value="COUCOU" name="ville" placeholder="Entrez votre ville :">
+	<div class="espace"></div>
+	<div id="nomVille">Boulogne Sur Mer</div>
+	<div class="espace"></div>
+	<div id="">Température actuelle : </div>
 </div>

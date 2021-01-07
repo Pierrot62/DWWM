@@ -37,7 +37,7 @@ Parametre::init();
 
 /* création d'u tableau de redirection, en fonction du code, on choisit la page à afficher */
 $routes = [
-    "default" => ["PHP/VIEW/", "Principale", "Accueil"]
+    "default" => ["PHP/VIEW/", "Principale", "| Meteo |"]
 ];
 
 if (isset($_GET["code"]))
