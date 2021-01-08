@@ -8,7 +8,7 @@
 				</div>
 
 				<div id="titre_page">
-                  Parking de Lille
+                  <h1>V '  Lille - Service de location de velo en libre service</h1>
                 </div>
             </div>
 		</div>

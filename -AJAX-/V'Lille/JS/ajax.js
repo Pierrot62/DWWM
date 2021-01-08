@@ -51,6 +51,9 @@ function afficheDetail(e) {
     veloClique.removeEventListener("click", afficheDetail);
     detail = document.createElement("div");
     detail.setAttribute("class", "detail");
+    ico = document.createElement("div");
+    ico.setAttribute("class", "grand");
+    ico.setAttribute("class", "ico");
     adresse = document.createElement("div");
     adresse.setAttribute("class", "adresse");
     detail.appendChild(adresse);
@@ -67,5 +70,5 @@ function afficheDetail(e) {
 }
 
 //on envoi la requête
-req.open('GET', 'https://api.openweathermap.org/data/2.5/weather?q=' + ville + '&appid=229a7f1ca981d5bf71a3e305c2af64ea&units=metric', true);
+req.open('GET', 'https://opendata.lillemetropole.fr/api/records/1.0/search//?dataset=disponibilite-parkings&rows=50', true);
 req.send(null);
