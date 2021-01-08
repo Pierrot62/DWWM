@@ -5,8 +5,30 @@ body {
 	padding: 0;
 }
 
+.vert {
+	color: green;
+}
+
+.rouge{
+	color: red;
+}
+
 img {
 	width: 100%;
+}
+
+div{
+	flex: 1;
+	text-align: center;
+}
+
+/* .indisponible{
+	border: 2px solid red;
+} */
+
+.detail{
+	display: flex;
+	justify-content: space-around;
 }
 
 #entete {
@@ -37,6 +59,7 @@ img {
 	justify-content: space-between;
 	background-color: grey;
 	padding: 0.5em;
+	margin: 0.5em;
 }
 
 .espaceHorizon {
