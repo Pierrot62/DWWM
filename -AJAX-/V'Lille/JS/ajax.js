@@ -63,6 +63,9 @@ function afficheDetail(e) {
     nbvelosdispo = document.createElement("div");
     nbvelosdispo.setAttribute("class", "nbvelosdispo");
     detail.appendChild(nbvelosdispo);
+    if (enregs[veloClique.id].fields.adresse == "OUVERT") {
+        ico.innerHTML = enregs[veloClique.id].fields.adresse;
+    }
     adresse.innerHTML = enregs[veloClique.id].fields.adresse;
     dispo.innerHTML = enregs[veloClique.id].fields.etat;
     nbvelosdispo.innerHTML= "  Nb de velo max : " + enregs[veloClique.id].fields.nbvelosdispo;
@@ -70,5 +73,5 @@ function afficheDetail(e) {
 }
 
 //on envoi la requête
-req.open('GET', 'https://opendata.lillemetropole.fr/api/records/1.0/search//?dataset=disponibilite-parkings&rows=50', true);
+req.open('GET', 'https://opendata.lillemetropole.fr/api/records/1.0/search/?dataset=vlille-realtime&q=&facet=libelle&facet=nom&facet=commune&facet=etat&facet=type&facet=etatconnexion', true);
 req.send(null);
