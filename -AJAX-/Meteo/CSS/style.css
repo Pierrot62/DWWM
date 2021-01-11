@@ -1,7 +1,10 @@
-﻿/*-----------------------------------GLOBAL-----------------------------------------*/
+﻿/*-----------------------------------GLOBAL---          --------------------------------------*/
 body {
-	background-image: url("../Images/ciel.jpeg");
-	color: white;
+	background-image: url("../Images/font.jpg");
+	/* background-position: center; */
+	background-size: cover;
+	background-repeat: no-repeat;
+	color: black;
 	text-align: center;
 }
 
@@ -10,13 +13,21 @@ img {
 }
 
 .espace{
-	height: 10vh;
+	height: 5vh;
+}
+
+#ico{
+	width: 10vh;
+}
+
+.info{
+	font-size: 1.5em;
 }
 
 #nomVille{
 	font-size: 3em;
 	font-weight: bolder;
-	color: brown;
+	color: black;
 }
 
 label{
@@ -24,7 +35,7 @@ label{
 }
 
 input{
-	border-radius: 5vh;
+	border-radius: 1vh;
 	border: 5px solid rgb(69, 104, 218);
 	text-align: center;
 	font-weight: bolder;

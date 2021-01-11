@@ -5,9 +5,15 @@
 </div>
 <div id="divContenu">
 	<label for="ville">Ville : </label>
-	<input type="text" class="ville" value="COUCOU" name="ville" placeholder="Entrez votre ville :">
+	<input type="text" id="ville" name="ville" placeholder="Entrez votre ville :">
 	<div class="espace"></div>
-	<div id="nomVille">Boulogne Sur Mer</div>
+	<div id="nomVille"></div>
 	<div class="espace"></div>
-	<div id="">Température actuelle : </div>
+	<img id="ico" src="" alt="">	
+	<div class="info" id="temp"></div>
+	<div class="info" id="meteo"></div>
+	<div class="info" id="tempMax"></div>
+	<div class="info" id="tempMin"></div>
+	<div class="info" id="ventVitesse"></div>
+
 </div>
