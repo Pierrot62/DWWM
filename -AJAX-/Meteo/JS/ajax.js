@@ -6,6 +6,7 @@ var meteo = document.getElementById("meteo");
 var tempMax = document.getElementById("tempMax");
 var tempMin = document.getElementById("tempMin");
 var vitesseVent = document.getElementById("ventVitesse");
+var body = document.getElementsByTagName("body");
 
 
 
@@ -15,7 +16,7 @@ function recupVille() {
     console.log(inputVille.value);
     afficheVille.innerHTML = inputVille.value;
     //on envoi la requête
-    req.open('GET', 'http://api.openweathermap.org/data/2.5/weather?q= ' + inputVille.value + ',fr&appid=4f00f8b80c9b221ffd12e64353e31667&units=metric&lang=fr', true);
+    req.open('GET', 'http://api.openweathermap.org/data/2.5/weather?q= ' + inputVille.value + '&appid=4f00f8b80c9b221ffd12e64353e31667&units=metric&lang=fr', true);
     req.send(null);
 }
 
@@ -37,7 +38,26 @@ req.onreadystatechange = function (event) {
                 tempMax.innerHTML = "Temperature Maximale "+ reponse.main.temp_max + " °";
                 tempMin.innerHTML = "Temperature Minimale "+ reponse.main.temp_min + " °";
                 vitesseVent.innerHTML = "Vitesse du vent  "+ reponse.wind.speed + " m/s";
-                console.log(reponse.);
+
+
+                var heureCoucher = reponse.sys.sunset * 1000;
+                var heureLever = reponse.sys.sunrise * 1000;
+                var coucher = new Date(heureCoucher);
+                var lever = new Date(heureLever);
+                var heureSys = new Date();
+                console.log(lever);
+                console.log(coucher);
+                console.log(heureSys);
+               
+
+                if (coucher >= heureSys) {
+                    body.style.backgroundColor = "black";
+                    body.style.color = "white";
+                } else if (lever >= heureSys ){
+                    body.style.backgroundColor = "white";
+                    body.style.color = "black";
+                }
+
                 console.log("Réponse reçue: %s", this.responseText);
         } else {
             console.log("Status de la réponse: %d (%s)", this.status, this.statusText);
