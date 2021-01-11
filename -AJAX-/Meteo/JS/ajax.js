@@ -8,8 +8,6 @@ var tempMin = document.getElementById("tempMin");
 var vitesseVent = document.getElementById("ventVitesse");
 var body = document.getElementsByTagName("body");
 
-
-
 inputVille.addEventListener("blur", recupVille);
 
 function recupVille() {
