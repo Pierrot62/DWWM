@@ -1,9 +1,6 @@
 ﻿/*-----------------------------------GLOBAL---          --------------------------------------*/
 body {
-	background-image: url("../Images/font.jpg");
-	/* background-position: center; */
-	background-size: cover;
-	background-repeat: no-repeat;
+	background-color: rgb(12, 111, 240);
 	color: black;
 	text-align: center;
 }
