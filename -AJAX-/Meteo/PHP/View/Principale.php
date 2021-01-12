@@ -15,5 +15,4 @@
 	<div class="info" id="tempMax"></div>
 	<div class="info" id="tempMin"></div>
 	<div class="info" id="ventVitesse"></div>
-
 </div>
