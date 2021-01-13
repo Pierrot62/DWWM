@@ -1,0 +1,65 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Helvetica;
+  color: white;
+  background-color: rgb(58, 80, 80);
+}
+
+div,
+body {
+  display: flex;
+  flex: 1;
+}
+
+img{
+    width: 100%;
+}
+
+.carre{
+    height: 480px;
+    width: 480px;
+    background-repeat: no-repeat;
+}
+
+.colonne {
+  flex-direction: column;
+}
+
+/**Background**/
+#img1 {
+  background-image:url("1.jpg") ;
+}
+
+#img2 {
+  background-image:url("2.jpg") ;
+}
+
+#img3 {
+  background-image:url("3.jpg") ;
+}
+
+#img4 {
+  background-image:url("4.jpg") ;
+}
+
+#img5 {
+  background-image: url("5.jpg");
+}
+
+#img6 {
+  background-image:url("6.jpg") ;
+}
+
+#img7 {
+  background-image:url("7.jpg") ;
+}
+
+#img8 {
+    background-image:url("8.jpg") ;
+  }
+
+#img9{
+  background-image:url("9.jpg")
+}
+  
