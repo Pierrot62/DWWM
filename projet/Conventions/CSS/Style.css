@@ -13,6 +13,7 @@ img, video {
 	width : 100%;
 }
 
+
 :root{
     --BordureBouton:#87BB34;
     --FondPage:#272D2D;
@@ -24,6 +25,7 @@ img, video {
 body{
 	background-color: var(--FondPage);
 }
+
 
 .colonne {
 	flex-direction : column;
@@ -37,11 +39,19 @@ body{
 	text-align: center;
 }
 
-
-input
+input,select
 {
     border:1px solid var(--BordureBouton);
     background-color: Transparent;
     padding:0.5em 1em;
     color: var(--CouleurTexte);
+}
+
+.row{
+    width: 40vw;
+    margin: auto;
+}
+
+.row .info{
+    margin: 1.5em;
 }

@@ -150,7 +150,7 @@ CREATE TABLE Stages(
         deplacement          Bool NOT NULL ,
         frequenceDeplacement Varchar (200) NOT NULL ,
         modeDeplacement      Varchar (200) NOT NULL ,
-        attFormReglement     Bool NOT NULL ,
+        attFormReglement     Bool NULL ,
         libelleAttFormReg    Varchar (200) NOT NULL ,
         visiteMedical        Bool NOT NULL ,
         travauxDang          Bool NOT NULL ,
