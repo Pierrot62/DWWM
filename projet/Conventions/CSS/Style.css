@@ -1,0 +1,47 @@
+/****  GENERAL ****/
+html, body {
+	margin : 0;
+	padding : 0;
+}
+
+div, header, footer, nav, article {
+	display : flex;
+	flex : 1;
+}
+
+img, video {
+	width : 100%;
+}
+
+:root{
+    --BordureBouton:#87BB34;
+    --FondPage:#272D2D;
+    --BlancCasse:#E1E5E5;
+    --CouleurTexte:#E1E5E5;
+    --CouleurOmbre:#474056;
+}
+
+body{
+	background-color: var(--FondPage);
+}
+
+.colonne {
+	flex-direction : column;
+}
+
+.titre {
+	flex: 5;
+}
+
+.center{
+	text-align: center;
+}
+
+
+input
+{
+    border:1px solid var(--BordureBouton);
+    background-color: Transparent;
+    padding:0.5em 1em;
+    color: var(--CouleurTexte);
+}
