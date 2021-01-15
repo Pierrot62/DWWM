@@ -76,7 +76,8 @@ INSERT INTO `entreprises`(`idEntreprise`, `raisonSociale`, `statutJuridiqueEnt`,
 INSERT INTO `entreprises`(`idEntreprise`, `raisonSociale`, `statutJuridiqueEnt`, `adresseEnt`, `numSiretEnt`, `telEnt`, `assureurEnt`, `numSocietaire`, `nomRepresentant`, `prenomRepresentant`, `fctRepresentant`, `telRepresentant`, `mailRepresentant`, `idVille`) VALUES (NULL,"Massa Institute","EURL","707-5099 Egestas. Road","85275111400004","0625458632","Libero Nec LLC","2440761","Bolton","Montana","ouvrier ","0625568632","elementum.lorem.ut@erategetipsum.org",32);
 
 INSERT INTO `tuteurs` (`idTuteur`, `nomTuteur`, `prenomTuteur`, `fonctionTuteur`, `telTuteur`, `mailTuteur`, `idEntreprise`) VALUES (NULL, 'Tuteur', 'De fou', 'developpeur', '0614151602', 'toto@gmail.com', '1');	
-INSERT INTO `tuteurs` (`idTuteur`, `nomTuteur`, `prenomTuteur`, `fonctionTuteur`, `telTuteur`, `mailTuteur`, `idEntreprise`) VALUES (NULL, 'Nico', 'sarko', 'PDG', '0614475402', 'nico@gmail.com', '2');	INSERT INTO `tuteurs` (`idTuteur`, `nomTuteur`, `prenomTuteur`, `fonctionTuteur`, `telTuteur`, `mailTuteur`, `idEntreprise`) VALUES (NULL, 'Tuteur', 'De fou', 'developpeur', '0614151602', 'toto@gmail.com', '1');
+INSERT INTO `tuteurs` (`idTuteur`, `nomTuteur`, `prenomTuteur`, `fonctionTuteur`, `telTuteur`, `mailTuteur`, `idEntreprise`) VALUES (NULL, 'Nico', 'sarko', 'PDG', '0614475402', 'nico@gmail.com', '2');
+INSERT INTO `tuteurs` (`idTuteur`, `nomTuteur`, `prenomTuteur`, `fonctionTuteur`, `telTuteur`, `mailTuteur`, `idEntreprise`) VALUES (NULL, 'Tuteur', 'De fou', 'developpeur', '0614151602', 'toto@gmail.com', '1');
 INSERT INTO `tuteurs` (`idTuteur`, `nomTuteur`, `prenomTuteur`, `fonctionTuteur`, `telTuteur`, `mailTuteur`, `idEntreprise`) VALUES (NULL, 'Pierre', 'Lapin', 'developpeur', '0445145402', 'pierre@gmail.com', '1');	
 
 
