@@ -13,19 +13,19 @@ img, video {
 	width : 100%;
 }
 
-
 :root{
     --BordureBouton:#87BB34;
     --FondPage:#272D2D;
     --BlancCasse:#E1E5E5;
     --CouleurTexte:#E1E5E5;
     --CouleurOmbre:#474056;
+    --Rouge: #FF0022;
 }
 
 body{
-	background-color: var(--FondPage);
+    background-color: var(--FondPage);
+    color: var(--CouleurTexte);
 }
-
 
 .colonne {
 	flex-direction : column;
@@ -35,8 +35,19 @@ body{
 	flex: 5;
 }
 
+.erreur{
+    text-align: center;
+    padding: 0.5em;
+    color: var(--Rouge);
+    text-shadow: 0.1em 0.1em 0.1em 0.1em var(--CouleurTexte);
+}
+
 .center{
 	text-align: center;
+}
+
+.centerItem{
+    align-items: center;
 }
 
 input,select
@@ -45,13 +56,45 @@ input,select
     background-color: Transparent;
     padding:0.5em 1em;
     color: var(--CouleurTexte);
+    text-align: center;
 }
 
 .row{
-    width: 40vw;
+    width: 50vw;
     margin: auto;
+}
+
+.rowRadio{
+    width: 5vw;
+    margin: auto;
+}
+
+.grande{
+    flex: 5;
 }
 
 .row .info{
     margin: 1.5em;
+}
+
+.espaceH{
+    height: 3vw;
+}
+
+/******* Boutons ********/
+.bouton
+{
+    background-color: Transparent;
+    background-repeat:no-repeat;
+    border-radius:1em;
+    border:2px solid var(--BordureBouton);
+    cursor:pointer;
+    padding:0.5em 1em;
+    color: var(--CouleurTexte);
+}
+.bouton:hover
+{
+    border:2px solid var(--CouleurTexte);
+    color: var(--BordureBouton);
+    font-size:1.2em;
 }
