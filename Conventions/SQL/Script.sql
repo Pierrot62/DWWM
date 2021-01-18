@@ -5,27 +5,27 @@ DROP DATABASE IF EXISTS conventions;
 CREATE DATABASE IF NOT EXISTS `conventions` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
 USE `conventions`;
 
-
-
-DROP TABLE IF EXISTS `animation`;
-DROP TABLE IF EXISTS `LibelleComportementsProfessionnels`;
-DROP TABLE IF EXISTS `ValeurComportementsProfessionnels`;
+DROP TABLE IF EXISTS `animations`;
+DROP TABLE IF EXISTS `LibellesComportementsProfessionnels`;
+DROP TABLE IF EXISTS `ValeursComportementsProfessionnels`;
 DROP TABLE IF EXISTS `entreprises`;
-DROP TABLE IF EXISTS `ValeurAcquis`;
+DROP TABLE IF EXISTS `ValeursAcquis`;
 DROP TABLE IF EXISTS `evaluations`;
 DROP TABLE IF EXISTS `formations`;
-DROP TABLE IF EXISTS `LibelleHoraires`;
-DROP TABLE IF EXISTS `ValeurHoraires`;
-DROP TABLE IF EXISTS `participation`;
-DROP TABLE IF EXISTS `sessionformation`;
+DROP TABLE IF EXISTS `LibellesHoraires`;
+DROP TABLE IF EXISTS `ValeursHoraires`;
+DROP TABLE IF EXISTS `participations`;
+DROP TABLE IF EXISTS `sessionsformation`;
 DROP TABLE IF EXISTS `stages`;
 DROP TABLE IF EXISTS `stagiaires`;
-DROP TABLE IF EXISTS `LibelleTravauxDangereux`;
-DROP TABLE IF EXISTS `ValeurTravauxDangereux`;
+DROP TABLE IF EXISTS `LibellesTravauxDangereux`;
+DROP TABLE IF EXISTS `ValeursTravauxDangereux`;
 DROP TABLE IF EXISTS `tuteurs`;
 DROP TABLE IF EXISTS `villes`;
 DROP TABLE IF EXISTS `Utilisateurs`;
 DROP TABLE IF EXISTS `Roles`;
+DROP TABLE IF EXISTS `regions`;
+DROP TABLE IF EXISTS `departements`;
 
 #------------------------------------------------------------
 # Table: Villes
@@ -33,6 +33,7 @@ DROP TABLE IF EXISTS `Roles`;
 
 CREATE TABLE Villes(
         idVille    Int  Auto_increment  NOT NULL PRIMARY KEY ,
+        idDepartement varchar(3),
         nomVille   Varchar (50) NOT NULL ,
         codePostal Int NOT NULL
 )ENGINE=InnoDB, CHARSET = UTF8;
@@ -74,6 +75,7 @@ CREATE TABLE Stagiaires(
         prenomStagiaire        Varchar (50) NOT NULL ,
         numSecuStagiaire       Varchar (15) NOT NULL ,
         numBenefStagiaire      Varchar (15) NOT NULL ,
+        emailStagiaire         Varchar (50) NOT NULL ,
         dateNaissanceStagiaire Date NOT NULL
 )ENGINE=InnoDB, CHARSET = UTF8;
 
@@ -89,14 +91,12 @@ CREATE TABLE Formations(
 
 
 #------------------------------------------------------------
-# Table: SessionFormation
+# Table: SessionsFormations
 #------------------------------------------------------------
 
-CREATE TABLE SessionFormation(
+CREATE TABLE SessionsFormations(
         idSessionFormation Int  Auto_increment  NOT NULL PRIMARY KEY,
         numOffreFormation  Varchar (50) NOT NULL ,
-        objectifPAE        Text NOT NULL ,
-        dateRapportSuivi     Date NOT NULL ,
         idFormation        Int NOT NULL
 )ENGINE=InnoDB, CHARSET = UTF8;
 
@@ -165,10 +165,10 @@ CREATE TABLE Stages(
 )ENGINE=InnoDB, CHARSET = UTF8;
 
 #------------------------------------------------------------
-# Table: Animation
+# Table: Animations
 #------------------------------------------------------------
 
-CREATE TABLE Animation
+CREATE TABLE Animations
 (
     idAnimation INT Auto_increment NOT NULL PRIMARY KEY,
     idUtilisateur  INT NOT NULL,
@@ -176,10 +176,10 @@ CREATE TABLE Animation
 )ENGINE=InnoDB, CHARSET = UTF8;  
 
 #------------------------------------------------------------
-# Table: Participation
+# Table: Participations
 #------------------------------------------------------------
 
-CREATE TABLE Participation
+CREATE TABLE Participations
 (
     idParticipation INT Auto_increment NOT NULL PRIMARY KEY,
     dateDebut DATE NOT NULL, 
@@ -193,7 +193,7 @@ CREATE TABLE Participation
 # Table: evaluations
 #------------------------------------------------------------
 
-CREATE TABLE evaluations
+CREATE TABLE Evaluations
 (
         idStage              Int    NOT NULL PRIMARY KEY,
         dateEvaluation       Date NOT NULL ,
@@ -205,14 +205,14 @@ CREATE TABLE evaluations
 
 )ENGINE=InnoDB, CHARSET = UTF8;
 
-CREATE TABLE LibelleTravauxDangereux
+CREATE TABLE LibellesTravauxDangereux
 (
     idLibelleTravauxDangereux   Int Auto_increment  NOT NULL PRIMARY KEY,
     ordreTravaux INT NOT NULL , 
     libelleTravaux VARCHAR(100) NOT NULL  
 )ENGINE=InnoDB, CHARSET = UTF8;
 
-CREATE TABLE ValeurTravauxDangereux
+CREATE TABLE ValeursTravauxDangereux
 (
     idTravauxDangereux  Int Auto_increment NOT NULL PRIMARY KEY,
     idStage   Int   NOT NULL,
@@ -224,29 +224,29 @@ CREATE TABLE ValeurTravauxDangereux
 # Table: horaires
 #------------------------------------------------------------
 
-CREATE TABLE LibelleHoraires
+CREATE TABLE LibellesHoraires
 (
     idLibelleHoraire   Int Auto_increment  NOT NULL PRIMARY KEY,
     ordreHoraire INT NOT NULL , 
     libelleHoraire VARCHAR(40) NOT NULL  
 )ENGINE=InnoDB, CHARSET = UTF8;
 
-CREATE TABLE ValeurHoraires
+CREATE TABLE ValeursHoraires
 (
-    idValeurHoraires   Int Auto_increment NOT NULL PRIMARY KEY,
+    idValeurHoraire   Int Auto_increment NOT NULL PRIMARY KEY,
     idStage   Int   NOT NULL,
     idLibelleHoraire INT NOT NULL , 
     valeurHoraire  Time
 )ENGINE=InnoDB, CHARSET = UTF8;
 
-CREATE TABLE LibelleComportementsProfessionnels
+CREATE TABLE LibellesComportementsProfessionnels
 (
     idLibelleComportementProfessionnel   Int  Auto_increment  NOT NULL PRIMARY KEY,
     ordreComportement INT NOT NULL , 
     libelleComportement VARCHAR(100) NOT NULL  
 )ENGINE=InnoDB, CHARSET = UTF8;
 
-CREATE TABLE ValeurComportementsProfessionnels
+CREATE TABLE ValeursComportementsProfessionnels
 (
     idComportementProfessionnel Int Auto_increment NOT NULL PRIMARY KEY,
     idStage   Int NOT NULL,
@@ -255,7 +255,7 @@ CREATE TABLE ValeurComportementsProfessionnels
 )ENGINE=InnoDB, CHARSET = UTF8;
 
 
-CREATE TABLE ValeurAcquis
+CREATE TABLE ValeursAcquis
 (
     idValeurAcquis   Int  Auto_increment NOT NULL PRIMARY KEY,
     idStage   Int  NOT NULL,
@@ -264,8 +264,11 @@ CREATE TABLE ValeurAcquis
     valeurAcquis INT  
 )ENGINE=InnoDB, CHARSET = UTF8;
 
-ALTER TABLE SessionFormation
-ADD CONSTRAINT FK_SessionFormation_Formations
+
+
+
+ALTER TABLE SessionsFormations
+ADD CONSTRAINT FK_SessionsFormations_Formations
 FOREIGN KEY (idFormation)
 REFERENCES Formations(idFormation);
 
@@ -284,23 +287,23 @@ ADD CONSTRAINT FK_Stages_Tuteurs
 FOREIGN KEY (idTuteur)
 REFERENCES Tuteurs(idTuteur);
 
-ALTER TABLE Participation
-ADD CONSTRAINT FK_Participation_SessionFormation
+ALTER TABLE Participations
+ADD CONSTRAINT FK_Participations_SessionFormations
 FOREIGN KEY (idSessionFormation)
-REFERENCES SessionFormation(idSessionFormation);
+REFERENCES SessionsFormations(idSessionFormation);
 
-ALTER TABLE Participation
-ADD CONSTRAINT FK_Participation_Stagiaires
+ALTER TABLE Participations
+ADD CONSTRAINT FK_Participations_Stagiaires
 FOREIGN KEY (idStagiaire)
 REFERENCES Stagiaires(idStagiaire);
 
-ALTER TABLE Animation
-ADD CONSTRAINT FK_Animation_Formations
+ALTER TABLE Animations
+ADD CONSTRAINT FK_Animations_Formations
 FOREIGN KEY (idFormation)
 REFERENCES Formations(idFormation);
 
-ALTER TABLE Animation
-ADD CONSTRAINT FK_Animation_Utilisateurs
+ALTER TABLE Animations
+ADD CONSTRAINT FK_Animations_Utilisateurs
 FOREIGN KEY (idUtilisateur)
 REFERENCES Utilisateurs(idUtilisateur);
 
@@ -314,37 +317,62 @@ ADD CONSTRAINT FK_Entreprises_Villes
 FOREIGN KEY (idVille)
 REFERENCES Villes(idVille);
 
-ALTER TABLE ValeurTravauxDangereux
-ADD CONSTRAINT FK_ValeurTravauxDangereux_Stages
+ALTER TABLE ValeursTravauxDangereux
+ADD CONSTRAINT FK_ValeursTravauxDangereux_Stages
 FOREIGN KEY (idStage)
 REFERENCES Stages(idStage);
 
-ALTER TABLE ValeurTravauxDangereux
-ADD CONSTRAINT FK_ValeurTravauxDangereux_LibelleTravauxDangereux
+ALTER TABLE ValeursTravauxDangereux
+ADD CONSTRAINT FK_ValeursTravauxDangereux_LibellesTravauxDangereux
 FOREIGN KEY (idLibelleTravauxDangereux)
-REFERENCES LibelleTravauxDangereux(idLibelleTravauxDangereux);
+REFERENCES LibellesTravauxDangereux(idLibelleTravauxDangereux);
 
-ALTER TABLE ValeurHoraires
-ADD CONSTRAINT FK_ValeurHoraires_Stages
+ALTER TABLE ValeursHoraires
+ADD CONSTRAINT FK_ValeursHoraires_Stages
 FOREIGN KEY (idStage)
 REFERENCES Stages(idStage);
 
-ALTER TABLE ValeurHoraires
-ADD CONSTRAINT FK_ValeurHoraires_LibelleHoraires
+ALTER TABLE ValeursHoraires
+ADD CONSTRAINT FK_ValeursHoraires_LibellesHoraires
 FOREIGN KEY (idLibelleHoraire)
-REFERENCES LibelleHoraires(idLibelleHoraire);
+REFERENCES LibellesHoraires(idLibelleHoraire);
 
-ALTER TABLE ValeurComportementsProfessionnels
-ADD CONSTRAINT FK_ValeurComportementsProfessionnels_Stages
+ALTER TABLE ValeursComportementsProfessionnels
+ADD CONSTRAINT FK_ValeursComportementsProfessionnels_Stages
 FOREIGN KEY (idStage)
 REFERENCES Stages(idStage);
 
-ALTER TABLE ValeurComportementsProfessionnels
-ADD CONSTRAINT FK_ValeurCompProf_LibelleCompPro
+ALTER TABLE ValeursComportementsProfessionnels
+ADD CONSTRAINT FK_ValeursCompProf_LibellesCompPro
 FOREIGN KEY (idLibelleComportementProfessionnel)
-REFERENCES LibelleComportementsProfessionnels(idLibelleComportementProfessionnel);
+REFERENCES LibellesComportementsProfessionnels(idLibelleComportementProfessionnel);
 
-ALTER TABLE ValeurAcquis
-ADD CONSTRAINT FK_ValeurAcquis_Stages
+ALTER TABLE ValeursAcquis
+ADD CONSTRAINT FK_ValeursAcquis_Stages
 FOREIGN KEY (idStage)
 REFERENCES Stages(idStage);
+
+DROP TABLE IF EXISTS `departements`;
+CREATE TABLE IF NOT EXISTS `departements` (
+  `idDepartement` char(3) NOT NULL PRIMARY KEY,
+  `libelleDepartement` varchar(100) NOT NULL,
+  `idRegion` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Table des départements français';
+
+
+DROP TABLE IF EXISTS `regions`;
+CREATE TABLE IF NOT EXISTS `regions` (
+  `idRegion` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  `libelleRegion` varchar(50) NOT NULL,
+  `nb_departs` int(11) NOT NULL
+) ENGINE=innoDB DEFAULT CHARSET=utf8;
+
+ALTER TABLE Departements
+ADD CONSTRAINT FK_Departements_Regions
+FOREIGN KEY (idRegion)
+REFERENCES Regions(idRegion);
+
+-- ALTER TABLE Villes
+-- ADD CONSTRAINT FK_Villes_idDepartement
+-- FOREIGN KEY (idDepartement)
+-- REFERENCES Departements(idDepartement);
