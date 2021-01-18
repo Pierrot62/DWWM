@@ -54,4 +54,18 @@ class SessionsformationsManager
 		}
 		return $liste;
 	}
+
+	public static function getByFormation($idFormation)
+    {
+        $db = DbConnect::getDb();
+        $id = (int) $idFormation;
+        $liste = [];
+        $q = $db->query("SELECT * FROM Sessionformation where idFormation=$id");
+        while ($donnees = $q->fetch(PDO::FETCH_ASSOC)) {
+            if ($donnees != false) {
+                $liste[] = new Sessionformation($donnees);
+            }
+        }return $liste;
+
+	}
 }

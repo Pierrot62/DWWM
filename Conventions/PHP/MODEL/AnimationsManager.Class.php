@@ -40,18 +40,48 @@ class AnimationsManager
 			return false;
 		}
 	}
-	public static function getList()
-	{
- 		$db=DbConnect::getDb();
-		$liste = [];
-		$q = $db->query("SELECT * FROM Animations");
-		while($donnees = $q->fetch(PDO::FETCH_ASSOC))
-		{
-			if($donnees != false)
-			{
-				$liste[] = new Animations($donnees);
-			}
-		}
-		return $liste;
+	public static function getList($api)
+    {
+        $db = DbConnect::getDb();
+        $liste = [];
+        $q = $db->query("SELECT * FROM Animation");
+        while ($donnees = $q->fetch(PDO::FETCH_ASSOC)) {
+            if ($donnees != false) {
+                $liste[] = new Animation($donnees);
+                $json[] = $donnees;
+            }
+        }
+        if (!$api) {
+            return $liste;
+        }
+
+        return $json;
+    }
+
+	public static function getByFormation($idFormation)
+    {
+        $db = DbConnect::getDb();
+        $id = (int) $idFormation;
+        $liste = [];
+        $q = $db->query("SELECT * FROM Animation where idFormation=$id");
+        while ($donnees = $q->fetch(PDO::FETCH_ASSOC)) {
+            if ($donnees != false) {
+                $liste[] = new Animation($donnees);
+            }
+        }return $liste;
+
+	}
+    public static function getByUtilisateur($idUtilisateur)
+    {
+        $db = DbConnect::getDb();
+        $id = (int) $idUtilisateur;
+        $liste = [];
+        $q = $db->query("SELECT * FROM Animation where idUtilisateur=$id");
+        while ($donnees = $q->fetch(PDO::FETCH_ASSOC)) {
+            if ($donnees != false) {
+                $liste[] = new Animation($donnees);
+            }
+        }return $liste;
+
 	}
 }
