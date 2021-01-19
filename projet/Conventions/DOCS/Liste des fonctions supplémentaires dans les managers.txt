@@ -1,0 +1,13 @@
+departementsManager::getByRegion
+entreprisesManager::getByNumSiret
+entreprisesManager::getByEmail
+tuteursManager::getByEmail
+stagiairesManager::getByEmail
+utilisateursManager::getByEmail
+stagesManager::getByStagiaire
+stagesManager::getByTuteur
+tuteursManager::getByEntreprise
+animationsManager::getByFormation
+animationsManager::getByUtilisateur
+sessionsManager::getByFormation
+participationsManager::getByStagiaire

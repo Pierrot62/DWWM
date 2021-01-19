@@ -12,6 +12,7 @@ class Stagiaires
 	private $_numSecuStagiaire;
 	private $_numBenefStagiaire;
 	private $_dateNaissanceStagiaire;
+	private $_emailStagiaire;
 
 	/***************** Accesseurs ***************** */
 
@@ -86,6 +87,16 @@ class Stagiaires
 		$this->_dateNaissanceStagiaire=$dateNaissanceStagiaire;
 	}
 
+	public function getEmailStagiaire()
+	{
+		return $this->_emailStagiaire;
+	}
+
+	public function setEmailStagiaire($emailStagiaire)
+	{
+		$this->_emailStagiaire=$emailStagiaire;
+	}
+
 	/*****************Constructeur***************** */
 
 	public function __construct(array $options = [])
@@ -116,7 +127,7 @@ class Stagiaires
 	*/
 	public function toString()
 	{
-		return "IdStagiaire : ".$this->getIdStagiaire()."GenreStagiaire : ".$this->getGenreStagiaire()."NomStagiaire : ".$this->getNomStagiaire()."PrenomStagiaire : ".$this->getPrenomStagiaire()."NumSecuStagiaire : ".$this->getNumSecuStagiaire()."NumBenefStagiaire : ".$this->getNumBenefStagiaire()."DateNaissanceStagiaire : ".$this->getDateNaissanceStagiaire()."\n";
+		return "IdStagiaire : ".$this->getIdStagiaire()."GenreStagiaire : ".$this->getGenreStagiaire()."NomStagiaire : ".$this->getNomStagiaire()."PrenomStagiaire : ".$this->getPrenomStagiaire()."NumSecuStagiaire : ".$this->getNumSecuStagiaire()."NumBenefStagiaire : ".$this->getNumBenefStagiaire()."DateNaissanceStagiaire : ".$this->getDateNaissanceStagiaire()."EmailStagiaire : ".$this->getEmailStagiaire()."\n";
 	}
 
 

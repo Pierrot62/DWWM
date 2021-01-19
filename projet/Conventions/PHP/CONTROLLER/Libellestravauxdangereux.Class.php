@@ -1,56 +1,45 @@
 <?php
 
-class Villes 
+class LibellesTravauxDangereux 
 {
 
 	/*****************Attributs***************** */
 
-	private $_idVille;
-	private $_nomVille;
-	private $_codePostal;
-	private $_idDepartement;
+	private $_idLibelleTravauxDangereux;
+	private $_ordreTravaux;
+	private $_libelleTravaux;
 
 	/***************** Accesseurs ***************** */
 
 
-	public function getIdVille()
+	public function getIdLibelleTravauxDangereux()
 	{
-		return $this->_idVille;
+		return $this->_idLibelleTravauxDangereux;
 	}
 
-	public function setIdVille($idVille)
+	public function setIdLibelleTravauxDangereux($idLibelleTravauxDangereux)
 	{
-		$this->_idVille=$idVille;
+		$this->_idLibelleTravauxDangereux=$idLibelleTravauxDangereux;
 	}
 
-	public function getNomVille()
+	public function getOrdreTravaux()
 	{
-		return $this->_nomVille;
+		return $this->_ordreTravaux;
 	}
 
-	public function setNomVille($nomVille)
+	public function setOrdreTravaux($ordreTravaux)
 	{
-		$this->_nomVille=$nomVille;
+		$this->_ordreTravaux=$ordreTravaux;
 	}
 
-	public function getCodePostal()
+	public function getLibelleTravaux()
 	{
-		return $this->_codePostal;
+		return $this->_libelleTravaux;
 	}
 
-	public function setCodePostal($codePostal)
+	public function setLibelleTravaux($libelleTravaux)
 	{
-		$this->_codePostal=$codePostal;
-	}
-
-	public function getIdDepartement()
-	{
-		return $this->_idDepartement;
-	}
-
-	public function setIdDepartement($idDepartement)
-	{
-		$this->_idDepartement=$idDepartement;
+		$this->_libelleTravaux=$libelleTravaux;
 	}
 
 	/*****************Constructeur***************** */
@@ -83,7 +72,7 @@ class Villes
 	*/
 	public function toString()
 	{
-		return "IdVille : ".$this->getIdVille()."NomVille : ".$this->getNomVille()."CodePostal : ".$this->getCodePostal()."IdDepartement : ".$this->getIdDepartement()."\n";
+		return "IdLibelleTravauxDangereux : ".$this->getIdLibelleTravauxDangereux()."OrdreTravaux : ".$this->getOrdreTravaux()."LibelleTravaux : ".$this->getLibelleTravaux()."\n";
 	}
 
 

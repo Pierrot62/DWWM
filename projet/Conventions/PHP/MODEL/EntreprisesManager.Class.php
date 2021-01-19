@@ -76,4 +76,31 @@ class EntreprisesManager
 		}
 		return $liste;
 	}
+	public static function getByNumSiret($numSiretEnt)
+    {
+        $db = DbConnect::getDb();
+        $num = $numSiretEnt;
+        $liste = [];
+        $q = $db->query("SELECT * FROM entreprises where numSiretEnt=".$num);
+        while ($donnees = $q->fetch(PDO::FETCH_ASSOC)) {
+            if ($donnees != false) {
+                $liste[] = new Entreprises($donnees);
+            }
+        }return $liste;
+
+	}
+	public static function getByEmail($email)
+	{
+ 		$db=DbConnect::getDb();
+		$q=$db->query("SELECT * FROM Entreprises WHERE mailRepresentant =".$email);
+		$results = $q->fetch(PDO::FETCH_ASSOC);
+		if($results != false)
+		{
+			return new Entreprises($results);
+		}
+		else
+		{
+			return false;
+		}
+	}
 }

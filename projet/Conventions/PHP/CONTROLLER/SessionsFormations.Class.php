@@ -1,56 +1,45 @@
 <?php
 
-class Villes 
+class SessionsFormations 
 {
 
 	/*****************Attributs***************** */
 
-	private $_idVille;
-	private $_nomVille;
-	private $_codePostal;
-	private $_idDepartement;
+	private $_idSessionFormation;
+	private $_numOffreFormation;
+	private $_idFormation;
 
 	/***************** Accesseurs ***************** */
 
 
-	public function getIdVille()
+	public function getIdSessionFormation()
 	{
-		return $this->_idVille;
+		return $this->_idSessionFormation;
 	}
 
-	public function setIdVille($idVille)
+	public function setIdSessionFormation($idSessionFormation)
 	{
-		$this->_idVille=$idVille;
+		$this->_idSessionFormation=$idSessionFormation;
 	}
 
-	public function getNomVille()
+	public function getNumOffreFormation()
 	{
-		return $this->_nomVille;
+		return $this->_numOffreFormation;
 	}
 
-	public function setNomVille($nomVille)
+	public function setNumOffreFormation($numOffreFormation)
 	{
-		$this->_nomVille=$nomVille;
+		$this->_numOffreFormation=$numOffreFormation;
 	}
 
-	public function getCodePostal()
+	public function getIdFormation()
 	{
-		return $this->_codePostal;
+		return $this->_idFormation;
 	}
 
-	public function setCodePostal($codePostal)
+	public function setIdFormation($idFormation)
 	{
-		$this->_codePostal=$codePostal;
-	}
-
-	public function getIdDepartement()
-	{
-		return $this->_idDepartement;
-	}
-
-	public function setIdDepartement($idDepartement)
-	{
-		$this->_idDepartement=$idDepartement;
+		$this->_idFormation=$idFormation;
 	}
 
 	/*****************Constructeur***************** */
@@ -83,7 +72,7 @@ class Villes
 	*/
 	public function toString()
 	{
-		return "IdVille : ".$this->getIdVille()."NomVille : ".$this->getNomVille()."CodePostal : ".$this->getCodePostal()."IdDepartement : ".$this->getIdDepartement()."\n";
+		return "IdSessionFormation : ".$this->getIdSessionFormation()."NumOffreFormation : ".$this->getNumOffreFormation()."ObjectifPAE : ".$this->getObjectifPAE()."DateRapportSuivi : ".$this->getDateRapportSuivi()."IdFormation : ".$this->getIdFormation()."\n";
 	}
 
 

@@ -1,56 +1,45 @@
 <?php
 
-class Villes 
+class LibellesHoraires 
 {
 
 	/*****************Attributs***************** */
 
-	private $_idVille;
-	private $_nomVille;
-	private $_codePostal;
-	private $_idDepartement;
+	private $_idLibelleHoraire;
+	private $_ordreHoraire;
+	private $_libelleHoraire;
 
 	/***************** Accesseurs ***************** */
 
 
-	public function getIdVille()
+	public function getIdLibelleHoraire()
 	{
-		return $this->_idVille;
+		return $this->_idLibelleHoraire;
 	}
 
-	public function setIdVille($idVille)
+	public function setIdLibelleHoraire($idLibelleHoraire)
 	{
-		$this->_idVille=$idVille;
+		$this->_idLibelleHoraire=$idLibelleHoraire;
 	}
 
-	public function getNomVille()
+	public function getOrdreHoraire()
 	{
-		return $this->_nomVille;
+		return $this->_ordreHoraire;
 	}
 
-	public function setNomVille($nomVille)
+	public function setOrdreHoraire($ordreHoraire)
 	{
-		$this->_nomVille=$nomVille;
+		$this->_ordreHoraire=$ordreHoraire;
 	}
 
-	public function getCodePostal()
+	public function getLibelleHoraire()
 	{
-		return $this->_codePostal;
+		return $this->_libelleHoraire;
 	}
 
-	public function setCodePostal($codePostal)
+	public function setLibelleHoraire($libelleHoraire)
 	{
-		$this->_codePostal=$codePostal;
-	}
-
-	public function getIdDepartement()
-	{
-		return $this->_idDepartement;
-	}
-
-	public function setIdDepartement($idDepartement)
-	{
-		$this->_idDepartement=$idDepartement;
+		$this->_libelleHoraire=$libelleHoraire;
 	}
 
 	/*****************Constructeur***************** */
@@ -83,7 +72,7 @@ class Villes
 	*/
 	public function toString()
 	{
-		return "IdVille : ".$this->getIdVille()."NomVille : ".$this->getNomVille()."CodePostal : ".$this->getCodePostal()."IdDepartement : ".$this->getIdDepartement()."\n";
+		return "IdLibelleHoraire : ".$this->getIdLibelleHoraire()."OrdreHoraire : ".$this->getOrdreHoraire()."LibelleHoraire : ".$this->getLibelleHoraire()."\n";
 	}
 
 

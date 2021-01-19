@@ -5,19 +5,21 @@ class VillesManager
 	public static function add(Villes $obj)
 	{
  		$db=DbConnect::getDb();
-		$q=$db->prepare("INSERT INTO Villes (nomVille,codePostal) VALUES (:nomVille,:codePostal)");
+		$q=$db->prepare("INSERT INTO Villes (nomVille,codePostal,idDepartement) VALUES (:nomVille,:codePostal,:idDepartement)");
 		$q->bindValue(":nomVille", $obj->getNomVille());
 		$q->bindValue(":codePostal", $obj->getCodePostal());
+		$q->bindValue(":idDepartement", $obj->getIdDepartement());
 		$q->execute();
 	}
 
 	public static function update(Villes $obj)
 	{
  		$db=DbConnect::getDb();
-		$q=$db->prepare("UPDATE Villes SET idVille=:idVille,nomVille=:nomVille,codePostal=:codePostal WHERE idVille=:idVille");
+		$q=$db->prepare("UPDATE Villes SET idVille=:idVille,nomVille=:nomVille,codePostal=:codePostal,idDepartement=:idDepartement WHERE idVille=:idVille");
 		$q->bindValue(":idVille", $obj->getIdVille());
 		$q->bindValue(":nomVille", $obj->getNomVille());
 		$q->bindValue(":codePostal", $obj->getCodePostal());
+		$q->bindValue(":idDepartement", $obj->getIdDepartement());
 		$q->execute();
 	}
 	public static function delete(Villes $obj)

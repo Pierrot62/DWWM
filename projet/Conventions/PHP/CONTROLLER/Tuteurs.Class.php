@@ -10,7 +10,7 @@ class Tuteurs
 	private $_prenomTuteur;
 	private $_fonctionTuteur;
 	private $_telTuteur;
-	private $_mailTuteur;
+	private $_emailTuteur;
 	private $_idEntreprise;
 
 	/***************** Accesseurs ***************** */
@@ -66,14 +66,14 @@ class Tuteurs
 		$this->_telTuteur=$telTuteur;
 	}
 
-	public function getMailTuteur()
+	public function getEmailTuteur()
 	{
-		return $this->_mailTuteur;
+		return $this->_emailTuteur;
 	}
 
-	public function setMailTuteur($mailTuteur)
+	public function setEmailTuteur($emailTuteur)
 	{
-		$this->_mailTuteur=$mailTuteur;
+		$this->_emailTuteur=$emailTuteur;
 	}
 
 	public function getIdEntreprise()
@@ -116,7 +116,7 @@ class Tuteurs
 	*/
 	public function toString()
 	{
-		return "IdTuteur : ".$this->getIdTuteur()."NomTuteur : ".$this->getNomTuteur()."PrenomTuteur : ".$this->getPrenomTuteur()."FonctionTuteur : ".$this->getFonctionTuteur()."TelTuteur : ".$this->getTelTuteur()."MailTuteur : ".$this->getMailTuteur()."IdEntreprise : ".$this->getIdEntreprise()."\n";
+		return "IdTuteur : ".$this->getIdTuteur()."NomTuteur : ".$this->getNomTuteur()."PrenomTuteur : ".$this->getPrenomTuteur()."FonctionTuteur : ".$this->getFonctionTuteur()."TelTuteur : ".$this->getTelTuteur()."EmailTuteur : ".$this->getEmailTuteur()."IdEntreprise : ".$this->getIdEntreprise()."\n";
 	}
 
 

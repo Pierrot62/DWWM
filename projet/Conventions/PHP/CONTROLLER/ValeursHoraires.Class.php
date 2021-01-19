@@ -1,56 +1,56 @@
 <?php
 
-class Villes 
+class ValeursHoraires 
 {
 
 	/*****************Attributs***************** */
 
-	private $_idVille;
-	private $_nomVille;
-	private $_codePostal;
-	private $_idDepartement;
+	private $_idValeurHoraires;
+	private $_idStage;
+	private $_idLibelleHoraire;
+	private $_valeurHoraire;
 
 	/***************** Accesseurs ***************** */
 
 
-	public function getIdVille()
+	public function getIdValeurHoraires()
 	{
-		return $this->_idVille;
+		return $this->_idValeurHoraires;
 	}
 
-	public function setIdVille($idVille)
+	public function setIdValeurHoraires($idValeurHoraires)
 	{
-		$this->_idVille=$idVille;
+		$this->_idValeurHoraires=$idValeurHoraires;
 	}
 
-	public function getNomVille()
+	public function getIdStage()
 	{
-		return $this->_nomVille;
+		return $this->_idStage;
 	}
 
-	public function setNomVille($nomVille)
+	public function setIdStage($idStage)
 	{
-		$this->_nomVille=$nomVille;
+		$this->_idStage=$idStage;
 	}
 
-	public function getCodePostal()
+	public function getIdLibelleHoraire()
 	{
-		return $this->_codePostal;
+		return $this->_idLibelleHoraire;
 	}
 
-	public function setCodePostal($codePostal)
+	public function setIdLibelleHoraire($idLibelleHoraire)
 	{
-		$this->_codePostal=$codePostal;
+		$this->_idLibelleHoraire=$idLibelleHoraire;
 	}
 
-	public function getIdDepartement()
+	public function getValeurHoraire()
 	{
-		return $this->_idDepartement;
+		return $this->_valeurHoraire;
 	}
 
-	public function setIdDepartement($idDepartement)
+	public function setValeurHoraire($valeurHoraire)
 	{
-		$this->_idDepartement=$idDepartement;
+		$this->_valeurHoraire=$valeurHoraire;
 	}
 
 	/*****************Constructeur***************** */
@@ -83,7 +83,7 @@ class Villes
 	*/
 	public function toString()
 	{
-		return "IdVille : ".$this->getIdVille()."NomVille : ".$this->getNomVille()."CodePostal : ".$this->getCodePostal()."IdDepartement : ".$this->getIdDepartement()."\n";
+		return "IdValeurHoraires : ".$this->getIdValeurHoraires()."IdStage : ".$this->getIdStage()."IdLibelleHoraire : ".$this->getIdLibelleHoraire()."ValeurHoraire : ".$this->getValeurHoraire()."\n";
 	}
 
 

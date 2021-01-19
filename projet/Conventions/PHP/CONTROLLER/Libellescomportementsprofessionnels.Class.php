@@ -1,56 +1,45 @@
 <?php
 
-class Villes 
+class LibellesComportementsProfessionnels 
 {
 
 	/*****************Attributs***************** */
 
-	private $_idVille;
-	private $_nomVille;
-	private $_codePostal;
-	private $_idDepartement;
+	private $_idLibelleComportementProfessionnel;
+	private $_ordreComportement;
+	private $_libelleComportement;
 
 	/***************** Accesseurs ***************** */
 
 
-	public function getIdVille()
+	public function getIdLibelleComportementProfessionnel()
 	{
-		return $this->_idVille;
+		return $this->_idLibelleComportementProfessionnel;
 	}
 
-	public function setIdVille($idVille)
+	public function setIdLibelleComportementProfessionnel($idLibelleComportementProfessionnel)
 	{
-		$this->_idVille=$idVille;
+		$this->_idLibelleComportementProfessionnel=$idLibelleComportementProfessionnel;
 	}
 
-	public function getNomVille()
+	public function getOrdreComportement()
 	{
-		return $this->_nomVille;
+		return $this->_ordreComportement;
 	}
 
-	public function setNomVille($nomVille)
+	public function setOrdreComportement($ordreComportement)
 	{
-		$this->_nomVille=$nomVille;
+		$this->_ordreComportement=$ordreComportement;
 	}
 
-	public function getCodePostal()
+	public function getLibelleComportement()
 	{
-		return $this->_codePostal;
+		return $this->_libelleComportement;
 	}
 
-	public function setCodePostal($codePostal)
+	public function setLibelleComportement($libelleComportement)
 	{
-		$this->_codePostal=$codePostal;
-	}
-
-	public function getIdDepartement()
-	{
-		return $this->_idDepartement;
-	}
-
-	public function setIdDepartement($idDepartement)
-	{
-		$this->_idDepartement=$idDepartement;
+		$this->_libelleComportement=$libelleComportement;
 	}
 
 	/*****************Constructeur***************** */
@@ -83,7 +72,7 @@ class Villes
 	*/
 	public function toString()
 	{
-		return "IdVille : ".$this->getIdVille()."NomVille : ".$this->getNomVille()."CodePostal : ".$this->getCodePostal()."IdDepartement : ".$this->getIdDepartement()."\n";
+		return "IdLibelleComportementProfessionnel : ".$this->getIdLibelleComportementProfessionnel()."OrdreComportement : ".$this->getOrdreComportement()."LibelleComportement : ".$this->getLibelleComportement()."\n";
 	}
 
 

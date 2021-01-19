@@ -1,0 +1,24 @@
+USE Conventions;
+
+TRUNCATE TABLE `departements`;
+TRUNCATE TABLE `Regions`;
+TRUNCATE TABLE `animations`;
+TRUNCATE TABLE `Utilisateurs`;
+TRUNCATE TABLE `Roles`;
+TRUNCATE TABLE `evaluations`;
+TRUNCATE TABLE `ValeursAcquis`;
+TRUNCATE TABLE `ValeursComportementsProfessionnels`;
+TRUNCATE TABLE `ValeursHoraires`;
+TRUNCATE TABLE `ValeursTravauxDangereux`;
+TRUNCATE TABLE `LibellesComportementsProfessionnels`;
+TRUNCATE TABLE `LibellesHoraires`;
+TRUNCATE TABLE `LibellesTravauxDangereux`;
+TRUNCATE TABLE `stages`;
+TRUNCATE TABLE `tuteurs`;
+TRUNCATE TABLE `entreprises`;
+TRUNCATE TABLE `stagiaires`;
+TRUNCATE TABLE `participations`;
+TRUNCATE TABLE `PeriodesStages`;
+TRUNCATE TABLE `sessionsformations`;
+TRUNCATE TABLE `formations`;
+-- TRUNCATE TABLE `villes`;

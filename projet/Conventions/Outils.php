@@ -32,7 +32,7 @@ function uri()
 
 function crypte($mot)
 {
-	return md5(md5($mot));
+	return md5($mot);
 }
 
 function texte($codeTexte)

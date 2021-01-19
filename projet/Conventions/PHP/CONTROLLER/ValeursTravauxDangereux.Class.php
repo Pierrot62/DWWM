@@ -1,56 +1,56 @@
 <?php
 
-class Villes 
+class ValeursTravauxDangereux 
 {
 
 	/*****************Attributs***************** */
 
-	private $_idVille;
-	private $_nomVille;
-	private $_codePostal;
-	private $_idDepartement;
+	private $_idTravauxDangereux;
+	private $_idStage;
+	private $_idLibelleTravauxDangereux;
+	private $_valeurTravaux;
 
 	/***************** Accesseurs ***************** */
 
 
-	public function getIdVille()
+	public function getIdTravauxDangereux()
 	{
-		return $this->_idVille;
+		return $this->_idTravauxDangereux;
 	}
 
-	public function setIdVille($idVille)
+	public function setIdTravauxDangereux($idTravauxDangereux)
 	{
-		$this->_idVille=$idVille;
+		$this->_idTravauxDangereux=$idTravauxDangereux;
 	}
 
-	public function getNomVille()
+	public function getIdStage()
 	{
-		return $this->_nomVille;
+		return $this->_idStage;
 	}
 
-	public function setNomVille($nomVille)
+	public function setIdStage($idStage)
 	{
-		$this->_nomVille=$nomVille;
+		$this->_idStage=$idStage;
 	}
 
-	public function getCodePostal()
+	public function getIdLibelleTravauxDangereux()
 	{
-		return $this->_codePostal;
+		return $this->_idLibelleTravauxDangereux;
 	}
 
-	public function setCodePostal($codePostal)
+	public function setIdLibelleTravauxDangereux($idLibelleTravauxDangereux)
 	{
-		$this->_codePostal=$codePostal;
+		$this->_idLibelleTravauxDangereux=$idLibelleTravauxDangereux;
 	}
 
-	public function getIdDepartement()
+	public function getValeurTravaux()
 	{
-		return $this->_idDepartement;
+		return $this->_valeurTravaux;
 	}
 
-	public function setIdDepartement($idDepartement)
+	public function setValeurTravaux($valeurTravaux)
 	{
-		$this->_idDepartement=$idDepartement;
+		$this->_valeurTravaux=$valeurTravaux;
 	}
 
 	/*****************Constructeur***************** */
@@ -83,7 +83,7 @@ class Villes
 	*/
 	public function toString()
 	{
-		return "IdVille : ".$this->getIdVille()."NomVille : ".$this->getNomVille()."CodePostal : ".$this->getCodePostal()."IdDepartement : ".$this->getIdDepartement()."\n";
+		return "IdTravauxDangereux : ".$this->getIdTravauxDangereux()."IdStage : ".$this->getIdStage()."IdLibelleTravauxDangereux : ".$this->getIdLibelleTravauxDangereux()."ValeurTravaux : ".$this->getValeurTravaux()."\n";
 	}
 
 

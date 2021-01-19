@@ -1,56 +1,67 @@
 <?php
 
-class Villes 
+class ValeursAcquis 
 {
 
 	/*****************Attributs***************** */
 
-	private $_idVille;
-	private $_nomVille;
-	private $_codePostal;
-	private $_idDepartement;
+	private $_idValeurAcquis;
+	private $_idStage;
+	private $_ordreAcquis;
+	private $_libelleAcquis;
+	private $_valeurAcquis;
 
 	/***************** Accesseurs ***************** */
 
 
-	public function getIdVille()
+	public function getIdValeurAcquis()
 	{
-		return $this->_idVille;
+		return $this->_idValeurAcquis;
 	}
 
-	public function setIdVille($idVille)
+	public function setIdValeurAcquis($idValeurAcquis)
 	{
-		$this->_idVille=$idVille;
+		$this->_idValeurAcquis=$idValeurAcquis;
 	}
 
-	public function getNomVille()
+	public function getIdStage()
 	{
-		return $this->_nomVille;
+		return $this->_idStage;
 	}
 
-	public function setNomVille($nomVille)
+	public function setIdStage($idStage)
 	{
-		$this->_nomVille=$nomVille;
+		$this->_idStage=$idStage;
 	}
 
-	public function getCodePostal()
+	public function getOrdreAcquis()
 	{
-		return $this->_codePostal;
+		return $this->_ordreAcquis;
 	}
 
-	public function setCodePostal($codePostal)
+	public function setOrdreAcquis($ordreAcquis)
 	{
-		$this->_codePostal=$codePostal;
+		$this->_ordreAcquis=$ordreAcquis;
 	}
 
-	public function getIdDepartement()
+	public function getLibelleAcquis()
 	{
-		return $this->_idDepartement;
+		return $this->_libelleAcquis;
 	}
 
-	public function setIdDepartement($idDepartement)
+	public function setLibelleAcquis($libelleAcquis)
 	{
-		$this->_idDepartement=$idDepartement;
+		$this->_libelleAcquis=$libelleAcquis;
+	}
+
+	public function getValeurAcquis()
+	{
+		return $this->_valeurAcquis;
+	}
+
+	public function setValeurAcquis($valeurAcquis)
+	{
+		$this->_valeurAcquis=$valeurAcquis;
 	}
 
 	/*****************Constructeur***************** */
@@ -83,7 +94,7 @@ class Villes
 	*/
 	public function toString()
 	{
-		return "IdVille : ".$this->getIdVille()."NomVille : ".$this->getNomVille()."CodePostal : ".$this->getCodePostal()."IdDepartement : ".$this->getIdDepartement()."\n";
+		return "IdValeurAcquis : ".$this->getIdValeurAcquis()."IdStage : ".$this->getIdStage()."OrdreAcquis : ".$this->getOrdreAcquis()."LibelleAcquis : ".$this->getLibelleAcquis()."ValeurAcquis : ".$this->getValeurAcquis()."\n";
 	}
 
 

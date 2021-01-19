@@ -1,100 +1,160 @@
-/****  GENERAL ****/
-html, body {
-	margin : 0;
-	padding : 0;
+/********* Global **********/
+body {
+    min-height: 100%;
+    background: var(--FondPage);
 }
 
-div, header, footer, nav, article {
-	display : flex;
-	flex : 1;
+div,
+header,
+footer,
+body,
+nav,
+section,
+form {
+    display: flex;
+    flex: 1;
+    justify-content: center;
 }
 
-img, video {
-	width : 100%;
+img {
+    width: 100%;
 }
 
-:root{
-    --BordureBouton:#87BB34;
-    --FondPage:#272D2D;
-    --BlancCasse:#E1E5E5;
-    --CouleurTexte:#E1E5E5;
-    --CouleurOmbre:#474056;
-    --Rouge: #FF0022;
+.colonne,
+form {
+    flex-direction: column;
 }
 
-body{
-    background-color: var(--FondPage);
-    color: var(--CouleurTexte);
+.centre {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }
 
-.colonne {
-	flex-direction : column;
+.espaceHor {
+    flex: none;
+    height: 1em;
 }
 
-.titre {
-	flex: 5;
-}
-
-.erreur{
+.erreur {
     text-align: center;
     padding: 0.5em;
     color: var(--Rouge);
     text-shadow: 0.1em 0.1em 0.1em 0.1em var(--CouleurTexte);
 }
 
-.center{
-	text-align: center;
+.grande,
+section {
+    flex: 5;
 }
 
-.centerItem{
-    align-items: center;
+.demi {
+    flex: 0.5;
+}
+.mini{
+    flex:0.2;
+}
+.double {
+    flex: 2;
+}
+.triple{
+    flex: 3;
+}
+.info {
+    margin: 0.3em;
 }
 
-input,select
-{
-    border:1px solid var(--BordureBouton);
-    background-color: Transparent;
-    padding:0.5em 1em;
+/******* Form ********/
+label {
     color: var(--CouleurTexte);
     text-align: center;
 }
 
-.row{
-    width: 50vw;
-    margin: auto;
+.centerItem {
+    align-items: center;
 }
 
-.rowRadio{
-    width: 5vw;
-    margin: auto;
-}
-
-.grande{
-    flex: 5;
-}
-
-.row .info{
-    margin: 1.5em;
-}
-
-.espaceH{
-    height: 3vw;
+a {
+    color: var(--CouleurTexte);
+    text-decoration: none
 }
 
 /******* Boutons ********/
-.bouton
-{
+.bouton {
     background-color: Transparent;
-    background-repeat:no-repeat;
-    border-radius:1em;
-    border:2px solid var(--BordureBouton);
-    cursor:pointer;
-    padding:0.5em 1em;
+    background-repeat: no-repeat;
+    border-radius: 1em;
+    border: 2px solid var(--BordureBouton);
+    cursor: pointer;
+    padding: 0.5em 1em;
     color: var(--CouleurTexte);
 }
-.bouton:hover
-{
-    border:2px solid var(--CouleurTexte);
+
+.bouton:hover {
+    border: 2px solid var(--CouleurTexte);
     color: var(--BordureBouton);
-    font-size:1.2em;
+}
+
+
+/********* input & Select *********/
+input,
+select ,.case {
+    border: 1px solid var(--BordureBouton);
+    background-color: Transparent;
+    padding: 0.5em 1em;
+    color: var(--CouleurTexte);
+}
+.titreColonne {
+    border: 2px solid var(--CouleurTexte);
+    color: var(--BordureBouton);
+    font-size: 1.2em;
+}
+input:focus {
+    background-color: #aaa;
+    color: black;
+}
+
+select option {
+    background-color: var(--FondPage);
+    border: 1px solid var(--BordureBouton);
+    color: var(--CouleurTexte);
+}
+
+select option::selection {
+    background-color: red;
+}
+
+/******** Header ********/
+header,
+footer {
+    box-shadow: -0.1em 0.1em 0.2em 0.2em var(--CouleurOmbre);
+}
+
+header {
+    margin-bottom: 1em;
+}
+
+.logo,
+.connection {
+    flex: 0.5;
+}
+
+.titre {
+    flex: 2;
+    color: var(--CouleurTexte);
+}
+
+/******** Footer ******/
+footer {
+    margin-top: 1em;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    width: 99%;
+    bottom: 0.2em;
+    color: var(--CouleurTexte);
+    background-color: var(--FondPage);
+}
+.container{
+    padding-bottom: 3.5em;
 }

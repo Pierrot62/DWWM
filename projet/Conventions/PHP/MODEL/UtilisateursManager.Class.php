@@ -62,4 +62,18 @@ class UtilisateursManager
 		}
 		return $liste;
 	}
+	public static function getByEmail($email)
+	{
+ 		$db=DbConnect::getDb();
+		$q=$db->query("SELECT * FROM Utilisateurs WHERE emailUtilisateur =".$email);
+		$results = $q->fetch(PDO::FETCH_ASSOC);
+		if($results != false)
+		{
+			return new Utilisateurs($results);
+		}
+		else
+		{
+			return false;
+		}
+	}
 }
