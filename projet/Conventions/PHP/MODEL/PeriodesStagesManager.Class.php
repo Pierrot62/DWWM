@@ -60,20 +60,4 @@ class PeriodesStagesManager
 		}
 		return $liste;
 	}
-
-	public static function findByIdSessionFormation($idSessionFormation)
-	{
- 		$db=DbConnect::getDb();
-		$idSessionFormation = (int) $idSessionFormation;
-		$q=$db->query("SELECT * FROM idSessionFormation WHERE idPeriode =".$idSessionFormation);
-		$results = $q->fetch(PDO::FETCH_ASSOC);
-		if($results != false)
-		{
-			return new PeriodesStages($results);
-		}
-		else
-		{
-			return false;
-		}
-	}
 }

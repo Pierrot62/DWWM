@@ -25,6 +25,7 @@ class Stages
 	private $_dateFin;
 	private $_idTuteur;
 	private $_idStagiaire;
+	private $_idPeriode;
 
 	/***************** Accesseurs ***************** */
 
@@ -227,6 +228,15 @@ class Stages
 	public function setIdStagiaire($idStagiaire)
 	{
 		$this->_idStagiaire=$idStagiaire;
+	}	
+	public function getIdPeriode()
+	{
+		return $this->_idPeriode;
+	}
+
+	public function setIdPeriode($idPeriode)
+	{
+		$this->_idPeriode = $idPeriode;
 	}
 
 	/*****************Constructeur***************** */
@@ -290,4 +300,6 @@ class Stages
 	{
 		return;
 	}
+
+
 }

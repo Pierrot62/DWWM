@@ -20,7 +20,7 @@ $lang=isset($_SESSION['lang']) ? $_SESSION['lang'] : 'FR';
 /******Fin des langues******/
 
 $routes=[
-	"default"=>["PHP/VIEW/","Accueil","Accueil"],
+	"default"=>["PHP/VIEW/","Accueil","Accueil",false],
 	// "TestanimationManager"=>["PHP/MODEL/TESTMANAGER/","TestanimationManager","Test de animation"],
 	// "TestcomportementsprofessionnelsManager"=>["PHP/MODEL/TESTMANAGER/","TestcomportementsprofessionnelsManager","Test de comportementsprofessionnels"],
 	// "TestentreprisesManager"=>["PHP/MODEL/TESTMANAGER/","TestentreprisesManager","Test de entreprises"],
@@ -37,30 +37,38 @@ $routes=[
 	// "TestutilisateursManager"=>["PHP/MODEL/TESTMANAGER/","TestutilisateursManager","Test de utilisateurs"],
 	// "TestvillesManager"=>["PHP/MODEL/TESTMANAGER/","TestvillesManager","Test de villes"],
 		
-	"FormConnexion" => ["PHP/VIEW/", "FormConnexion", "Identification"],
-	"ActionConnexion" => ["PHP/VIEW/", "ActionConnexion", "Identification"],
-	"ActionDeconnexion" => ["PHP/VIEW/", "ActionDeconnexion", "Identification"],
+	"FormConnexion" => ["PHP/VIEW/", "FormConnexion", "Identification",false],
+	"ActionConnexion" => ["PHP/VIEW/", "ActionConnexion", "Identification",false],
+	"ActionDeconnexion" => ["PHP/VIEW/", "ActionDeconnexion", "Identification",false],
 	
 	/* Fiche de renseignments  */
-	"FormFRStagiaire" => ["PHP/VIEW/", "FormFRStagiaire", "Fiche de renseignments"],
-	"FormFREntreprise" => ["PHP/VIEW/", "FormFREntreprise", "Fiche de renseignments"],
+	"FormFRStagiaire" => ["PHP/VIEW/", "FormFRStagiaire", "Fiche de renseignments",false],
+	"FormFREntreprise" => ["PHP/VIEW/", "FormFREntreprise", "Fiche de renseignments",false],
+	"FormFRSujetStage" => ["PHP/VIEW/", "FormFRSujetStage", "Fiche de renseignments",false],
+	"FormFRCondition" => ["PHP/VIEW/", "FormFRCondition", "Fiche de renseignments",false],
+	"FormFREvaluation" => ["PHP/VIEW/", "FormFREvaluation", "Fiche de renseignments",false],
 	
 	/* CRUD */
-	"ListeFormations" => ["PHP/VIEW/", "ListeFormations", "Gestion des formations"],
-	"FormFormation" => ["PHP/VIEW/", "FormFormation", "Gestion des formations"],
-	"ActionFormation" => ["PHP/VIEW/", "ActionFormation", "Gestion des formations"],
+	"ListeFormations" => ["PHP/VIEW/", "ListeFormations", "Gestion des formations",false],
+	"FormFormation" => ["PHP/VIEW/", "FormFormation", "Gestion des formations",false],
+	"ActionFormation" => ["PHP/VIEW/", "ActionFormation", "Gestion des formations",false],
 
-	"ListeSessions" => ["PHP/VIEW/", "ListeSessions", "Gestion des sessions"],
-	"FormSession" => ["PHP/VIEW/", "FormSession", "Gestion des sessions"],
-	"ActionSession" => ["PHP/VIEW/", "ActionSession", "Gestion des sessions"],
+	"ListeSessions" => ["PHP/VIEW/", "ListeSessions", "Gestion des sessions",false],
+	"FormSession" => ["PHP/VIEW/", "FormSession", "Gestion des sessions",false],
+	"ActionSession" => ["PHP/VIEW/", "ActionSession", "Gestion des sessions",false],
 
-	"ListeUtilisateurs" => ["PHP/VIEW/", "ListeUtilisateurs", "Gestion des Utilisateurs"],
-	"FormUtilisateur" => ["PHP/VIEW/", "FormUtilisateur", "Gestion des Utilisateurs"],
-	"ActionUtilisateur" => ["PHP/VIEW/", "ActionUtilisateur", "Gestion des Utilisateurs"],
+	"ListeUtilisateurs" => ["PHP/VIEW/", "ListeUtilisateurs", "Gestion des Utilisateurs",false],
+	"FormUtilisateur" => ["PHP/VIEW/", "FormUtilisateur", "Gestion des Utilisateurs",false],
+	"ActionUtilisateur" => ["PHP/VIEW/", "ActionUtilisateur", "Gestion des Utilisateurs",false],
 
-	"ListeEntreprises" => ["PHP/VIEW/", "ListeEntreprises", "Gestion des Entreprises"],
-	"FormEntreprise" => ["PHP/VIEW/", "FormEntreprise", "Gestion des Entreprises"],
-	"ActionEntreprise" => ["PHP/VIEW/", "ActionEntreprise", "Gestion des Entreprises"],
+	"ListeEntreprises" => ["PHP/VIEW/", "ListeEntreprises", "Gestion des Entreprises",false],
+	"FormEntreprise" => ["PHP/VIEW/", "FormEntreprise", "Gestion des Entreprises",false],
+	"ActionEntreprise" => ["PHP/VIEW/", "ActionEntreprise", "Gestion des Entreprises",false],
+
+	/* API */
+	"VillesAPI" => ["PHP/MODEL/API/", "VillesAPI", "Gestion des Entreprises",true],
+
+
 ];
 
 if(isset($_GET["page"]))

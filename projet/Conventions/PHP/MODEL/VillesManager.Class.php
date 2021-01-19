@@ -56,4 +56,20 @@ class VillesManager
 		}
 		return $liste;
 	}
+	public static function getListByDepartement($idDepartement,$api)
+	{
+ 		$db=DbConnect::getDb();
+		$liste = [];
+		$q = $db->query("SELECT * FROM Villes WHERE idDepartement =".$idDepartement ." ORDER BY nomVille");
+		while($donnees = $q->fetch(PDO::FETCH_ASSOC))
+		{
+			if($donnees != false)
+			{
+				$liste[] = new Villes($donnees);
+				$json[]= $donnees;
+			}
+		}
+		if ($api) return $json;
+		return $liste;
+	}
 }

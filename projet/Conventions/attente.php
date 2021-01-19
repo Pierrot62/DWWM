@@ -1,46 +1,17 @@
 <?php
 
-    //ACTION DES BOUTONS DE SELECTION DE PERIODES DE STAGES//
-
-
-
-    $utilisateur = new Utilisateurs (["idUtilisateur" => 2, "nomUtilisateur" => "COURQUIN", "prenomUtilisateur" => "Pierre", "emailUtilisateur" => "toto6@test.fr" , "mdpUtilisateur" => "user" , "datePeremption" => "", "idRole" => 4]);
-    // $a1 = new agence(["Nom" => "tutu", "adresse" => "12 rue toto","restauration" => "restaurant d'entreprise" ,"codePostal" => "59520" , "ville" => "Lille"]);
-    $_SESSION['utilisateur'] = $utilisateur;
     if ($_SESSION['utilisateur']->getIdRole() == 4) {
         $email = $_SESSION['utilisateur']->getEmailUtilisateur();
         $stagiaire = StagiairesManager::getByEmail($email);
-        $nbPeriodesStages = StagiaireFormationManager::nbPeriodesStages($stagiaire->getIdStagiaire(),NULL);
-        // var_dump($stagiaire);
-        $participation = ParticipationsManager::getByStagiaire($stagiaire->getIdStagiaire());
-        // var_dump($participation);
-        $periodeStage = StagiaireFormationManager::nb
+        $nbPeriodesStages = StagiaireFormationManager::nbPeriodesStages($stagiaire->getIdStagiaire());
+
     }
-    echo' <section>';
-        // $nbPeriodesStages = 5;
+
     if ($nbPeriodesStages > 1) {
-        $i = 0;
-        $j = 1;
-        while ($i < $nbPeriodesStages) {
-            echo '
-            <div class="colonne">
-                <div>Periode de stage '. $j.'</div>
-                <div>Du '. $participation[$i]->getDateDebut().' au  '. $participation[$i]->getDateFin().'</div>
-
-                <a href="index.php?page=FormFRStagiaire&idPeriodStage='.$part">
-                    <button type="submit" class="bouton">Completer la fiche info  </button>
-                </a>
-            </div>
-            ';
-
-            $i++; 
-            $j++;
-        }
-
-    } else {
-
+        
+    } else{
         echo ' 
-       
+        <section>
 
             
             <form action="" method="POST">
@@ -100,7 +71,16 @@
 
             </form>
 
-        ';
+        </section>';
     }
-    echo'</section>';
+
 ?>
+
+
+
+
+<div class="colonne">
+    <div>Periode de stage 1</div>
+    <div>Du 08/02/2000 au 08/02/2020</div>
+    <button class="bouton">Completer la fiche</button>
+</div>

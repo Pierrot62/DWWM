@@ -164,7 +164,8 @@ CREATE TABLE Stages(
         dateDebut            Date NOT NULL ,
         dateFin              Date NOT NULL ,
         idTuteur  Int   NOT NULL ,
-        idStagiaire Int NOT NULL
+        idStagiaire Int NOT NULL,
+        idPeriode int not null
 )ENGINE=InnoDB, CHARSET = UTF8;
 
 #------------------------------------------------------------

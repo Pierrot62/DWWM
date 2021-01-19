@@ -67,7 +67,7 @@ class StagiairesManager
 	public static function getByEmail($email)
 	{
  		$db=DbConnect::getDb();
-		$q=$db->query("SELECT * FROM Stagiaires WHERE emailStagiaire =".$email);
+		$q=$db->query('SELECT * FROM Stagiaires WHERE emailStagiaire ="'.$email.'"');
 		$results = $q->fetch(PDO::FETCH_ASSOC);
 		if($results != false)
 		{
