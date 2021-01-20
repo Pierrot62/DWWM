@@ -1,15 +1,20 @@
 //VARIBLE
 //Input
-var prenom = document.getElementById("prenom");
-var nom = document.getElementById("nom");
-var radios = document.getElementsByName('genre');
-var numSecu = document.getElementById("numSecu");
-var genre = document.getElementById("genre");
-var numBenef = document.getElementById("numBenef");
-var ddn = document.getElementById("ddn");
+var prenom = document.getElementById("prenomStagiaire");
+var nom = document.getElementById("nomStagiaire");
+var radios = document.getElementsByName('genreStagiaire');
+var numSecu = document.getElementById("numSecuStagiaire");
+var genre = document.getElementById("genreStagiaire");
+var numBenef = document.getElementById("numBenefStagiaire");
+var ddn = document.getElementById("dateNaissanceStagiaire");
+var prenomTuteur = document.getElementById("prenomTuteur");
+var nomTuteur = document.getElementById("nomTuteur");
 var emailTuteur = document.getElementById("emailTuteur");
+var emailUser = document.getElementById("emailUser");
+var mdpTuteur = document.getElementById("mdpUtilisateur");
 //Liste des inputs
 var listInput = document.getElementsByTagName("input");
+console.log(listInput);
 //Zone des message d'erreurs
 var spanInfo = document.getElementsByClassName("erreur");
 //VALEUR DES INPUTS
@@ -18,36 +23,72 @@ nom.addEventListener("keyup", verifNom);
 numSecu.addEventListener("keyup", verifNumSecu);
 numBenef.addEventListener("keyup", verifNumBenef);
 ddn.addEventListener("change", verifDdn);
+prenomTuteur.addEventListener("keyup", verifPrenomTuteur);
+prenomTuteur.addEventListener("keyup", editMdp);
+nomTuteur.addEventListener("keyup",verifNomTuteur);
+nomTuteur.addEventListener("keyup", editMdp);
 emailTuteur.addEventListener("keyup", verifEmailTuteur);
+emailTuteur.addEventListener("keyup",editEmailUser);
+
+function editEmailUser() {
+    let email = emailTuteur.value;
+    console.log(email);
+    emailUser.value = email;
+}
+
+
+function editMdp() {
+    let prenom = prenomTuteur.value;
+    let nom = nomTuteur.value;
+    mdpTuteur.value = prenom + nom + numBenef.value;
+    console.log(mdpTuteur.value);
+}
 
 console.log(spanInfo);
 
-
-
 function verifPrenom() {
     if (listInput[0].checkValidity()) {
-        prenom.style.border = "1px solid var(--BordureBouton)";
+        prenomStagiaire.style.border = "1px solid var(--BordureBouton)";
         spanInfo[0].textContent = "";
     } else {
-        prenom.style.border = "3px solid red";
+        prenomStagiaire.style.border = "3px solid red";
         spanInfo[0].textContent = "Prenom incorrect";
+    }
+}
+
+function verifPrenomTuteur() {
+    if (listInput[7].checkValidity()) {
+        prenomTuteur.style.border = "1px solid var(--BordureBouton)";
+        spanInfo[0].textContent = "";
+    } else {
+        prenomTuteur.style.border = "3px solid red";
+        spanInfo[0].textContent = "Prenom du tuteur incorrect";
     }
 }
 
 function verifNom() {
     if (listInput[1].checkValidity()) {
-        nom.style.border = "1px solid var(--BordureBouton)";
+        nomStagiaire.style.border = "1px solid var(--BordureBouton)";
         spanInfo[0].textContent = "";
     } else {
-        nom.style.border = "3px solid red";
+        nomStagiaire.style.border = "3px solid red";
         spanInfo[0].textContent = "Nom incorrect";
     }
-    
+}
+
+function verifNomTuteur() {
+    if (listInput[8].checkValidity()) {
+        nomTuteur.style.border = "1px solid var(--BordureBouton)";
+        spanInfo[0].textContent = "";
+    } else {
+        nomTuteur.style.border = "3px solid red";
+        spanInfo[0].textContent = "Nom incorrect";
+    }
 }
 
 function verifDdn() {
     //Decoupage puis création d'un OBJ DATE avec la ddn du stagiaire
-    let dateUser = ddn.value;
+    let dateUser = dateNaissanceStagiaire.value;
     let jour = parseInt(dateUser.substring(8, 10));
     let mois = parseInt(dateUser.substring(5, 7));
     var annee = parseInt(dateUser.substring(0, 4));
@@ -55,11 +96,11 @@ function verifDdn() {
     let dateSysteme = new Date();
 
     if (date > dateSysteme) {
-        ddn.style.border = "3px solid red";
+        dateNaissanceStagiaire.style.border = "3px solid red";
         spanInfo[0].textContent =
             "Erreur : la date de naissance ne peux pas être supérieur a la date actuelle.";
     } else {
-        ddn.style.border = "1px solid var(--BordureBouton)";
+        dateNaissanceStagiaire.style.border = "1px solid var(--BordureBouton)";
         spanInfo[0].textContent = "";
     }
 
@@ -69,15 +110,15 @@ function verifDdn() {
 
 
 function verifNumSecu() {
-    let content = numSecu.value;
+    let content = numSecuStagiaire.value;
     if (listInput[4].checkValidity()) {
-        numSecu.style.border = "1px solid var(--BordureBouton)";
+        numSecuStagiaire.style.border = "1px solid var(--BordureBouton)";
         spanInfo[0].textContent = "";
     } else if (content.length < 13) {
-        numSecu.style.border = "3px solid orange";
+        numSecuStagiaire.style.border = "3px solid orange";
         spanInfo[0].textContent = "";
     } else if (content.length > 13) {
-        numSecu.style.border = "3px solid red";
+        numSecuStagiaire.style.border = "3px solid red";
         spanInfo[0].textContent = "Numéro incorrect";
     }
     //Recuperation du premier chiffre du num de secu
@@ -101,15 +142,15 @@ function verifNumSecu() {
 }
 
 function verifNumBenef() {
-    let content = numBenef.value;
+    let content = numBenefStagiaire.value;
     if (listInput[5].checkValidity()) {
-        numBenef.style.border = "1px solid var(--BordureBouton)";
+        numBenefStagiaire.style.border = "1px solid var(--BordureBouton)";
         spanInfo[0].textContent = "";
     } else if (content.length < 8) {
-        numBenef.style.border = "3px solid orange";
+        numBenefStagiaire.style.border = "3px solid orange";
         spanInfo[0].textContent = "";
     } else if (content.length > 8) {
-        numBenef.style.border = "3px solid red";
+        numBenefStagiaire.style.border = "3px solid red";
         spanInfo[0].textContent = "Format numéro de bénéficiaire incorrect";
     }
     
@@ -117,12 +158,11 @@ function verifNumBenef() {
 
 function verifEmailTuteur() {
     // console.log(checkInput[6].value);
-    if (listInput[7].checkValidity()) {
+    if (listInput[9].checkValidity()) {
         emailTuteur.style.border = "1px solid var(--BordureBouton)";
         spanInfo[0].textContent = "";
       } else {
         emailTuteur.style.border = "5px solid red";
         spanInfo[0].textContent = "Format d'e-mail incorrect";
       }
-      
 }
