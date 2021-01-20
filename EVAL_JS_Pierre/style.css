@@ -1,0 +1,52 @@
+/********* Global **********/
+body {
+    /* min-height: 100%; */
+    background-color: wheat;
+}
+
+div,
+header,
+footer,
+body,
+nav,
+section,
+form {
+    display: flex;
+    flex: 1;
+    width: 100%;
+}
+
+.colonne{
+    flex-direction: column;
+}
+.container{
+    border: 1px solid rgb(9, 9, 167);
+    width: 70vw;
+    padding: 0.5em;
+    margin: 1em;
+}
+.ligne{
+    text-align: center;
+    align-items: center;
+}
+
+
+input{
+    width: 100%;
+    margin: 0.5em;
+}
+
+.center{
+    text-align: center;
+    align-items: center;
+}
+.espace{
+    height: 5vh;
+}
+.bouton{
+    justify-content: space-around;
+}
+
+.info {
+    color: red;
+}

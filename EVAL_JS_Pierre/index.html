@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calcul du Taux d'intérêt</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <section class="colonne center">
+        <h1>Calcul du Taux d'intérêt</h1>
+        <div class="container colonne">
+            <div class="ligne">
+                <div>Capital Emprunté</div>
+                <div><input type="text" id="capital"></div>
+                <div>€</div>
+                <div class="info"></div>
+            </div>
+            <div class="ligne">
+                <div class="ligne">
+                    <div>Taux Nominal Annuel</div>
+                    <div><input type="text" id="taux"></div>
+                    <div>%</div>
+                    <div class="info"></div>
+                </div>
+            </div>
+            <div class="ligne">
+                <div class="ligne">
+                    <div>Durée d'emprunt</div>
+                    <div><input type="text" id="duree"></div>
+                    <div>Ans</div>
+                    <div class="info"></div>
+                </div>
+            </div>
+        </div>
+        <div class="espace"></div>
+        <div class="container colonne">
+            <div class="ligne">
+                <div class="ligne">
+                    <div>Mensualité</div>
+                    <div><input type="text" disabled value="0" id="mensualite"></div>
+                    <div>€</div>
+                    <div class="info"></div>
+                </div>
+            </div>
+            <div class="ligne">
+                <div class="ligne">
+                    <div>Coût Total</div>
+                    <div><input type="text" disabled value="0" id="cTT"></div>
+                    <div>€</div>
+                    <div class="info"></div>
+                </div>
+            </div>
+        </div>
+        <div class="bouton">
+            <div></div>
+            <button id="calcul">Calculer</button>
+            <div></div>
+            <button id="newCalcul">Nouveau Calcul</button>
+            <div></div>
+        </div>
+            
+    </section>
+    <script src="script.js"></script>
+</body>
+</html>

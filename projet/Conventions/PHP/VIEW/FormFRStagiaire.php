@@ -48,26 +48,27 @@
         } else if (isset($_GET["idPeriode"])){
             $valuePeriodeStage = StagiaireFormationManager::getListBySession($_GET["idPeriode"]);
             // var_dump($valuePeriodeStage);
-             //DECOUPAGE DE LA DATE POUR LA METTRE AU FORMAT JJ/MM/AAAA
-            //  $dateDebut = $valuePeriodeStage->getDateDebutPAE();
+            //  DECOUPAGE DE LA DATE POUR LA METTRE AU FORMAT JJ/MM/AAAA
+            //  $dateDebut = $valuePeriodeStage[1]->getDateDebutPAE();
             //  $anneeDebut = substr($dateDebut , 0 , 4);
             //  $moisDebut = substr($dateDebut, 5 , 2);
             //  $jourDebut = substr($dateDebut, 8 , 2);
-            //  $dateFin = $valuePeriodeStage->getDateFinPAE();
+            //  $dateFin = $valuePeriodeStage[1]->getDateFinPAE();
             //  $anneeFin = substr($dateFin , 0 , 4);
             //  $moisFin = substr($dateFin, 5 , 2);
             //  $jourFin = substr($dateFin, 8 , 2);
-            // <span>Du '.$jourDebut.'/'.$moisDebut.'/'.$anneeDebut.' au  '.$jourFin.'/'.$moisFin.'/'.$anneeFin.' </span>
+            // <div>Du '.$jourDebut.'/'.$moisDebut.'/'.$anneeDebut.' au  '.$jourFin.'/'.$moisFin.'/'.$anneeFin.' </div>
+
             echo'
             <form action="" method="POST">
                 <div class="info centre colonne">
                    <h1>Fiche d information pour la periode de stage :</h1>
-                  
+
                 </div>
                 <div class="info colonne">
                     <div class="info colonne ">
                         <label for="prenom">Prenom :</label>
-                        <input type="text" id="prenom" name="prenom" value="" required pattern="[a-zA-Z- ]{3,}">
+                        <input type="text" id="prenom" name="prenom" value="'.$stagiaire->get.'" required pattern="[a-zA-Z- ]{3,}">
                     </div>
                     <div class="info colonne ">
                         <label for="nom">Nom :</label>
