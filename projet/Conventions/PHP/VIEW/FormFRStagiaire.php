@@ -1,23 +1,17 @@
 <?php
 
-    //ACTION DES BOUTONS DE SELECTION DE PERIODES DE STAGES//
-
 
     $utilisateur = new Utilisateurs (["idUtilisateur" => 2, "nomUtilisateur" => "COURQUIN", "prenomUtilisateur" => "Pierre", "emailUtilisateur" => "toto6@test.fr" , "mdpUtilisateur" => "user" , "datePeremption" => "", "idRole" => 4]);
-    // $a1 = new agence(["Nom" => "tutu", "adresse" => "12 rue toto","restauration" => "restaurant d'entreprise" ,"codePostal" => "59520" , "ville" => "Lille"]);
+
     $_SESSION['utilisateur'] = $utilisateur;
     if ($_SESSION['utilisateur']->getIdRole() == 4) {
         $email = $_SESSION['utilisateur']->getEmailUtilisateur();
         $stagiaire = StagiairesManager::getByEmail($email);
         $nbPeriodesStages = StagiaireFormationManager::nbPeriodesStages($stagiaire->getIdStagiaire(),NULL);
-        // var_dump($stagiaire);
         $participation = ParticipationsManager::getByStagiaire($stagiaire->getIdStagiaire());
-        // var_dump($participation);
         $periodeStage = StagiaireFormationManager::getListByStagiaire($stagiaire->getIdStagiaire());
-        // var_dump($periodeStage);
     }
     echo' <section>';
-        // $nbPeriodesStages = 5;
     if (!isset($_GET['idPeriode']) && $nbPeriodesStages > 1) {
         $i = 0;
         $j = 1;
