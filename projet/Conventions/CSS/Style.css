@@ -204,15 +204,21 @@ footer {
 }
 
 .menu > div{
-    border-top-left-radius: 20px;
-    border-top-right-radius: 20px;
-    border: 1px solid var(--BordureBouton);
-    transition: 0.3s;
+    border-top-left-radius: 100%;
+    border-top-right-radius: 100%;
+    border: 2px solid var(--CouleurOmbre);
+    padding: 0.2em;
+    transition: 0.2s;
     height: 100%;
     margin: 0.5em 0;
-    background : linear-gradient(0.25turn,var(--FondPage),80%, var(--BordureBouton));
+    background : linear-gradient(to right,var(--FondPage),90%, var(--BordureBouton));
 }
-
+.menu > div:hover a {
+    color : var(--FondPage);
+}
 .menu > div:hover{
-    background-color: var(--FondPage);
+    
+    background : linear-gradient(0.25turn,var(--FondPage),40%, var(--BordureBouton));
+    border: 2px solid var(--CouleurTexte);
+    background-position: right center;
 }
