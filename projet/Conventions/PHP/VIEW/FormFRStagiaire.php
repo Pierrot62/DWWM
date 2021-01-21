@@ -63,7 +63,7 @@
             <form action="index.php?page=ActionFormFRStagiaire" method="POST">
                 <div class="info centre colonne">
                    <h1>Fiche d information pour la periode de stage</h1>
-
+                    <h1>Du '.$periodeStage[$_GET['idPeriode']-1]->getDateDebutPAE().' au '.$periodeStage[$_GET['idPeriode']-1]->getDateFinPAE().' </h1>
                 </div>
                 <div class="info">
                     <div class="info colonne ">
@@ -141,7 +141,10 @@
                     <input type="hidden" id="emailUser" name="emailUtilisateur" value="">
                     <input type="hidden" name="etape" value="1">
                     <input type="hidden" name="idPeriode" value="'.$_GET["idPeriode"].'">
-                    <input type="hidden" name="idTuteur" value="">
+                    <input type="hidden" name="dateDebut" value="'.$periodeStage[$_GET['idPeriode']-1]->getDateDebutPAE().'">
+                    <input type="hidden" name="dateFin" value="'.$periodeStage[$_GET['idPeriode']-1]->getDateFinPAE().'">
+                    <input type="hidden" name="objectifPAE" value="'.$periodeStage[$_GET['idPeriode']-1]->getObjectifPAE().'">
+
 
                 <div>
                     <div class="info  center">

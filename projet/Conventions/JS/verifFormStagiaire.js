@@ -28,13 +28,6 @@ prenomTuteur.addEventListener("keyup", editMdp);
 nomTuteur.addEventListener("keyup",verifNomTuteur);
 nomTuteur.addEventListener("keyup", editMdp);
 emailTuteur.addEventListener("keyup", verifEmailTuteur);
-emailTuteur.addEventListener("keyup",editEmailUser);
-
-function editEmailUser() {
-    let email = emailTuteur.value;
-    console.log(email);
-    emailUser.value = email;
-}
 
 
 function editMdp() {
