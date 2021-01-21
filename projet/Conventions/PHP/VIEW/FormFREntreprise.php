@@ -112,7 +112,8 @@
                 <div id="divNumSocietaire" class="message erreur"></div>
             </div>
         </div>
-
+<fieldset>
+<legend>Tuteur</legend>
         <div class="row">
             <div class="info colonne">
                 <label for="tuteur">Tuteur délégué par l'entreprise :</label>
@@ -152,6 +153,8 @@
             </div>
             <div></div>
         </div>
+        
+</fieldset>
     </form>
 
 </section>

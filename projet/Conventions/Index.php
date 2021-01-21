@@ -40,13 +40,16 @@ $routes=[
 	"FormConnexion" => ["PHP/VIEW/", "FormConnexion", "Identification",false],
 	"ActionConnexion" => ["PHP/VIEW/", "ActionConnexion", "Identification",false],
 	"ActionDeconnexion" => ["PHP/VIEW/", "ActionDeconnexion", "Identification",false],
+	"FormAdmin" => ["PHP/VIEW/", "FormAdmin", "Identification",false],
 	
-	/* Fiche de renseignments  */
-	"FormFRStagiaire" => ["PHP/VIEW/", "FormFRStagiaire", "Fiche de renseignments",false],
-	"FormFREntreprise" => ["PHP/VIEW/", "FormFREntreprise", "Fiche de renseignments",false],
-	"FormFRSujetStage" => ["PHP/VIEW/", "FormFRSujetStage", "Fiche de renseignments",false],
-	"FormFRCondition" => ["PHP/VIEW/", "FormFRCondition", "Fiche de renseignments",false],
-	"FormFREvaluation" => ["PHP/VIEW/", "FormFREvaluation", "Fiche de renseignments",false],
+	/* Fiche de renseignements  */
+	"FormFRStagiaire" => ["PHP/VIEW/", "FormFRStagiaire", "Fiche de renseignements",false],
+	"FormFREntreprise" => ["PHP/VIEW/", "FormFREntreprise", "Fiche de renseignements",false],
+	"FormFRSujetStage" => ["PHP/VIEW/", "FormFRSujetStage", "Fiche de renseignements",false],
+	"FormFRCondition" => ["PHP/VIEW/", "FormFRCondition", "Fiche de renseignements",false],
+	"FormFREvaluation" => ["PHP/VIEW/", "FormFREvaluation", "Fiche de renseignements",false],
+	"Menu" => ["PHP/VIEW/", "Menu", "Remplissage Des Informations De Stages",false],
+	"ActionFormFRStagiaire" => ["PHP/VIEW/", "ActionFormFRStagiaire", "Fiche de renseignements",false],
 	
 	/* CRUD */
 	"ListeFormations" => ["PHP/VIEW/", "ListeFormations", "Gestion des formations",false],
@@ -64,7 +67,10 @@ $routes=[
 	"ListeEntreprises" => ["PHP/VIEW/", "ListeEntreprises", "Gestion des Entreprises",false],
 	"FormEntreprise" => ["PHP/VIEW/", "FormEntreprise", "Gestion des Entreprises",false],
 	"ActionEntreprise" => ["PHP/VIEW/", "ActionEntreprise", "Gestion des Entreprises",false],
-	"ActionFormFRStagiaire" => ["PHP/VIEW/", "ActionFormFRStagiaire", "Gestion des Entreprises",false],
+
+	"ListeStagiaires" => ["PHP/VIEW/", "ListeStagiaires", "Gestion des Stagiaires",false],
+	"FormStagiaire" => ["PHP/VIEW/", "FormStagiaire", "Gestion des Stagiaires",false],
+	"ActionStagiaire" => ["PHP/VIEW/", "ActionStagiaire", "Gestion des Stagiaires",false],
 
 	/* API */
 	"VillesAPI" => ["PHP/MODEL/API/", "VillesAPI", "Gestion des Entreprises",true],

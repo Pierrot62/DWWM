@@ -60,7 +60,8 @@ class VillesManager
 	{
  		$db=DbConnect::getDb();
 		$liste = [];
-		$q = $db->query("SELECT * FROM Villes WHERE idDepartement =".$idDepartement ." ORDER BY nomVille");
+		$json=[];
+		$q = $db->query("SELECT * FROM Villes WHERE idDepartement ='".$idDepartement ."' ORDER BY nomVille");
 		while($donnees = $q->fetch(PDO::FETCH_ASSOC))
 		{
 			if($donnees != false)

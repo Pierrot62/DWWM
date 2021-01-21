@@ -111,7 +111,7 @@ INSERT INTO `stagiaires` (`idStagiaire`,`genreStagiaire`,`nomStagiaire`,`prenomS
 INSERT INTO `stagiaires` (`idStagiaire`,`genreStagiaire`,`nomStagiaire`,`prenomStagiaire`,`numSecuStagiaire`,`numBenefStagiaire`,`dateNaissanceStagiaire`,`emailStagiaire`) VALUES (26,"F","Christian","Nicholas","417501349514365","757103316328797","2021-05-05","tot26o@test.fr");
 INSERT INTO `stagiaires` (`idStagiaire`,`genreStagiaire`,`nomStagiaire`,`prenomStagiaire`,`numSecuStagiaire`,`numBenefStagiaire`,`dateNaissanceStagiaire`,`emailStagiaire`) VALUES (27,"F","Mcdonald","Nelle","129732031875740","701826288356067","2021-05-05","tot27o@test.fr");
 INSERT INTO `stagiaires` (`idStagiaire`,`genreStagiaire`,`nomStagiaire`,`prenomStagiaire`,`numSecuStagiaire`,`numBenefStagiaire`,`dateNaissanceStagiaire`,`emailStagiaire`) VALUES (28,"F","Marquez","Ira","714416769911156","357971867324688","2021-05-05","tot28o@test.fr");
-
+UPDATE `stagiaires` SET `emailStagiaire`= CONCAT( `nomStagiaire` , "." , `prenomStagiaire`, "@gmail.com");
 
 INSERT INTO `sessionsformations` (`idSessionFormation`,`numOffreFormation`,`idFormation`) VALUES (1,"0048196996550",5);
 INSERT INTO `sessionsformations` (`idSessionFormation`,`numOffreFormation`,`idFormation`) VALUES (2,"2566858494579",1);

@@ -1,16 +1,15 @@
 <section>
     <div class="centre colonne">
 
-        <div class="bouton centre" href="index.php?page=ListeFormations.php">Gestion Formation</div>
+        <button class="bouton centre" href="index.php?page=ListeFormations.php">Gestion Formation</button>
         <div class="espaceHor"></div>
-        <div class="bouton centre" href="index.php?page=ListeSessions.php">Gestion Sessions</div>
+        <button class="bouton centre" href="index.php?page=ListeSessions.php">Gestion Sessions</button>
         <div class="espaceHor"></div>
-        <div class="bouton centre" href="index.php?page=ListeUtilisateurs.php">Gestion Utilisateurs</div>
+        <button class="bouton centre" href="index.php?page=ListeUtilisateurs.php">Gestion Utilisateurs</button>
         <div class="espaceHor"></div>
-        <div class="bouton centre" href="index.php?page=ListeStagiaires.php">Gestion Stagiaires</div>
+        <button class="bouton centre" href="index.php?page=ListeStagiaires.php">Gestion Stagiaires</button>
         <div class="espaceHor"></div>
-        <div class="bouton centre" href="index.php?page=///.php">Feuille de Renseignements</div>
-
+        <button class="bouton centre" href="index.php?page=///.php">Feuille de Renseignements</button>
 
     </div>
 </section>

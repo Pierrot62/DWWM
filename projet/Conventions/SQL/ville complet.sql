@@ -26220,7 +26220,7 @@ insert into villes (idVille,nomVille,codePostal) Values (NULL,"VILLERS ST FRAMBO
 insert into villes (idVille,nomVille,codePostal) Values (NULL,"CROIX FONSOMME","2110");
 insert into villes (idVille,nomVille,codePostal) Values (NULL,"VILLERS VERMONT","60380");
 insert into villes (idVille,nomVille,codePostal) Values (NULL,"LA CROIX SUR OURCQ","2210");
-insert into villes (idVille,nomVille,codePostal) Values (NULL,"villesELVE","60640");
+insert into villes (idVille,nomVille,codePostal) Values (NULL,"ELVE","60640");
 insert into villes (idVille,nomVille,codePostal) Values (NULL,"CROUTTES SUR MARNE","2310");
 insert into villes (idVille,nomVille,codePostal) Values (NULL,"WACQUEMOULIN","60420");
 insert into villes (idVille,nomVille,codePostal) Values (NULL,"CUISSY ET GENY","2160");

@@ -134,10 +134,10 @@ CREATE TABLE Tuteurs(
         idTuteur       Int  Auto_increment  NOT NULL PRIMARY KEY,
         nomTuteur      Varchar (50) NOT NULL ,
         prenomTuteur   Varchar (50) NOT NULL ,
-        fonctionTuteur Varchar (100),
-        telTuteur      Varchar (10),
+        fonctionTuteur Varchar (100)  ,
+        telTuteur      Varchar (10)  ,
         emailTuteur     Varchar (100) NOT NULL ,
-        idEntreprise   Int
+        idEntreprise   Int 
 )ENGINE=InnoDB, CHARSET = UTF8;
 
 #------------------------------------------------------------

@@ -5,8 +5,8 @@ echo '<section class = "colonne">
             <h2>Liste des sessions</h2>
         </div>
         <div>
-            <a href="Index.php?codePage=details&categorie=repres&mode=ajout">
-                <button class="bouton"><i class="fas fa-plus-circle"></i> Ajouter</button>
+            <a href="Index.php?page=FormSession&mode=ajout">
+                <button class="bouton info"><i class="fas fa-plus-circle"></i> Ajouter</button>
             </a>
         </div>
         <div></div>
@@ -21,15 +21,15 @@ foreach ($tableau as $uneSession) {
                 <div class="case double centre"> '.$formation->getLibelleFormation().'</div>
                 <div class="case centre"> '.$uneSession->getNumOffreFormation().'</div>
                 <div class="double centre">
-                    <a href="Index.php?codePage=details&categorie=repres&mode=modif&id='.$uneSession->getIdSessionFormation().'">
+                    <a href="Index.php?page=FormSession&mode=modif&id='.$uneSession->getIdSessionFormation().'">
                         <button class="bouton"><i class="fas fa-edit"></i> Modifier</button>
                     </a>
                     <div class="mini"></div>
-                    <a href="Index.php?codePage=details&categorie=repres&mode=detail&id='.$uneSession->getIdSessionFormation().'">
+                    <a href="Index.php?page=FormSession&mode=detail&id='.$uneSession->getIdSessionFormation().'">
                         <button class="bouton"><i class="fas fa-info-circle"></i> Détail</button>
                     </a>
                     <div class="mini"></div>
-                    <a href="Index.php?codePage=details&categorie=repres&mode=delete&id='.$uneSession->getIdSessionFormation().'">
+                    <a href="Index.php?page=FormSession&mode=delete&id='.$uneSession->getIdSessionFormation().'">
                         <button class="bouton"><i class="fas fa-trash-alt"></i> Supprimer</button>
                     </a>
                 </div>

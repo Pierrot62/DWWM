@@ -1,6 +1,6 @@
 <?php
 var_dump($_POST);
-$uti = UtilisateursManager::getByEmailUtilisateur($_POST['eMail']);
+$uti = UtilisateursManager::getByEmail($_POST['eMail']);
 var_dump($uti);
 if ($uti != false && ($uti->getDatePeremption() == null || $uti->getDatePeremption() > new DateTime("NOW")))
 {
