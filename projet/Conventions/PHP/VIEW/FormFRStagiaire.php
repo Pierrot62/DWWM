@@ -165,56 +165,95 @@
         echo ' 
        
 
-            
-        <form action="" method="POST">
+        <form action="index.php?page=ActionFormFRStagiaire" method="POST">
         <div class="info centre colonne">
            <h1>Fiche d information pour la periode de stage</h1>
-
+            <h1>Du '.$periodeStage->getDateDebutPAE().' au '.$periodeStage->getDateFinPAE().' </h1>
         </div>
-        <div class="info colonne">
+        <div class="info">
             <div class="info colonne ">
-                <label for="prenom">Prenom :</label>
-                <input type="text" id="prenom" name="prenom" value="'.$stagiaire->getPrenomStagiaire().'" required pattern="[a-zA-Z- ]{3,}">
+                <label for="prenomStagiaire">prenomStagiaire :</label>
+                <input type="text" id="prenomStagiaire" name="prenomStagiaire" value="'.$stagiaire->getPrenomStagiaire().'" required pattern="[a-zA-Z- ]{3,}">
             </div>
-            <div class="info colonne ">
-                <label for="nom">Nom :</label>
-                <input type="text" id="nom" name="nom" value="'.$stagiaire->getNomStagiaire().'" required pattern="[a-zA-Z- ]{3,}">
+            <div class="info colonne">
+                <label for="nomStagiaire">nomStagiaire :</label>
+                <input type="text" id="nomStagiaire" name="nomStagiaire" value="'.$stagiaire->getNomStagiaire().'" required pattern="[a-zA-Z- ]{3,}">
             </div>
         </div>
-        <div >
+        <div >';
+        if ($stagiaire->getGenreStagiaire() == "M") {
+            echo'
             <div class="info  centerItem colonne">
                 <label for="homme">Homme</label>
-                <input type="radio" required id="genre" name="genre" value="H">
+                <input type="radio" required id="genreStagiaire" checked name="genreStagiaire" value="H">
             </div>
             <div class="info  centerItem colonne">
                 <label for="femme">Femme</label>
-                <input type="radio" required id="genre" name="genre" value="F">
+                <input type="radio" required id="genreStagiaire" name="genreStagiaire" value="F">
+            </div>';
+        }
+        else{
+            echo'
+            <div class="info  centerItem colonne">
+                <label for="homme">Homme</label>
+                <input type="radio" required id="genreStagiaire" name="genreStagiaire" value="H">
             </div>
+            <div class="info  centerItem colonne">
+                <label for="femme">Femme</label>
+                <input type="radio" required id="genreStagiaire" checked name="genreStagiaire" value="F">
+            </div>';
+        }
+           
+            echo'
             <div class="info colonne  grande">
-                <label for="numSecu">Votre Numero de securite social :</label>
-                <input type="text" id="numSecu" name="numSecu" required pattern="\d{13}" value="'.$stagiaire->getNumSecuStagiaire().'">
+                <label for="numSecuStagiaire">Votre Numero de securite social :</label>
+                <input type="text" id="numSecuStagiaire" name="numSecuStagiaire" required pattern="\d{13}" value="'.$stagiaire->getNumSecuStagiaire().'">
             </div>
         </div>
 
-        <div >
+        <div>
             <div class="info colonne center">
-                <label for="numbenef">Votre numero de beneficiaire :</label>
-                <input type="text" id="numBenef" name="numbenef" value="'.$stagiaire->getNumBenefStagiaire().'" required pattern="\d{8}">
+                <label for="numBenefStagiaire">Votre numero de beneficiaire :</label>
+                <input type="text" id="numBenefStagiaire" name="numBenefStagiaire" value="'.$stagiaire->getNumBenefStagiaire().'" required pattern="\d{8}">
             </div>
             <div class="info colonne center">
-                <label for="ddn">Votre date de naissance :</label>
-                <input type="date" id="ddn" name="ddn" value="'.$stagiaire->getDateNaissanceStagiaire().'" required>
+                <label for="dateNaissanceStagiaire">Votre date de naissance :</label>
+                <input type="date" id="dateNaissanceStagiaire" name="dateNaissanceStagiaire" value="'.$stagiaire->getDateNaissanceStagiaire().'" required>
             </div>
         </div>
-
+        <div>
+            <div class="info">
+                <div class="info colonne ">
+                    <label for="prenom">Prenom du Tuteur :</label>
+                    <input type="text" id="prenomTuteur" name="prenomTuteur" value="" required pattern="[a-zA-Z- ]{3,}">
+                </div>
+                <div class="info colonne">
+                    <label for="nom">Nom du Tuteur :</label>
+                    <input type="text" id="nomTuteur" name="nomTuteur" value="" required pattern="[a-zA-Z- ]{3,}">
+                </div>
+            </div>
+        </div>
         <div >
             <div class="info colonne center">
-                <label for="emailTuteur">Email de votre tuteur :</label>
+                <label for="emailTuteur">Email du Tuteur :</label>
                 <input type="text" id="emailTuteur" name="emailTuteur" value="" required pattern="^[a-z]+[a-z0-9._-]+@[a-z0-9._-]+\.[a-z]{2,6}$" >                
             </div>
         </div>
-        <div >
-            <div class="info colonne center">
+            <input type="hidden" name="idStagiaire" value="'.$stagiaire->getIdStagiaire().'" >
+            <input type="hidden" name="emailStagiaire" value="'.$stagiaire->getEmailStagiaire().'" >
+            <input type="hidden" name="idRole" value="3">
+            <input type="hidden" id="mdpUtilisateur" name="mdpUtilisateur" value="" >
+            <input type="hidden" id="emailUser" name="emailUtilisateur" value="">
+            <input type="hidden" name="etape" value="1">
+            <input type="hidden" name="idPeriode" value="'.$_GET["idPeriode"].'">
+            <input type="hidden" name="dateDebut" value="'.$periodeStage->getDateDebutPAE().'">
+            <input type="hidden" name="dateFin" value="'.$periodeStage->getDateFinPAE().'">
+            <input type="hidden" name="objectifPAE" value="'.$periodeStage->getObjectifPAE().'">
+
+
+        <div>
+            <div class="info  center">
+                <a href="index.php?page=FormFRStagiaire" class="bouton"><i class="far fa-arrow-alt-circle-left"></i> Retour</a>
                 <button class="bouton" type="submit"><i class="fas fa-paper-plane"></i> Envoyer</button>
             </div>
         </div>
@@ -224,9 +263,7 @@
             </div>
         </div>
 
-    </form>
-
-        ';
+    </form>';
     }
     echo'</section>';
 ?>
