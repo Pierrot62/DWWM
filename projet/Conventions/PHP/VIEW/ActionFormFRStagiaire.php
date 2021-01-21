@@ -1,17 +1,26 @@
 <?php
-var_dump($_POST);
+// var_dump($_POST['emailTuteur']);
 
-//Update du stagiaire
 $stagiaire = new Stagiaires($_POST);
+
 $tuteur = new Tuteurs($_POST);
+TuteursManager::add($tuteur);
+
+$recupTuteur = TuteursManager::getByEmail($tuteur->getEmailTuteur());
+
+
 $stage = new Stages($_POST);
+$stage->setIdTuteur($recupTuteur->getIdTuteur());
+var_dump($stage);
 $utilisateur = new Utilisateurs($_POST);
+
 // var_dump($stagiaire);
 
 StagiairesManager::update($stagiaire);
-TuteursManager::add($tuteur);
 StagesManager::add($stage);
 UtilisateursManager::add($utilisateur);
+
+
 
 //Add du tuteur
 // $tuteur = new Tuteur ([ "idTuteur" => NULL])

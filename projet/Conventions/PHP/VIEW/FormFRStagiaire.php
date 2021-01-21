@@ -139,6 +139,10 @@
                     <input type="hidden" name="idRole" value="3">
                     <input type="hidden" id="mdpUtilisateur" name="mdpUtilisateur" value="" >
                     <input type="hidden" id="emailUser" name="emailUtilisateur" value="">
+                    <input type="hidden" name="etape" value="1">
+                    <input type="hidden" name="idPeriode" value="'.$_GET["idPeriode"].'">
+                    <input type="hidden" name="idTuteur" value="">
+
                 <div>
                     <div class="info  center">
                         <a href="index.php?page=FormFRStagiaire" class="bouton"><i class="far fa-arrow-alt-circle-left"></i> Retour</a>
