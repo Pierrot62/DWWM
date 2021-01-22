@@ -3,7 +3,7 @@
 $mode=$_GET['mode'];
 
 $stagiaire = new Stagiaires($_POST);
-
+// var_dump($stagiaire);
 
 
 switch($mode)
@@ -25,4 +25,5 @@ switch($mode)
     }
 
 }
+
 header("location:index.php?page=ListeStagiaires");

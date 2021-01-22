@@ -9,7 +9,6 @@ $stagiaires=StagiairesManager::getList();
         <div class="case titreColonne">Nom du stagiaire</div>
         <div class="case titreColonne">Prénom du stagiaire</div>
         <div class="case titreColonne">Numéro de bénéficiaire</div>
-        <div class="case titreColonne">Email</div>
         <div class="double"></div>
     </div>
 
@@ -20,7 +19,6 @@ $stagiaires=StagiairesManager::getList();
                 <div class="case">'.$elt->getNomStagiaire().'</div>
                 <div class="case">'.$elt->getPrenomStagiaire().'</div>
                 <div class="case">'.$elt->getNumBenefStagiaire().'</div>
-                <div class="case">'.$elt->getEmailStagiaire().'</div>
                 <div class="double centre">
                 <div class="triple"><div class="mini"></div><a href="index.php?page=FormStagiaire&mode=modifier&id='.$elt->getIdStagiaire().'"><button class=bouton><i class="fas fa-edit"></i> Modifier</button></a></div>
                 <div class="triple"><div class="mini"></div><a href="index.php?page=FormStagiaire&mode=details&id='.$elt->getIdStagiaire().'"><button class=bouton><i class="fas fa-edit"></i> Afficher</button></a></div>

@@ -3,18 +3,32 @@
 <?php
 
 $mode=$_GET['mode'];
-
+// $type = $_GET['type'];
 switch($mode)
 {
     case "ajouter":
     {
-        echo'<form action="Index.php?page=ActionStagiaire&mode=ajouter" method="POST">';
-        break;
+        // if ($type=="file")
+        // {
+        //     echo'<form action="Index.php?page=ActionStagiaire&mode=ajouter&type=file" method="POST">';
+        // }
+        // else
+        // {
+            echo'<form action="Index.php?page=ActionStagiaire&mode=ajouter" method="POST">';
+            break;
+        // }
     }
     case "modifier":
-    {
-        echo'<form action="Index.php?page=ActionStagiaire&mode=modifier" method="POST"';
-        break;
+    {   
+        // if ($type=="file")
+        // {
+        //     echo'<form action="Index.php?page=ActionStagiaire&mode=ajouter&type=file" method="POST">';
+        // }
+        // else
+        // {
+            echo'<form action="Index.php?page=ActionStagiaire&mode=modifier" method="POST"';
+            break;
+        // }
     }
     case "details":
     {    
@@ -36,34 +50,54 @@ if(isset($_GET["id"]))
 
 <div class="espaceHor"></div>
 <div class="colonne">
+    <?php
+    if ($mode =="ajouter" || $mode=="modifier"){
+        echo'<div class="info">
+            
+            <label for="file">Ajouter fichier</label>
+            <div class="mini"></div>
+            <input type="file" name="file">
+            </div>
+            <div class="espaceHor"></div>';
+    }?>
     <input name="idStagiaire" type="hidden" <?php if(isset($obj)) echo'value="'.$obj->getIdStagiaire().'"';?>>
+    <div >
+            <div class="info">
+            <div class="grande"></div>
+                <label for="genreStagiaire">Homme</label>
+                <input type="radio" <?php if($mode == "modifier" || $mode == "ajouter") echo'required';?> id="homme" name="genreStagiaire" value="M" <?php if($mode !="ajouter" && $obj->getGenreStagiaire()=="M") echo'checked';if($mode =="details" ||$mode=="supprimer") echo'disabled';?>>
+            </div>
+            <div class="mini"></div>
+            <div class="info">
+                <label for="genreStagiaire">Femme</label>
+                <input type="radio" <?php if($mode == "modifier" || $mode == "ajouter") echo'required';?> id="femme" name="genreStagiaire" value="F" <?php if($mode!="ajouter" && $obj->getGenreStagiaire()=="F") echo'checked';if($mode =="details" ||$mode=="supprimer") echo'disabled'?>>
+                <div class="grande"></div>
+            </div>
+    </div>
     <div class="info">
         <label class="double" for="nomStagiaire">Nom</label>
-        <input class="double" name="nomStagiaire" pattern="[a-zA-Z- ]{3,}" <?php if($mode!="ajouter") echo'value="'.$obj->getNomStagiaire().'"';if($mode=="details"||$mode=="supprimer")echo'disabled';?>><div></div>
+        <input class="double" name="nomStagiaire" id="nom" pattern="[a-zA-Z- ]{3,}" <?php if($mode!="ajouter") echo'value="'.$obj->getNomStagiaire().'"';if($mode=="details"||$mode=="supprimer")echo'disabled';?>><div class="erreur"></div>
     </div>
     <div class="info">
         <label class="double" for="prenomStagiaire">Prénom</label>
-        <input class="double" name="prenomStagiaire" pattern="[a-zA-Z- ]{3,}" <?php if($mode!="ajouter") echo'value="'.$obj->getPrenomStagiaire().'"';if($mode=="details"||$mode=="supprimer")echo'disabled';?>><div></div>
+        <input class="double" name="prenomStagiaire" id="prenom" pattern="[a-zA-Z- ]{3,}" <?php if($mode!="ajouter") echo'value="'.$obj->getPrenomStagiaire().'"';if($mode=="details"||$mode=="supprimer")echo'disabled';?>><div class="erreur"></div>
     </div>
     <div class="info">
         <label class="double" for="numBenefStagiaire">Numéro de bénéficiaire</label>
-        <input class="double" name="numBenefStagiaire" pattern="\d{8}" <?php if($mode!="ajouter") echo'value="'.$obj->getNumBenefStagiaire().'"';if($mode=="details"||$mode=="supprimer")echo'disabled';?>><div></div>
+        <input class="double" name="numBenefStagiaire" id="numBenef" pattern="\d{8}" <?php if($mode!="ajouter") echo'value="'.$obj->getNumBenefStagiaire().'"';if($mode=="details"||$mode=="supprimer")echo'disabled';?>><div class="erreur"></div>
     </div>
-    <div class="info">
-        <label class="double" for="genreStagiaire">Genre</label>
-        <input class="double" name="genreStagiaire" <?php if($mode!="ajouter") echo'value="'.$obj->getGenreStagiaire().'"';if($mode=="details"||$mode=="supprimer")echo'disabled';?>><div></div>
-    </div>
+   
     <div class="info">
         <label class="double" for="numSecuStagiaire">Numéro de sécurité sociale</label>
-    <input class="double" name="numSecuStagiaire" pattern="^[1|2][0-9]{2}(0[1-9]|1[0-2])(2[AB]|[0-9]{2})[0-9]{3}[0-9]{3}" <?php if($mode!="ajouter") echo'value="'.$obj->getNumSecuStagiaire().'"';if($mode=="details"||$mode=="supprimer")echo'disabled';?>><div></div>
+    <input class="double" name="numSecuStagiaire" id="numSecu" pattern="^[1|2][0-9]{2}(0[1-9]|1[0-2])(2[AB]|[0-9]{2})[0-9]{3}[0-9]{3}$" <?php if($mode!="ajouter") echo'value="'.$obj->getNumSecuStagiaire().'"';if($mode=="details"||$mode=="supprimer")echo'disabled';?>><div class="erreur"></div>
     </div>
     <div class="info">
         <label class="double" for="dateNaissanceStagiaire">Date de naissance</label>
-        <input class="double" name="dateNaissanceStagiaire" type="date" <?php if($mode!="ajouter") echo'value="'.$obj->getDateNaissanceStagiaire().'"';if($mode=="details"||$mode=="supprimer")echo'disabled';?>><div></div>
+        <input class="double" name="dateNaissanceStagiaire" id="ddn" type="date" <?php if($mode!="ajouter") echo'value="'.$obj->getDateNaissanceStagiaire().'"';if($mode=="details"||$mode=="supprimer")echo'disabled';?>><div class="erreur"></div>
     </div>
     <div class="info">
         <label class="double" for="emailStagiaire">Email</label>
-        <input class="double" name="emailStagiaire" pattern="^[a-z]+[a-z0-9._-]+@[a-z0-9._-]+\.[a-z]{2,6}$" <?php if($mode!="ajouter") echo'value="'.$obj->getEmailStagiaire().'"';if($mode=="details"||$mode=="supprimer")echo'disabled';?>><div></div>
+        <input class="double" name="emailStagiaire" id="emailStagiaire" pattern="^[a-z]+[a-z0-9._-]+@[a-z0-9._-]+\.[a-z]{2,6}$" <?php if($mode!="ajouter") echo'value="'.$obj->getEmailStagiaire().'"';if($mode=="details"||$mode=="supprimer")echo'disabled';?>><div class="erreur"></div>
     </div>
     
 </div>

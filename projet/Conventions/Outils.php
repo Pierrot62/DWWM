@@ -43,20 +43,24 @@ function texte($codeTexte)
 
 function afficherPage($page)
 {
+	
 	$chemin=$page[0];
 	$nom=$page[1];
 	$titre=$page[2];
 	if ($page[3]) // C'est une API
-	{
-		
-	include $chemin.$nom.'.php';
+	{	
+		include $chemin.$nom.'.php';
 	}
-	else{
-		
-	include 'PHP/VIEW/Head.php';
-	include 'PHP/VIEW/Header.php';
-	include 'PHP/VIEW/Nav.php';
-	include $chemin.$nom.'.php';
-	include 'PHP/VIEW/Footer.php';
+	else{	
+		include 'PHP/VIEW/Head.php';
+		include 'PHP/VIEW/Header.php';
+		if (substr($_GET['page'],0,6) == "FormFR") {
+			include 'PHP/VIEW/MenuFR.php';
+		}
+		include 'PHP/VIEW/Nav.php';
+		include $chemin.$nom.'.php';
+		include 'PHP/VIEW/Footer.php';
 	}
+
+	
 }

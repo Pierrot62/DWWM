@@ -8,10 +8,10 @@ INSERT INTO `roles` (`idRole`, `libelleRole`) VALUES ('3', 'Tuteur');
 INSERT INTO `roles` (`idRole`, `libelleRole`) VALUES ('4', 'Stagiaire');
 
 
-INSERT INTO `utilisateurs` (`idUtilisateur`, `nomUtilisateur`, `prenomUtilisateur`, `emailUtilisateur`, `mdpUtilisateur`, `idRole`) VALUES (NULL, 'POIX', 'Martine', 'martine.poix@gmail.com', 'toto',  '2');
+INSERT INTO `utilisateurs` (`idUtilisateur`, `nomUtilisateur`, `prenomUtilisateur`, `emailUtilisateur`, `mdpUtilisateur`,  `idRole`) VALUES (NULL, 'POIX', 'Martine', 'martine.poix@gmail.com', 'toto',  '2');
 INSERT INTO `utilisateurs` (`idUtilisateur`, `nomUtilisateur`, `prenomUtilisateur`, `emailUtilisateur`, `mdpUtilisateur`, `idRole`) VALUES (NULL, 'ZOZO', 'Thomas', 'thomas.zozo@gmail.com', 'toto',  '2');
-INSERT INTO `utilisateurs` (`idUtilisateur`, `nomUtilisateur`, `prenomUtilisateur`, `emailUtilisateur`, `mdpUtilisateur`, `idRole`) VALUES (NULL, 'SIMS', 'Alfred', 'alfred.sims@gmail.com', 'toto',  '2');	
-INSERT INTO `utilisateurs` (`idUtilisateur`, `nomUtilisateur`, `prenomUtilisateur`, `emailUtilisateur`, `mdpUtilisateur`, `idRole`) VALUES (NULL, 'toto', 'TOTO', 'toto@gmail.com', 'user', '1');	
+INSERT INTO `utilisateurs` (`idUtilisateur`, `nomUtilisateur`, `prenomUtilisateur`, `emailUtilisateur`, `mdpUtilisateur`,datePeremption, `idRole`) VALUES (NULL, 'SIMS', 'Alfred', 'alfred.sims@gmail.com', 'toto','2021-08-12','2');	
+INSERT INTO `utilisateurs` (`idUtilisateur`, `nomUtilisateur`, `prenomUtilisateur`, `emailUtilisateur`, `mdpUtilisateur`, datePeremption,`idRole`) VALUES (NULL, 'toto', 'TOTO', 'toto@gmail.com', 'user', '2022-01-01','1');	
 INSERT INTO `utilisateurs` (`idUtilisateur`, `nomUtilisateur`, `prenomUtilisateur`, `emailUtilisateur`, `mdpUtilisateur`, `idRole`) VALUES (NULL, 'RJEB', 'Zied', 'zied@gmail.com', 'user', '4');	
 INSERT INTO `utilisateurs` (`idUtilisateur`, `nomUtilisateur`, `prenomUtilisateur`, `emailUtilisateur`, `mdpUtilisateur`, `idRole`) VALUES (NULL, 'BOSS', 'Tuteur', 'tuteur@gmail.com', 'user', '3');
 

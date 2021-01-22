@@ -42,13 +42,15 @@ $routes=[
 	"ActionDeconnexion" => ["PHP/VIEW/", "ActionDeconnexion", "Identification",false],
 	"FormAdmin" => ["PHP/VIEW/", "FormAdmin", "Identification",false],
 	
+	/*MENU*/
+	"MenuFR" => ["PHP/VIEW/", "MenuFR", "Choisissez la catégorie a compléter :",false],
+
 	/* Fiche de renseignements  */
 	"FormFRStagiaire" => ["PHP/VIEW/", "FormFRStagiaire", "Fiche de renseignements",false],
 	"FormFREntreprise" => ["PHP/VIEW/", "FormFREntreprise", "Fiche de renseignements",false],
 	"FormFRSujetStage" => ["PHP/VIEW/", "FormFRSujetStage", "Fiche de renseignements",false],
 	"FormFRCondition" => ["PHP/VIEW/", "FormFRCondition", "Fiche de renseignements",false],
 	"FormFREvaluation" => ["PHP/VIEW/", "FormFREvaluation", "Fiche de renseignements",false],
-	"Menu" => ["PHP/VIEW/", "Menu", "Remplissage Des Informations De Stages",false],
 	"ActionFormFRStagiaire" => ["PHP/VIEW/", "ActionFormFRStagiaire", "Fiche de renseignements",false],
 	
 	/* CRUD */

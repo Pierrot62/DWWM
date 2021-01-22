@@ -146,7 +146,7 @@ CREATE TABLE Tuteurs(
 
 CREATE TABLE Stages(
         idStage              Int  Auto_increment  NOT NULL PRIMARY KEY,
-		etape				 Int NOT NULL,
+		etape				 Int NOT NULL comment "1 stagiaire , 2 entreprise ,3 conditions, 4 sujet de stage, 5 evaluations",
         dateVisite           Date  ,
         nomVisiteur          Varchar (200)  ,    
         lieuRealisation      Varchar (200)  ,

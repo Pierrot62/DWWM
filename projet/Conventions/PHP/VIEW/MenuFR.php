@@ -1,3 +1,5 @@
+<div class="container">
+<div></div>
 <section>
 
     <div class="menu centre">
@@ -9,5 +11,8 @@
         <div class="elmMenu"><a  class="centerItem double lien" href="index.php?page=FormFREvalution">Evaluation</a></div>
     </div>
 
-    <script src="./JS/menu.js"></script>
 </section>
+<div></div>
+</div>
+<div class="container">
+<div></div>

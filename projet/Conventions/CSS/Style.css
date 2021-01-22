@@ -195,8 +195,25 @@ footer {
     padding-bottom: 3.5em;
 }
 
+.aideMdp {
+    flex-direction: column;
+    z-index: 2;
+    font-size: 0.8em;
+    display: none;
+    white-space: nowrap;
+    border-radius: 2vh;
+    background-color: white;
+    padding: 1vh;
+}
 
-/* MENU */
+.oeil {
+    position: absolute;
+    left: 32vw;
+    top: 4vh;
+}
+
+/*   MENU   */
+
 
 .menu a{
     font-size: 1.5em;
