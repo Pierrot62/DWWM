@@ -128,4 +128,5 @@ class StagiaireFormationManager
         }
         return count($liste);
     }
+    
 }

@@ -99,7 +99,7 @@ CREATE TABLE Formations(
 
 CREATE TABLE SessionsFormations(
         idSessionFormation Int  Auto_increment  NOT NULL PRIMARY KEY,
-        numOffreFormation  Varchar (50) NOT NULL ,
+        numOffreFormation  Int NOT NULL ,
         idFormation        Int NOT NULL
 )ENGINE=InnoDB, CHARSET = UTF8;
 

@@ -239,9 +239,3 @@ footer {
     border: 2px solid var(--CouleurTexte);
     background-position: right center;
 }
-
-.actif{
-    background : linear-gradient(0.25turn,var(--FondPage),40%, var(--BordureBouton));
-    border: 2px solid var(--CouleurTexte);
-    background-position: right center;
-}

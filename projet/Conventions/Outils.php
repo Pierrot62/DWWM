@@ -43,7 +43,6 @@ function texte($codeTexte)
 
 function afficherPage($page)
 {
-	
 	$chemin=$page[0];
 	$nom=$page[1];
 	$titre=$page[2];
@@ -61,6 +60,4 @@ function afficherPage($page)
 		include $chemin.$nom.'.php';
 		include 'PHP/VIEW/Footer.php';
 	}
-
-	
 }
