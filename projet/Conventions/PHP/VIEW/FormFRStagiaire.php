@@ -1,38 +1,32 @@
 <?php
-
-// $utilisateur = new Utilisateurs(["idUtilisateur" => 2, "nomUtilisateur" => "COURQUIN", "prenomUtilisateur" => "Pierre", "emailUtilisateur" => "toto6@test.fr", "mdpUtilisateur" => "user", "datePeremption" => "", "idRole" => 4]);
-
-// $_SESSION['utilisateur'] = $utilisateur;
-
-if (!isset($_SESSION['utilisateur'])) {
-    header('location: index.php?page=FormConnexion ');
-} else {
-
-    if ($_SESSION['utilisateur']->getIdRole() == 4) {
-        $email = $_SESSION['utilisateur']->getEmailUtilisateur();
-        $stagiaire = StagiairesManager::getByEmail($email);
-        $nbPeriodesStages = StagiaireFormationManager::nbPeriodesStages($stagiaire->getIdStagiaire(), null);
-        $participation = ParticipationsManager::getByStagiaire($stagiaire->getIdStagiaire());
-        $ListePeriodeStage = StagiaireFormationManager::getListByStagiaire($stagiaire->getIdStagiaire());
-    }
+if ($_SESSION['utilisateur']->getIdRole() == 4)
+{
+    $email = $_SESSION['utilisateur']->getEmailUtilisateur();
+    $stagiaire = StagiairesManager::getByEmail($email);
+    $nbPeriodesStages = StagiaireFormationManager::nbPeriodesStages($stagiaire->getIdStagiaire(), null);
+    $participation = ParticipationsManager::getByStagiaire($stagiaire->getIdStagiaire());
+    $ListePeriodeStage = StagiaireFormationManager::getListByStagiaire($stagiaire->getIdStagiaire());
+}
 /* GESTION DES PERIODES DE PAE*/
-    echo ' <section>';
+echo ' <section>';
 /* PLUSIEURS PAE  et aucune choisie*/
-    if (!isset($_GET['idPeriode']) && $nbPeriodesStages > 1) {
-        $i = 0;
-        $j = 1;
-        while ($i < $nbPeriodesStages) {
-            //DECOUPAGE DE LA DATE POUR LA METTRE AU FORMAT JJ/MM/AAAA
-            $dateDebut = $ListePeriodeStage[$i]->getDateDebutPAE();
-            $anneeDebut = substr($dateDebut, 0, 4);
-            $moisDebut = substr($dateDebut, 5, 2);
-            $jourDebut = substr($dateDebut, 8, 2);
-            $dateFin = $ListePeriodeStage[$i]->getDateFinPAE();
-            $anneeFin = substr($dateFin, 0, 4);
-            $moisFin = substr($dateFin, 5, 2);
-            $jourFin = substr($dateFin, 8, 2);
+if (!isset($_GET['idPeriode']) && $nbPeriodesStages > 1)
+{
+    $i = 0;
+    $j = 1;
+    while ($i < $nbPeriodesStages)
+    {
+        //DECOUPAGE DE LA DATE POUR LA METTRE AU FORMAT JJ/MM/AAAA
+        $dateDebut = $ListePeriodeStage[$i]->getDateDebutPAE();
+        $anneeDebut = substr($dateDebut, 0, 4);
+        $moisDebut = substr($dateDebut, 5, 2);
+        $jourDebut = substr($dateDebut, 8, 2);
+        $dateFin = $ListePeriodeStage[$i]->getDateFinPAE();
+        $anneeFin = substr($dateFin, 0, 4);
+        $moisFin = substr($dateFin, 5, 2);
+        $jourFin = substr($dateFin, 8, 2);
 
-            echo '
+        echo '
             <div class="colonne center">
                 <div>Periode de stage ' . $j . '</div>
                 <div>Du ' . $jourDebut . '/' . $moisDebut . '/' . $anneeDebut . ' au  ' . $jourFin . '/' . $moisFin . '/' . $anneeFin . ' </div>
@@ -42,34 +36,32 @@ if (!isset($_SESSION['utilisateur'])) {
                 </a>
             </div>
             ';
-            $i++;
-            $j++;
-        }
-    } else { /* une periode choisie  ou une seule periode*/
-        if (isset($_GET['idPeriode'])) {
-            for ($i = 0; $i < count($ListePeriodeStage); $i++) {
-                if ($ListePeriodeStage[$i]->getIdPeriode() == $_GET['idPeriode']) {
-                    $indice = $i; // c'est la periode choisie
-                }
-
-            }
-        } else /* Il y a une seule periode*/
+        $i++;
+        $j++;
+    }
+}
+else 
+{/* une periode choisie  ou une seule periode*/
+    if (isset($_GET['idPeriode']))
+    {
+        for ($i = 0; $i < count($ListePeriodeStage); $i++)
         {
-            $indice = 0;
+            if ($ListePeriodeStage[$i]->getIdPeriode() == $_GET['idPeriode'])
+            {
+                $indice = $i; // c'est la periode choisie
+            }
+
         }
-        $dateDebut = $ListePeriodeStage[$indice]->getDateDebutPAE();
-        $anneeDebut = substr($dateDebut, 0, 4);
-        $moisDebut = substr($dateDebut, 5, 2);
-        $jourDebut = substr($dateDebut, 8, 2);
-        $dateFin = $ListePeriodeStage[$indice]->getDateFinPAE();
-        $anneeFin = substr($dateFin, 0, 4);
-        $moisFin = substr($dateFin, 5, 2);
-        $jourFin = substr($dateFin, 8, 2);
-        echo '
+    }
+    else /* Il y a une seule periode*/
+    {
+        $indice = 0;
+    }
+    echo '
             <form action="index.php?page=ActionFormFRStagiaire" method="POST">
                 <div class="info centre colonne">
                    <h1>Fiche d information pour la periode de stage</h1>
-                   <div>Du ' . $jourDebut . '/' . $moisDebut . '/' . $anneeDebut . ' au  ' . $jourFin . '/' . $moisFin . '/' . $anneeFin . ' </div>
+                    <h1>Du ' . $ListePeriodeStage[$indice]->getDateDebutPAE() . ' au ' . $ListePeriodeStage[$indice]->getDateFinPAE() . ' </h1>
                 </div>
                 <div class="info">
                     <div class="info colonne ">
@@ -82,24 +74,26 @@ if (!isset($_SESSION['utilisateur'])) {
                     </div>
                 </div>
                 <div >';
-        echo '
+    echo '
                     <div class="info  centerItem colonne">
                         <label for="homme">Homme</label>
                         <input type="radio" required id="genreStagiaire"';
-        if ($stagiaire->getGenreStagiaire() == "M") {
-            echo ' checked ';
-        }
-        echo ' name="genreStagiaire" value="H">
+    if ($stagiaire->getGenreStagiaire() == "M")
+    {
+        echo ' checked ';
+    }
+    echo ' name="genreStagiaire" value="H">
                     </div>
                     <div class="info  centerItem colonne">
                         <label for="femme">Femme</label>
                         <input type="radio" required id="genreStagiaire"';
-        if ($stagiaire->getGenreStagiaire() == "F") {
-            echo ' checked ';
-        }
-        echo 'name="genreStagiaire" value="F">
+    if ($stagiaire->getGenreStagiaire() == "F")
+    {
+        echo ' checked ';
+    }
+    echo 'name="genreStagiaire" value="F">
                     </div>';
-        echo '
+    echo '
                     <div class="info colonne  grande">
                         <label for="numSecuStagiaire">Votre Numero de securite social :</label>
                         <input type="text" id="numSecuStagiaire" name="numSecuStagiaire" required pattern="\d{13}" value="' . $stagiaire->getNumSecuStagiaire() . '">
@@ -135,7 +129,7 @@ if (!isset($_SESSION['utilisateur'])) {
                 </div>
                     <input type="hidden" name="idStagiaire" value="' . $stagiaire->getIdStagiaire() . '" >
                     <input type="hidden" name="emailStagiaire" value="' . $stagiaire->getEmailStagiaire() . '" >
-
+                   
                     <input type="hidden" name="idPeriode" value="' . $ListePeriodeStage[$indice]->getIdPeriode() . '">
                 <div>
                     <div class="info  center">
@@ -149,7 +143,5 @@ if (!isset($_SESSION['utilisateur'])) {
                     </div>
                 </div>
             </form>';
-    }
-    echo '</section>';
-
 }
+echo '</section>';

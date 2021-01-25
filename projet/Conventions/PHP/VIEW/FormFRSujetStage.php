@@ -1,7 +1,7 @@
 
 <section>
 
-    <form action="" method="POST">
+    <form action="index.php?page=ActionSujetDeStage" method="POST">
         <div class="info colonne">
             <label for="objectifPAE">Objectif PAE :</label>
             <textarea type="text" id="objectifPAE" name="objectif PAE"></textarea>

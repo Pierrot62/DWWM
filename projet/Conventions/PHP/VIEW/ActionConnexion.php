@@ -22,7 +22,7 @@ switch ($mode) {
 
                         break;
                     case "3":
-                        header("location: index.php?page=FormFREntreprise");
+                        header("location: index.php?page=ChoixStagiaireTuteur");
 
                         break;
 
