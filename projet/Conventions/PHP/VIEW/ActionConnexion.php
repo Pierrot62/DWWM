@@ -1,24 +1,54 @@
 <?php
-var_dump($_POST);
-$uti = UtilisateursManager::getByEmail($_POST['eMail']);
-var_dump($uti);
-if ($uti != false && ($uti->getDatePeremption() == null || $uti->getDatePeremption() > new DateTime("NOW")))
-{
-    //echo "motBDD ".$uti->getMdpUtilisateur()."  saisi". $_POST['motDePasse']. "crypte   ".crypte($_POST['motDePasse'])."<br>";
-    if (crypte($_POST['motDePasse']) == $uti->getMdpUtilisateur())
-    {
-        echo 'connection reussie';
-        $_SESSION['utilisateur'] = $uti;
-        // header("refresh:3;url=index.php?page=Accueil");
-    }
-    else
-    {
-        echo 'le mot de passe ou eMail est incorrect ';
-        // header("refresh:3;url=index.php?page=FormConnexion");
-    }
+if (isset($_POST["eMail"])) {
+    $uti = UtilisateursManager::getByEmail($_POST['eMail']);
 }
-else
-{
-    echo 'l\'utilisateur n\'existe pas ';
-//    header("refresh:3;url=index.php?page=FormConnexion");
+
+$mode = $_GET["mode"];
+switch ($mode) {
+    case 'login':
+        if ($uti != false && ($uti->getDatePeremption() == null || new DateTime($uti->getDatePeremption()) > new DateTime("NOW"))) {
+            //echo "motBDD ".$uti->getMdpUtilisateur()."  saisi". $_POST['motDePasse']. "crypte   ".crypte($_POST['motDePasse'])."<br>";
+            if ($_POST['motDePasse'] == $uti->getMdpUtilisateur()) {
+                echo 'connection reussie';
+                $_SESSION['utilisateur'] = $uti;
+                var_dump($uti->getIdRole());
+                switch ($uti->getIdRole()) {
+                    case "1":
+                        header("location: index.php?page=FormAdmin");
+                        break;
+
+                    case "2":
+                        header("location: index.php?page=InterfaceFormateur");
+
+                        break;
+                    case "3":
+                        header("location: index.php?page=FormFREntreprise");
+
+                        break;
+
+                    case "4":
+                        header("location: index.php?page=FormFRStagiaire");
+
+                        break;
+                    default:
+                        header("location: index.php?page=default");
+                        break;
+
+                }
+
+            } else {
+                echo 'le mot de passe ou eMail est incorrect ';
+                header("refresh:3;url=index.php?page=FormConnexion");
+            }
+        } else {
+            echo 'l\'utilisateur n\'existe pas ';
+            header("refresh:3;url=index.php?page=FormConnexion");
+        }
+        break;
+
+    case 'logout':
+        session_destroy();
+        echo "ok";
+        header("location: index.php?page=FormConnexion");
+        break;
 }
