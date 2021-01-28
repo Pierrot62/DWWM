@@ -32,6 +32,7 @@ else{ // si il est créé alors on le modifie si il y a à modifier
 
 
 
+// header("location: index.php?page=FormFREntreprise&idEntreprise=2&idStage=2&idTuteur="'.$_POST['id'].');
 
 
     

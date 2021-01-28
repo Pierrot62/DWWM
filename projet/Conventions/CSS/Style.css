@@ -212,15 +212,14 @@ footer {
     top: 4vh;
 }
 
-/*   MENU   */
-
+/* MENU */
 
 .menu a{
     font-size: 1.5em;
    
 }
 
-.menu > div{
+.menu > div {
     border-top-left-radius: 100%;
     border-top-right-radius: 100%;
     border: 2px solid var(--CouleurOmbre);
@@ -230,12 +229,12 @@ footer {
     margin: 0.5em 0;
     background : linear-gradient(to right,var(--FondPage),90%, var(--BordureBouton));
 }
-.menu > div:hover a {
-    color : var(--FondPage);
+.menu > div:hover a ,.ongletSelect{
+    color : var(--FondPage) !important;
 }
-.menu > div:hover{
+.menu > div:hover, .ongletSelect{
     
-    background : linear-gradient(0.25turn,var(--FondPage),40%, var(--BordureBouton));
-    border: 2px solid var(--CouleurTexte);
-    background-position: right center;
+    background : linear-gradient(0.25turn,var(--FondPage),40%, var(--BordureBouton)) !important;
+    border: 2px solid var(--CouleurTexte) !important;
+    background-position: right center !important;
 }
