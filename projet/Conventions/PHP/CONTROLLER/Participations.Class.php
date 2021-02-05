@@ -6,8 +6,6 @@ class Participations
 	/*****************Attributs***************** */
 
 	private $_idParticipation;
-	private $_dateDebut;
-	private $_dateFin;
 	private $_idSessionFormation;
 	private $_idStagiaire;
 
@@ -24,25 +22,7 @@ class Participations
 		$this->_idParticipation=$idParticipation;
 	}
 
-	public function getDateDebut()
-	{
-		return $this->_dateDebut;
-	}
-
-	public function setDateDebut($dateDebut)
-	{
-		$this->_dateDebut=$dateDebut;
-	}
-
-	public function getDateFin()
-	{
-		return $this->_dateFin;
-	}
-
-	public function setDateFin($dateFin)
-	{
-		$this->_dateFin=$dateFin;
-	}
+	
 
 	public function getIdSessionFormation()
 	{

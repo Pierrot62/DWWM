@@ -73,10 +73,10 @@ CREATE TABLE Roles(
 
 CREATE TABLE Stagiaires(
         idStagiaire            Int  Auto_increment  NOT NULL PRIMARY KEY,
-        genreStagiaire         Varchar (1) NOT NULL ,
+        genreStagiaire         Varchar (1)  ,
         nomStagiaire           Varchar (50) NOT NULL ,
         prenomStagiaire        Varchar (50) NOT NULL ,
-        numSecuStagiaire       Varchar (15) NOT NULL ,
+        numSecuStagiaire       Varchar (15)  ,
         numBenefStagiaire      Varchar (15) NOT NULL ,
         dateNaissanceStagiaire Date NOT NULL,
         emailStagiaire Varchar (50) NOT NULL 
@@ -100,7 +100,10 @@ CREATE TABLE Formations(
 CREATE TABLE SessionsFormations(
         idSessionFormation Int  Auto_increment  NOT NULL PRIMARY KEY,
         numOffreFormation  Int NOT NULL ,
-        idFormation        Int NOT NULL
+        idFormation        Int NOT NULL, 
+        dateDebut DATE NOT NULL, 
+        dateFin DATE NOT NULL
+   
 )ENGINE=InnoDB, CHARSET = UTF8;
 
 #------------------------------------------------------------
@@ -186,8 +189,6 @@ CREATE TABLE Animations
 CREATE TABLE Participations
 (
     idParticipation INT Auto_increment NOT NULL PRIMARY KEY,
-    dateDebut DATE NOT NULL, 
-    dateFin DATE NOT NULL,
     idSessionFormation INT NOT NULL, 
     idStagiaire INT NOT NULL
 )ENGINE=InnoDB, CHARSET = UTF8;  
@@ -391,14 +392,14 @@ SELECT
     f.`libelleFormation`,
     s.`idSessionFormation`,
     s.`numOffreFormation`,
+    s.`dateDebut`,
+    s.`dateFin`,
     p.`idPeriode`,
     p.`dateDebutPAE`,
     p.`dateFinPAE`,
     p.`dateRapportSuivi`,
     p.`objectifPAE`,
     pa.`idParticipation`,
-    pa.`dateDebut`,
-    pa.`dateFin`,
     st.`idStagiaire`,
     st.`genreStagiaire`,
     st.`nomStagiaire`,

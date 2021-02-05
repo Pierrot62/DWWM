@@ -8,7 +8,7 @@
     <form action="index.php?page=ActionSujetDeStage" method="POST">
         <div class="info colonne">
             <label for="objectifPAE">Objectif PAE :</label>
-            <textarea type="text" require id="objectifPAE" value="<?php echo($stage->getObjectifPAE()) ?>" name="objectifPAE"></textarea>
+            <textarea type="text" disabled id="objectifPAE" value="<?php echo($stage->getObjectifPAE()) ?>" name="objectifPAE"></textarea>
         </div>
 
         <div></div>

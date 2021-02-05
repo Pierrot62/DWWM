@@ -24,9 +24,11 @@ img {
 form {
     flex-direction: column;
 }
-legend{
+
+legend {
     color: var(--CouleurTexte);
 }
+
 .centre {
     justify-content: center;
     align-items: center;
@@ -53,15 +55,19 @@ section {
 .demi {
     flex: 0.5;
 }
-.mini{
-    flex:0.2;
+
+.mini {
+    flex: 0.2;
 }
+
 .double {
     flex: 2;
 }
-.triple{
+
+.triple {
     flex: 3;
 }
+
 .info {
     margin: 0.3em;
 }
@@ -74,8 +80,12 @@ label {
 
 .centerItem {
     align-items: center;
+}
+
+.centerSelf {
     align-self: center;
 }
+
 
 a {
     color: var(--CouleurTexte);
@@ -98,27 +108,46 @@ a {
     border: 2px solid var(--CouleurTexte);
     color: var(--BordureBouton);
 }
-button:disabled{
+
+button:disabled {
     border: solid var(--CouleurOmbre) 2px;
 }
 
+.grandBouton {
+    width: 100%;
+    letter-spacing: 0.2em;
+    font-size: 1.2em;
+    font-weight: 900;
+    padding: 0.5em 4em;
+    background: linear-gradient(to right, var(--BordureBouton), var(--FondPage), 90%, var(--BordureBouton));
+
+}
+
+.zoneBouton {
+    padding: 2em 0;
+}
+
 /********* input & Select *********/
-input, textarea,
-select ,.case {
+input,
+textarea,
+select,
+.case {
     border: 1px solid var(--BordureBouton);
     background-color: Transparent;
     padding: 0.5em 1em;
     color: var(--CouleurTexte);
 }
-textarea
-{
+
+textarea {
     height: 25vh;
 }
+
 .titreColonne {
     border: 2px solid var(--CouleurTexte);
     color: var(--BordureBouton);
     font-size: 1.2em;
 }
+
 input:focus {
     background-color: #aaa;
     color: black;
@@ -134,12 +163,13 @@ select option::selection {
     background-color: red;
 }
 
-.absolu{
+.absolu {
     position: absolute;
     top: 5em;
     left: 5em;
 }
-.relatif{
+
+.relatif {
     position: relative;
 }
 
@@ -149,15 +179,6 @@ select option::selection {
     top: 4vh;
 }
 
-.rouge {
-    color: red;
-}
-.vert {
-    color: #3db651;
-}
-.incorrect{
-    border: red solid 3px;
-}
 
 
 /******** Header ********/
@@ -175,8 +196,8 @@ header {
     flex: 0.5;
 }
 
-.titre {
-    flex: 2;
+.texteClair,
+.label {
     color: var(--CouleurTexte);
 }
 
@@ -191,8 +212,10 @@ footer {
     color: var(--CouleurTexte);
     background-color: var(--FondPage);
 }
-.container{
+
+.container {
     padding-bottom: 3.5em;
+    /* flex-direction: column; */
 }
 
 .aideMdp {
@@ -212,14 +235,15 @@ footer {
     top: 4vh;
 }
 
-/* MENU */
+/*   MENU   */
 
-.menu a{
+
+.menu a {
     font-size: 1.5em;
-   
+
 }
 
-.menu > div {
+.menu>div {
     border-top-left-radius: 100%;
     border-top-right-radius: 100%;
     border: 2px solid var(--CouleurOmbre);
@@ -227,14 +251,77 @@ footer {
     transition: 0.2s;
     height: 100%;
     margin: 0.5em 0;
-    background : linear-gradient(to right,var(--FondPage),90%, var(--BordureBouton));
+    background: linear-gradient(to right, var(--FondPage), 90%, var(--BordureBouton));
 }
-.menu > div:hover a ,.ongletSelect{
-    color : var(--FondPage) !important;
+
+.menu>div:hover a,
+.ongletSelect {
+    color: var(--FondPage) !important;
 }
-.menu > div:hover, .ongletSelect{
-    
-    background : linear-gradient(0.25turn,var(--FondPage),40%, var(--BordureBouton)) !important;
+
+.menu>div:hover,
+.ongletSelect {
+
+    background: linear-gradient(0.25turn, var(--FondPage), 40%, var(--BordureBouton)) !important;
     border: 2px solid var(--CouleurTexte) !important;
     background-position: right center !important;
+}
+
+/* Interface Utilisateur */
+.bordureTitre {
+    border: 1px solid var(--CouleurTexte);
+}
+
+.bordureVerte {
+    border: 1px solid var(--BordureBouton);
+}
+
+.indic {
+    flex: none;
+    padding: 0.5em;
+    border-radius: 10em;
+    border: 1px solid var(--BordureBouton);
+}
+
+.texteInfoBulle {
+    position: absolute;
+    top: 0.5vh;
+    left: 10vh;
+    font-size: 0.8em;
+    display: none;
+    white-space: nowrap;
+    border-radius: 2vh;
+    background-color: #aaa;
+    color: black;
+    padding: 1vh;
+    z-index: 1;
+}
+
+/* Condition */
+.hauteurCase {
+    padding: 0.8em 0;
+}
+
+.left {
+    justify-content: left;
+}
+
+.rouge {
+    color: red;
+}
+
+.vert {
+    color: #3db651;
+}
+
+.incorrect {
+    border: red solid 3px;
+}
+
+.correct {
+    border: #3db651 solid 3px;
+}
+
+.cache {
+    display: none;
 }

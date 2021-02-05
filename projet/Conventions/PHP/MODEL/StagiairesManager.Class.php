@@ -5,7 +5,7 @@ class StagiairesManager
 	public static function add(Stagiaires $obj)
 	{
  		$db=DbConnect::getDb();
-		$q=$db->prepare("INSERT INTO Stagiaires (genreStagiaire,nomStagiaire,prenomStagiaire,numSecuStagiaire,numBenefStagiaire,dateNaissanceStagiaire,emailStagiaire) VALUES (:genreStagiaire,:nomStagiaire,:prenomStagiaire,:numSecuStagiaire,:numBenefStagiaire,:dateNaissanceStagiaire,:emailStagiaire)");
+		$q=$db->prepare("INSERT INTO Stagiaires (genreStagiaire,nomStagiaire,prenomStagiaire,numSecuStagiaire,numBenefStagiaire,dateNaissanceStagiaire,emailStagiaire,adresse,idVilleHabitation,idVilleStagiaire,telStagiaire) VALUES (:genreStagiaire,:nomStagiaire,:prenomStagiaire,:numSecuStagiaire,:numBenefStagiaire,:dateNaissanceStagiaire,:emailStagiaire,:adresse,:idVilleHabitation,:idVilleStagiaire,:telStagiaire)");
 		$q->bindValue(":genreStagiaire", $obj->getGenreStagiaire());
 		$q->bindValue(":nomStagiaire", $obj->getNomStagiaire());
 		$q->bindValue(":prenomStagiaire", $obj->getPrenomStagiaire());
@@ -13,13 +13,19 @@ class StagiairesManager
 		$q->bindValue(":numBenefStagiaire", $obj->getNumBenefStagiaire());
 		$q->bindValue(":dateNaissanceStagiaire", $obj->getDateNaissanceStagiaire());
 		$q->bindValue(":emailStagiaire", $obj->getEmailStagiaire());
+		$q->bindValue(":adresse", $obj->getAdresse());
+		$q->bindValue(":idVilleHabitation", $obj->getIdVilleHabitation());
+		$q->bindValue(":idVilleNaissance", $obj->getIdVilleNaissance());
+		$q->bindValue(":telStagiaire", $obj->getTelStagiaire());
+
+
 		$q->execute();
 	}
 
 	public static function update(Stagiaires $obj)
 	{
  		$db=DbConnect::getDb();
-		$q=$db->prepare("UPDATE Stagiaires SET idStagiaire=:idStagiaire,genreStagiaire=:genreStagiaire,nomStagiaire=:nomStagiaire,prenomStagiaire=:prenomStagiaire,numSecuStagiaire=:numSecuStagiaire,numBenefStagiaire=:numBenefStagiaire,dateNaissanceStagiaire=:dateNaissanceStagiaire,emailStagiaire=:emailStagiaire WHERE idStagiaire=:idStagiaire");
+		$q=$db->prepare("UPDATE Stagiaires SET idStagiaire=:idStagiaire,genreStagiaire=:genreStagiaire,nomStagiaire=:nomStagiaire,prenomStagiaire=:prenomStagiaire,numSecuStagiaire=:numSecuStagiaire,numBenefStagiaire=:numBenefStagiaire,dateNaissanceStagiaire=:dateNaissanceStagiaire,emailStagiaire=:emailStagiaire,adresse=:adresse,idVilleHabitation=:idVilleHabitation, idVilleNaissance=:idVilleNaissance,telStagiaire=:telStagiaire WHERE idStagiaire=:idStagiaire");
 		$q->bindValue(":idStagiaire", $obj->getIdStagiaire());
 		$q->bindValue(":genreStagiaire", $obj->getGenreStagiaire());
 		$q->bindValue(":nomStagiaire", $obj->getNomStagiaire());
@@ -28,6 +34,10 @@ class StagiairesManager
 		$q->bindValue(":numBenefStagiaire", $obj->getNumBenefStagiaire());
 		$q->bindValue(":dateNaissanceStagiaire", $obj->getDateNaissanceStagiaire());
 		$q->bindValue(":emailStagiaire", $obj->getEmailStagiaire());
+		$q->bindValue(":adresse", $obj->getAdresse());
+		$q->bindValue(":idVilleHabitation", $obj->getIdVilleHabitation());
+		$q->bindValue(":idVilleNaissance", $obj->getIdVilleNaissance());
+		$q->bindValue(":telStagiaire", $obj->getTelStagiaire());
 		$q->execute();
 	}
 	public static function delete(Stagiaires $obj)
@@ -78,6 +88,4 @@ class StagiairesManager
 			return false;
 		}
 	}
-
-
 }

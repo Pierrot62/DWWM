@@ -2,8 +2,16 @@
 $formations = FormationsManager::getList();
 ?>
 <section class="colonne">
-    <h2 class="centre">Liste des formations</h2>
-    <div><a href="index.php?page=FormFormation&mode=ajouter"><button class="bouton"><i class="fas fa-plus-circle"></i> Ajouter</button></a></div>
+    <div class="zoneBouton">
+        <div class="grande">
+            <div><a href="index.php?page=FormFormation&mode=ajouter"><button class="bouton"><i
+                            class="fas fa-plus-circle"></i> Ajouter</button></a></div>
+
+            <div><a href="index.php?page=FormAdmin"><button class="bouton"><i class="far fa-arrow-alt-circle-left"></i>
+                        Retour</button></a></div>
+        </div>
+        <div class="triple"></div>
+    </div>
     <?php
     foreach($formations as $elt)
     {
@@ -13,7 +21,5 @@ $formations = FormationsManager::getList();
                 <div class="mini"></div><a href="index.php?page=FormFormation&mode=supprimer&id='.$elt->getIdFormation().'"><button class="bouton"><i class="fas fa-trash-alt"></i> Supprimer</button></a></div></div>';
     }
     ?>
-    <div><button class="bouton"><a href="index.php?page=default"><i class="far fa-arrow-alt-circle-left"></i> Retour</a></button></div>
+
 </section>
-
-

@@ -164,7 +164,7 @@ if(isset($_GET["id"]))
                     {
                         case "ajouter":
                         {
-                            echo'<button id="submit" class="bouton" type="submit" disabled><i class="fas fa-paper-plane"></i> Envoyer</button>';
+                            echo'<button id="submit" class="bouton" type="submit" disabled><i class="fas fa-paper-plane"></i> Ajouter</button>';
                             break;
                         }
                         case "modifier":
@@ -181,14 +181,11 @@ if(isset($_GET["id"]))
                         
                     }
                     echo'<div class="mini"></div>';
-                    echo'<a href="Index.php?page=ListeUtilisateurs"><div class="bouton"><i class="far fa-arrow-alt-circle-left"></i> Retour</div></a>';
+                    echo'<a href="Index.php?page=ListeUtilisateurs"><div class="bouton"><i class="far fa-arrow-alt-circle-left"></i>&nbsp Retour</div></a>';
                 ?>
 
 
-                <!-- <button id="submit" class="bouton" type="submit" disabled><i class="fas fa-paper-plane"></i> Envoyer</button> -->
-                <!-- <div class="mini"></div>
-                <a href="Index.php?page=ListeUtilisateurs"><div class="bouton"><i class="far fa-arrow-alt-circle-left"></i> Retour</div></a> -->
-            </div>
+               </div>
         </div>
         <div>
             <div class="info center">

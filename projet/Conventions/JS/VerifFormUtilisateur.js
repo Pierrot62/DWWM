@@ -58,7 +58,7 @@ mdp.addEventListener("blur", function (event) {
 //gestion particulière de la confirmation de mot de passe
 confirmation.addEventListener("input", function (event) {
     if (confirmation.value == mdp.value) {
-        confirmation.classList = ("vrai");
+        confirmation.classList = ("correct");
         tabErreur[5]=1;
     } else {
         confirmation.classList = ("incorrect");
@@ -94,7 +94,7 @@ function verifPrenom() {
     //mettre la premiere lettre en MAJUSCULES 
     prenom.value=(prenom.value.charAt(0).toUpperCase() + prenom.value.substring(1).toLowerCase())
     if (listInput[1].checkValidity()) {
-        prenom.classList = ("vrai");
+        prenom.classList = ("correct");
         tabErreur[1]=1;
     } else {
         prenom.classList = ("incorrect");
@@ -108,7 +108,7 @@ function verifNom() {
     //mettre tout le nom en MAJUSCULES 
     nom.value=nom.value.toUpperCase();
     if (listInput[2].checkValidity()) {
-        nom.classList = ("vrai");
+        nom.classList = ("correct");
         tabErreur[2]=1;
     } else {
         nom.classList = ("incorrect");
@@ -131,7 +131,7 @@ function verifDdP() {
         datePeremtion.classList = ("incorrect");
         tabErreur[6]=-1;
     } else {
-        datePeremtion.classList = ("vrai");
+        datePeremtion.classList = ("correct");
         tabErreur[6]=1;
     }
     afficheMsgErreur()
@@ -153,7 +153,7 @@ function verifRole() {
 
 function verifEmail() {
     if (listInput[3].checkValidity()) {
-        email.classList = ("vrai");
+        email.classList = ("correct");
         tabErreur[3]=1;
     } else {
         email.classList = ("incorrect");

@@ -12,7 +12,7 @@ switch ($mode)
             $session = new SessionsFormations($_POST);
             SessionsFormationsManager::add($session);
             $idSession = SessionsFormationsManager::getByNumOffre($_POST['numOffreFormation'])->getIdSessionFormation();
-            header('location: Index.php?page=FormPeriodes&mode=ajout&id=' . $idSession);
+            header('location: Index.php?page=FormPeriode&mode=ajout&id=' . $idSession);
             break;
         }
     case "modif":    {
@@ -27,7 +27,7 @@ switch ($mode)
             }
             if (isset($_GET['perSup']))
             {
-                header('location: Index.php?page=FormPeriodes&mode=ajout&id=' . $idRecu. '&perSup=ok');
+                header('location: Index.php?page=FormPeriode&mode=ajout&id=' . $idRecu. '&perSup=ok');
             }
             else
             {
@@ -51,11 +51,11 @@ switch ($mode)
             PeriodesStagesManager::add($periode);
             if (isset($_GET['perSup']))
             {
-                header('location: Index.php?page=FormPeriodes&mode=ajout&id=' . $idRecu . '&perSup=ok');
+                header('location: Index.php?page=FormPeriode&mode=ajout&id=' . $idRecu . '&perSup=ok');
             }
             else
             {
-                header('location: Index.php?page=FormSessions&mode=modif&id=' . $idRecu);
+                header('location: Index.php?page=FormSession&mode=modif&id=' . $idRecu);
             }
         }
 }

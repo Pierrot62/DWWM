@@ -2,13 +2,23 @@
 $stagiaires=StagiairesManager::getList();
 ?>
 <section class="colonne">
-    <h2 class="centre">Liste des stagiaires</h2>
-    <div><a href="Index.php?page=FormStagiaire&mode=ajouter"><button class="bouton"><i class="fas fa-plus-circle"></i> Ajouter</button></a></div>
+<div class="zoneBouton">
+        <div class="grande">
+            <div><a href="index.php?page=FormStagiaire&mode=ajouter"><button class="bouton"><i
+                            class="fas fa-plus-circle"></i> Ajouter</button></a></div>
+                            <div><a href="Index.php?page=FormStagiaireMasse"><button class="bouton"><i class="fas fa-plus-circle"></i> Ajouter en masse</button></a></div>
+            <div><a href="index.php?page=FormAdmin"><button class="bouton"><i class="far fa-arrow-alt-circle-left"></i>
+                        Retour</button></a></div>
+        </div>
+        <div class="triple"></div>
+    </div>
+  
+    
     <div class="espaceHor"></div>
     <div class="info">
-        <div class="case titreColonne">Nom du stagiaire</div>
-        <div class="case titreColonne">Prénom du stagiaire</div>
-        <div class="case titreColonne">Numéro de bénéficiaire</div>
+        <div class="case bordureTitre">Nom du stagiaire</div>
+        <div class="case bordureTitre">Prénom du stagiaire</div>
+        <div class="case bordureTitre">Numéro de bénéficiaire</div>
         <div class="double"></div>
     </div>
 
@@ -25,5 +35,4 @@ $stagiaires=StagiairesManager::getList();
                 <div class="triple"><div class="mini"></div><a href="index.php?page=FormStagiaire&mode=supprimer&id='.$elt->getIdStagiaire().'"><button class=bouton><i class="fas fa-edit"></i> Supprimer</button></a></div></div></div>';
     } 
     ?>
-    <div><button class="bouton"><a href="index.php?page=default"><i class="far fa-arrow-alt-circle-left"></i> Retour</a></button></div>
 </section>

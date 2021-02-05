@@ -5,9 +5,7 @@ class ParticipationsManager
 	public static function add(Participations $obj)
 	{
  		$db=DbConnect::getDb();
-		$q=$db->prepare("INSERT INTO Participations (dateDebut,dateFin,idSessionFormation,idStagiaire) VALUES (:dateDebut,:dateFin,:idSessionFormation,:idStagiaire)");
-		$q->bindValue(":dateDebut", $obj->getDateDebut());
-		$q->bindValue(":dateFin", $obj->getDateFin());
+		$q=$db->prepare("INSERT INTO Participations (idSessionFormation,idStagiaire) VALUES (:idSessionFormation,:idStagiaire)");
 		$q->bindValue(":idSessionFormation", $obj->getIdSessionFormation());
 		$q->bindValue(":idStagiaire", $obj->getIdStagiaire());
 		$q->execute();
@@ -16,10 +14,8 @@ class ParticipationsManager
 	public static function update(Participations $obj)
 	{
  		$db=DbConnect::getDb();
-		$q=$db->prepare("UPDATE Participations SET idParticipation=:idParticipation,dateDebut=:dateDebut,dateFin=:dateFin,idSessionFormation=:idSessionFormation,idStagiaire=:idStagiaire WHERE idParticipation=:idParticipation");
+		$q=$db->prepare("UPDATE Participations SET idParticipation=:idParticipation,idSessionFormation=:idSessionFormation,idStagiaire=:idStagiaire WHERE idParticipation=:idParticipation");
 		$q->bindValue(":idParticipation", $obj->getIdParticipation());
-		$q->bindValue(":dateDebut", $obj->getDateDebut());
-		$q->bindValue(":dateFin", $obj->getDateFin());
 		$q->bindValue(":idSessionFormation", $obj->getIdSessionFormation());
 		$q->bindValue(":idStagiaire", $obj->getIdStagiaire());
 		$q->execute();
@@ -70,5 +66,19 @@ class ParticipationsManager
             }
         }return $liste;
 
+	}
+	public static function getBySessionStagiaire($idSession, $idStagiaire)
+	{
+ 		$db=DbConnect::getDb();
+		$q=$db->query("SELECT * FROM Participations WHERE idSessionFormation =".$idSession ." And idStagiaire=".$idStagiaire);
+		$results = $q->fetch(PDO::FETCH_ASSOC);
+		if($results != false)
+		{
+			return new Participations($results);
+		}
+		else
+		{
+			return false;
+		}
 	}
 }

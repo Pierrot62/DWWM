@@ -3,7 +3,6 @@
 // if (isset($_SESSION["user"]) && $_SESSION["user"]->getIdRole() == 1) {
     $users = UtilisateursManager::getList();
 echo '<section class="colonne">
-    <h2 class="centre titre">Liste Utilisateurs</h2>
 
 
     <div class="centre"> 
@@ -18,11 +17,19 @@ echo '<section class="colonne">
     </div>
 
     <div class="espaceHor"></div>
-  
 
-    <div classe="triple">
-        <a href="Index.php?page=FormUtilisateur&mode=ajouter"><button class="bouton"><i class="fas fa-plus-circle"></i> Ajouter</button></a>
+
+    <div class="zoneBouton">
+        <div class="grande">
+            <div><a href="index.php?page=FormUtilisateur&mode=ajouter"><button class="bouton"><i
+                            class="fas fa-plus-circle"></i> Ajouter</button></a></div>
+
+            <div><a href="index.php?page=FormAdmin"><button class="bouton"><i class="far fa-arrow-alt-circle-left"></i>
+                        Retour</button></a></div>
+        </div>
+        <div class="triple"></div>
     </div>
+
     <div class="espaceHor"></div>';
     foreach ($users as $unUser) 
     {
@@ -55,21 +62,5 @@ echo '<section class="colonne">
         
     }
 
-    echo ' <div class="espaceHor"></div>
-            <div class="info">
-            <a href=""><button class="bouton"><i class="far fa-arrow-alt-circle-left"></i> Retour</button></a>
-          </div>
+    echo ' 
         </section>';
-// }
-?>
-<!-- <div class="grande"></div>
-
-<div class="mini"></div>
-<button></button>
-<div class="mini"></div>
-<a href=""></a>
-<div></div> -->
-<!-- <div>'.$unUser->getNomUtilisateur().'</div>
-<div>'.$unUser->getPrenomUtilisateur().'</div>
-<div>'.$role->getLibelleRole().'</div> -->
-<!-- <div class="bouton"><a class="centre size" href="index.php?page=FormulaireUsers&mode=modifier&id=' . '' . '">Ajouter</a></div> -->

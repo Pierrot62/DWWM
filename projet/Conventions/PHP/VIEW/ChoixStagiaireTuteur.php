@@ -19,7 +19,7 @@ if ($_SESSION['utilisateur']->getIdRole() == 3) {
             </section>';
         }
     } else {
-        header('location: index.php?page=MenuFR&idStage='.$stages[0]->getIdStage().'');
+        header('location: index.php?page=FormFRInfosStagiaire&idStagiaire='.$stages[0]->getIdStagiaire().'&idStage='.$stages[0]->getIdStage());
     }
 
 } else {

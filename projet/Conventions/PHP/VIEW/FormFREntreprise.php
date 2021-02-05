@@ -1,8 +1,16 @@
 <section>
 
 <?php
-$tuteur = TuteursManager::findById($_GET['idTuteur']);
-// var_dump($tuteur);
+// $mode=$_GET['mode'];
+
+// switch($mode)
+// {
+//     case "ajouter":
+//     {
+//         echo'<form action="Index.php?page=ActionEntreprise&mode=ajouter" method="POST">';
+//         break;
+//     }
+// }
 ?>
     <form action="index.php?page=ActionEntreprise&mode=ajouter" method="POST">
         <fieldset>
@@ -147,13 +155,13 @@ $tuteur = TuteursManager::findById($_GET['idTuteur']);
             <div class="row">
                 <div class="info colonne">
                     <label for="nomTuteur">Nom Tuteur :</label>
-                    <input type="text" id="nomTuteur" name="nomTuteur" value="<?php echo($tuteur->getNomTuteur()) ?>" required title="Veuillez renseigner le nom du Tuteur" pattern="[a-zA-Z-\ ]{2,}" > 
+                    <input type="text" id="nomTuteur" name="nomTuteur" value="" required title="Veuillez renseigner le nom du Tuteur" pattern="[a-zA-Z-\ ]{2,}" > 
                     <div id="divNomTuteur" class="message erreur"></div>               
                 </div>
                 <div class="mini"></div>
                 <div class="info colonne">
                     <label for="prenomTuteur">Prenom Tuteur :</label>
-                    <input type="text" id="prenomTuteur" name="prenomTuteur" value="<?php echo($tuteur->getPrenomTuteur()) ?>" required title="Veuillez renseigner le prenom du Tuteur" pattern="[a-zA-Z-\ ]{3,}" > 
+                    <input type="text" id="prenomTuteur" name="prenomTuteur" value="" required title="Veuillez renseigner le prenom du Tuteur" pattern="[a-zA-Z-\ ]{3,}" > 
                     <div id="divPrenomTuteur" class="message erreur"></div>               
                 </div>
             </div>
@@ -161,13 +169,13 @@ $tuteur = TuteursManager::findById($_GET['idTuteur']);
             <div class="row">
                 <div class="info colonne">
                     <label for="fonctionTuteur">Fonction Tuteur :</label>
-                    <input type="text" id="fonctionTuteur" name="fonctionTuteur" value="<?php echo($tuteur->getFonctionTuteur()) ?>" required title="Veuillez renseigner la fonction du tuteur" pattern="[a-zA-Z-\ ]{3,}" >
+                    <input type="text" id="fonctionTuteur" name="fonctionTuteur" value="" required title="Veuillez renseigner la fonction du tuteur" pattern="[a-zA-Z-\ ]{3,}" >
                     <div id="divFonctionTuteur" class="message erreur"></div>
                 </div>
                 <div class="mini"></div>
                 <div class="info colonne">
                     <label for="tuteur">Numero téléphone du tuteur :</label>
-                    <input type="text" id="numeroTuteur" name="telTuteur" value="<?php echo($tuteur->getTelTuteur()) ?>" required title="Veuillez renseigner le numero de téléphone du tuteur" pattern="\d{10}" >  
+                    <input type="text" id="numeroTuteur" name="telTuteur" value="" required title="Veuillez renseigner le numero de téléphone du tuteur" pattern="\d{10}" >  
                     <div id="divNumTelTuteur" class="message erreur"></div>              
                 </div>
             </div>
@@ -175,7 +183,7 @@ $tuteur = TuteursManager::findById($_GET['idTuteur']);
             <div class="row">
                 <div class="info colonne">
                     <label for="fonctionTuteur">Mail Tuteur :</label>
-                    <input type="text" id="mailTuteur" name="emailTuteur" value="<?php echo($tuteur->getEmailTuteur()) ?>" required title="Veuillez renseigner l'adresse mail du tuteur" pattern="[a-z]+[a-z0-9._-]+@[a-z0-9._-]+\.[a-z]{2,6}">
+                    <input type="text" id="mailTuteur" name="emailTuteur" value="" required title="Veuillez renseigner l'adresse mail du tuteur" pattern="[a-z]+[a-z0-9._-]+@[a-z0-9._-]+\.[a-z]{2,6}">
                     <div id="divMailTuteur" class="message erreur"></div>
                 </div>
                 <div class="mini"></div>

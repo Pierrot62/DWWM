@@ -5,19 +5,23 @@ class SessionsFormationsManager
 	public static function add(Sessionsformations $obj)
 	{
  		$db=DbConnect::getDb();
-		$q=$db->prepare("INSERT INTO Sessionsformations (numOffreFormation,idFormation) VALUES (:numOffreFormation,:idFormation)");
+		$q=$db->prepare("INSERT INTO Sessionsformations (numOffreFormation,idFormation,dateDebut,dateFin) VALUES (:numOffreFormation,:idFormation,:dateDebut,:dateFin)");
 		$q->bindValue(":numOffreFormation", $obj->getNumOffreFormation());
 		$q->bindValue(":idFormation", $obj->getIdFormation());
+		$q->bindValue(":dateDebut", $obj->getDateDebut());
+		$q->bindValue(":dateFin", $obj->getDateFin());
 		$q->execute();
 	}
 
 	public static function update(Sessionsformations $obj)
 	{
  		$db=DbConnect::getDb();
-		$q=$db->prepare("UPDATE Sessionsformations SET idSessionFormation=:idSessionFormation,numOffreFormation=:numOffreFormation,idFormation=:idFormation WHERE idSessionFormation=:idSessionFormation");
+		$q=$db->prepare("UPDATE Sessionsformations SET idSessionFormation=:idSessionFormation,numOffreFormation=:numOffreFormation,idFormation=:idFormation,dateDebut=:dateDebut,dateFin=:dateFin WHERE idSessionFormation=:idSessionFormation");
 		$q->bindValue(":idSessionFormation", $obj->getIdSessionFormation());
 		$q->bindValue(":numOffreFormation", $obj->getNumOffreFormation());
 		$q->bindValue(":idFormation", $obj->getIdFormation());
+		$q->bindValue(":dateDebut", $obj->getDateDebut());
+		$q->bindValue(":dateFin", $obj->getDateFin());
 		$q->execute();
 	}
 	public static function delete(Sessionsformations $obj)
@@ -54,18 +58,21 @@ class SessionsFormationsManager
 		}
 		return $liste;
 	}
-	public static function getByFormation($idFormation)
+	public static function getByFormation($idFormation,$api)
     {
         $db = DbConnect::getDb();
         $id = (int) $idFormation;
-        $liste = [];
-        $q = $db->query("SELECT * FROM SessionsFormations where idFormation=$id");
+		$liste = [];
+		$json=[];
+        $q = $db->query("SELECT * FROM SessionsFormations where idFormation=".$id);
         while ($donnees = $q->fetch(PDO::FETCH_ASSOC)) {
             if ($donnees != false) {
-                $liste[] = new SessionsFormations($donnees);
+				$liste[] = new SessionsFormations($donnees);
+				$json[]=$donnees;
             }
-        }return $liste;
-
+		}
+		if(!$api) return $liste;
+		return $json;
 	}
 	public static function getByNumOffre($numOffre)
     {

@@ -42,7 +42,7 @@ class FormationsManager
 	{
  		$db=DbConnect::getDb();
 		$liste = [];
-		$q = $db->query("SELECT * FROM Formations");
+		$q = $db->query("SELECT * FROM Formations  ORDER BY libelleFormation");
 		while($donnees = $q->fetch(PDO::FETCH_ASSOC))
 		{
 			if($donnees != false)

@@ -89,20 +89,23 @@ class StagiaireFormationManager
         }
         return $liste;
     }
-    public static function getListBySession($idSession)
+    public static function getListBySession($idSession,$api)
     {
         $idSession = (int) $idSession;
         $db = DbConnect::getDb();
         $liste = [];
-        $q = $db->query("SELECT * FROM StagiaireFormation where idSessionFormation = " . $idSession);
+        $json = [];
+        $q = $db->query("SELECT DISTINCT idStagiaire FROM StagiaireFormation where idSessionFormation = " . $idSession);
         while ($donnees = $q->fetch(PDO::FETCH_ASSOC))
         {
             if ($donnees != false)
             {
-                $liste[] = new StagiaireFormation($donnees);
+                $liste[] = StagiairesManager::findById($donnees['idStagiaire']);
+                $json[]=$donnees;
             }
         }
-        return $liste;
+        if(!$api)return $liste;
+        return $json;
     }
     public static function nbPeriodesStages($idStagiaire, $idSessionFormation)
     {
@@ -129,4 +132,19 @@ class StagiaireFormationManager
         return count($liste);
     }
     
+    public static function getPeriodeBySession($idSessionFormation)
+    {
+        $db = DbConnect::getDb();
+        $liste = [];
+        $idSessionFormation = (int) $idSessionFormation;
+        $q = $db->query("SELECT DISTINCT idPeriode FROM StagiaireFormation WHERE idSessionFormation = ".$idSessionFormation." ORDER BY dateDebutPAE" );
+        while ($donnees = $q->fetch(PDO::FETCH_ASSOC))
+        {
+            if ($donnees != false)
+            {
+                $liste[] = PeriodesStagesManager::findById($donnees['idPeriode']);
+            }
+        }
+        return $liste;
+    }
 }

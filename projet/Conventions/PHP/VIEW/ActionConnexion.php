@@ -3,7 +3,7 @@ if (isset($_POST["eMail"])) {
     $uti = UtilisateursManager::getByEmail($_POST['eMail']);
 }
 
-$mode = $_GET["mode"];
+$mode = isset($_GET["mode"])? $_GET["mode"]:"login";
 switch ($mode) {
     case 'login':
         if ($uti != false && ($uti->getDatePeremption() == null || new DateTime($uti->getDatePeremption()) > new DateTime("NOW"))) {

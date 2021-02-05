@@ -1,15 +1,24 @@
-<section>
-    <div class="centre colonne">
-
-        <button class="bouton centre" href="index.php?page=ListeFormations.php">Gestion Formation</button>
+<section class="double">
+    <div class="colonne ">
+          <a href="index.php?page=ListeFormations" class="info ">
+            <button class="bouton grandBouton">Gestion des formations</button>
+        </a>
         <div class="espaceHor"></div>
-        <button class="bouton centre" href="index.php?page=ListeSessions.php">Gestion Sessions</button>
+        <a href="index.php?page=ListeSessions" class="info ">
+            <button class="bouton grandBouton">Gestion des offres</button>
+        </a>
         <div class="espaceHor"></div>
-        <button class="bouton centre" href="index.php?page=ListeUtilisateurs.php">Gestion Utilisateurs</button>
+        <a href="index.php?page=ListeUtilisateurs" class="info ">
+            <button class="bouton grandBouton">Gestion des utilisateurs</button>
+        </a>
         <div class="espaceHor"></div>
-        <button class="bouton centre" href="index.php?page=ListeStagiaires.php">Gestion Stagiaires</button>
+        <a href="index.php?page=ListeStagiaires" class="info ">
+            <button class="bouton grandBouton">Gestion des stagiaires</button>
+        </a>
         <div class="espaceHor"></div>
-        <button class="bouton centre" href="index.php?page=///.php">Feuille de Renseignements</button>
+        <a href="index.php?page=InterfaceFormateur" class="info ">
+            <button class="bouton grandBouton">Feuilles de Renseignements</button>
+        </a>
 
     </div>
 </section>

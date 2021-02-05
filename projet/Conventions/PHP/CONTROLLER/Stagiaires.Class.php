@@ -13,6 +13,10 @@ class Stagiaires
 	private $_numBenefStagiaire;
 	private $_dateNaissanceStagiaire;
 	private $_emailStagiaire;
+	private $_adresse;
+	private $_idVilleHabitation;
+	private $_idVilleNaissance;
+	private $_telStagiaire;
 
 	/***************** Accesseurs ***************** */
 
@@ -97,6 +101,46 @@ class Stagiaires
 		$this->_emailStagiaire=$emailStagiaire;
 	}
 
+	public function getAdresse()
+	{
+		return $this->_adresse;
+	}
+
+	public function setAdresse($adresse)
+	{
+		$this->_adresse = $adresse;
+	}
+
+	public function getIdVilleHabitation()
+	{
+		return $this->_idVilleHabitation;
+	}
+
+	public function setIdVilleHabitation($idVilleHabitation)
+	{
+		$this->_idVilleHabitation = $idVilleHabitation;
+	}
+
+	public function getIdVilleNaissance()
+	{
+		return $this->_idVilleNaissance;
+	}
+
+	public function setIdVilleNaissance($idVilleNaissance)
+	{
+		$this->_idVilleNaissance = $idVilleNaissance;
+	}
+
+	public function getTelStagiaire()
+	{
+		return $this->_telStagiaire;
+	}
+
+	public function setTelStagiaire($telStagiaire)
+	{
+		$this->_telStagiaire = $telStagiaire;
+	}
+
 	/*****************Constructeur***************** */
 
 	public function __construct(array $options = [])
@@ -158,4 +202,8 @@ class Stagiaires
 	{
 		return;
 	}
+
+	
+
+	
 }

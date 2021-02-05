@@ -48,7 +48,7 @@ function afficherPage($page)
         include 'PHP/VIEW/Head.php';
         include 'PHP/VIEW/Header.php';
         if (isset($_SESSION['utilisateur'])) {
-            if (substr($_GET['page'], 0, 6) == "FormFR" && $_SESSION['utilisateur']->getIdRole() == 3) {
+            if (isset($_GET['page']) && substr($_GET['page'], 0, 6) == "FormFR" && $_SESSION['utilisateur']->getIdRole() == 3) {
                 include 'PHP/VIEW/MenuFR.php';
             }
         }

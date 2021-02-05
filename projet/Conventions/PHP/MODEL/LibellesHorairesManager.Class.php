@@ -54,4 +54,18 @@ class LibellesHorairesManager
 		}
 		return $liste;
 	}
+	public static function getByLibelle($libelle)
+	{
+ 		$db=DbConnect::getDb();
+		$q=$db->query("SELECT * FROM LibellesHoraires WHERE libelleHoraire ='".$libelle."'");
+		$results = $q->fetch(PDO::FETCH_ASSOC);
+		if($results != false)
+		{
+			return new LibellesHoraires($results);
+		}
+		else
+		{
+			return false;
+		}
+	}
 }
