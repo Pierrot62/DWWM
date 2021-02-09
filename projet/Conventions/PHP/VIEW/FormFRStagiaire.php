@@ -52,10 +52,12 @@ if ($_SESSION['utilisateur']->getIdRole() == 4) {
         {
             $indice = 0;
         }
+        
         $stages = StagesManager::getByStagiaire($stagiaire->getIdStagiaire(), $_GET['idPeriode']);
 
         if (empty($stages)) {
             $stages = new Stages();
+            $tuteur = new Tuteurs();
         } else {
             $tuteur = TuteursManager::findById($stages[0]->getIdTuteur());
         }

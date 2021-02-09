@@ -3,7 +3,7 @@ if (isset($_POST["eMail"])) {
     $uti = UtilisateursManager::getByEmail($_POST['eMail']);
 }
 
-$mode = isset($_GET["mode"])? $_GET["mode"]:"login";
+$mode = isset($_GET["mode"]) ? $_GET["mode"] : "login";
 switch ($mode) {
     case 'login':
         if ($uti != false && ($uti->getDatePeremption() == null || new DateTime($uti->getDatePeremption()) > new DateTime("NOW"))) {
@@ -37,11 +37,15 @@ switch ($mode) {
                 }
 
             } else {
-                echo 'le mot de passe ou eMail est incorrect ';
+                echo '
+                <div class="titreColonne zoneBouton">le mot de passe ou eMail est incorrect</div>
+                ';
                 header("refresh:3;url=index.php?page=FormConnexion");
             }
         } else {
-            echo 'l\'utilisateur n\'existe pas ';
+            echo '
+            <div class="titreColonne zoneBouton">l\'utilisateur n\'existe pas</div>
+            ';
             header("refresh:3;url=index.php?page=FormConnexion");
         }
         break;
