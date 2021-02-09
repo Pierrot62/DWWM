@@ -5,7 +5,7 @@ class StagiairesManager
 	public static function add(Stagiaires $obj)
 	{
  		$db=DbConnect::getDb();
-		$q=$db->prepare("INSERT INTO Stagiaires (genreStagiaire,nomStagiaire,prenomStagiaire,numSecuStagiaire,numBenefStagiaire,dateNaissanceStagiaire,emailStagiaire,adresse,idVilleHabitation,idVilleStagiaire,telStagiaire) VALUES (:genreStagiaire,:nomStagiaire,:prenomStagiaire,:numSecuStagiaire,:numBenefStagiaire,:dateNaissanceStagiaire,:emailStagiaire,:adresse,:idVilleHabitation,:idVilleStagiaire,:telStagiaire)");
+		$q=$db->prepare("INSERT INTO Stagiaires (genreStagiaire,nomStagiaire,prenomStagiaire,numSecuStagiaire,numBenefStagiaire,dateNaissanceStagiaire,emailStagiaire,adresse,idVilleHabitation,villeNaissance,telStagiaire) VALUES (:genreStagiaire,:nomStagiaire,:prenomStagiaire,:numSecuStagiaire,:numBenefStagiaire,:dateNaissanceStagiaire,:emailStagiaire,:adresse,:idVilleHabitation,:villeNaissance,:telStagiaire)");
 		$q->bindValue(":genreStagiaire", $obj->getGenreStagiaire());
 		$q->bindValue(":nomStagiaire", $obj->getNomStagiaire());
 		$q->bindValue(":prenomStagiaire", $obj->getPrenomStagiaire());
@@ -15,7 +15,7 @@ class StagiairesManager
 		$q->bindValue(":emailStagiaire", $obj->getEmailStagiaire());
 		$q->bindValue(":adresse", $obj->getAdresse());
 		$q->bindValue(":idVilleHabitation", $obj->getIdVilleHabitation());
-		$q->bindValue(":idVilleNaissance", $obj->getIdVilleNaissance());
+		$q->bindValue(":villeNaissance", $obj->getVilleNaissance());
 		$q->bindValue(":telStagiaire", $obj->getTelStagiaire());
 
 
@@ -25,7 +25,7 @@ class StagiairesManager
 	public static function update(Stagiaires $obj)
 	{
  		$db=DbConnect::getDb();
-		$q=$db->prepare("UPDATE Stagiaires SET idStagiaire=:idStagiaire,genreStagiaire=:genreStagiaire,nomStagiaire=:nomStagiaire,prenomStagiaire=:prenomStagiaire,numSecuStagiaire=:numSecuStagiaire,numBenefStagiaire=:numBenefStagiaire,dateNaissanceStagiaire=:dateNaissanceStagiaire,emailStagiaire=:emailStagiaire,adresse=:adresse,idVilleHabitation=:idVilleHabitation, idVilleNaissance=:idVilleNaissance,telStagiaire=:telStagiaire WHERE idStagiaire=:idStagiaire");
+		$q=$db->prepare("UPDATE Stagiaires SET idStagiaire=:idStagiaire,genreStagiaire=:genreStagiaire,nomStagiaire=:nomStagiaire,prenomStagiaire=:prenomStagiaire,numSecuStagiaire=:numSecuStagiaire,numBenefStagiaire=:numBenefStagiaire,dateNaissanceStagiaire=:dateNaissanceStagiaire,emailStagiaire=:emailStagiaire,adresse=:adresse,idVilleHabitation=:idVilleHabitation, villeNaissance=:villeNaissance,telStagiaire=:telStagiaire WHERE idStagiaire=:idStagiaire");
 		$q->bindValue(":idStagiaire", $obj->getIdStagiaire());
 		$q->bindValue(":genreStagiaire", $obj->getGenreStagiaire());
 		$q->bindValue(":nomStagiaire", $obj->getNomStagiaire());
@@ -36,7 +36,7 @@ class StagiairesManager
 		$q->bindValue(":emailStagiaire", $obj->getEmailStagiaire());
 		$q->bindValue(":adresse", $obj->getAdresse());
 		$q->bindValue(":idVilleHabitation", $obj->getIdVilleHabitation());
-		$q->bindValue(":idVilleNaissance", $obj->getIdVilleNaissance());
+		$q->bindValue(":villeNaissance", $obj->getVilleNaissance());
 		$q->bindValue(":telStagiaire", $obj->getTelStagiaire());
 		$q->execute();
 	}

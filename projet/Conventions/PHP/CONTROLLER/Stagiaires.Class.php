@@ -15,7 +15,7 @@ class Stagiaires
 	private $_emailStagiaire;
 	private $_adresse;
 	private $_idVilleHabitation;
-	private $_idVilleNaissance;
+	private $_villeNaissance;
 	private $_telStagiaire;
 
 	/***************** Accesseurs ***************** */
@@ -121,14 +121,14 @@ class Stagiaires
 		$this->_idVilleHabitation = $idVilleHabitation;
 	}
 
-	public function getIdVilleNaissance()
+	public function getVilleNaissance()
 	{
-		return $this->_idVilleNaissance;
+		return $this->_villeNaissance;
 	}
 
-	public function setIdVilleNaissance($idVilleNaissance)
+	public function setVilleNaissance($villeNaissance)
 	{
-		$this->_idVilleNaissance = $idVilleNaissance;
+		$this->_villeNaissance = $villeNaissance;
 	}
 
 	public function getTelStagiaire()
