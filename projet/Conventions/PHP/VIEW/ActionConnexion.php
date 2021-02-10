@@ -3,15 +3,13 @@ if (isset($_POST["eMail"])) {
     $uti = UtilisateursManager::getByEmail($_POST['eMail']);
 }
 
-$mode = isset($_GET["mode"]) ? $_GET["mode"] : "login";
+$mode = isset($_GET["mode"])? $_GET["mode"]:"login";
 switch ($mode) {
     case 'login':
         if ($uti != false && ($uti->getDatePeremption() == null || new DateTime($uti->getDatePeremption()) > new DateTime("NOW"))) {
             //echo "motBDD ".$uti->getMdpUtilisateur()."  saisi". $_POST['motDePasse']. "crypte   ".crypte($_POST['motDePasse'])."<br>";
             if ($_POST['motDePasse'] == $uti->getMdpUtilisateur()) {
-                echo 'connection reussie';
                 $_SESSION['utilisateur'] = $uti;
-                var_dump($uti->getIdRole());
                 switch ($uti->getIdRole()) {
                     case "1":
                         header("location: index.php?page=FormAdmin");
@@ -39,20 +37,17 @@ switch ($mode) {
             } else {
                 echo '
                 <div class="titreColonne zoneBouton">le mot de passe ou eMail est incorrect</div>
-                ';
-                header("refresh:3;url=index.php?page=FormConnexion");
+                ';header("refresh:3;url=index.php?page=FormConnexion");
             }
         } else {
             echo '
             <div class="titreColonne zoneBouton">l\'utilisateur n\'existe pas</div>
-            ';
-            header("refresh:3;url=index.php?page=FormConnexion");
+            ';header("refresh:3;url=index.php?page=FormConnexion");
         }
         break;
 
     case 'logout':
         session_destroy();
-        echo "ok";
         header("location: index.php?page=FormConnexion");
         break;
 }

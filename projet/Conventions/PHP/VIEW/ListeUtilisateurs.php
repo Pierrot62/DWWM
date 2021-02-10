@@ -6,7 +6,7 @@ echo '<section class="colonne">
 
 
     <div class="centre"> 
-    <h1>Sélectionner un rôle pour filtrer :</h1>
+    <h1 class="texteClair">Sélectionner un rôle pour filtrer :</h1>
     </div>
     <div>
         <div id="admin" class="bouton">Administrateurs</div><div></div>
@@ -22,10 +22,9 @@ echo '<section class="colonne">
     <div class="zoneBouton">
         <div class="grande">
             <div><a href="index.php?page=FormUtilisateur&mode=ajouter"><button class="bouton"><i
-                            class="fas fa-plus-circle"></i> Ajouter</button></a></div>
+                            class="fas fa-plus-circle"></i> &nbsp Ajouter</button></a></div>
 
-            <div><a href="index.php?page=FormAdmin"><button class="bouton"><i class="far fa-arrow-alt-circle-left"></i>
-                        Retour</button></a></div>
+            <div><a href="index.php?page=FormAdmin"><button class="bouton"><i class="far fa-arrow-alt-circle-left"></i> &nbsp Retour</button></a></div>
         </div>
         <div class="triple"></div>
     </div>

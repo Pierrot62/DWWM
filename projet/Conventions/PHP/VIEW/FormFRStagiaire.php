@@ -53,7 +53,7 @@ if ($_SESSION['utilisateur']->getIdRole() == 4) {
             $indice = 0;
         }
         
-        $stages = StagesManager::getByStagiaire($stagiaire->getIdStagiaire(), $_GET['idPeriode']);
+        $stages = StagesManager::getByStagiaire($stagiaire->getIdStagiaire(), $ListePeriodeStage[$indice]->getIdPeriode());
 
         if (empty($stages)) {
             $stages = new Stages();
@@ -229,9 +229,9 @@ if ($_SESSION['utilisateur']->getIdRole() == 4) {
                     <div class="espaceHor"></div>
                 <div>
                     <div class="info  center">
-                        <a href="index.php?page=FormFRStagiaire" class="bouton"><i class="far fa-arrow-alt-circle-left"></i> Retour</a>
-                        <div class="mini"></div>
                         <button class="bouton" type="submit"><i class="fas fa-paper-plane"></i> Envoyer</button>
+                        <div class="mini"></div>
+                        <a href="index.php?page=FormFRStagiaire" class="bouton"><i class="far fa-arrow-alt-circle-left"></i> Retour</a>
                     </div>
                 </div>
                 <div >

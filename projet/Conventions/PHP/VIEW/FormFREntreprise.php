@@ -1,25 +1,21 @@
 <section>
-
 <?php
-// $mode=$_GET['mode'];
-
-// switch($mode)
-// {
-//     case "ajouter":
-//     {
-//         echo'<form action="Index.php?page=ActionEntreprise&mode=ajouter" method="POST">';
-//         break;
-//     }
-// }
-?>
+$id = $_GET["idEntreprise"];
+$entreprise = EntreprisesManager::findById($id);
+if($entreprise==null) $entreprise= new Entreprises();
+$idTuteur = $_GET["idTuteur"];
+$tuteur = TuteursManager::findById($idTuteur);
+?> 
     <form action="index.php?page=ActionEntreprise&mode=ajouter" method="POST">
         <fieldset>
             <legend>Entreprise</legend>
             <div class="row">
             <div class="demi"></div>
                 <div class="info colonne">
-                    <label for="numSiret">Numero SIRET :</label>
-                    <input type="text" id="siret" name="numSiretENT" title="Veuillez renseigner un numero de SIRET" value="" required pattern="\d{14}">
+                    <label for="numSiret">Numéro SIRET :</label>
+                    <?php  
+                        echo '<input verifInput type="text" id="siret" name="numSiretENT" title="Veuillez renseigner un numero de SIRET" value="'.$entreprise->getNumSiretEnt().'" required pattern="\d{14}">';
+                    ?>
                     <div id="divSiret" class="message erreur"></div>
                 </div>
             <div class="demi"></div>
@@ -28,13 +24,17 @@
             <div class="row">
                 <div class="info colonne">
                     <label for="RaisonSociale">Raison Sociale :</label>
-                    <input type="text" id="raisonSociale" name="raisonSociale" title="Veuillez renseigner votre raison sociale" required pattern="[a-zA-Z\ \.-]{3,}">
+                    <?php  
+                        echo '<input verifInput type="text" id="raisonSociale" name="raisonSociale" title="Veuillez renseigner votre raison sociale" value ="'.$entreprise->getRaisonSociale().'" required pattern="[a-zA-Z\ \.-]{3,}"/>';
+                    ?>
                     <div id="divRaisonSociale" class="message erreur"></div>
                 </div>
                 <div class="mini"></div>
                 <div class="info colonne">
                     <label for="juridique">Forme Juridique :</label>
-                    <input type="text" id="formeJuridique" name="statutJuridiqueENT" title="Veuillez renseigner votre forme juridique" required pattern="[a-zA-Z\ \.-]{1,}" value="">
+                    <?php  
+                        echo '<input verifInput type="text" id="formeJuridique" name="statutJuridiqueENT" title="Veuillez renseigner votre forme juridique" required pattern="[a-zA-Z\ \.-]{1,}" value="'.$entreprise->getStatutJuridiqueEnt().'">';
+                    ?>
                     <div id="divFormeJuridique" class="message erreur"></div>
                 </div>
             </div>
@@ -42,12 +42,14 @@
             <div class="row">
                 <div class="info colonne">
                     <label for="adresse">Adresse Entreprise:</label>
-                    <input type="text" id="adresseEntreprise" name="adresseENT" value="" title="Veuillez renseigner votre adresse" required pattern="^([0-9a-zA-Z'àâéèêôùûçÀÂÉÈÔÙÛÇ\s-\ \.]{1,150})$">
+                    <?php  
+                        echo '<input verifInput type="text" id="adresseEntreprise" name="adresseENT" value="'.$entreprise->getAdresseEnt().'" title="Veuillez renseigner votre adresse" required pattern="^([0-9a-zA-Z\'àâéèêôùûçÀÂÉÈÔÙÛÇ\s-\ \.]{1,150})$"/>';
+                    ?>
                     <div id="divAdresseEntreprise" class="message erreur"></div>
                 </div>
                 <div class="mini"></div>
                 <div class="info colonne">
-                    <label for="ville">Regions :</label>
+                    <label for="ville">Régions :</label>
                     <select id="region" name="idRegion">
                         <?php
                         $listeRegion = RegionsManager::getList(false);
@@ -87,58 +89,74 @@
                 </div>
                 <div class="mini"></div>
                 <div class="info colonne">
-                    <label for="numeroTelephone">Numero Telephone Entreprise:</label>
-                    <input type="text" id="numeroTelEnt" name="telENT" value="" required title="Veuillez renseigner un numero de telephone de l'entreprise" pattern="\d{10}" >
+                    <label for="numeroTelephone">Numéro Téléphone Entreprise:</label>
+                    <?php  
+                        echo '<input verifInput type="text" id="numeroTelEnt" name="telENT" value="'.$entreprise->getTelEnt().'" required title="Veuillez renseigner un numero de telephone de l\'entreprise" pattern="\d{10}"/>';
+                    ?>
                     <div id="divNumTelephoneEnt" class="message erreur"></div>
                 </div>
             </div>
 
             <div class="row">
                 <div class="info colonne">
-                    <label for="numeroSocietaire">Numero Societaire :</label>
-                    <input type="text" id="numeroSocietaire" name="numSocietaire" value="" title="Veuillez renseigner un numero societaire" required pattern="[0-9]{3,}" >
+                    <label for="numeroSocietaire">Numéro Sociétaire :</label>
+                    <?php  
+                        echo '<input verifInput type="text" id="numeroSocietaire" name="numSocietaire" value="'.$entreprise->getNumSocietaire().'" title="Veuillez renseigner un numero societaire" required pattern="[0-9]{3,}" />';
+                    ?>
                     <div id="divNumSocietaire" class="message erreur"></div>
                 </div>
                 <div class="mini"></div>
                 <div class="info colonne">
                     <label for="assureur">Assureur Entreprise:</label>
-                    <input type="text" id="assureur" name="assureurENT" value="" required title="Veuillez renseigner un assureur" pattern="[a-zA-Z\ \.-]{3,}" > 
+                    <?php  
+                        echo '<input verifInput type="text" id="assureur" name="assureurENT" value="'.$entreprise->getAssureurEnt().'" required title="Veuillez renseigner un assureur" pattern="[a-zA-Z\ \.-]{3,}" />';
+                    ?> 
                     <div id="divAssureur" class="message erreur"></div>               
                 </div>
             </div>
 
             <div class="row">
                 <div class="info colonne">
-                    <label for="nomRepresentant">Nom Representant :</label>
-                    <input type="text" id="nomRepresentant" name="nomRepresentant" value="" title="Veuillez renseigner le nom du représentant" required pattern="[a-zA-Z\ -]{2,}"> 
+                    <label for="nomRepresentant">Nom Représentant :</label>
+                    <?php  
+                        echo '<input verifInput type="text" id="nomRepresentant" name="nomRepresentant" value="'.$entreprise->getNomRepresentant().'" title="Veuillez renseigner le nom du représentant" required pattern="[a-zA-Z\ -]{2,}"/>';
+                    ?> 
                     <div id="divNomRepres" class="message erreur"></div>               
                 </div>
                 <div class="mini"></div>
                 <div class="info colonne">
-                    <label for="prenomRepresentant">Prenom Representant :</label>
-                    <input type="text" id="prenomRepresentant" name="prenomRepresentant" value="" required title="Veuillez renseigner le prenom du représentant" pattern="[a-zA-Z\ -]{3,}" >
+                    <label for="prenomRepresentant">Prenom Représentant :</label>
+                    <?php  
+                        echo '<input verifInput type="text" id="prenomRepresentant" name="prenomRepresentant" value="'.$entreprise->getPrenomRepresentant().'" required title="Veuillez renseigner le prenom du représentant" pattern="[a-zA-Z\ -]{3,}" />';
+                    ?> 
                     <div id="divPrenomRepres" class="message erreur"></div>
                 </div>
             </div>
 
             <div class="row">
                 <div class="info colonne">
-                    <label for="fonction">Fonction Representant:</label>
-                    <input type="text" id="fonctionRepresentant" name="fctRepresentant" value="" required title="Veuillez renseigner la fonction du représentant" pattern="[a-zA-Z\ -]{3,}" >
+                    <label for="fonction">Fonction Représentant:</label>
+                    <?php  
+                        echo '<input verifInput type="text" id="fonctionRepresentant" name="fctRepresentant" value="'.$entreprise->getFctRepresentant().'" required title="Veuillez renseigner la fonction du représentant" pattern="[a-zA-Z\ -]{3,}" />';
+                    ?>
                     <div id="divFonctionRepresentant" class="message erreur"></div>
                 </div>
                 <div class="mini"></div>
                 <div class="info colonne">
-                    <label for="adresseMail">Adresse Mail Representant:</label>
-                    <input type="text" id="adresseMailRepresentant" name="mailRepresentant" value="" required title="Veuillez renseigner une adresse mail" pattern="[a-z]+[a-z0-9._-]+@[a-z0-9._-]+\.[a-z]{2,6}" >
+                    <label for="adresseMail">Adresse Mail Représentant:</label>
+                    <?php  
+                        echo '<input verifInput type="text" id="adresseMailRepresentant" name="mailRepresentant" value="'.$entreprise->getMailRepresentant().'" required title="Veuillez renseigner une adresse mail" pattern="[a-z]+[a-z0-9._-]+@[a-z0-9._-]+\.[a-z]{2,6}" />';
+                    ?>
                     <div id="divAdresseMailRepresentant" class="message erreur"></div>
                 </div>
             </div>
 
             <div class="row">
                 <div class="info colonne">
-                    <label for="numeroTelephone">Numero Telephone Representant:</label>
-                    <input type="text" id="numeroTelRepresentant" name="telRepresentant" value="" required title="Veuillez renseigner un numero de telephone" pattern="\d{10}" >
+                    <label for="numeroTelephone">Numéro Téléphone Représentant:</label>
+                    <?php  
+                        echo '<input verifInput type="text" id="numeroTelRepresentant" name="telRepresentant" value="'.$entreprise->getTelRepresentant().'" required title="Veuillez renseigner un numero de telephone" pattern="\d{10}" />';
+                    ?>
                     <div id="divNumTelephoneRepresentant" class="message erreur"></div>
                 </div>
                 <div class="mini"></div>
@@ -155,13 +173,17 @@
             <div class="row">
                 <div class="info colonne">
                     <label for="nomTuteur">Nom Tuteur :</label>
-                    <input type="text" id="nomTuteur" name="nomTuteur" value="" required title="Veuillez renseigner le nom du Tuteur" pattern="[a-zA-Z-\ ]{2,}" > 
+                    <?php 
+                        echo '<input verifInput type="text" id="nomTuteur" name="nomTuteur" value='.$tuteur->getNomTuteur().' required title="Veuillez renseigner le nom du Tuteur" pattern="[a-zA-Z-\ ]{2,}">';    
+                    ?> 
                     <div id="divNomTuteur" class="message erreur"></div>               
                 </div>
                 <div class="mini"></div>
                 <div class="info colonne">
-                    <label for="prenomTuteur">Prenom Tuteur :</label>
-                    <input type="text" id="prenomTuteur" name="prenomTuteur" value="" required title="Veuillez renseigner le prenom du Tuteur" pattern="[a-zA-Z-\ ]{3,}" > 
+                    <label for="prenomTuteur">Prénom Tuteur :</label>
+                    <?php 
+                        echo '<input verifInput type="text" id="prenomTuteur" name="prenomTuteur" value='.$tuteur->getPrenomTuteur().' required title="Veuillez renseigner le prenom du Tuteur" pattern="[a-zA-Z-\ ]{3,}">';    
+                    ?>
                     <div id="divPrenomTuteur" class="message erreur"></div>               
                 </div>
             </div>
@@ -169,13 +191,17 @@
             <div class="row">
                 <div class="info colonne">
                     <label for="fonctionTuteur">Fonction Tuteur :</label>
-                    <input type="text" id="fonctionTuteur" name="fonctionTuteur" value="" required title="Veuillez renseigner la fonction du tuteur" pattern="[a-zA-Z-\ ]{3,}" >
+                    <?php 
+                        echo '<input verifInput type="text" id="fonctionTuteur" name="fonctionTuteur" value="'.$tuteur->getFonctionTuteur().'" required title="Veuillez renseigner la fonction du tuteur" pattern="[a-zA-Z-\ ]{3,}">';    
+                    ?>
                     <div id="divFonctionTuteur" class="message erreur"></div>
                 </div>
                 <div class="mini"></div>
                 <div class="info colonne">
-                    <label for="tuteur">Numero téléphone du tuteur :</label>
-                    <input type="text" id="numeroTuteur" name="telTuteur" value="" required title="Veuillez renseigner le numero de téléphone du tuteur" pattern="\d{10}" >  
+                    <label for="tuteur">Numéro téléphone du tuteur :</label>
+                    <?php 
+                        echo '<input verifInput type="text" id="numeroTuteur" name="telTuteur" value="'.$tuteur->getTelTuteur().'" required title="Veuillez renseigner le numero de téléphone du tuteur" pattern="\d{10}">';    
+                    ?>
                     <div id="divNumTelTuteur" class="message erreur"></div>              
                 </div>
             </div>
@@ -183,7 +209,9 @@
             <div class="row">
                 <div class="info colonne">
                     <label for="fonctionTuteur">Mail Tuteur :</label>
-                    <input type="text" id="mailTuteur" name="emailTuteur" value="" required title="Veuillez renseigner l'adresse mail du tuteur" pattern="[a-z]+[a-z0-9._-]+@[a-z0-9._-]+\.[a-z]{2,6}">
+                    <?php 
+                        echo '<input verifInput type="text" id="mailTuteur" name="emailTuteur" value='.$tuteur->getEmailTuteur().' required title="Veuillez renseigner l\'adresse mail du tuteur" pattern="[a-z]+[a-z0-9._-]+@[a-z0-9._-]+\.[a-z]{2,6}">';    
+                    ?>
                     <div id="divMailTuteur" class="message erreur"></div>
                 </div>
                 <div class="mini"></div>

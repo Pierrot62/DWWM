@@ -76,4 +76,18 @@ class UtilisateursManager
 			return false;
 		}
 	}
+	public static function getListByRole($idRole)
+	{
+ 		$db=DbConnect::getDb();
+		$liste = [];
+		$q = $db->query("SELECT * FROM Utilisateurs where idRole = ".$idRole." ORDER BY nomUtilisateur");
+		while($donnees = $q->fetch(PDO::FETCH_ASSOC))
+		{
+			if($donnees != false)
+			{
+				$liste[] = new Utilisateurs($donnees) ;
+			}
+		}
+		return $liste;
+	}
 }

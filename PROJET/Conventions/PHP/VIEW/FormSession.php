@@ -157,7 +157,7 @@ switch ($mode) {
 ?>
 
         <div class="mini"></div>
-        <a href="Index.php?page=ListeSessions" target="_blank"><button class="bouton" type ="button">Retour</button></a> 
+        <a href="Index.php?page=ListeSessions" target="_blank"><button class="bouton" type ="button"><i class="far fa-arrow-alt-circle-left"></i>  &nbsp Retour</button></a> 
         <div class="mini"></div></div>
     </form>
 </section>

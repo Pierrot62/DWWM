@@ -56,4 +56,19 @@ class ValeursTravauxDangereuxManager
 		}
 		return $liste;
 	}
+	public static function getListByStage($idStage)
+	{
+		$db=DbConnect::getDb();
+		$id=(int)$idStage; 
+		$liste = [];
+		$q = $db->query("SELECT idLibelleTravauxDangereux FROM ValeursTravauxDangereux WHERE idStage=".$id);
+		while($donnees = $q->fetch(PDO::FETCH_ASSOC))
+		{
+			if($donnees != false)
+			{
+				$liste[] = $donnees['idLibelleTravauxDangereux'];
+			}
+		}
+		return $liste;
+	}
 }

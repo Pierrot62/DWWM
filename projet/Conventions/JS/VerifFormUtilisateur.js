@@ -16,12 +16,6 @@ var tabMsgErreur=["","Prenom Invalide ","Nom Invalide ","Adresse E-mail Invalide
 //Liste des inputs
 var listInput = document.getElementsByTagName("input");
 
-// //Ajoute la vérification de validité au changement de chaque champ
-// for (let i = 0; i < listInput.length; i++) {
-//     listInput[i].addEventListener("input", function (event) {
-//         updateValidity(event.target);
-//     });
-// }
 
 
 //Zone des message d'erreurs
@@ -146,6 +140,14 @@ function verifRole() {
         role.classList = ("incorrect");
     }else {
         tabErreur[7]=1;
+    }
+    var valeurselectionnee = role.value;
+    if (valeurselectionnee == 3 || valeurselectionnee == 4) {
+        tabErreur[6] = 0;
+        console.log(tabErreur[6]);
+        datePeremtion.setAttribute("required", "required")
+    } else {
+        datePeremtion.removeAttribute("required")
     }
     afficheMsgErreur()
     boutonSubmit();

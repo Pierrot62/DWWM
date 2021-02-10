@@ -13,9 +13,10 @@
         <div></div>
         <?php
             if (isset($_SESSION['utilisateur'])) {
+                echo '<div class="texteClair" >' . $_SESSION['utilisateur']->getPrenomUtilisateur().' '.$_SESSION['utilisateur']->getNomUtilisateur().'</div>';
                 echo '<a href="index.php?page=ActionConnexion&mode=logout">
 
-                    <button class="bouton centre">Deconnection</button>
+                    <button class="bouton centre"><i class="fas fa-sign-out-alt"></i> Deconnection</button>
 
                     </a>';
             }

@@ -41,8 +41,9 @@
             </div>
         <div class="espaceHor"></div>
         <div>
-            <div><a class="bouton" id="liste">Liste des stagiaires</a></div>
-            <div><a class="bouton" id="objectif">Objectifs P.A.E</a></div>
+            <div><a class="bouton" id="liste"><i class="fas fa-info-circle"></i>&nbspListe des stagiaires</a></div>
+            <div><a class="bouton" id="objectif"><i class="fas fa-bullseye"></i> &nbsp Objectifs P.A.E</a></div>
+            <div><a href="index.php?page=FormAdmin"><button class="bouton"><i class="far fa-arrow-alt-circle-left"></i> &nbsp Retour</button></a></div>
         </div>
         <div class="espaceHor"></div>
         <div class="colonne" id="affichage">

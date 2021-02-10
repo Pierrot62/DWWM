@@ -11,9 +11,17 @@ for (let i = 0; i < lesHeures.length; i++) {
     lesHeures[i].addEventListener("input", verifCoherence);
     /* si la saisie est le lundi, on déclenche le dupplique */
     if (lesHeures[i].name.substring(lesHeures[i].name.length - 1) == 1) {
-        lesHeures[i].addEventListener("input", duppliqueHeure);
+        lesHeures[i].addEventListener("blur", duppliqueHeure);
     }
 }
+/* Lancer les calculs si le formulaire est plein */
+if (document.getElementsByName("idStage")[0].value !="")
+{
+    for (let i = 1; i < 7; i++) {
+        calculDuree(i)
+    }
+}
+
 
 /* Verifier la cohérence de heures saisies */
 function verifCoherence(e) {
@@ -80,29 +88,26 @@ function calculDuree(numJour) {
         if (inputString.classList.contains("rouge"))
             inputErreur[i] = -1;
     }
-    if (inputErreur.indexOf(-1) == -1) // pas d'erreur sur la journée
-    {
-        matin = 0;
-        aprem = 0;
-        if (inputErreur[0] == 1 && inputErreur[1] == 1) {
-            matin = inputHeure[1] - inputHeure[0];
-        }
-        if (inputErreur[2] == 1 && inputErreur[3] == 1) {
-            aprem = inputHeure[3] - inputHeure[2];
-        }
-        total = matin + aprem;
-        if (total > 0) {
-            heure = parseInt(total / 1000 / 60 / 60)
-            minute = (total - heure * 60 * 60 * 1000) / 1000 / 60
-            heure = heure < 10 ? "0" + heure : heure
-            minute = minute < 10 ? "0" + minute : minute
-
-            document.getElementsByName("duree" + numJour)[0].innerHTML = heure + ":" + minute
-
-        }
-    } else { //il y a une erreur
-        document.getElementsByName("duree" + numJour)[0].innerHTML = "";
+  
+    matin = 0;
+    aprem = 0;
+    if (inputErreur[0] == 1 && inputErreur[1] == 1) {
+        matin = inputHeure[1] - inputHeure[0];
     }
+    if (inputErreur[2] == 1 && inputErreur[3] == 1) {
+        aprem = inputHeure[3] - inputHeure[2];
+    }
+    total = matin + aprem;
+    if (total > 0) {
+        heure = parseInt(total / 1000 / 60 / 60)
+        minute = (total - heure * 60 * 60 * 1000) / 1000 / 60
+        heure = heure < 10 ? "0" + heure : heure
+        minute = minute < 10 ? "0" + minute : minute
+
+        document.getElementsByName("duree" + numJour)[0].innerHTML = heure + ":" + minute
+
+    }
+    
     calculSemaine();
 }
 
@@ -123,7 +128,7 @@ function calculSemaine() {
     heure = heure < 10 ? "0" + heure : heure
     minute = minute < 10 ? "0" + minute : minute
     dureeHebdo.innerHTML = heure + ":" + minute
-    if (heure < 35 || heure > 37 || (heure == 37 && minute > 00)) {
+    if (heure < 30 || heure > 35 || (heure == 35 && minute > 00)) {
         dureeHebdo.classList.add("rouge");
         dureeHebdo.previousElementSibling.classList.add("rouge");
     } else {
@@ -173,8 +178,8 @@ function cocherAutre(e) {
 /* Vérifier qu'au moins une checkbox est cochée */
 function verifCheck() {
     tabCheck = [];
-    lesGroupes = document.querySelectorAll("div[groupe]");
-    nbGroupe = document.querySelector("input[preciser=ok]").checked?lesGroupes.length:lesGroupes.length-1;
+    lesGroupes = document.querySelectorAll("div[groupe=ok]");
+    nbGroupe = lesGroupes.length;
     for (let i = 0; i < nbGroupe; i++) {
         lesChecks = lesGroupes[i].querySelectorAll("input[type=checkBox]");
         if (lesChecks.length == 0)
@@ -267,9 +272,31 @@ for (let i = 0; i < lesTravaux.length; i++) {
 }
 
 function cacheTravaux(e) {
+    monGroupe = document.querySelector("div[preciser]");
     if (e.target.getAttribute("preciser") == "ok") {
-        document.querySelector("div[preciser]").classList.remove("cache");
+        monGroupe.classList.remove("cache");
+        monGroupe.querySelector("div[groupe]").setAttribute("groupe","ok");
     } else {
-        document.querySelector("div[preciser]").classList.add("cache");
+        monGroupe.classList.add("cache");
+        monGroupe.querySelector("div[groupe]").setAttribute("groupe","ko");
+    }
+}
+/* demander les precisions sur deplacement */
+lesDeplacements = document.querySelectorAll("input[deplacement]");
+for (let i = 0; i < lesDeplacements.length; i++) {
+    lesDeplacements[i].addEventListener("click", cacheDeplacement);
+}
+
+function cacheDeplacement(e) {
+    monGroupe = document.querySelector("div[deplacement]");
+    if (e.target.getAttribute("deplacement") == "ok") {
+        monGroupe.classList.remove("cache");
+        monGroupe.querySelectorAll("div[groupe]")[0].setAttribute("groupe","ok");
+        monGroupe.querySelectorAll("div[groupe]")[1].setAttribute("groupe","ok");
+    } else {
+        monGroupe.classList.add("cache");
+        monGroupe.querySelectorAll("div[groupe]")[0].setAttribute("groupe","ko");
+        monGroupe.querySelectorAll("div[groupe]")[1].setAttribute("groupe","ko");
+  
     }
 }

@@ -5,7 +5,7 @@ $formations = FormationsManager::getList();
     <div class="zoneBouton">
         <div class="grande">
             <div><a href="index.php?page=FormFormation&mode=ajouter"><button class="bouton"><i
-                            class="fas fa-plus-circle"></i> Ajouter</button></a></div>
+                            class="fas fa-plus-circle"></i> &nbsp Ajouter</button></a></div>
 
             <div><a href="index.php?page=FormAdmin"><button class="bouton"><i class="far fa-arrow-alt-circle-left"></i>
                         Retour</button></a></div>

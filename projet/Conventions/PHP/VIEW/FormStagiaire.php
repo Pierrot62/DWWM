@@ -241,7 +241,7 @@ switch ($mode)
 }
 echo '<div class="demi"></div>';
 echo '<a href="Index.php?page=ListeStagiaires">
-        <button class="bouton" type="button"><i class="far fa-arrow-alt-circle-left"></i> Retour</button>
+        <button class="bouton" type="button"><i class="far fa-arrow-alt-circle-left"></i> &nbsp Retour</button>
     </a>';
 ?>
 <div></div>

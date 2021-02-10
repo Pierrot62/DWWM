@@ -61,7 +61,7 @@ class ValeursHorairesManager
 		$db=DbConnect::getDb();
 		$id=(int)$idStage; 
 		$liste = [];
-		$q = $db->query("SELECT * FROM Valeurshoraires WHERE idStage =".$id);
+		$q = $db->query("SELECT * FROM Valeurshoraires WHERE idStage =".$id." ORDER BY idLibelleHoraire");
 		while($donnees = $q->fetch(PDO::FETCH_ASSOC))
 		{
 			if($donnees != false)

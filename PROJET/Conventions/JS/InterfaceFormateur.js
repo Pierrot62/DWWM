@@ -2,6 +2,8 @@ const requ=new XMLHttpRequest();
 const requ1=new XMLHttpRequest();
 const requ2=new XMLHttpRequest();
 const requ3=new XMLHttpRequest();
+const requ4=new XMLHttpRequest();
+
 var selectFormation=document.getElementById("selectFormation");
 var selectSession=document.getElementById("selectSession");
 var btnListe=document.getElementById("liste");
@@ -58,6 +60,17 @@ requ3.onreadystatechange = function (event) { //Requete SetObjectifAPI
     if (this.readyState === XMLHttpRequest.DONE) {
         if (this.status === 200) {
             console.log("Réponse reçue: %s", this.responseText);
+        } else {
+            console.log("Status de la réponse: %d (%s)", this.status, this.statusText);
+        }
+    }
+};
+
+requ4.onreadystatechange = function (event) { //Requete SetObjectifAPI
+    if (this.readyState === XMLHttpRequest.DONE) {
+        if (this.status === 200) {
+            //console.log("Réponse reçue: %s", this.responseText);
+            console.log("OK")
         } else {
             console.log("Status de la réponse: %d (%s)", this.status, this.statusText);
         }
@@ -154,7 +167,7 @@ function formDate(date)
 {
     let temp=new Date (date);
     let Jours=temp.getDate();
-    let Mois=temp.getMonth();
+    let Mois=(temp.getMonth()+1);
     if (Jours<10){Jours="0"+Jours};
     if (Mois<10){Mois="0"+Mois};
     return(Jours+"/"+Mois+"/"+temp.getFullYear());
@@ -162,20 +175,35 @@ function formDate(date)
 
 function infoBulles(e)
 {
-    let texte=e.target.getAttribute("textinfo");
-    let infobulle=e.target.getElementsByClassName("texteInfoBulle")[0];
+    let element=e.target;
+    if(e.target.getAttribute("class")!="case mini relatif")
+    {
+        element=e.target.parentNode;
+    }
+    let texte=element.getAttribute("textinfo");
+    let infobulle=element.getElementsByClassName("texteInfoBulle")[0];
     infobulle.textContent=texte;
     infobulle.style.display="flex";  
     setTimeout(function()
     {
-        infobulle.style.display="none"; 
-    }, 2000);  
+       infobulle.style.display="none"; 
+    }, 1000); 
 }
 
 /******* Action à faire pour télécharger la convention de stage *********/
-function downloadConvention(event) 
+function downloadConvention(e) 
 {
-    alert("Telechargement de la convention de stage");
+    let element=e.target;
+    if(e.target.getAttribute("class")=="indic")
+    {
+        element=e.target.parentNode;
+    }
+    let id=element.getAttribute("idStage");
+    requ4.open('POST', 'index.php?page=ConventionPdf', true);
+    requ4.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    var args = "idStage=" + id;
+    requ4.send(args);
+    
 }
 
 /** Création de la liste des stagiaires **/
@@ -250,12 +278,17 @@ function creationListe(liste)
             periode.setAttribute("class","case mini relatif");
             periode.setAttribute("textinfo",info);
             periode.setAttribute("idStage",idStage);
-            if(etape==5){periode.innerHTML=icone;periode.style.color="lightgreen"} //Si le stage est à l'étape 5 on affiche l'icone check
+            if(etape==5){ //Si le stage est à l'étape 5 on affiche l'icone check
+               periode.innerHTML=icone;
+               periode.style.color="lightgreen";
+               periode.addEventListener("click",infoBulles);
+            } 
             else{ //si non on affiche la div avec la couleur de l'étape du stage
-            let indic=document.createElement("div");
-            indic.setAttribute("class","indic");
-            indic.style.backgroundColor=color;
-            periode.appendChild(indic);
+                let indic=document.createElement("div");
+                indic.setAttribute("class","indic");
+                indic.style.backgroundColor=color;
+                indic.addEventListener("click",infoBulles);
+                periode.appendChild(indic);
             };
             //Création des div pour les infos bulles
             let texteInfoBulle=document.createElement("div");
@@ -270,6 +303,11 @@ function creationListe(liste)
             periode.addEventListener("click",infoBulles); //Evenement pour l'affichage des infos bulles.
         }
         affichage.appendChild(ligne);
+    }
+    var lesIcones=document.getElementsByTagName("i");
+    for (let i=0;i<lesIcones.length;i++)
+    {
+        lesIcones[i].addEventListener("click",infoBulles);
     }
 }
 /*******************************************************************/

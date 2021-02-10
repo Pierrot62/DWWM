@@ -5,7 +5,7 @@ echo '<section class = "colonne">
         <div class="grande">
             <div>
                 <a href="index.php?page=FormSession&mode=ajout">
-                    <button class="bouton"><i class="fas fa-plus-circle"></i> Ajouter</button>
+                    <button class="bouton"><i class="fas fa-plus-circle"></i> &nbsp Ajouter</button>
                 </a>
             </div>
 

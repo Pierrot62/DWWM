@@ -119,7 +119,6 @@ class StagesManager
         }
         return $liste;
     }
-    
     public static function getByTuteur($idTuteur)
     {
         $db = DbConnect::getDb();

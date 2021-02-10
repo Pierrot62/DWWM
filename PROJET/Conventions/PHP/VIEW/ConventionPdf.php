@@ -1,6 +1,8 @@
 <?php
 require "./FPDF/fpdf.php";
-$idStage=3;
+require "./QRCode/qrlib.php"; // Bibliotheque qr code
+$idStage=$_POST['idStage'];
+//$idStage="1";
 $stage=StagesManager::findById($idStage);
 $stagiaire=StagiairesManager::findById($stage->getIdStagiaire());
 $infosSession=StagiaireFormationManager::getListByStagiaire($stagiaire->getIdStagiaire());
@@ -10,14 +12,33 @@ $tuteur=TuteursManager::findById($stage->getIdTuteur());
 $entreprise=EntreprisesManager::findById($tuteur->getIdEntreprise());
 $ville=VillesManager::findById($entreprise->getIdVille(),false);
 $horaires=ValeursHorairesManager::getListByStage($idStage);
+$villeStagiaire=VillesManager::findById($stagiaire->getIdVilleHabitation(),false);
+$tablePae=PeriodesStagesManager::getListBySession($infosSession[0]->getIdSessionFormation());
+
+//Récupère le numero de PAE
+for($i=0;$i<count($tablePae);$i++)
+{
+    if($tablePae[$i]->getDateDebutPAE()==$stage->getDateDebut())
+    {
+        $numPae=$i+1;
+    }
+}
+
+//Generation du QR code
+QRcode :: png ($stagiaire->getNumBenefStagiaire()."|".$infosSession[0]->getNumOffreFormation()."|CONVENTION PAE|".$numPae."|59011|97015200336|335|", 'filename.png'); // crée le fichier
+QRcode :: png ('some othertext 1234'); // crée une image de code et la sort directement dans le navigateur
 
 class PDF extends FPDF
 {
 // En-tête
     function Header()
     {
+        $this->SetFont('Arial','B',15);
+        //Décalage à droite
+        $this->Cell(80);
         $this->Cell(30,10,'Test Entete',1,0,'C');
-    }
+        $this->Ln(20);
+    }    
 
     // Pied de page
     function Footer()
@@ -28,6 +49,7 @@ class PDF extends FPDF
         $this->SetFont('Arial','I',8);
         // Numéro de page
         $this->Cell(0,10,'Page '.$this->PageNo().'/{nb}',0,0,'C');
+
     }
 }
 
@@ -75,8 +97,8 @@ function HoraireSemaine($horaires)
         $heureJour= $hFinJour-$hDebJour-$pause;
         if($heureJour==0)
         {
-            $tabHeures[$i+1]=NULL;  
-            $tabHeures[$i+7]=NULL;    
+            $tabHeures[$i+1]="";  
+            $tabHeures[$i+7]="";    
         }
         else{
             $tabHeures[$i+1]=date("H:i",$heureJour);
@@ -100,6 +122,7 @@ $pdf->AliasNbPages();
 // CONVENTION DE PERIODE EN ENTREPRISE
 $pdf->AddPage();
 $pdf->SetMargins(10,20,10);
+$pdf->Image("./filename.png",18,15,25,25);
 $pdf->Image("./IMG/logoAfpa.jpg",160,25,26.5,14);
 $pdf->SetFont('Arial','B',9);
 $pdf->Text(55,27,utf8_decode("AFPA"));
@@ -141,7 +164,7 @@ $pdf->Cell(0,5,utf8_decode(" ".$stagiaire->getPrenomStagiaire()." ".strtoupper($
 $pdf->Cell(88,5,utf8_decode("Nom d'usage "),"R",0,"R");
 $pdf->Cell(0,5,utf8_decode(" ".strtoupper($stagiaire->getNomStagiaire())),0,1,"L");
 $pdf->Cell(88,5,utf8_decode("Né(e) le "),"R",0,"R");
-$pdf->Cell(0,5,utf8_decode(" ".formatDate($stagiaire->getDateNaissanceStagiaire())),0,1,"L");
+$pdf->Cell(0,5,utf8_decode(" ".formatDate($stagiaire->getDateNaissanceStagiaire())." à ".$stagiaire->getVilleNaissance()),0,1,"L");
 $pdf->SetFont('Arial','B',9);
 $pdf->Cell(88,5,utf8_decode("Inscrit en formation "),"R",0,"R");
 $pdf->SetFont('Arial','',9);
@@ -151,15 +174,15 @@ $pdf->Cell(0,5,utf8_decode(" ".formatDate($infosSession[0]->getDateDebut())),0,1
 $pdf->Ln();
 $pdf->SetFont('Arial','B',9);
 $pdf->Cell(0,5,utf8_decode("Domiciliation pour la durée de la période en entreprise"),1,1,"L");
-$pdf->SetFont('Arial','',9);
+$pdf->SetFont('Arial',"",9);
 $pdf->Cell(88,5,utf8_decode("Adresse "),"R",0,"R");
-$pdf->Cell(0,5," ",0,1,"L");
-$pdf->Cell(88,5,utf8_decode("Ville "),"R",0,"R");
-$pdf->Cell(0,5," ",0,1,"L");
-$pdf->Cell(88,5,utf8_decode("Code Postal "),"R",0,"R");
-$pdf->Cell(0,5," ",0,1,"L");
+$pdf->Cell(0,5,$stagiaire->getAdresse(),0,1,"L");
+$pdf->Cell(88,5," ".utf8_decode("Ville "),"R",0,"R");
+$pdf->Cell(0,5,$villeStagiaire->getNomVille(),0,1,"L");
+$pdf->Cell(88,5," ".utf8_decode("Code Postal "),"R",0,"R");
+$pdf->Cell(0,5,$villeStagiaire->getCodePostal(),0,1,"L");
 $pdf->Cell(88,5,utf8_decode("Téléphone "),"R",0,"R");
-$pdf->Cell(0,5," ",0,1,"L");
+$pdf->Cell(0,5," ".$stagiaire->getTelStagiaire(),0,1,"L");
 $pdf->Cell(88,5,utf8_decode("Mail "),"R",0,"R");
 $pdf->Cell(0,5,utf8_decode(" ".$stagiaire->getEmailStagiaire()),0,1,"L");
 $pdf->Ln();
@@ -321,12 +344,12 @@ $pdf->Cell(20,5,"Dimanche",1,1,"C");
 $pdf->SetFont('Arial','B',9);
 $pdf->Cell(50,5,utf8_decode("Début de journée"),1,0,"R");
 $pdf->SetFont('Arial','',9);
-$pdf->Cell(20,5,FormatHeure($horaires[0]->getValeurHoraire()),1,0,"C");
-$pdf->Cell(20,5,FormatHeure($horaires[1]->getValeurHoraire()),1,0,"C");
-$pdf->Cell(20,5,FormatHeure($horaires[2]->getValeurHoraire()),1,0,"C");
-$pdf->Cell(20,5,FormatHeure($horaires[3]->getValeurHoraire()),1,0,"C");
-$pdf->Cell(20,5,FormatHeure($horaires[4]->getValeurHoraire()),1,0,"C");
-$pdf->Cell(20,5,FormatHeure($horaires[5]->getValeurHoraire()),1,0,"C");
+if($dureeJour[1]!=NULL){$pdf->Cell(20,5,FormatHeure($horaires[0]->getValeurHoraire()),1,0,"C");}else{$pdf->Cell(20,5,"",1,0,"C");}
+if($dureeJour[2]!=NULL){$pdf->Cell(20,5,FormatHeure($horaires[1]->getValeurHoraire()),1,0,"C");}else{$pdf->Cell(20,5,"",1,0,"C");}
+if($dureeJour[3]!=NULL){$pdf->Cell(20,5,FormatHeure($horaires[2]->getValeurHoraire()),1,0,"C");}else{$pdf->Cell(20,5,"",1,0,"C");}
+if($dureeJour[4]!=NULL){$pdf->Cell(20,5,FormatHeure($horaires[3]->getValeurHoraire()),1,0,"C");}else{$pdf->Cell(20,5,"",1,0,"C");}
+if($dureeJour[5]!=NULL){$pdf->Cell(20,5,FormatHeure($horaires[4]->getValeurHoraire()),1,0,"C");}else{$pdf->Cell(20,5,"",1,0,"C");}
+if($dureeJour[6]!=NULL){$pdf->Cell(20,5,FormatHeure($horaires[5]->getValeurHoraire()),1,0,"C");}else{$pdf->Cell(20,5,"",1,0,"C");}
 $pdf->Cell(20,5,"","LTR",1,"C");
 
 $pdf->SetFont('Arial','B',9);
@@ -354,12 +377,12 @@ $pdf->Cell(20,5,"","LR",1,"C");
 $pdf->SetFont('Arial','B',9);
 $pdf->Cell(50,5,utf8_decode("Fin de journée"),1,0,"R");
 $pdf->SetFont('Arial','',9);
-$pdf->Cell(20,5,FormatHeure($horaires[6]->getValeurHoraire()),1,0,"C");
-$pdf->Cell(20,5,FormatHeure($horaires[7]->getValeurHoraire()),1,0,"C");
-$pdf->Cell(20,5,FormatHeure($horaires[8]->getValeurHoraire()),1,0,"C");
-$pdf->Cell(20,5,FormatHeure($horaires[9]->getValeurHoraire()),1,0,"C");
-$pdf->Cell(20,5,FormatHeure($horaires[10]->getValeurHoraire()),1,0,"C");
-$pdf->Cell(20,5,FormatHeure($horaires[11]->getValeurHoraire()),1,0,"C");
+if($dureeJour[1]!=NULL){$pdf->Cell(20,5,FormatHeure($horaires[6]->getValeurHoraire()),1,0,"C");}else{$pdf->Cell(20,5,"",1,0,"C");}
+if($dureeJour[2]!=NULL){$pdf->Cell(20,5,FormatHeure($horaires[7]->getValeurHoraire()),1,0,"C");}else{$pdf->Cell(20,5,"",1,0,"C");}
+if($dureeJour[3]!=NULL){$pdf->Cell(20,5,FormatHeure($horaires[8]->getValeurHoraire()),1,0,"C");}else{$pdf->Cell(20,5,"",1,0,"C");}
+if($dureeJour[4]!=NULL){$pdf->Cell(20,5,FormatHeure($horaires[9]->getValeurHoraire()),1,0,"C");}else{$pdf->Cell(20,5,"",1,0,"C");}
+if($dureeJour[5]!=NULL){$pdf->Cell(20,5,FormatHeure($horaires[10]->getValeurHoraire()),1,0,"C");}else{$pdf->Cell(20,5,"",1,0,"C");}
+if($dureeJour[6]!=NULL){$pdf->Cell(20,5,FormatHeure($horaires[11]->getValeurHoraire()),1,0,"C");}else{$pdf->Cell(20,5,"",1,0,"C");}
 $pdf->Cell(20,5,utf8_decode("interdite"),"LR",1,"C");
 
 $pdf->SetFont('Arial','B',9);
@@ -480,8 +503,169 @@ if($habilitation==1){$pdf->Image("./IMG/caseCocher.png",65,43,3,3);$pdf->Text(65
 $pdf->Text(71,45.5,utf8_decode("OUI"));
 if($habilitation==0){$pdf->Image("./IMG/caseCocher.png",130,43,3,3);}else{$pdf->Image("./IMG/caseVide.png",130,43,3,3);}
 $pdf->Text(136,45.5,utf8_decode("NON"));
-//Création du PDF
-$pdf->Output('F', './convention.pdf');
-header("location:convention.pdf");
 
 
+$pdf->Write(5,utf8_decode("     Imposent une habilitation du Stagiaire par l'Entreprise d'accueil "));
+ 
+$habilitation=0;
+if($habilitation==1){$pdf->Image("./IMG/caseCocher.png",65,43,3,3);$pdf->Text(65,50,"Precision : ".$stage->getLibelleAttFormReg());}else{$pdf->Image("./IMG/caseVide.png",65,43,3,3);}
+$pdf->Text(71,45.5,utf8_decode("OUI"));
+if($habilitation==0){$pdf->Image("./IMG/caseCocher.png",130,43,3,3);}else{$pdf->Image("./IMG/caseVide.png",130,43,3,3);}
+$pdf->Text(136,45.5,utf8_decode("NON"));
+if($habilitation==1){$pdf->Image("./IMG/caseCocher.png",65,63,3,3);$pdf->Text(65,50,"Precision : ".$stage->getLibelleAttFormReg());}else{$pdf->Image("./IMG/caseVide.png",65,63,3,3);}
+$pdf->Text(71,65.5,utf8_decode("OUI"));
+if($habilitation==0){$pdf->Image("./IMG/caseCocher.png",130,63,3,3);}else{$pdf->Image("./IMG/caseVide.png",130,63,3,3);}
+$pdf->Text(136,65.5,utf8_decode("NON"));
+
+$pdf->Ln(20);
+$pdf->Image("./IMG/puce.png",12,76.75,1,1);
+$pdf->Write(5,utf8_decode("     Comportent des travaux dangereux "));
+
+$tabIdTravauxD=ValeursTravauxDangereuxManager::getListByStage($idStage);
+
+if(count($tabIdTravauxD)>0){$pdf->Image("./IMG/caseCocher.png",65,83,3,3);$pdf->Text(65,50,"Precision : ".$stage->getLibelleAttFormReg());}else{$pdf->Image("./IMG/caseVide.png",65,83,3,3);}
+$pdf->Text(71,85.5,utf8_decode("OUI"));
+if(count($tabIdTravauxD)==0){$pdf->Image("./IMG/caseCocher.png",130,83,3,3);}else{$pdf->Image("./IMG/caseVide.png",130,83,3,3);}
+$pdf->Text(136,85.5,utf8_decode("NON"));
+
+
+if(in_array(1,$tabIdTravauxD)){$pdf->Image("./IMG/caseCocher.png",65,93,3,3);}else{$pdf->Image("./IMG/caseVide.png",65,93,3,3);}
+$pdf->Text(71,95.5,utf8_decode("Agents chimiques et dangereux"));
+if(in_array(2,$tabIdTravauxD)){$pdf->Image("./IMG/caseCocher.png",130,93,3,3);}else{$pdf->Image("./IMG/caseVide.png",130,93,3,3);}
+$pdf->Text(136,95.5,utf8_decode("Milieu confiné"));
+if(in_array(3,$tabIdTravauxD)){$pdf->Image("./IMG/caseCocher.png",65,98,3,3);}else{$pdf->Image("./IMG/caseVide.png",65,98,3,3);}
+$pdf->Text(71,100.5,utf8_decode("Agents biologiques"));
+if(in_array(4,$tabIdTravauxD)){$pdf->Image("./IMG/caseCocher.png",130,98,3,3);}else{$pdf->Image("./IMG/caseVide.png",130,98,3,3);}
+$pdf->Text(136,100.5,utf8_decode("vibrations mécaniques"));
+if(in_array(5,$tabIdTravauxD)){$pdf->Image("./IMG/caseCocher.png",65,103,3,3);}else{$pdf->Image("./IMG/caseVide.png",65,103,3,3);}
+$pdf->Text(71,105.5,utf8_decode("Rayonnements"));
+if(in_array(6,$tabIdTravauxD)){$pdf->Image("./IMG/caseCocher.png",130,103,3,3);}else{$pdf->Image("./IMG/caseVide.png",130,103,3,3);}
+$pdf->Text(136,105.5,utf8_decode("Manutention manuelles"));
+if(in_array(7,$tabIdTravauxD)){$pdf->Image("./IMG/caseCocher.png",65,108,3,3);}else{$pdf->Image("./IMG/caseVide.png",65,108,3,3);}
+$pdf->Text(71,110.5,utf8_decode("Milieu Hyperbare"));
+if(in_array(8,$tabIdTravauxD)){$pdf->Image("./IMG/caseCocher.png",130,108,3,3);}else{$pdf->Image("./IMG/caseVide.png",130,108,3,3);}
+$pdf->Text(136,110.5,utf8_decode("Risques électriques"));
+if(in_array(9,$tabIdTravauxD)){$pdf->Image("./IMG/caseCocher.png",65,113,3,3);}else{$pdf->Image("./IMG/caseVide.png",65,113,3,3);}
+$pdf->Text(71,115.5,utf8_decode("Températures extrêmes"));
+if(in_array(10,$tabIdTravauxD)){$pdf->Image("./IMG/caseCocher.png",130,113,3,3);}else{$pdf->Image("./IMG/caseVide.png",130,113,3,3);}
+$pdf->Text(136,115.5,utf8_decode("Utilisation de machines"));
+if(in_array(11,$tabIdTravauxD)){$pdf->Image("./IMG/caseCocher.png",65,118,3,3);}else{$pdf->Image("./IMG/caseVide.png",65,118,3,3);}
+$pdf->Text(71,120.5,utf8_decode("Effondrement et ensevelissement"));
+if(in_array(12,$tabIdTravauxD)){$pdf->Image("./IMG/caseCocher.png",130,118,3,3);}else{$pdf->Image("./IMG/caseVide.png",130,118,3,3);}
+$pdf->Text(136,120.5,utf8_decode("Travaux en hauteur"));
+if(in_array(13,$tabIdTravauxD)){$pdf->Image("./IMG/caseCocher.png",65,123,3,3);}else{$pdf->Image("./IMG/caseVide.png",65,123,3,3);}
+$pdf->Text(71,125.5,utf8_decode("Appareils sous tension"));
+if(in_array(14,$tabIdTravauxD)){$pdf->Image("./IMG/caseCocher.png",130,123,3,3);}else{$pdf->Image("./IMG/caseVide.png",130,123,3,3);}
+$pdf->Text(136,125.5,utf8_decode("Contact avec des animaux"));
+if(in_array(15,$tabIdTravauxD)){$pdf->Image("./IMG/caseCocher.png",65,128,3,3);}else{$pdf->Image("./IMG/caseVide.png",65,128,3,3);}
+$pdf->Text(71,130.5,utf8_decode("Travaux avec du verre ou du métal en fusion"));
+
+$pdf->Ln(58);
+$pdf->Cell(130,5,utf8_decode("Si le stagiaire est mineur, date de la déclaration de déroger éffectuée par l'entreprise "),"R",0,"R");
+$pdf->Cell(130,5,$stage->getDateDeclarationDerog(),0,1,"L");
+$pdf->Cell(130,5,utf8_decode("Auprès de l'inspection du travail de "),"R",0,"R"); 
+$pdf->Cell(130,5,utf8_decode(" "),0,1,"L");
+$pdf->Ln();
+$pdf->SetFont('Arial','B',9);
+$pdf->Write(5,utf8_decode("Par convention, l'Entreprise d'accueil s'interdit d'affecter le Stagiaire à les activités soumises :"));
+$pdf->SetFont('Arial','',9);
+$pdf->Ln();
+$pdf->Image("./IMG/puce.png",12,154.75,1,1);
+$pdf->Write(5,utf8_decode("         à la délivrance d'une habilitation dont l'Afpa n'a pas été préalablement informée "));
+$pdf->Ln();
+$pdf->Image("./IMG/puce.png",12,159.75,1,1);
+$pdf->Write(5,utf8_decode("         à des obligations spéciales de sécurité pour lesquelles le Tuteur affecté au Stagiaire n'a pas une formation,une qualification, "));
+$pdf->Write(5,utf8_decode("         une attestion de capacité ou une habilitation à minima équivalente à celle qui devrait être délivrée au Stagiaire."));
+$pdf->Ln();
+$pdf->SetFont('Arial','B',9);
+$pdf->Write(5,utf8_decode("Toute activité au contact de l'amiante est interdite."));
+$pdf->Ln();
+$pdf->Ln();
+$pdf->SetFont('Arial','BI',9);
+$pdf->Cell(0,5,utf8_decode("Fait en 3 exemplaires originaux, dans le centre Afpa, à la date de signature par le directeur du centre"),1,1,"C");
+$pdf->SetFont('Arial','',9);
+$pdf->Ln(15);
+$pdf->Cell(47.5,5,utf8_decode("L'AFPA"),"LTR",0,"L");
+$pdf->Cell(47.5,5,utf8_decode("LE STAGIAIRE"),"LTR",0,"L");
+$pdf->Cell(47.5,5,utf8_decode("L'ENTREPRISE"),"LTR",0,"L");
+$pdf->Cell(47.5,5,utf8_decode("LE TUTEUR"),"LTR",1,"L");
+$pdf->Cell(47.5,30,utf8_decode(""),"LBR",0,"L");
+$pdf->Cell(47.5,30,utf8_decode(""),"LBR",0,"L");
+$pdf->Cell(47.5,30,utf8_decode(""),"LBR",0,"L");
+$pdf->Cell(47.5,30,utf8_decode(""),"LBR",1,"L");
+
+$pdf->AddPage();
+//$pdf->SetMargins(17,10,10);
+$pdf->Image("./IMG/logoAfpa.jpg",160,18,26.5,14);
+$pdf->Write(5,utf8_decode("AFPA"));
+$pdf->Ln();
+$pdf->Write(5,utf8_decode("CENTRE DE FORMATION DE DUNKERQUE"));
+$pdf->Ln(15);
+$pdf->Cell(90,5,utf8_decode("407 Avenue de la Gironde"),0,0,"L");
+$pdf->SetFont('Arial','B',9);
+$pdf->Cell(0,5,utf8_decode(strtoupper($entreprise->getRaisonSociale())),0,1,"L");
+$pdf->SetFont('Arial','',9);
+$pdf->Cell(90,5,utf8_decode("59640 DUNKERQUE"),0,0,"L");
+$pdf->SetFont('Arial','B',9);
+$pdf->Cell(0,5,utf8_decode(strtoupper($entreprise->getAdresseEnt())),0,1,"L");
+$pdf->SetFont('Arial','',9);
+$pdf->Ln(10);
+$pdf->Cell(90,5,utf8_decode("Tel : 03 28 58 86 65"),0,0,"L");
+$pdf->SetFont('Arial','B',9);
+$pdf->Cell(0,5,utf8_decode(strtoupper($ville->getCodePostal()." ".$ville->getNomVille())),0,1,"L");
+$pdf->SetFont('Arial','',9);
+$pdf->Cell(90,5,utf8_decode("Fax : 03 28 58 86 89"),0,1,"L");
+$pdf->SetFont('Arial','U',9);
+$pdf->Write(5,utf8_decode("www.afpa.fr"));
+$pdf->SetFont('Arial','I',9);
+$pdf->Ln(10);
+$pdf->SetLeftMargin(10);
+$pdf->Cell(90,5,utf8_decode("Affaire suivie par : Frédéric DELESCLUSE"),0,0,"L");
+$pdf->SetFont('Arial','',9);
+setlocale(LC_TIME,"fr_FR","French");
+$date=date('d-m-Y');
+
+$date1 = utf8_encode(strftime("%d %B %Y",strtotime($date)));
+
+$pdf->Cell(0,5,utf8_decode("Dunkerque le, ".$date1),0,1,"L");
+$pdf->Write(5,utf8_decode("Tél : 03 28 58 86 65"));
+$pdf->Ln();
+$pdf->Write(5,utf8_decode("Fax : 03 28 58 86 89"));
+$pdf->Ln(10);
+$pdf->Write(5,utf8_decode("OBJET : Conventions de stage en entreprise."));
+$pdf->Ln(10);
+$pdf->Write(5,utf8_decode("Madame, Monsieur"));
+$pdf->Ln(10);
+$pdf->Write(5,utf8_decode("Je vous prie de bien vouloir trouver ci-joint:"));
+$pdf->Ln(10);
+$pdf->Write(5,utf8_decode("     Une convention pour la période d'application en entreprise, en 3 exemplaires. Vous voudrez bien me retourner 2 des exemplaires, dûment signés et revêtus de votre cachet, avant le début du stage"));
+$pdf->Ln(10);
+$pdf->SetFont('Arial','B',9);
+$pdf->Write(5,utf8_decode("     Des feuilles de présence en entreprise à remplir (suivant modèle joint) et à nous retourner "));
+$pdf->SetFont('Arial','BI',9);
+$pdf->Write(5,utf8_decode("impérativement "));
+$pdf->SetFont('Arial','B',9);
+$pdf->Write(5,utf8_decode(" chaque vendredi au plus tard le lundi suivant, par fax (03.28.58.86.89) ou par mail (anne.distanti@afpa.fr), afin d'établir la paie du stagiaire."));
+$pdf->SetFont('Arial','',9);
+$pdf->Ln(10);
+$pdf->Write(5,utf8_decode("Concernant"));
+$pdf->Ln(10);
+$pdf->SetFont('Arial','B',9);
+$pdf->Write(5,utf8_decode($stagiaire->getNomStagiaire()." ".$stagiaire->getPrenomStagiaire()));
+$pdf->SetFont('Arial','',9);
+$pdf->Ln(10);
+$pdf->Write(5,utf8_decode("qui effectue sa période d'application en entreprise, du ".formatDate($stage->getDateDebut())." au ".formatDate($stage->getDateFin())."."));
+$pdf->Ln(10);
+$pdf->Write(5,utf8_decode("     En lien avec la crise sanitaire, un arrêt de la PAE par l'entreprise est toujours possible en cas de confinement de l'entreprise ou d'accentuation des mesures sanitaires sans que cela ne contrevienne à la convention de stage. Par ailleurs, la mise en oeuvre de période en entreprise à distance reste possible pour les activités compatibles avec cette modalité, sous réserve de l'encadrement effectif des stagiaires et d'équipements adaptés."));
+$pdf->Ln(10);
+$pdf->Write(5,utf8_decode("Veuillez agréer, Madame, Monsieur, mes salutations les meilleures."));
+$pdf->Ln(20);
+$pdf->Cell(106,5,utf8_decode(""),0,0,"L");
+$pdf->Cell(0,5,utf8_decode("Frédéric DELESCLUSE"),0,1,"L");
+$pdf->Cell(106,5,utf8_decode(""),0,0,"L");
+$pdf->Cell(0,5,utf8_decode("Manager de Formation"),0,1,"L");
+
+$nomStagiaire=$stagiaire->getNomStagiaire().$stagiaire->getPrenomStagiaire();
+$pdf->Output('F','convention'.$stagiaire->getNomStagiaire().$stagiaire->getPrenomStagiaire().'.pdf');
+//header("location:./convention".$stagiaire->getNomStagiaire().$stagiaire->getPrenomStagiaire().".pdf");
+header("Refresh:1; url=convention".$stagiaire->getNomStagiaire().$stagiaire->getPrenomStagiaire().".pdf");

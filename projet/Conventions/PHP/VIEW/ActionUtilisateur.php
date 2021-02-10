@@ -25,4 +25,4 @@ switch($mode)
     }
 
 }
-header("location:index.php?page=ListeStagiaires");
+header("location:index.php?page=ListeUtilisateurs");

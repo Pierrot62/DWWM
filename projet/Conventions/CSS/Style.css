@@ -325,3 +325,91 @@ footer {
 .cache {
     display: none;
 }
+
+
+/************* Changement style input range pour Chrome ***********/
+
+input[type=range] {
+    width: 100%;
+    margin-top: 1em;
+    background-color: transparent;
+    -webkit-appearance: none;
+    /** permet d'enlever le mode par défaut des inputs range **/
+}
+
+
+/** permet de changer le style du petit rond à l'interieur du slider **/
+
+input[type=range]::-webkit-slider-thumb {
+    margin-top: -0.5em;
+    width: 1.5em;
+    height: 1.5em;
+    background: var(--BordureBouton);
+    border: 2px solid var(--FondPage);
+    border-radius: 0.5em;
+    cursor: pointer;
+    -webkit-appearance: none;
+}
+
+input[type=range]::-webkit-slider-runnable-track {
+    background: var(--BordureBouton);
+    border: 0.2em solid var(--FondPage);
+    border-radius: 0.4em;
+    width: 100%;
+    height: 0.8em;
+    cursor: pointer;
+}
+
+
+/************* Changement style input range pour Firefox ***********/
+
+input[type=range]::-moz-range-track {
+    background: var(--BordureBouton);
+    border: 0.2em solid var(--FondPage);
+    border-radius: 0.4em;
+    width: 100%;
+    height: 0.8em;
+    cursor: pointer;
+}
+
+input[type=range]::-moz-range-thumb {
+    margin-top: -0.5em;
+    width: 1.5em;
+    height: 1.5em;
+    background: var(--BordureBouton);
+    border: 1px solid var(--FondPage);
+    border-radius: 0.5em;
+    cursor: pointer;
+}
+
+
+/************* Changement style input range pour IE ***********/
+
+input[type=range]::-ms-track {
+    background: var(--BordureBouton);
+    border-color: transparent;
+    width: 100%;
+    height: 0.8em;
+    cursor: pointer;
+}
+
+input[type=range]::-ms-fill-lower {
+    background: var(--BordureBouton);
+    border: 0.2px solid var(--FondPage);
+    border-radius: 22.6px;
+}
+
+input[type=range]::-ms-fill-upper {
+    background: var(--BordureBouton);
+    border: 0.2px solid var(--FondPage);
+    border-radius: 22.6px;
+}
+
+input[type=range]::-ms-thumb {
+    width: 1.5em;
+    height: 1.5em;
+    background: var(--BordureBouton);
+    border: 1px solid var(--FondPage);
+    border-radius: 0.5em;
+    cursor: pointer;
+}

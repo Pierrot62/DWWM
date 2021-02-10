@@ -7,6 +7,8 @@ class Formations
 
 	private $_idFormation;
 	private $_libelleFormation;
+	private $_grn;
+	private $_finaliteFormation;
 
 	/***************** Accesseurs ***************** */
 
@@ -29,6 +31,26 @@ class Formations
 	public function setLibelleFormation($libelleFormation)
 	{
 		$this->_libelleFormation=$libelleFormation;
+	}
+
+	public function getGrn()
+	{
+		return $this->_grn;
+	}
+
+	public function setGrn($grn)
+	{
+		$this->_grn = $grn;
+	}
+
+	public function getFinaliteFormation()
+	{
+		return $this->_finaliteFormation;
+	}
+
+	public function setFinaliteFormation($finaliteFormation)
+	{
+		$this->_finaliteFormation = $finaliteFormation;
 	}
 
 	/*****************Constructeur***************** */
@@ -92,4 +114,5 @@ class Formations
 	{
 		return;
 	}
+
 }

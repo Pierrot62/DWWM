@@ -45,6 +45,7 @@ $routes=[
 	"ActionFormFREvaluation" => ["PHP/VIEW/", "ActionFormFREvaluation", "Fiche de renseignements",false],
 	"ChoixStagiaireTuteur" => ["PHP/VIEW/", "ChoixStagiaireTuteur", "Choisissez le Stagiaire :",false],
 	"FormFRInfosStagiaire" => ["PHP/VIEW/", "FormFRInfosStagiaire", "Identification",false],
+	"ConventionPdf" => ["PHP/VIEW/", "ConventionPdf", "Identification",false],
 	
 	/***** CRUD ****/
 	"ListeFormations" => ["PHP/VIEW/", "ListeFormations", "Gestion des formations",false],

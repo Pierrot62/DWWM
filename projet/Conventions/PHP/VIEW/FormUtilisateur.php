@@ -123,7 +123,7 @@ if(isset($_GET["id"]))
         <div>
             <div class="info colonne center">
                 <label for="datePeremption">Date de peremption :</label>
-                <input type="date" id="datePeremtion" <?php if($mode=="details" || $mode=="supprimer" ) echo '" disabled "'; ?>name="datePeremption"  value="<?php if ($mode != "ajouter") echo $choix->getDatePeremption();?>" required>
+                <input type="date" id="datePeremtion" <?php if($mode=="details" || $mode=="supprimer" ) echo '" disabled "'; ?>name="datePeremption"  value="<?php if ($mode != "ajouter") echo $choix->getDatePeremption();?>" >
             </div>
             <div class="info colonne center">
                 <label for="idRole">Role :</label>
@@ -164,18 +164,18 @@ if(isset($_GET["id"]))
                     {
                         case "ajouter":
                         {
-                            echo'<button id="submit" class="bouton" type="submit" disabled><i class="fas fa-paper-plane"></i> Ajouter</button>';
+                            echo'<button id="submit" class="bouton" type="submit" disabled><i class="fas fa-paper-plane"></i>&nbsp Ajouter</button>';
                             break;
                         }
                         case "modifier":
                         {
-                            echo'<button class="bouton"><i class="fas fa-edit"></i> Modifier</button>';
+                            echo'<button class="bouton"><i class="fas fa-edit"></i> &nbsp Modifier</button>';
                             break;
                         }
                        
                         case "supprimer":
                         {
-                            echo'<button class="bouton"><i class="fas fa-trash-alt"></i> Supprimer</button>';
+                            echo'<button class="bouton"><i class="fas fa-trash-alt"></i>&nbsp Supprimer</button>';
                             break;
                         }
                         
