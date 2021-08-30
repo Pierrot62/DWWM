@@ -7,4 +7,4 @@ $mode = $_GET['mode'];
 VilleManager::update($ville);
 
 
-// header("location: index.php?codePage=listeVille");
+header("location: index.php?codePage=listeVille");
