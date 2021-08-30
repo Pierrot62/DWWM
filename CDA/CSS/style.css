@@ -1,0 +1,42 @@
+/****  GENERAL ****/
+html, body {
+	margin : 0;
+	padding : 0;
+	background-color: beige;
+	color: brown;
+}
+
+div, header, footer, nav, article {
+	display : flex;
+	flex : 1;
+	justify-content: center;
+}
+
+.titre{
+	flex:5;
+	font-size: 1.5em;
+	font-weight: 800;
+	align-self: center;
+}
+.colonne{
+	flex-direction: column;
+	margin: auto;
+	width: 40vh;
+}
+.espace{
+	flex:none;
+	height: 5vh;
+}
+.center{
+text-align: center;
+}
+
+.btnVille{
+	border-radius: 50px;
+	transition: 0.5s;
+	cursor: pointer;
+	text-decoration: none;
+}
+.btnVille:hover{
+	background-color: red;
+}
